@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Điệp Năm Rồng 2024 — Luận Giải Chiêm Tinh | Vy Đan</title>
+    <meta name="description" content="Luận giải chiêm tinh Thông Điệp Năm Rồng 2024 bởi Vy Đan. Khám phá thông điệp từ các lá bài và cung hoàng đạo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* ========== CSS CUSTOM PROPERTIES ========== */
+        :root {
+            --pink-50: #fef7f8;
+            --pink-100: #fdeef1;
+            --pink-200: #fbd5de;
+            --pink-300: #f8b4c4;
+            --pink-400: #f48da6;
+            --pink-500: #e8608a;
+            --pink-600: #d4406e;
+            --pink-700: #b22d56;
+            --rose-gold: #b76e79;
+            --rose-gold-light: #d4a0aa;
+            --cream: #fdf8f5;
+            --cream-dark: #f5ede6;
+            --lavender: #e8dff5;
+            --lavender-light: #f3eefa;
+            --purple-soft: #c9b8e8;
+            --gold: #c9a96e;
+            --gold-light: #e8d5a8;
+            --text-primary: #3d2a3a;
+            --text-secondary: #6b5068;
+            --text-muted: #9a8497;
+            --shadow-soft: 0 4px 20px rgba(184, 110, 121, 0.1);
+            --shadow-card: 0 8px 32px rgba(184, 110, 121, 0.12);
+            --shadow-glow: 0 0 40px rgba(244, 141, 166, 0.2);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 32px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+
+        /* ========== ANIMATED BACKGROUND ========== */
+        .bg-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-orbs .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .bg-orbs .orb:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            background: var(--pink-300);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .bg-orbs .orb:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            background: var(--lavender);
+            bottom: 20%;
+            left: -80px;
+            animation-delay: -5s;
+        }
+
+        .bg-orbs .orb:nth-child(3) {
+            width: 350px;
+            height: 350px;
+            background: var(--pink-200);
+            top: 40%;
+            right: 10%;
+            animation-delay: -10s;
+        }
+
+        .bg-orbs .orb:nth-child(4) {
+            width: 250px;
+            height: 250px;
+            background: var(--gold-light);
+            bottom: -50px;
+            right: 30%;
+            animation-delay: -15s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -40px) scale(1.05); }
+            50% { transform: translate(-20px, 20px) scale(0.95); }
+            75% { transform: translate(40px, 30px) scale(1.02); }
+        }
+
+        /* ========== STARS ANIMATION ========== */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--pink-400);
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.5); }
+        }
+
+        /* ========== LAYOUT ========== */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 24px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(248, 180, 196, 0.3), rgba(232, 223, 245, 0.3));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(248, 180, 196, 0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--pink-400);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero-symbol {
+            font-size: 80px;
+            margin-bottom: 24px;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+            filter: drop-shadow(0 4px 20px rgba(244, 141, 166, 0.3));
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--pink-500), var(--rose-gold), var(--purple-soft));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 12px;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .hero-author {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 0.8s backwards;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--pink-400), transparent);
+            margin: 32px auto;
+            animation: fadeInUp 1s ease-out 1s backwards;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease-out 1.2s backwards;
+        }
+
+        .scroll-hint .arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid var(--pink-400);
+            border-bottom: 2px solid var(--pink-400);
+            transform: rotate(45deg);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: rotate(45deg) translate(0, 0); }
+            50% { transform: rotate(45deg) translate(5px, 5px); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== SECTION STYLING ========== */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--pink-500);
+            margin-bottom: 16px;
+        }
+
+        .section-label::before,
+        .section-label::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--pink-300);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== ASTRO CARDS ========== */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            margin-bottom: 48px;
+        }
+
+        .astro-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.85), rgba(253, 238, 241, 0.6));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(248, 180, 196, 0.25);
+            border-radius: var(--radius-md);
+            padding: 36px 28px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: default;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .astro-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .astro-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pink-300), var(--pink-500), var(--lavender));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .astro-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-card);
+            border-color: var(--pink-300);
+        }
+
+        .astro-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .card-icon.mercury {
+            background: linear-gradient(135deg, var(--lavender-light), var(--lavender));
+        }
+
+        .card-icon.cancer {
+            background: linear-gradient(135deg, var(--pink-100), var(--pink-200));
+        }
+
+        .card-icon.leo {
+            background: linear-gradient(135deg, #fef3cd, var(--gold-light));
+        }
+
+        .card-icon.venus {
+            background: linear-gradient(135deg, var(--pink-100), var(--pink-300));
+        }
+
+        .card-icon.saturn {
+            background: linear-gradient(135deg, #e8e0f0, var(--purple-soft));
+        }
+
+        .card-icon.sun {
+            background: linear-gradient(135deg, #fff3e0, #ffd699);
+        }
+
+        .card-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .card-energy {
+            font-size: 0.88rem;
+            color: var(--pink-500);
+            font-weight: 500;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(248, 180, 196, 0.2);
+        }
+
+        .card-detail {
+            margin-bottom: 14px;
+        }
+
+        .card-detail-label {
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .card-detail-text {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .card-omen {
+            background: linear-gradient(135deg, rgba(248, 180, 196, 0.1), rgba(232, 223, 245, 0.15));
+            border-left: 3px solid var(--pink-400);
+            padding: 14px 16px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin-top: 16px;
+        }
+
+        .card-omen-label {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--pink-500);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .card-omen-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* ========== RECAP BOX ========== */
+        .recap-box {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(243, 238, 250, 0.5));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(201, 184, 232, 0.25);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recap-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(248, 180, 196, 0.05), transparent 60%);
+            pointer-events: none;
+        }
+
+        .recap-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .recap-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .recap-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .recap-list li .bullet {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--pink-200), var(--pink-300));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: white;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        /* ========== TRAITS TAGS ========== */
+        .traits-container {
+            margin: 16px 0;
+        }
+
+        .traits-label {
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .traits-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .trait-tag {
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .trait-tag.positive {
+            background: linear-gradient(135deg, rgba(248, 180, 196, 0.2), rgba(248, 180, 196, 0.1));
+            color: var(--pink-600);
+            border: 1px solid rgba(248, 180, 196, 0.3);
+        }
+
+        .trait-tag.negative {
+            background: linear-gradient(135deg, rgba(201, 184, 232, 0.2), rgba(201, 184, 232, 0.1));
+            color: var(--text-secondary);
+            border: 1px solid rgba(201, 184, 232, 0.3);
+        }
+
+        .trait-tag:hover {
+            transform: scale(1.05);
+        }
+
+        /* ========== SECTION DIVIDER ========== */
+        .section-divider {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--pink-200), transparent);
+        }
+
+        .section-divider .divider-icon {
+            position: relative;
+            background: var(--cream);
+            padding: 0 20px;
+            font-size: 24px;
+            z-index: 1;
+        }
+
+        /* ========== KEYWORDS LIST ========== */
+        .keywords-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .keyword {
+            padding: 4px 12px;
+            background: rgba(201, 161, 110, 0.1);
+            border: 1px solid rgba(201, 161, 110, 0.2);
+            border-radius: 6px;
+            font-size: 0.82rem;
+            color: var(--rose-gold);
+            font-weight: 500;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            text-align: center;
+            padding: 60px 24px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-symbol {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .footer-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .footer-credits {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ========== NAV DOTS ========== */
+        .nav-dots {
+            position: fixed;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 100;
+        }
+
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--pink-200);
+            border: 2px solid var(--pink-300);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-dot:hover,
+        .nav-dot.active {
+            background: var(--pink-500);
+            border-color: var(--pink-500);
+            transform: scale(1.3);
+        }
+
+        .nav-dot .tooltip {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--text-primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .nav-dot:hover .tooltip {
+            opacity: 1;
+            right: 24px;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .recap-box {
+                padding: 28px 20px;
+            }
+
+            .nav-dots {
+                display: none;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-symbol {
+                font-size: 56px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <!-- Stars -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Navigation Dots -->
+    <nav class="nav-dots" id="navDots">
+        <div class="nav-dot active" data-target="hero">
+            <span class="tooltip">Trang Đầu</span>
+        </div>
+        <div class="nav-dot" data-target="part1">
+            <span class="tooltip">Phần 1 — Ba Lá Bài</span>
+        </div>
+        <div class="nav-dot" data-target="part2">
+            <span class="tooltip">Phần 2 — Bốc Quẻ</span>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            <span>Chiêm Tinh Luận Giải</span>
+        </div>
+        <div class="hero-symbol">🐉</div>
+        <h1>Thông Điệp<br>Năm Rồng</h1>
+        <div class="hero-divider"></div>
+        <p class="hero-subtitle">Kết quả luận giải chiêm tinh — Đầu năm 2024</p>
+        <p class="hero-author">✦ Vy Đan ✦</p>
+        <div class="scroll-hint">
+            <span>Khám Phá</span>
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+    <!-- PART 1 — THREE MAIN CARDS -->
+    <section class="section" id="part1">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">✧ Phần Một ✧</div>
+                <h2 class="section-title">Thông Điệp Từ 3 Lá Bài Chính</h2>
+                <p class="section-desc">Ba lá bài phản ánh năng lượng dẫn dắt bạn trong hành trình đầu năm 2024</p>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="cards-grid">
+                <!-- Sao Thủy / Mercury -->
+                <div class="astro-card" data-delay="0">
+                    <div class="card-icon mercury">☿</div>
+                    <h3 class="card-name">Sao Thủy</h3>
+                    <p class="card-energy">Truyền cảm hứng qua thần chú, châm ngôn và giao tiếp. Củng cố mạng lưới quan hệ xã hội.</p>
+
+                    <div class="card-detail">
+                        <div class="card-detail-label">Trải nghiệm</div>
+                        <p class="card-detail-text">Tư duy, học tập, xử lý thông tin, tạo mạng lưới quan hệ xã giao không cảm tính.</p>
+                    </div>
+
+                    <div class="card-omen">
+                        <div class="card-omen-label">✦ Điềm báo</div>
+                        <p class="card-omen-text">Tĩnh lặng như nước, phản biện và tư duy không để cảm xúc cá nhân chi phối.</p>
+                    </div>
+                </div>
+
+                <!-- Cự Giải / Cancer -->
+                <div class="astro-card" data-delay="150">
+                    <div class="card-icon cancer">♋</div>
+                    <h3 class="card-name">Cự Giải</h3>
+                    <p class="card-energy">Nhạy cảm, bảo vệ, an ủi, gia đình, nhớ nhà, cảm xúc.</p>
+
+                    <div class="card-detail">
+                        <div class="card-detail-label">Trải nghiệm</div>
+                        <p class="card-detail-text">Chăm sóc bản thân và người khác.</p>
+                    </div>
+
+                    <div class="card-omen">
+                        <div class="card-omen-label">✦ Điềm báo</div>
+                        <p class="card-omen-text">Khám phá thế giới nội tâm; trở thành "người mẹ" yêu thương và chăm sóc đứa trẻ nội tâm của chính mình.</p>
+                    </div>
+                </div>
+
+                <!-- Sư Tử / Leo -->
+                <div class="astro-card" data-delay="300">
+                    <div class="card-icon leo">♌</div>
+                    <h3 class="card-name">Sư Tử</h3>
+                    <p class="card-energy">Ấm áp, tự tin, trung thành và kiên nhẫn.</p>
+
+                    <div class="card-detail">
+                        <div class="card-detail-label">Trải nghiệm</div>
+                        <p class="card-detail-text">Sáng tạo, hào hiệp, chơi đùa, trình diễn.</p>
+                    </div>
+
+                    <div class="card-omen">
+                        <div class="card-omen-label">✦ Điềm báo</div>
+                        <p class="card-omen-text">Hãy sống là chính mình, không cần thay đổi để vừa ý ai. Bạn xứng đáng được trân trọng.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recap -->
+            <div class="recap-box">
+                <h4 class="recap-title">✨ Tổng Kết Phần 1</h4>
+                <ul class="recap-list">
+                    <li>
+                        <span class="bullet">1</span>
+                        <span>Thông điệp hướng đến việc <strong>học tập, làm việc nhóm</strong> và <strong>kết giao bạn mới</strong>.</span>
+                    </li>
+                    <li>
+                        <span class="bullet">2</span>
+                        <span>Lắng nghe và <strong>nuôi dưỡng đứa trẻ nội tâm</strong> sau một năm quá chú tâm vào bên ngoài.</span>
+                    </li>
+                    <li>
+                        <span class="bullet">3</span>
+                        <span><strong>Hòa nhập nhưng không hòa tan</strong>; giữ vững bản sắc cá nhân trong tập thể.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider">
+        <span class="divider-icon">☽</span>
+    </div>
+
+    <!-- PART 2 — HOUSES & SIGNS -->
+    <section class="section" id="part2">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">✧ Phần Hai ✧</div>
+                <h2 class="section-title">Bốc Quẻ — Nhà & Cung</h2>
+                <p class="section-desc">Kết quả bốc quẻ dựa trên các nhà và cung trong chiêm tinh học</p>
+            </div>
+
+            <!-- Elements Grid -->
+            <div class="cards-grid">
+                <!-- Nhà 7 -->
+                <div class="astro-card" data-delay="0">
+                    <div class="card-icon venus">♀</div>
+                    <h3 class="card-name">Nhà 7 — Sao Kim</h3>
+                    <p class="card-energy">Các mối quan hệ thân mật (bạn đời, đối tác, kẻ thù) phản chiếu giá trị bản thân.</p>
+
+                    <div class="card-detail">
+                        <div class="card-detail-label">Trải nghiệm</div>
+                        <p class="card-detail-text">Khám phá bản thân thông qua cách đối xử của người khác dành cho mình.</p>
+                    </div>
+
+                    <div class="card-omen">
+                        <div class="card-omen-label">✦ Điềm báo</div>
+                        <p class="card-omen-text">Đánh giá sự trao đổi giữa bạn và mọi người xung quanh. Tránh những nơi xâm phạm tính toàn vẹn của bạn.</p>
+                    </div>
+                </div>
+
+                <!-- Nhà 10 -->
+                <div class="astro-card" data-delay="150">
+                    <div class="card-icon saturn">♄</div>
+                    <h3 class="card-name">Nhà 10 — Sao Thổ</h3>
+                    <p class="card-energy">Đỉnh cao sự nghiệp, vị thế xã hội và sứ mệnh mục tiêu cuộc đời.</p>
+
+                    <div class="card-detail">
+                        <div class="card-detail-label">Từ khóa</div>
+                        <div class="keywords-list">
+                            <span class="keyword">Cấu trúc</span>
+                            <span class="keyword">Kỷ luật</span>
+                            <span class="keyword">Sự nghiệp</span>
+                            <span class="keyword">Thương hiệu cá nhân</span>
+                        </div>
+                    </div>
+
+                    <div class="card-omen">
+                        <div class="card-omen-label">✦ Điềm báo</div>
+                        <p class="card-omen-text">Kiên trì theo đuổi mục tiêu nhưng phải dành không gian cho trực giác và sự thay đổi. Xây dựng cấu trúc vững chắc cho thế giới bên trong.</p>
+                    </div>
+                </div>
+
+                <!-- Sư Tử Chi Tiết -->
+                <div class="astro-card" data-delay="300">
+                    <div class="card-icon sun">☉</div>
+                    <h3 class="card-name">Sư Tử — Mặt Trời</h3>
+                    <p class="card-energy">Tỏa sáng là quyền tự nhiên. Truyền cảm hứng cho người khác.</p>
+
+                    <div class="traits-container">
+                        <div class="traits-label">Đặc tính tích cực</div>
+                        <div class="traits-tags">
+                            <span class="trait-tag positive">Ấm áp</span>
+                            <span class="trait-tag positive">Trung thành</span>
+                            <span class="trait-tag positive">Kiêu hãnh</span>
+                            <span class="trait-tag positive">Tự tin</span>
+                            <span class="trait-tag positive">Hào hiệp</span>
+                        </div>
+                    </div>
+
+                    <div class="traits-container">
+                        <div class="traits-label">Cần lưu ý</div>
+                        <div class="traits-tags">
+                            <span class="trait-tag negative">Viển vông</span>
+                            <span class="trait-tag negative">Tự trung tâm</span>
+                            <span class="trait-tag negative">Ngạo mạn</span>
+                            <span class="trait-tag negative">Khó nhận lỗi</span>
+                        </div>
+                    </div>
+
+                    <div class="card-omen">
+                        <div class="card-omen-label">✦ Điềm báo</div>
+                        <p class="card-omen-text">Tỏa sáng là quyền tự nhiên. Tránh xa các mối quan hệ làm bạn lu mờ. Thành thực với chính mình để truyền cảm hứng cho người khác.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recap -->
+            <div class="recap-box">
+                <h4 class="recap-title">✨ Tổng Kết Phần 2</h4>
+                <ul class="recap-list">
+                    <li>
+                        <span class="bullet">1</span>
+                        <span>Thông điệp nghiêng về <strong>mối quan hệ đối với sự nghiệp</strong>.</span>
+                    </li>
+                    <li>
+                        <span class="bullet">2</span>
+                        <span><strong>Khám phá bản thân</strong> qua các mối quan hệ (Nhà 7).</span>
+                    </li>
+                    <li>
+                        <span class="bullet">3</span>
+                        <span>Tránh xa các mối quan hệ <strong>không cho phép bạn tỏa sáng</strong> (Lá Sư Tử).</span>
+                    </li>
+                    <li>
+                        <span class="bullet">4</span>
+                        <span><strong>Kiên trì theo đuổi mục tiêu</strong> để đạt thành tựu nhất định (Nhà 10).</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-symbol">✦</div>
+        <p class="footer-text">"Hãy tin vào hành trình của bạn"</p>
+        <p class="footer-credits">Luận giải bởi Vy Đan — Đầu năm 2024</p>
+    </footer>
+
+    <script>
+        // ========== GENERATE STARS ==========
+        (function generateStars() {
+            const container = document.getElementById('stars');
+            const count = 40;
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = (Math.random() * 5) + 's';
+                star.style.animationDuration = (2 + Math.random() * 4) + 's';
+                star.style.width = (2 + Math.random() * 2) + 'px';
+                star.style.height = star.style.width;
+                container.appendChild(star);
+            }
+        })();
+
+        // ========== INTERSECTION OBSERVER (Scroll Animations) ==========
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.getAttribute('data-delay') || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, parseInt(delay));
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.astro-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // ========== NAV DOTS ==========
+        const sections = ['hero', 'part1', 'part2'];
+        const dots = document.querySelectorAll('.nav-dot');
+
+        function updateActiveDot() {
+            let currentSection = 'hero';
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight / 2) {
+                        currentSection = id;
+                    }
+                }
+            });
+
+            dots.forEach(dot => {
+                dot.classList.toggle('active', dot.dataset.target === currentSection);
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveDot, { passive: true });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const target = document.getElementById(dot.dataset.target);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ========== PARALLAX ORBS ==========
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const orbs = document.querySelectorAll('.orb');
+            orbs.forEach((orb, i) => {
+                const speed = 0.02 + i * 0.01;
+                orb.style.transform = `translateY(${scrollY * speed}px)`;
+            });
+        }, { passive: true });
+    </script>
+</body>
+</html>
