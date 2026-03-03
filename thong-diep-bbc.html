@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Điệp 2026 — Luận Giải Chiêm Tinh | BBC Reader</title>
+    <meta name="description"
+        content="Luận giải chiêm tinh Thông Điệp 2026 bởi BBC Reader. Khám phá thông điệp từ vũ trụ, tình yêu và lời nhắn dành riêng cho bạn.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ========== CSS CUSTOM PROPERTIES ========== */
+        :root {
+            /* Mệnh Thủy — Giản Hạ Thủy (1996 Bính Tý) */
+            /* Tông chính: trắng, xám, bạc, đen, xanh nước biển */
+            --water-50: #f8fafc;
+            --water-100: #f1f5f9;
+            --water-200: #93c5fd;
+            --water-300: #60a5fa;
+            --water-400: #3b82f6;
+            --water-500: #2563eb;
+            --water-600: #1d4ed8;
+            --water-700: #1e3a8a;
+            --silver: #94a3b8;
+            --silver-light: #cbd5e1;
+            --ice: #eff6ff;
+            --ice-dark: #dbeafe;
+            --black-soft: #334155;
+            --black-softer: #475569;
+            --gray-soft: #64748b;
+            --gold: #eab308;
+            --gold-light: #fef08a;
+            --text-primary: #0f172a;
+            --text-secondary: #1e293b;
+            --text-muted: #334155;
+            --shadow-soft: 0 4px 24px rgba(37, 99, 235, 0.2);
+            --shadow-card: 0 8px 40px rgba(37, 99, 235, 0.22);
+            --shadow-glow: 0 0 50px rgba(37, 99, 235, 0.35);
+            --radius-sm: 12px;
+            --radius-md: 20px;
+            --radius-lg: 32px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ========== RESET & BASE ========== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--ice);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-weight: 300;
+        }
+
+        /* ========== ANIMATED BACKGROUND ========== */
+        .bg-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-orbs .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .bg-orbs .orb:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            background: var(--water-300);
+            top: -100px;
+            right: -100px;
+        }
+
+        .bg-orbs .orb:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            background: var(--black-soft);
+            bottom: 20%;
+            left: -80px;
+            animation-delay: -5s;
+        }
+
+        .bg-orbs .orb:nth-child(3) {
+            width: 350px;
+            height: 350px;
+            background: var(--water-200);
+            top: 40%;
+            right: 10%;
+            animation-delay: -10s;
+        }
+
+        .bg-orbs .orb:nth-child(4) {
+            width: 250px;
+            height: 250px;
+            background: var(--gold-light);
+            bottom: -50px;
+            right: 30%;
+            animation-delay: -15s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate(30px, -40px) scale(1.05);
+            }
+
+            50% {
+                transform: translate(-20px, 20px) scale(0.95);
+            }
+
+            75% {
+                transform: translate(40px, 30px) scale(1.02);
+            }
+        }
+
+        /* ========== STARS ========== */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: var(--water-400);
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.5);
+            }
+        }
+
+        /* ========== LAYOUT ========== */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 24px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.3), rgba(191, 219, 254, 0.3));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(37, 99, 235, 0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--water-400);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+        }
+
+        .hero-symbol {
+            font-size: 80px;
+            margin-bottom: 24px;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+            filter: drop-shadow(0 4px 20px rgba(96, 165, 250, 0.3));
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--water-500), var(--gold), var(--silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 12px;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .hero-author {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 0.8s backwards;
+        }
+
+        .hero-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--water-400), transparent);
+            margin: 32px auto;
+            animation: fadeInUp 1s ease-out 1s backwards;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease-out 1.2s backwards;
+        }
+
+        .scroll-hint .arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid var(--water-400);
+            border-bottom: 2px solid var(--water-400);
+            transform: rotate(45deg);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: rotate(45deg) translate(0, 0);
+            }
+
+            50% {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========== SECTION ========== */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--water-500);
+            margin-bottom: 16px;
+        }
+
+        .section-label::before,
+        .section-label::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--water-300);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ========== CARD IMAGE PLACEHOLDER ========== */
+        .card-image-wrapper {
+            width: 100%;
+            aspect-ratio: 3/4;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+            background: linear-gradient(145deg, var(--water-100), var(--black-softer));
+            border: 2px dashed var(--water-300);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .astro-card:hover .card-image-wrapper img {
+            transform: scale(1.06);
+        }
+
+        .card-image-wrapper.has-image {
+            border: none;
+            background: none;
+            clip-path: inset(100% 0 0 0);
+            transition: clip-path 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .astro-card.visible .card-image-wrapper.has-image {
+            clip-path: inset(0 0 0 0);
+        }
+
+        .image-placeholder {
+            text-align: center;
+            color: var(--water-400);
+            font-size: 0.85rem;
+        }
+
+        .image-placeholder .placeholder-icon {
+            font-size: 36px;
+            margin-bottom: 8px;
+            opacity: 0.6;
+        }
+
+        .image-placeholder .placeholder-text {
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        /* ========== ASTRO CARDS ========== */
+        .cards-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .astro-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(219, 234, 254, 0.5));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            border-radius: var(--radius-md);
+            padding: 32px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: default;
+            opacity: 0;
+            transform: translateX(-60px);
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            grid-template-rows: auto;
+            gap: 0 32px;
+        }
+
+        .astro-card:nth-child(even) {
+            transform: translateX(60px);
+            direction: rtl;
+        }
+
+        .astro-card:nth-child(even)>* {
+            direction: ltr;
+        }
+
+        .astro-card.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .astro-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--water-300), var(--water-500), var(--black-soft));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .astro-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-card);
+            border-color: var(--water-300);
+        }
+
+        .astro-card:hover::before {
+            opacity: 1;
+        }
+
+        .astro-card .card-image-wrapper {
+            grid-row: 1 / -1;
+            aspect-ratio: 3/4;
+            margin-bottom: 0;
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .astro-card .card-text-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-number {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--water-200), var(--water-300));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+        }
+
+        .card-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .card-energy {
+            font-size: 0.88rem;
+            color: var(--water-500);
+            font-weight: 500;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .card-detail {
+            margin-bottom: 14px;
+        }
+
+        .card-detail-label {
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .card-detail-text {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .card-omen {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(191, 219, 254, 0.15));
+            border-left: 3px solid var(--water-400);
+            padding: 14px 16px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin-top: 16px;
+        }
+
+        .card-omen-label {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--water-500);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .card-omen-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* ========== LOVE CARD (Full Width — Horizontal) ========== */
+        .love-card-layout {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .love-card-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: linear-gradient(145deg, var(--water-100), var(--black-softer));
+            border: 2px dashed var(--water-300);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 100px;
+        }
+
+        .love-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            transition: transform 0.6s ease;
+        }
+
+        .love-card-image:hover img {
+            transform: scale(1.04);
+        }
+
+        .love-card-image.has-image {
+            border: none;
+            background: none;
+            box-shadow: var(--shadow-card);
+        }
+
+        .love-card-content {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(219, 234, 254, 0.5));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            border-radius: var(--radius-md);
+            padding: 36px 32px;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            order: -1;
+        }
+
+        .love-card-content.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .love-card-content .card-icon-inline {
+            display: inline-flex;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--water-300), var(--water-500));
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+
+        /* ========== MESSAGE FROM UNIVERSE ========== */
+        .universe-message {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(219, 234, 254, 0.5));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 48px 40px;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: scale(0.92);
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .universe-message.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .universe-message::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.08), transparent 60%);
+            pointer-events: none;
+        }
+
+        .universe-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .universe-icon {
+            font-size: 48px;
+            filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.3));
+        }
+
+        .universe-img-wrapper {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+
+        .universe-img-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .universe-img-wrapper:hover img {
+            transform: scale(1.04);
+        }
+
+        .universe-right {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .universe-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: var(--text-primary);
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            position: relative;
+            padding-left: 24px;
+            border-left: 3px solid var(--water-300);
+        }
+
+        .universe-details {
+            text-align: left;
+        }
+
+        .universe-detail-item {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.12);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .universe-detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .universe-closing {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(37, 99, 235, 0.15);
+        }
+
+        .universe-closing p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* ========== SECTION DIVIDER ========== */
+        .section-divider {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--water-200), transparent);
+        }
+
+        .section-divider .divider-icon {
+            position: relative;
+            background: var(--ice);
+            padding: 0 20px;
+            font-size: 24px;
+            z-index: 1;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            text-align: center;
+            padding: 60px 24px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-symbol {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .footer-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .footer-credits {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ========== NAV DOTS ========== */
+        .nav-dots {
+            position: fixed;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 100;
+        }
+
+        .nav-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--water-200);
+            border: 2px solid var(--water-300);
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-dot:hover,
+        .nav-dot.active {
+            background: var(--water-500);
+            border-color: var(--water-500);
+            transform: scale(1.3);
+        }
+
+        .nav-dot .tooltip {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--text-primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .nav-dot:hover .tooltip {
+            opacity: 1;
+            right: 24px;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .astro-card {
+                grid-template-columns: 1fr !important;
+                transform: translateY(40px) !important;
+            }
+
+            .astro-card:nth-child(even) {
+                direction: ltr !important;
+            }
+
+            .astro-card .card-image-wrapper {
+                max-width: 280px;
+                margin: 0 auto 20px;
+                position: static;
+            }
+
+            .love-card-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .love-card-content {
+                order: 0;
+            }
+
+            .love-card-image {
+                max-width: 280px;
+                margin: 0 auto;
+                position: static;
+            }
+
+            .universe-message {
+                grid-template-columns: 1fr;
+                padding: 32px 24px;
+            }
+
+            .universe-left {
+                position: static;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .nav-dots {
+                display: none;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .universe-quote::before,
+            .universe-quote::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-symbol {
+                font-size: 56px;
+            }
+        }
+
+        /* ========== ENHANCED ANIMATIONS ========== */
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        .section-title {
+            background: linear-gradient(90deg,
+                    var(--text-primary) 0%,
+                    var(--water-500) 25%,
+                    var(--gold) 50%,
+                    var(--water-500) 75%,
+                    var(--text-primary) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        @keyframes glowPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+            }
+
+            50% {
+                box-shadow: 0 0 20px 4px rgba(37, 99, 235, 0.15);
+            }
+        }
+
+        .astro-card:hover {
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+
+        .love-card-image.has-image {
+            transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .love-card-content {
+            opacity: 0;
+            transform: translateX(40px);
+        }
+
+        .love-card-content.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .universe-message {
+            opacity: 0;
+            transform: scale(0.92);
+        }
+
+        .universe-message.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .card-number {
+            background: linear-gradient(135deg, var(--water-400), var(--silver));
+            box-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
+        }
+
+        .hero h1 {
+            background: linear-gradient(135deg, var(--water-500), var(--gold-light), var(--silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: shimmer 5s linear infinite;
+        }
+
+        .card-omen {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(96, 165, 250, 0.12));
+            border-left: 3px solid var(--water-400);
+        }
+
+        .star {
+            background: var(--water-300);
+            box-shadow: 0 0 6px var(--water-400);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <!-- Stars -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Navigation Dots -->
+    <nav class="nav-dots" id="navDots">
+        <div class="nav-dot active" data-target="hero">
+            <span class="tooltip">Trang Đầu</span>
+        </div>
+
+        <div class="nav-dot" data-target="part-stone">
+            <span class="tooltip">Viên Đá</span>
+        </div>
+
+        <div class="nav-dot" data-target="part1">
+            <span class="tooltip">Thông Điệp Vũ Trụ</span>
+        </div>
+        <div class="nav-dot" data-target="part2">
+            <span class="tooltip">Lá Tình Yêu</span>
+        </div>
+        <div class="nav-dot" data-target="part3">
+            <span class="tooltip">Lời Nhắn Vũ Trụ</span>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            <span>Chiêm Tinh Luận Giải</span>
+        </div>
+        <div class="hero-symbol">🌌</div>
+        <h1>Thông Điệp<br>2026</h1>
+        <div class="hero-divider"></div>
+        <p class="hero-subtitle">Khám phá thông điệp vũ trụ dành riêng cho bạn</p>
+        <p class="hero-author">✦ BBC Reader ✦</p>
+        <div class="scroll-hint">
+            <span>Khám Phá</span>
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+
+    <!-- ==================== PHẦN MỞ ĐẦU: VIÊN ĐÁ BẢN MỆNH ==================== -->
+    <section class="section" id="part-stone">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">✧ Năng Lượng ✧</div>
+                <h2 class="section-title">Viên Đá Bản Mệnh</h2>
+                <p class="section-desc">Carnelian — Mã Não Đỏ | Viên đá của hành động và sức sống</p>
+            </div>
+
+            <div class="love-card-layout" style="grid-template-columns: 280px 1fr;" data-animate>
+                <div class="love-card-image has-image">
+                    <img src="BBC - ĐÁ .jpg" alt="Carnelian - Mã Não Đỏ Cam">
+                </div>
+
+                <div class="love-card-content" style="order: 0;">
+                    <div class="card-icon-inline" style="background: linear-gradient(135deg, #c2410c, #ea580c);">�</div>
+                    <h3 class="card-name">Carnelian — Mã Não Đỏ Cam</h3>
+                    <p class="card-energy">Hành động · Sáng tạo · Dũng cảm · Sức sống</p>
+
+                    <div class="card-detail">
+                        <div class="card-detail-label">✦ Trong Chiêm Tinh Học</div>
+                        <p class="card-detail-text">Carnelian được coi là <strong>"viên đá của hành động"</strong>. Gắn
+                            liền với <strong>Sao Hỏa</strong> — hành tinh của năng lượng, sự dũng cảm và khát khao, và
+                            <strong>Mặt Trời</strong> — nguồn sống và bản ngã. Liên kết mạnh mẽ nhất với <strong>Bạch
+                                Dương</strong> (sự tiên phong), <strong>Sư Tử</strong> (sự tỏa sáng) và <strong>Xử
+                                Nữ</strong> (sự tỉ mỉ, thực tế). Nó giúp chuyển hóa ý tưởng thành hiện thực thay vì chỉ
+                            nằm trên kế hoạch.
+                        </p>
+                    </div>
+
+                    <div class="card-detail">
+                        <div class="card-detail-label">✦ Về Năng Lượng</div>
+                        <p class="card-detail-text">Trong giới tinh thể trị liệu, Carnelian được ví như một
+                            <strong>"viên pin" vĩnh cửu</strong>. Tác động trực tiếp lên <strong>Luân xa Xương cùng
+                                (Sacral Chakra)</strong> — trung tâm của sự sáng tạo, cảm xúc và năng lượng tính
+                            dục.<br><br>
+                            • <strong>Thúc đẩy sinh lực:</strong> Giúp vượt qua sự trì trệ, lười biếng và tiếp thêm sự
+                            tự tin.<br>
+                            • <strong>Sự dũng cảm:</strong> Hỗ trợ người đeo tin tưởng vào bản thân và những nhận định
+                            của chính mình.<br>
+                            • <strong>Làm sạch:</strong> Có khả năng làm sạch các tinh thể khác và thanh lọc những rung
+                            động thấp trong môi trường xung quanh.
+                        </p>
+                    </div>
+
+                    <div class="card-omen">
+                        <div class="card-omen-label">✦ Trong Vũ Trụ Học</div>
+                        <p class="card-omen-text">Dưới góc nhìn tâm linh vũ trụ, Carnelian đại diện cho <strong>sự vận
+                                động không ngừng</strong>. Mang tần số của sự kết nối giữa năng lượng rực cháy của các
+                            ngôi sao và sự ổn định chắc chắn của lòng đất. Màu cam của đá tượng trưng cho <strong>ánh
+                                bình minh</strong> — thời điểm bóng tối tan biến để nhường chỗ cho ánh sáng. Nó đại diện
+                            cho chu kỳ tái tạo và sức mạnh bền bỉ của sự sống. Viên đá này thường được dùng như một công
+                            cụ "tiếp đất" mỗi khi tâm trí bị bay bổng quá mức hoặc rơi vào trạng thái mơ hồ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider">
+        <span class="divider-icon">✺</span>
+    </div>
+
+    <!-- ==================== PHẦN 1: THÔNG ĐIỆP VŨ TRỤ ==================== -->
+    <section class="section" id="part1">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">✧ Phần Một ✧</div>
+                <h2 class="section-title">Thông Điệp Vũ Trụ</h2>
+                <p class="section-desc">Ba lá bài mang thông điệp từ vũ trụ gửi đến bạn trong năm 2026</p>
+            </div>
+
+            <!-- 3 Cards Stacked -->
+            <div class="cards-grid">
+
+                <!-- ===== LÁ BÀI 1: BẠCH DƯƠNG ===== -->
+                <div class="astro-card" data-delay="0">
+                    <span class="card-number">1</span>
+
+                    <div class="card-image-wrapper has-image">
+                        <img src="BBC -1 .jpg" alt="Mặt Trời (Sun)">
+                    </div>
+
+                    <div class="card-text-content">
+                        <h3 class="card-name">Mặt Trời <span
+                                style="font-weight:400; font-size:0.85em; color:var(--text-muted);">— Sun</span></h3>
+                        <p class="card-energy">Đồng phương tương tính · Sự tự bộc lộ · Danh tính · Sức sống</p>
+
+                        <div class="card-detail">
+                            <div class="card-detail-label">Luận giải</div>
+                            <p class="card-detail-text">Mặt Trời tự thân nó là biểu tượng của sự sống. Linh hồn của bạn
+                                được sinh ra trong một cơ thể phàm trần và được ban cho một hình hài vật chất để trải
+                                nghiệm sự thật rằng bạn là ai. Cũng như danh tính con người của bạn là hiện thân của
+                                linh hồn, sự sống trên Trái Đất là một hiện thân của các thiên thể. Và Mặt Trời đại diện
+                                cho quyền tự nhiên của mọi sinh vật, quyền được thể hiện bản thân.</p>
+                        </div>
+
+                        <div class="card-detail">
+                            <div class="card-detail-label">Từ khóa</div>
+                            <p class="card-detail-text"><strong>Năng lượng:</strong> Đồng phương tương tính, Sự tự bộc
+                                lộ, Danh tính, Sức sống, Điều kiện để thể hiện và tỏa sáng, Người cha.<br>
+                                <strong>Trải nghiệm:</strong> Hiện thân của chân lý, Bản chất con người bạn, Niềm vui,
+                                Trải nghiệm của bạn về năng lượng nam tính.
+                            </p>
+                        </div>
+
+                        <div class="card-omen">
+                            <div class="card-omen-label">✦ Điềm báo</div>
+                            <p class="card-omen-text">Nâng cao khả năng thể hiện bản thân của bạn bằng cách bao dung
+                                những điều kỳ quặc làm nên con người bạn. Có lẽ bạn đã rơi vào cái bẫy rất đời thường,
+                                rất “con người”, đó là so sánh bản thân với người khác? Có thể bạn cảm thấy ghen tị hoặc
+                                xấu hổ - rằng mình không được như kỳ vọng? Vậy thì bạn sẽ được nhắc nhở rằng đây chính
+                                xác là bạn. Những thiên thần hộ mệnh đáng mến của bạn nhìn thấy trọn vẹn con người bạn;
+                                họ yêu bạn vô điều kiện và khích lệ bạn khi bạn phát huy năng lực của mình. Họ nói,
+                                “Càng sống đúng với con người thực của mình, tiềm năng sáng tạo của bạn càng mạnh mẽ và
+                                bạn càng cảm thấy gắn bó với toàn bộ cuộc đời của mình”. Vậy bạn có thể nỗ lực để liên
+                                kết bản thể vật lý với linh hồn của bạn hay không? Mặt Trời rực rỡ nhất khi là hiện thân
+                                của Mặt Trăng. Hãy nhớ rằng mọi sinh vật thực chất đều góp một phần độc đáo để tô điểm
+                                cho bức tranh tổng thể. Mọi cuộc đời đều có ý nghĩa trong mạng lưới phức tạp của sự tồn
+                                tại. Hãy cho phép mình khám phá sâu hơn về giá trị thực sự của bản thân. Hãy phát huy,
+                                tỏa sáng và trở nên nổi bật. Bởi bạn là một món quà.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== LÁ BÀI 2: SAO KIM ===== -->
+                <div class="astro-card" data-delay="150">
+                    <span class="card-number">2</span>
+
+                    <div class="card-image-wrapper has-image">
+                        <img src="BBC -2 .jpg" alt="Kim Ngưu (Taurus)">
+                    </div>
+
+                    <div class="card-text-content">
+                        <h3 class="card-name">Kim Ngưu <span
+                                style="font-weight:400; font-size:0.85em; color:var(--text-muted);">— Taurus</span></h3>
+                        <p class="card-energy">Người yêu cái đẹp · Sự bền vững · Kiên nhẫn · Tin tưởng</p>
+
+                        <div class="card-detail">
+                            <div class="card-detail-label">Luận giải</div>
+                            <p class="card-detail-text">Như bản thân Mẹ Thiên nhiên, Kim Ngưu luôn nhạy bén trong quá
+                                trình biến đổi. Nó hiểu rằng mục tiêu và con đường đạt được mục tiêu là một, từng bước
+                                tiến lên với sự kiên định và nhẫn nại. Nó dịu dàng như một bông hoa và không nóng vội,
+                                phát triển từ hạt giống sang mầm non cho đến chồi để rồi bung nở. Kim Ngưu là một cung
+                                Đất và thích trải nghiệm cuộc sống thông qua các giác quan. Chịu ảnh hưởng của Sao Kim,
+                                Kim Ngưu yêu cái đẹp, coi trọng mọi thứ, từ nghệ thuật đến đồ ăn ngon và cả chăm sóc cơ
+                                thể. Nó đánh giá cao kiến trúc và cảnh quan đẹp. Nó thích những món đồ xa xỉ và tích lũy
+                                nhiều thứ có giá trị. Đương nhiên, mặt tối của nguồn năng lượng này là quá thực dụng -
+                                lạc lối trong sự nông cạn. Và ngay cả thuộc tính Đất của nó cũng có thể là vấn đề nếu
+                                vượt quá giới hạn, bởi vì giống như quá trình nở rộ của một bông hoa, sự sắp đặt đó
+                                khiến nó trở nên cứng đầu. Bản chất không thể thay đổi. Tuy nhiên, khi ở trạng thái cân
+                                bằng, Kim Ngưu là nguồn năng lượng tối ưu cho bất kỳ sinh vật nào bởi vì nó vốn sống
+                                theo luật của Mẹ Thiên nhiên. Nó thuận theo dòng đời, sẵn sàng phát triển và tận hưởng
+                                những gì Trái Đất mang lại.</p>
+                        </div>
+
+                        <div class="card-detail">
+                            <div class="card-detail-label">Từ khóa</div>
+                            <p class="card-detail-text"><strong>Năng lượng:</strong> Người yêu cái đẹp, Sự bền vững,
+                                Kiên nhẫn, Tin tưởng.<br>
+                                <strong>Trải nghiệm:</strong> Nếm trải cuộc đời thông qua các giác quan, Tích lũy những
+                                điều có giá trị.<br>
+                                <strong>Mặt tối:</strong> Thực dụng, Cứng đầu.
+                            </p>
+                        </div>
+
+                        <div class="card-omen">
+                            <div class="card-omen-label">✦ Điềm báo</div>
+                            <p class="card-omen-text">Có lẽ bạn đang cảm thấy mất kết nối hoặc sợ hãi? Hãy bình tĩnh và
+                                tin tưởng vào quá trình trưởng thành của bạn. Hãy tận hưởng từng khoảnh khắc, kể cả khi
+                                bạn thấy mình đang trong quãng thời gian khó khăn. Cảm nhận con đường của bạn trong từng
+                                bước chân tiến về phía trước, luôn luôn tự hỏi điều gì có liên quan và điều gì không. Cơ
+                                thể bạn là một công cụ để kết nối với sự thông thái của khoảnh khắc này, vì vậy hãy trân
+                                trọng hiểu biết nội tại thông qua mọi trải nghiệm giác quan. Và hãy trao cho sự trưởng
+                                thành của bạn món quà thời gian - đừng vội vã vì hoa hồng sẽ nở giữa những chồi non.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== LÁ BÀI 3: LINH HOẠT ===== -->
+                <div class="astro-card" data-delay="300">
+                    <span class="card-number">3</span>
+
+                    <div class="card-image-wrapper has-image">
+                        <img src="BBC - 3.jpg" alt="Bọ Cạp (Scorpio)">
+                    </div>
+
+                    <div class="card-text-content">
+                        <h3 class="card-name">Bọ Cạp <span
+                                style="font-weight:400; font-size:0.85em; color:var(--text-muted);">— Scorpio</span>
+                        </h3>
+                        <p class="card-energy">Trực giác · Sự mãnh liệt · Cảm xúc · Sự cấm kỵ · Tình dục</p>
+
+                        <div class="card-detail">
+                            <div class="card-detail-label">Luận giải</div>
+                            <p class="card-detail-text">Bọ Cạp là giếng sâu của cảm xúc mãnh liệt. Nước luôn là vật chứa
+                                đựng ký ức và ở đây, những ký ức xa xôi cứ thấm dần vào tiềm thức. Những bí mật xưa cũ
+                                lặn ngụp trong vực thẳm mơ hồ, khiến Bọ Cạp như được bao quanh bởi một luồng khí bí ẩn.
+                                Những sinh vật này là đám bọt biển giàu cảm xúc, họ không chủ ý hồi tưởng một sự việc đã
+                                xảy ra nhưng lại gắn bó chặt chẽ với nó thông qua dấu ấn cảm xúc trong cuộc sống. Bộ nhớ
+                                có khả năng thẩm thấu của Bọ Cạp tồn tại để thúc đẩy những người thuộc cung này chữa
+                                lành những vướng mắc trong tâm hồn vì suy cho cùng, nó là nguồn năng lượng biến đổi.
+                                Giống như hành tinh chủ quản Sao Diêm Vương, Bọ Cạp bị thu hút bởi điều cấm kỵ, vạch
+                                trần điểm yếu của các đối tượng tiếp xúc với mình, bộc lộ những trục trặc và độc tính,
+                                để thanh tẩy và làm mới. Để bảo vệ sự nhạy cảm nhất mực, Bọ Cạp có thể trở nên đề phòng.
+                                Và vì dễ bị tổn thương, họ có thể ôm mối hận và cố gắng trả thù. Sự quen thuộc của họ
+                                với phạm trù cảm giác cho phép họ gây ra tổn thương sâu sắc và thao túng người khác.
+                                Cuộc chơi giữa sự thống trị và khuất phục mang đến cho Bọ Cạp một nguồn năng lượng tình
+                                dục đầy đam mê. Một mặt, họ tinh tế, nhưng mặt khác, họ có khả năng tự vệ và nắm giữ
+                                quyền lực đối với người khác.</p>
+                        </div>
+
+                        <div class="card-detail">
+                            <div class="card-detail-label">Từ khóa</div>
+                            <p class="card-detail-text"><strong>Năng lượng:</strong> Trực giác, Sự mãnh liệt, Cảm xúc,
+                                Sự cấm kỵ, Tình dục.<br>
+                                <strong>Trải nghiệm:</strong> Sự phơi bày, Sự thanh tẩy và làm mới, Cái chết và sự tái
+                                sinh, Quyền lực.<br>
+                                <strong>Mặt tối:</strong> Đề phòng, Lôi cuốn, Đầy căm thù, Hay giấu giếm.
+                            </p>
+                        </div>
+
+                        <div class="card-omen">
+                            <div class="card-omen-label">✦ Điềm báo</div>
+                            <p class="card-omen-text">Quá trình tái sinh không phải lúc nào cũng khoa trương - những
+                                biến chuyển mạnh mẽ thường không dễ phát hiện. Những thay đổi sâu sắc theo thời gian sẽ
+                                biểu lộ ra bên ngoài, nhưng rất lâu trước đó, phép màu lặng lẽ diễn ra trong bóng tối.
+                                Quá trình thiêng liêng này bắt đầu bằng sự hướng nội, để khám phá những suy tư mơ hồ và
+                                thói quen. Bạn vốn có những gì và bạn tích lũy được những gì trên đường đời? Điều gì phù
+                                hợp với con người bạn của hôm nay? Hãy kiểm tra nền tảng của cuộc đời bạn - những mối
+                                quan hệ, công việc, đức tin - và nhìn nhận bản chất của chúng. Hãy thoải mái thể hiện
+                                bản sắc cá nhân, quan niệm của bạn về bản thân hoặc những cấu trúc định hình nhân cách
+                                của bạn. Chuyển đổi không phải là con đường bạn băng qua, mà là con đường bạn đang đi.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider">
+        <span class="divider-icon">♡</span>
+    </div>
+
+    <!-- ==================== PHẦN 2: LÁ TÌNH YÊU ==================== -->
+    <section class="section" id="part2">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">✧ Phần Hai ✧</div>
+                <h2 class="section-title">Lá Tình Yêu</h2>
+                <p class="section-desc">Thông điệp tình yêu mà vũ trụ muốn gửi gắm đến bạn</p>
+            </div>
+
+            <div class="love-card-layout">
+                <!-- 📸 ẢNH LÁ TÌNH YÊU: HONESTY IS ESSENTIAL -->
+                <div class="love-card-image has-image">
+                    <img src="BBC - TÌNH YÊU.jpg" alt="Bạn Không Có Giới Hạn">
+                </div>
+
+                <div class="love-card-content" data-animate>
+                    <div class="card-icon-inline">💗</div>
+                    <h3 class="card-name">Bạn Không Có Giới Hạn</h3>
+                    <p class="card-energy">You Are Limitless</p>
+
+                    <div class="card-detail">
+                        <div class="card-detail-label">Ý nghĩa</div>
+                        <p class="card-detail-text">Hãy nhận ra sự thật này. Bạn có thể làm bất cứ điều gì mà mình chọn
+                            để làm.</p>
+                    </div>
+
+                    <div class="card-omen">
+                        <div class="card-omen-label">✦ Thông điệp tình yêu</div>
+                        <p class="card-omen-text">Sẽ có nhiều lúc bạn bị rơi vào thế quá cận với một tình huống, do đó
+                            bạn chỉ có thể nhìn sự vật theo một hướng. Kỳ thực có vô vàn kết quả có khả năng xảy ra cho
+                            một tình huống. Hãy nhìn với một con mắt rộng mở hơn. Giải phóng nhu cầu kiểm soát những
+                            chuyện đang xảy ra và cho phép sự hiểu biết bên trong làm trợ lý đắc lực cho bạn. Mọi thứ
+                            đều sẽ diễn ra như cách mà chúng phải xảy ra.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="section-divider">
+        <span class="divider-icon">☽</span>
+    </div>
+
+    <!-- ==================== PHẦN 3: LỜI NHẮN TỪ VŨ TRỤ ==================== -->
+    <section class="section" id="part3">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">✧ Phần Ba ✧</div>
+                <h2 class="section-title">Lời Nhắn Từ Vũ Trụ</h2>
+                <p class="section-desc">Thông điệp cuối cùng vũ trụ muốn gửi đến bạn trong năm 2026</p>
+            </div>
+
+            <div class="universe-message" data-animate>
+                <div class="universe-left">
+                    <div class="universe-icon">🌟</div>
+                    <div class="universe-img-wrapper">
+                        <img src="BBC - THÔNG ĐIỆP .jpg" alt="Tuyệt Vọng">
+                    </div>
+                </div>
+
+                <div class="universe-right">
+                    <!-- Câu trích dẫn / thông điệp chính -->
+                    <div class="universe-quote">
+                        Con cần sự can thiệp Thiêng liêng của Ngài ngay lúc này, hỡi Đấng Linh thiêng Vĩ đại!<br>
+                        Hãy xua tan bóng tối này khỏi linh hồn con; giải phóng con khỏi gánh nặng này.
+                    </div>
+
+                    <!-- Chi tiết lời nhắn -->
+                    <div class="universe-details">
+                        <div class="universe-detail-item">
+                            ✦ <strong>Tuyệt Vọng</strong> — Despair
+                        </div>
+                        <div class="universe-detail-item">
+                            ✦ Hãy mở lối để con đón nhận kế hoạch cao cả nhất của Ngài.
+                        </div>
+                        <div class="universe-detail-item">
+                            ✦ Nguyện xin cho con được là vật chứa bình an cho Tình yêu của Ngài.
+                        </div>
+                    </div>
+
+                    <div class="universe-closing">
+                        <p>Và rồi từ tận cùng của nỗi đau, ánh sáng sẽ dẫn đường cho bạn. ✨</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-symbol">✦</div>
+        <p class="footer-text">"Sức mạnh thực sự nằm ở cách ta bước ra từ bóng tối và tiếp tục rực sáng."</p>
+        <p class="footer-credits">Luận giải bởi BBC Reader — 2026</p>
+    </footer>
+
+    <script>
+        // ========== STARS ==========
+        (function generateStars() {
+            const container = document.getElementById('stars');
+            for (let i = 0; i < 40; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = (Math.random() * 5) + 's';
+                star.style.animationDuration = (2 + Math.random() * 4) + 's';
+                const size = (2 + Math.random() * 2) + 'px';
+                star.style.width = size;
+                star.style.height = size;
+                container.appendChild(star);
+            }
+        })();
+
+        // ========== SCROLL ANIMATIONS ==========
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const delay = entry.target.getAttribute('data-delay') || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, parseInt(delay));
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.astro-card, .love-card-content, .universe-message').forEach(el => {
+            observer.observe(el);
+        });
+
+
+
+        // ========== NAV DOTS ==========
+        const sections = ['hero', 'part-stone', 'part1', 'part2', 'part3'];
+        const dots = document.querySelectorAll('.nav-dot');
+
+        function updateActiveDot() {
+            let current = 'hero';
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && el.getBoundingClientRect().top <= window.innerHeight / 2) {
+                    current = id;
+                }
+            });
+            dots.forEach(dot => {
+                dot.classList.toggle('active', dot.dataset.target === current);
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveDot, { passive: true });
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const target = document.getElementById(dot.dataset.target);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // ========== PARALLAX ORBS ==========
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            document.querySelectorAll('.orb').forEach((orb, i) => {
+                orb.style.transform = `translateY(${y * (0.02 + i * 0.01)}px)`;
+            });
+        }, { passive: true });
+    </script>
+</body>
+
+</html>
