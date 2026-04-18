@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luận Giải Gia Đình — Tử Vi · Chiêm Tinh · Thần Số Học</title>
+<style>
+  :root {
+    --cream: #f9f4ec;
+    --paper: #fffdf8;
+    --ink: #2b2416;
+    --ink-soft: #5c513d;
+    --gold: #b8892b;
+    --gold-soft: #d4b16a;
+    --burgundy: #7a1f2b;
+    --burgundy-soft: #a8414d;
+    --navy: #1f3a5f;
+    --navy-soft: #4a6d99;
+    --purple: #5b3a70;
+    --purple-soft: #8a66a3;
+    --green: #3d5a3d;
+    --green-soft: #6b8a6b;
+    --warn: #c8621a;
+    --good: #3d7a4a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: linear-gradient(135deg, var(--cream) 0%, #f4ead9 100%);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 15.5px;
+  }
+  .container { max-width: 1080px; margin: 0 auto; padding: 30px 25px; }
+  header.title-block {
+    text-align: center;
+    padding: 40px 20px 30px;
+    border-bottom: 3px double var(--gold);
+    margin-bottom: 20px;
+    background: radial-gradient(ellipse at center, rgba(184,137,43,0.08) 0%, transparent 70%);
+  }
+  header.title-block h1 {
+    font-size: 2.4em; margin: 0 0 8px;
+    color: var(--burgundy); letter-spacing: 2px; font-weight: normal;
+  }
+  header.title-block .subtitle {
+    font-size: 1.05em; color: var(--ink-soft); font-style: italic; letter-spacing: 3px;
+  }
+  header.title-block .ornament {
+    font-size: 1.3em; color: var(--gold); margin: 14px 0; letter-spacing: 10px;
+  }
+  .tab-nav {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    padding: 10px 0 0; margin: 0 0 25px;
+    border-bottom: 2px solid var(--gold-soft);
+    position: sticky; top: 0;
+    background: linear-gradient(135deg, var(--cream) 0%, #f4ead9 100%);
+    z-index: 10;
+  }
+  .tab-btn {
+    padding: 12px 22px; background: transparent;
+    border: 2px solid transparent; border-bottom: none;
+    border-radius: 6px 6px 0 0; cursor: pointer;
+    font-family: inherit; font-size: 1em; color: var(--ink-soft);
+    letter-spacing: 0.5px; transition: all 0.2s ease;
+    position: relative; bottom: -2px;
+  }
+  .tab-btn:hover { color: var(--burgundy); background: rgba(184,137,43,0.08); }
+  .tab-btn.active {
+    background: var(--paper); border-color: var(--gold-soft);
+    border-bottom: 2px solid var(--paper);
+    color: var(--burgundy); font-weight: bold; z-index: 2;
+  }
+  .tab-btn.summary { color: var(--gold); }
+  .tab-btn.summary.active {
+    color: var(--gold);
+    background: linear-gradient(180deg, #fff8e8 0%, var(--paper) 100%);
+  }
+  .tab-content { display: none; animation: fadeIn 0.3s ease; }
+  .tab-content.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  section {
+    margin-bottom: 30px; background: var(--paper);
+    padding: 25px 30px; border-radius: 4px;
+    box-shadow: 0 2px 20px rgba(43,36,22,0.06), 0 0 0 1px rgba(184,137,43,0.15);
+    border-top: 4px solid var(--gold);
+  }
+  section.info { border-top-color: var(--ink-soft); }
+  section.tuvi { border-top-color: var(--burgundy); }
+  section.numerology { border-top-color: var(--purple); }
+  section.astrology { border-top-color: var(--navy); }
+  section.summary-card {
+    border-top-color: var(--gold);
+    background: linear-gradient(135deg, #fffdf8 0%, #faf4e4 100%);
+  }
+  h2 {
+    font-size: 1.7em; margin: 0 0 18px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--gold-soft);
+    color: var(--burgundy); font-weight: normal; letter-spacing: 1px;
+  }
+  section.tuvi h2 { color: var(--burgundy); }
+  section.numerology h2 { color: var(--purple); }
+  section.astrology h2 { color: var(--navy); }
+  section.info h2 { color: var(--ink); }
+  section.summary-card h2 { color: var(--gold); }
+  h3 {
+    font-size: 1.2em; margin: 22px 0 10px; color: var(--ink);
+    font-weight: normal; font-style: italic;
+    padding-left: 12px; border-left: 3px solid var(--gold);
+  }
+  h4 {
+    font-size: 0.92em; margin: 14px 0 6px;
+    color: var(--ink-soft); font-weight: bold;
+    text-transform: uppercase; letter-spacing: 1.2px;
+  }
+  p { margin: 0 0 10px; }
+  ul, ol { padding-left: 22px; margin: 6px 0 12px; }
+  li { margin-bottom: 5px; }
+  table {
+    width: 100%; border-collapse: collapse;
+    margin: 12px 0 18px; font-size: 0.92em; background: #fffdf8;
+  }
+  th {
+    background: linear-gradient(180deg, var(--gold-soft) 0%, var(--gold) 100%);
+    color: #fff; padding: 8px 11px; text-align: left;
+    font-weight: normal; letter-spacing: 0.5px;
+  }
+  td {
+    padding: 8px 11px; border-bottom: 1px solid rgba(184,137,43,0.2);
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(184,137,43,0.04); }
+  .card {
+    background: #fff; border-left: 4px solid var(--gold);
+    padding: 14px 18px; margin: 12px 0; border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .card.good { border-left-color: var(--good); background: #f5faf6; }
+  .card.warn { border-left-color: var(--warn); background: #fdf5ed; }
+  .card.info { border-left-color: var(--navy-soft); background: #f2f5fa; }
+  .card.star { border-left-color: var(--burgundy-soft); background: #fbf3f4; }
+  .tag {
+    display: inline-block; padding: 2px 10px; border-radius: 12px;
+    font-size: 0.82em; margin: 0 4px 4px 0;
+    background: var(--gold-soft); color: #fff;
+  }
+  .tag.good { background: var(--good); }
+  .tag.warn { background: var(--warn); }
+  .tag.info { background: var(--navy-soft); }
+  .tag.burgundy { background: var(--burgundy); }
+  .tag.navy { background: var(--navy); }
+  .tag.purple { background: var(--purple); }
+  .quote {
+    font-style: italic; color: var(--ink-soft);
+    padding: 10px 18px; border-left: 3px solid var(--gold);
+    background: rgba(184,137,43,0.06); margin: 12px 0;
+  }
+  .highlight {
+    background: linear-gradient(180deg, transparent 50%, rgba(184,137,43,0.3) 50%);
+    padding: 0 3px;
+  }
+  .number-big {
+    display: inline-block; width: 54px; height: 54px; line-height: 54px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-soft) 100%);
+    color: #fff; font-size: 1.7em; border-radius: 50%;
+    margin: 6px 10px 6px 0; font-weight: bold; vertical-align: middle;
+    box-shadow: 0 3px 8px rgba(91,58,112,0.25);
+  }
+  .number-row {
+    display: flex; align-items: center; flex-wrap: wrap;
+    gap: 12px; margin: 12px 0; padding: 10px;
+    background: rgba(91,58,112,0.05); border-radius: 6px;
+  }
+  .number-row .desc { flex: 1; min-width: 240px; font-size: 0.92em; }
+  .number-row .desc .label {
+    font-weight: bold; color: var(--purple); display: block;
+    margin-bottom: 3px; font-size: 0.98em;
+  }
+  .grid-table {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px;
+    max-width: 240px; margin: 14px auto;
+  }
+  .grid-table .cell {
+    aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
+    flex-direction: column; background: #fff;
+    border: 2px solid var(--gold-soft); border-radius: 4px;
+    font-size: 1.1em; font-weight: bold;
+  }
+  .grid-table .cell.has {
+    background: linear-gradient(135deg, #fdf6e3 0%, #fff 100%);
+    color: var(--burgundy);
+  }
+  .grid-table .cell.missing { background: #f5f5f5; color: #ccc; text-decoration: line-through; }
+  .grid-table .cell small { font-size: 0.5em; font-weight: normal; color: var(--ink-soft); }
+  .twelve-cung {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 3px; max-width: 580px; margin: 14px auto; aspect-ratio: 1;
+  }
+  .cung {
+    background: #fff; border: 1px solid var(--burgundy-soft);
+    padding: 6px; font-size: 0.72em; border-radius: 3px;
+  }
+  .cung.center {
+    background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-soft) 100%);
+    color: #fff; grid-column: 2 / span 2; grid-row: 2 / span 2;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; font-size: 0.92em; padding: 14px; text-align: center;
+  }
+  .cung .cung-name {
+    font-weight: bold; color: var(--burgundy);
+    font-size: 0.94em; margin-bottom: 3px;
+  }
+  .cung .stars { color: var(--ink); font-size: 0.95em; line-height: 1.3; }
+  .cung .hoa { color: var(--warn); font-weight: bold; font-size: 0.9em; }
+  .cung.menh { border-width: 2px; background: #fff8e8; }
+  .cung.menh .cung-name { background: var(--burgundy); color: #fff; padding: 2px 6px; border-radius: 2px; display: inline-block; }
+  .cung.than { border-color: var(--gold); border-width: 2px; }
+  .cung.vct { background: #f8f8f8; font-style: italic; }
+  .planet-row {
+    display: grid; grid-template-columns: 30px 110px 120px 1fr;
+    align-items: center; gap: 10px; padding: 6px 10px;
+    border-bottom: 1px solid rgba(31,58,95,0.1); font-size: 0.9em;
+  }
+  .planet-row .sym { font-size: 1.3em; color: var(--navy); text-align: center; }
+  .planet-row .pos { color: var(--navy); font-weight: bold; }
+  .planet-row .house { color: var(--ink-soft); font-style: italic; }
+  .house-row {
+    display: grid; grid-template-columns: 50px 110px 1fr;
+    gap: 10px; padding: 6px 10px;
+    border-bottom: 1px solid rgba(31,58,95,0.08); font-size: 0.9em;
+  }
+  .house-row .num { font-weight: bold; color: var(--navy); }
+  .house-row .sign { color: var(--navy-soft); font-style: italic; }
+  .person-header {
+    background: linear-gradient(135deg, var(--paper) 0%, #fffbe8 100%);
+    border-radius: 8px; padding: 22px 26px; margin-bottom: 22px;
+    border-left: 6px solid var(--gold);
+    box-shadow: 0 2px 15px rgba(184,137,43,0.1);
+  }
+  .person-header.me { border-left-color: var(--burgundy); }
+  .person-header.c2 { border-left-color: var(--navy); }
+  .person-header.c3 { border-left-color: var(--green); }
+  .person-header.ut { border-left-color: var(--purple); }
+  .person-header h2 {
+    margin: 0 0 6px; border: none; padding: 0;
+    color: var(--burgundy); font-size: 2em;
+  }
+  .person-header .role {
+    color: var(--ink-soft); font-style: italic; letter-spacing: 2px; font-size: 1em;
+  }
+  .person-header .basic-info {
+    margin-top: 12px; color: var(--ink-soft); font-size: 0.94em;
+  }
+  .compare-table { width: 100%; font-size: 0.88em; }
+  .compare-table th {
+    background: linear-gradient(180deg, var(--burgundy-soft) 0%, var(--burgundy) 100%);
+    text-align: center;
+  }
+  .compare-table th:first-child { background: var(--ink); width: 170px; text-align: left; }
+  .compare-table td { text-align: center; }
+  .compare-table td:first-child {
+    text-align: left; font-weight: bold;
+    background: rgba(184,137,43,0.1); color: var(--burgundy);
+  }
+  .compare-table .match { background: rgba(61,122,74,0.12) !important; font-weight: bold; }
+  footer {
+    text-align: center; padding: 30px 20px;
+    color: var(--ink-soft); font-style: italic;
+    border-top: 1px solid var(--gold-soft); margin-top: 40px; font-size: 0.9em;
+  }
+  @media (max-width: 720px) {
+    .container { padding: 15px 10px; }
+    section { padding: 18px 15px; }
+    header.title-block h1 { font-size: 1.5em; }
+    .tab-btn { padding: 8px 14px; font-size: 0.85em; }
+    .person-header { padding: 14px 18px; }
+    .person-header h2 { font-size: 1.5em; }
+    .planet-row { grid-template-columns: 30px 80px 1fr; }
+    .planet-row .house { grid-column: 1 / -1; padding-left: 40px; }
+    .twelve-cung { max-width: 100%; }
+    .cung { font-size: 0.6em; padding: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="title-block">
+  <div class="ornament">❦ ☯ ❦</div>
+  <h1>LUẬN GIẢI GIA ĐÌNH</h1>
+  <div class="subtitle">Tử Vi · Biểu Đồ Sao · Thần Số Học</div>
+  <div class="ornament">❦ ☯ ❦</div>
+</header>
+
+<!-- ========= TAB NAVIGATION ========= -->
+<nav class="tab-nav" role="tablist">
+  <button class="tab-btn summary active" data-tab="tab-summary">✦ Tổng hợp</button>
+  <button class="tab-btn" data-tab="tab-me">Mẹ — Phiền</button>
+  <button class="tab-btn" data-tab="tab-c2">Chị 2 — Thảo</button>
+  <button class="tab-btn" data-tab="tab-c3">Chị 3 — Hiền</button>
+  <button class="tab-btn" data-tab="tab-ut">Em Út — Hoà</button>
+  <button class="tab-btn" data-tab="tab-glossary">📖 Chú giải thuật ngữ</button>
+</nav>
+
+<!-- ========================================= -->
+<!-- ================= TAB: TỔNG HỢP ================= -->
+<!-- ========================================= -->
+<div id="tab-summary" class="tab-content active">
+  <section class="summary-card">
+    <h2>✦ Tổng hợp &amp; đối chiếu gia đình</h2>
+    <p>Gia đình gồm <strong>4 người nữ</strong>: Mẹ (Phiền) + 3 con gái (Thảo – Hiền – Hoà), sinh quán <strong>Phước Lại, Cần Giuộc, Long An</strong>.</p>
+
+    <h3>Bảng đối chiếu nhanh</h3>
+    <table class="compare-table">
+      <tr>
+        <th>Chỉ số</th>
+        <th>Mẹ (Phiền)</th>
+        <th>Chị 2 (Thảo)</th>
+        <th>Chị 3 (Hiền)</th>
+        <th>Em Út (Hoà)</th>
+      </tr>
+      <tr><td>Năm sinh</td><td>1966</td><td>1989</td><td>1991</td><td>1996</td></tr>
+      <tr><td>Tuổi (2026)</td><td>60</td><td>37</td><td>35</td><td>30</td></tr>
+      <tr><td>Dương lịch</td><td>24/12/1966</td><td>14/09/1989 (CCCD)</td><td>19/08/1991</td><td>01/05/1996</td></tr>
+      <tr><td>Âm lịch</td><td>13/11 Bính Ngọ</td><td>15/08 Kỷ Tỵ</td><td>10/07 Tân Mùi</td><td>14/03 Bính Tý</td></tr>
+      <tr><td>Giờ sinh</td><td>Dậu (nghiệm)</td><td>Tỵ (9h sáng)</td><td>Mùi (14h)</td><td>Dậu (17h)</td></tr>
+      <tr class="match"><td>Năm Can</td><td><strong>Bính</strong></td><td>Kỷ</td><td>Tân</td><td><strong>Bính</strong></td></tr>
+      <tr><td>Năm Chi</td><td>Ngọ (ngựa)</td><td>Tỵ (rắn)</td><td>Mùi (dê)</td><td>Tý (chuột)</td></tr>
+      <tr><td>Nạp âm bản mệnh</td><td>Thiên Hà Thuỷ</td><td>Đại Lâm Mộc</td><td>Lộ Bàng Thổ</td><td>Giản Hạ Thuỷ</td></tr>
+      <tr><td>Cung Mệnh (Tử Vi)</td><td>Mão</td><td>Thìn</td><td>Sửu</td><td>Mùi</td></tr>
+      <tr><td>Chính tinh Mệnh</td><td>Thiên Đồng</td><td>Thất Sát</td><td>Thiên Phủ</td><td>Tử Vi + Phá Quân</td></tr>
+      <tr><td>Cung Thân cư</td><td>Thiên Di</td><td>Phu Thê</td><td>Phúc Đức</td><td>Thiên Di</td></tr>
+      <tr><td>Cục</td><td>Mộc 3</td><td>Mộc 3</td><td>Thổ 5</td><td>Kim 4</td></tr>
+      <tr class="match"><td>Tứ Hoá Kỵ</td><td><strong>Liêm Trinh</strong></td><td>Văn Khúc</td><td>Văn Xương</td><td><strong>Liêm Trinh</strong></td></tr>
+      <tr><td>Mặt Trời (Sun)</td><td>Capricorn (Ma Kết)</td><td>Virgo (Xử Nữ)</td><td>Leo (Sư Tử)</td><td>Taurus (Kim Ngưu)</td></tr>
+      <tr><td>Mặt Trăng (Moon)</td><td>Aquarius (Bảo Bình) (sớm)</td><td>Aries (Bạch Dương) (sớm)</td><td>Sagittarius (Nhân Mã)</td><td>Libra (Thiên Bình)</td></tr>
+      <tr><td>Cung Mọc (Asc)</td><td>Cancer (Cự Giải)</td><td>Scorpio (Bọ Cạp)</td><td>Scorpio (Bọ Cạp)</td><td>Libra (Thiên Bình)</td></tr>
+      <tr><td>Life Path</td><td>4</td><td>5</td><td>11/2</td><td>4</td></tr>
+      <tr><td>Số Ngày sinh</td><td>6</td><td>5</td><td>1</td><td>1</td></tr>
+      <tr><td>Năm Cá Nhân 2026</td><td>1 (khởi đầu)</td><td>6 (gia đình)</td><td>1 (khởi đầu)</td><td>7 (nội quán)</td></tr>
+    </table>
+
+    <h3>Điểm cộng hưởng nổi bật</h3>
+
+    <div class="card good">
+      <h4 style="margin-top:0; color:var(--good)">CỘNG HƯỞNG 1: Mẹ ↔ Hoà (em út)</h4>
+      <p>Mẹ và Hoà có <strong>rất nhiều điểm trùng</strong>, hiếm gặp trong gia đình:</p>
+      <ul>
+        <li><strong>Cùng năm can Bính</strong> → cùng bộ Tứ Hoá: <em>Đồng Lộc · Cơ Quyền · Xương Khoa · Liêm Trinh Kỵ</em></li>
+        <li><strong>Cùng giờ Dậu</strong> → cùng cách Thân cư Thiên Di</li>
+        <li><strong>Cùng Life Path 4</strong> (Pythagorean) — "người xây nền"</li>
+        <li><strong>Cùng PY 2026 = 7</strong> — năm nội quán</li>
+        <li><strong>Cùng điểm yếu hệ thống ở Phu Thê / Tử Tức</strong> — Mẹ Liêm Trinh Kỵ ở Tử Tức (con khó sinh), Hoà Phu Thê + Tử Tức bị Triệt</li>
+      </ul>
+      <p><strong>Ý nghĩa:</strong> Hoà là "bản in" của Mẹ về nhiều mặt. Những khó khăn về hôn nhân, con cái, tiền bạc Mẹ trải qua sẽ có <em>bóng</em> trong đời Hoà. Khác biệt lớn: Mẹ có <strong>Thiên Đồng</strong> (phúc tinh — tính cách hiền hậu, tích luỹ bền bỉ qua cày cuốc đa nghề) trong khi Hoà có <strong>Tử Phá ở Mệnh</strong> (cách mạng — phá cũ dựng mới, không đi lối mòn). Nên Hoà <em>có thể dùng cách "đột phá" để thoát những điều Mẹ phải "cày bền" mới qua được</em> — không phải Mẹ không nỗ lực, mà là <strong>2 chất phát khác kiểu</strong>: Mẹ phát qua bền, Hoà phát qua đột phá.</p>
+    </div>
+
+    <div class="card info">
+      <h4 style="margin-top:0">CỘNG HƯỞNG 2: Chị 2 ↔ Hoà (cùng bộ sao cương "Sát Phá Tham")</h4>
+      <p>Chị 2 Mệnh <strong>Thất Sát</strong>, Hoà Mệnh <strong>Tử Vi + Phá Quân</strong> — cả 2 cùng thuộc bộ <em>"Sát Phá Tham"</em> (3 sao cương nhất trong Tử Vi). Đây là 2 người <strong>cương nhất trong 4 người của nhà</strong>, không an phận, ưa thay đổi, độc lập. Khác hẳn Mẹ (Thiên Đồng phúc hậu) và Chị 3 (Thiên Phủ giữ của).</p>
+      <p>Tuy nhiên, Chị 2 có <em>Thân cư Phu Thê với Vũ Khúc Hoá Lộc</em> (chồng là bệ đỡ ổn định) → cương nhưng có nơi neo. Còn Hoà Thân cư Thiên Di + Phu Thê Triệt → cương và <em>không có nơi neo truyền thống</em>, phải tự tạo.</p>
+    </div>
+
+    <div class="card star">
+      <h4 style="margin-top:0">CỘNG HƯỞNG 3: Chị 2 ↔ Chị 3 (cùng có "gen tiền bạc" — số 8 bẩm sinh)</h4>
+      <p>Trong biểu đồ Pythagorean của 4 người, <strong>chỉ Chị 2 và Chị 3 có số 8</strong> xuất hiện — đây là "gen kỹ năng tiền bạc" bẩm sinh. Mẹ và Hoà đều <em>thiếu số 8</em> (bài học đời về tiền). Nghĩa là: <strong>nếu cần chia vai giúp nhau về tài chính gia đình, Chị 2 và Chị 3 nên là 2 trụ</strong>; Mẹ và Hoà nên tránh nhận trách nhiệm tiền bạc lớn vì điểm yếu chung.</p>
+      <p>Chị 2 <em>Life Path 5 (tự do, đa năng)</em> + Chị 3 <em>Life Path 11/2 (bậc thầy trực giác)</em> → hai chị có bản chất rất khác nhau nhưng đều có khả năng tiền bạc — bổ trợ nhau tốt nếu cùng làm.</p>
+    </div>
+
+    <div class="card warn">
+      <h4 style="margin-top:0; color:var(--warn)">ĐIỂM CHUNG: Hoá Kỵ đều rơi vào "lời nói / tình cảm / pháp lý"</h4>
+      <ul>
+        <li>Mẹ &amp; Hoà: <strong>Liêm Trinh Hoá Kỵ</strong> — thị phi, pháp lý, máu huyết</li>
+        <li>Chị 2: <strong>Văn Khúc Hoá Kỵ</strong> — hợp đồng, văn bản, lời nói</li>
+        <li>Chị 3: <strong>Văn Xương Hoá Kỵ</strong> — giấy tờ, học vấn, trí</li>
+      </ul>
+      <p>→ <strong>Cả nhà dễ vướng chuyện giấy tờ, lời nói, ký kết</strong>. Quy tắc nên dùng chung: <em>mọi chuyện quan trọng đều phải có giấy trắng mực đen, không "miệng", không bảo lãnh lẫn nhau, kể cả trong nhà</em>.</p>
+    </div>
+
+    <h3>Tương tác giữa 4 người (hợp / xung theo Tử Vi - chi năm)</h3>
+    <table>
+      <tr><th>Cặp</th><th>Quan hệ chi năm</th><th>Tính</th></tr>
+      <tr><td>Mẹ (Ngọ) – Chị 2 (Tỵ)</td><td>Lân cận (gần)</td><td>Hợp nhẹ, có tình mẫu tử sâu</td></tr>
+      <tr><td>Mẹ (Ngọ) – Chị 3 (Mùi)</td><td>Lục hợp (Ngọ-Mùi)</td><td><span class="tag good">Hợp MẠNH</span> Mẹ hiểu Chị 3 hơn cả. Chị 3 là người gần gũi Mẹ nhất về tinh thần</td></tr>
+      <tr><td>Mẹ (Ngọ) – Hoà (Tý)</td><td><strong>Lục xung (Tý-Ngọ)</strong></td><td><span class="tag warn">Xung</span> Hai người va chạm trực diện, dù yêu thương nhưng dễ tranh cãi, không hiểu nhau. Tuy vậy cộng hưởng sâu ở Tứ Hoá</td></tr>
+      <tr><td>Chị 2 (Tỵ) – Chị 3 (Mùi)</td><td>Cách 2 cung</td><td>Trung tính</td></tr>
+      <tr><td>Chị 2 (Tỵ) – Hoà (Tý)</td><td>Lục hại (Tỵ-Dần? không; Tỵ-Thân? có)</td><td>Trung tính. Không hợp đặc biệt nhưng không xung</td></tr>
+      <tr><td>Chị 3 (Mùi) – Hoà (Tý)</td><td>Lục hại (Tý-Mùi)</td><td><span class="tag warn">Lục hại nhẹ</span> — đôi khi hiểu lầm, cần ráng giao tiếp</td></tr>
+    </table>
+
+    <div class="card info">
+      <h4 style="margin-top:0">Gợi ý về động lực gia đình</h4>
+      <ul>
+        <li><strong>Chị 3 là "cầu nối"</strong> — hợp Mẹ nhất, có thể làm trung gian giữa Mẹ và Hoà</li>
+        <li><strong>Mẹ ↔ Hoà</strong> xung trực diện (Tý-Ngọ) → hai người yêu nhau nhưng dễ cãi. Cách giải: gặp nhau qua trung gian (Chị 3), hoặc gặp với chủ đề chung bên ngoài thay vì "đối thoại tay đôi" dễ xung</li>
+        <li><strong>Cả 3 chị em</strong> có chất khác nhau rõ rệt: Chị 2 dựa chồng (Thân Phu Thê), Chị 3 dựa phúc (Thân Phúc Đức), Hoà dựa đi lại/xã giao (Thân Thiên Di) — không ai giống ai, đừng so sánh lẫn nhau</li>
+        <li><strong>Cùng 1 "điểm mù" pháp lý / giấy tờ</strong> — cả nhà cần tránh hùn hạp kinh tế, bảo lãnh lẫn nhau không giấy tờ rõ</li>
+      </ul>
+    </div>
+
+    <h3>Vận 2026 của gia đình (khái quát)</h3>
+    <table>
+      <tr><th>Người</th><th>PY</th><th>Vận Tử Vi 2026</th><th>Hướng năm</th></tr>
+      <tr><td>Mẹ</td><td>1 — khởi đầu</td><td>Tiểu hạn ở Tử Tức, Liêm Kỵ rơi trúng</td><td>Năm sức khoẻ và tinh thần cần chú ý; khởi động lối sống mới</td></tr>
+      <tr><td>Chị 2</td><td>6 — gia đình</td><td>Liêm Kỵ chiếu Thiên Di — tránh đi xa/công tác phức tạp; Phá Quân Quan Lộc có thể bị kích</td><td>Năm chăm lo tổ ấm, cân nhắc sinh con; không đổi việc lớn</td></tr>
+      <tr><td>Chị 3</td><td>1 — khởi đầu</td><td>Tiểu hạn khởi vận mới</td><td>Năm có cơ hội bước ngoặt nghề / nơi ở</td></tr>
+      <tr><td>Em Út (Hoà)</td><td>7 — nội quán</td><td>Tiểu hạn Tử Tức + Triệt</td><td>Năm khám sức khoẻ + học + chuẩn bị cho 2027</td></tr>
+    </table>
+  </section>
+</div>
+
+
+<!-- ========================================= -->
+<!-- ================= TAB: MẸ ================= -->
+<!-- ========================================= -->
+<div id="tab-me" class="tab-content">
+  <div class="person-header me">
+    <h2>Mẹ — Chung Thị Phiền</h2>
+    <div class="role">❦ Người mẹ — sinh 1966 Bính Ngọ ❦</div>
+    <div class="basic-info">
+      <strong>Dương:</strong> 24/12/1966 ·
+      <strong>Âm:</strong> 13/11 Bính Ngọ ·
+      <strong>Giờ:</strong> Dậu (17-19h, nghiệm giờ) ·
+      <strong>Nơi sinh:</strong> Phước Lại, Cần Giuộc, Long An
+    </div>
+  </div>
+
+  <div class="card info" style="border-left:4px solid var(--gold); background:rgba(184,137,43,0.06)">
+    <h3 style="margin-top:0; color:var(--burgundy)">❦ Tổng quan cho người mới đọc</h3>
+    <p>Mệnh có <strong>Thiên Đồng Hoá Lộc</strong> ở Mão + <strong>Thân cư Thiên Di</strong> + <strong>Thiên Cơ Hoá Quyền</strong> ở Quan Lộc → đây là cấu trúc <em>người phúc hậu có tấm lòng nhân từ</em>, đồng thời <em>đa nghề - đa môi trường, đời sống gắn với di chuyển và lao động thực tế</em>. Không an cư một chỗ là đặc tính cấu trúc lá số, không phải lựa chọn.</p>
+    <p><strong>Điểm mạnh theo lá số:</strong> phúc khí bẩm sinh, lòng nhân ái hướng về giúp đỡ người khác; Thiên Cơ Quyền Quan Lộc → đầu óc linh hoạt, chịu khó học hỏi nghề mới; cày bền tích luỹ lâu dài.<br>
+       <strong>Điểm yếu hệ thống:</strong> <em>Cự Môn ở Tài Bạch</em> = tiền dễ vướng lời nói/thị phi/nợ nần; Thiên Đồng nhu → lòng tốt dễ bị lợi dụng qua hợp đồng miệng; Tham Lang ở Tật Ách → cảnh báo các hệ nội tiết/sinh sản/tiêu hoá (bẩm sinh); cấu trúc Nhật-Nguyệt chiếu Phu Thê → hôn nhân có "2 mặt" phức tạp.</p>
+    <p><strong>Định hướng 2026 (theo Tiểu hạn + Tứ Hoá):</strong> Liêm Kỵ lặp ở Tử Tức + Personal Year 1 → năm chăm sức khoẻ tổng quát và khởi động lối sống mới; tránh nhận giữ tiền hộ hoặc ký bảo lãnh (lặp cảnh báo cấu trúc cả đời).</p>
+  </div>
+
+  <section class="info">
+    <h2>1 · Thông tin gốc</h2>
+    <table>
+      <tr><td style="width:220px"><strong>Can chi 4 trụ</strong></td><td>Bính Ngọ · Canh Tý · Ất Hợi · <em>Ất Dậu (giờ nghiệm)</em></td></tr>
+      <tr><td><strong>Bản mệnh (nạp âm)</strong></td><td>Thiên Hà Thuỷ — nước sông trời</td></tr>
+      <tr><td><strong>Cung Mệnh</strong></td><td>Mão (Tân Mão — Tùng Bách Mộc)</td></tr>
+      <tr><td><strong>Thân cư</strong></td><td><strong>Thiên Di</strong> (cung Dậu)</td></tr>
+      <tr><td><strong>Ngũ Hành Cục</strong></td><td>Mộc Tam Cục (cục số 3)</td></tr>
+      <tr><td><strong>Chủ Mệnh · Chủ Thân</strong></td><td>Liêm Trinh · Thiên Tướng</td></tr>
+      <tr><td><strong>Cân lượng</strong></td><td>4 lượng 7 — phú trung, tự làm tự hưởng</td></tr>
+    </table>
+    <p style="font-size:0.9em; color:var(--warn); font-style:italic">⚠ Giờ sinh ước đoán qua 8 dấu hiệu thực tế — độ tin cậy ~90%. Nếu sau này nhớ ra giờ khác, có thể cập nhật lại.</p>
+  </section>
+
+  <section class="tuvi">
+    <h2>2 · Lá số Tử Vi</h2>
+
+    <h3>Tứ Hoá năm Bính Ngọ</h3>
+    <ul>
+      <li><span class="tag good">Thiên Đồng Hoá Lộc</span> → <strong>Mệnh (Mão)</strong> — phúc tinh + Lộc tại Mệnh: sinh ra có tấm lòng nhân từ lớn + phúc khí hướng về giúp đời; cách phát là <em>bền bỉ tích luỹ qua cày nhiều nghề</em>, không qua đột phá</li>
+      <li><span class="tag good">Thiên Cơ Hoá Quyền</span> → <strong>Quan Lộc (Mùi)</strong> — đa nghề, chủ động đổi việc; phù hợp thực tế Mẹ</li>
+      <li><span class="tag good">Văn Xương Hoá Khoa</span> → quý khí danh văn</li>
+      <li><span class="tag warn">Liêm Trinh Hoá Kỵ</span> → <strong>Tử Tức (Tý)</strong> — con cái có trục trặc, nhất là lúc sinh bé út</li>
+    </ul>
+
+    <h3>12 cung &amp; chính tinh</h3>
+    <div class="twelve-cung">
+      <div class="cung"><div class="cung-name">Phúc Đức</div><small>Tỵ · Quý Tỵ</small><div class="stars">Thái Dương</div></div>
+      <div class="cung"><div class="cung-name">Điền Trạch</div><small>Ngọ · Giáp Ngọ</small><div class="stars">Phá Quân</div></div>
+      <div class="cung"><div class="cung-name">Quan Lộc</div><small>Mùi · Ất Mùi</small><div class="stars">Thiên Cơ <span class="hoa">(Quyền)</span></div></div>
+      <div class="cung"><div class="cung-name">Nô Bộc</div><small>Thân · Bính Thân</small><div class="stars">Tử Vi + Thiên Phủ</div></div>
+
+      <div class="cung"><div class="cung-name">Phụ Mẫu</div><small>Thìn · Nhâm Thìn</small><div class="stars">Vũ Khúc</div></div>
+      <div class="cung center">
+        <strong>MẸ PHIỀN</strong><br>
+        Bính Ngọ · Âm Nữ<br>
+        Thiên Hà Thuỷ<br>
+        Mộc Tam Cục<br>
+        Mệnh Mão · Thân Dậu
+      </div>
+      <div class="cung than"><div class="cung-name">Thiên Di</div><small>Dậu · Đinh Dậu · <strong>THÂN</strong></small><div class="stars">Thái Âm</div></div>
+
+      <div class="cung menh"><div class="cung-name">MỆNH</div><small>Mão · Tân Mão</small><div class="stars">Thiên Đồng <span class="hoa">(Lộc)</span></div></div>
+      <div class="cung"><div class="cung-name">Tật Ách</div><small>Tuất · Mậu Tuất</small><div class="stars">Tham Lang</div></div>
+
+      <div class="cung"><div class="cung-name">Huynh Đệ</div><small>Dần · Canh Dần</small><div class="stars">Thất Sát</div></div>
+      <div class="cung"><div class="cung-name">Phu Thê</div><small>Sửu · Tân Sửu</small><div class="stars">Thiên Lương</div></div>
+      <div class="cung"><div class="cung-name">Tử Tức</div><small>Tý · Canh Tý</small><div class="stars">Liêm Trinh + Thiên Tướng <span class="hoa">(Kỵ)</span></div></div>
+      <div class="cung"><div class="cung-name">Tài Bạch</div><small>Hợi · Kỷ Hợi</small><div class="stars">Cự Môn</div></div>
+    </div>
+
+    <h3>Luận chính</h3>
+
+    <div class="card star">
+      <h4 style="margin-top:0">Mệnh ở Mão — THIÊN ĐỒNG HOÁ LỘC</h4>
+      <p>Mệnh Thiên Đồng là <em>sao phúc</em> — có phúc khí bẩm sinh, tấm lòng nhân từ, hướng về giúp đỡ người khác. Hoá Lộc cộng thêm → <strong>tâm luôn hướng về điều lớn lao, nhân ái</strong>. Thiên Đồng <em>không mang chất "đột phá"</em> như Tử Phá hay Thất Sát → cách cấu trúc này phát là <strong>bền bỉ tích luỹ, đi đường dài</strong>, không qua bứt phá.</p>
+      <p>Phải lưu ý: Mệnh Thiên Đồng <strong>không đồng nghĩa với "lười"</strong> hay "an phận". Khi Thân cư Thiên Di + Thiên Cơ Hoá Quyền ở Quan Lộc cùng hoạt động, người có cấu trúc này <em>buộc phải chủ động đa nghề, đổi môi trường, lao động thực tế</em> — cung Quan Lộc mới là nơi phát ra hành động sự nghiệp, không phải Mệnh. Người Thiên Đồng có Thiên Cơ Quyền cày rất khoẻ, chỉ là không theo lối đột phá.</p>
+      <p>Bóng tối của Thiên Đồng nhu là <em>dễ tin lời, lòng tốt dễ bị lợi dụng</em> — cộng với Cự Môn ở Tài Bạch (tiền qua lời nói dễ có thị phi/nợ) tạo điểm yếu hệ thống về tiền bạc cả đời.</p>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:0">Thân cư Thiên Di (Dậu) — THÁI ÂM</h4>
+      <p>Thân cư Thiên Di nghĩa là <em>đời sống gắn với đi lại, xã giao, môi trường ngoài</em>. Thái Âm ở Thân/Thiên Di vị trí Dậu là đắc địa — <em>nếu ở thành thị có khí danh, ở môi trường lao động thì bôn ba nhiều nơi, nhiều loại việc</em>. Cấu trúc này thường biểu hiện ở người cả đời đi lại/đổi việc/đổi môi trường nhiều, không gắn với một nơi cố định.</p>
+      <p>Thái Âm cũng là sao tài âm → lúc về già nên hướng về <em>bất động sản, tiết kiệm âm thầm</em>, không hợp làm tiền to.</p>
+    </div>
+
+    <div class="card warn">
+      <h4 style="margin-top:0">Tài Bạch (Hợi) — CỰ MÔN: điểm yếu hệ thống về tiền</h4>
+      <p>Cự Môn ở Tài → <strong>tiền đến qua miệng (bán hàng, nói), nhưng hay có thị phi về tiền</strong>. Cự Môn cũng chủ <em>nợ nần, hoá đơn không rõ ràng</em>. Rất khớp với "quyết đoán sai về tiền nợ nần" — Cự Môn làm Mẹ <em>tin vào lời người khác, hợp đồng miệng, rồi mất</em>.</p>
+      <p><strong>Gợi ý:</strong> con cái không nên đưa tiền mặt lớn cho Mẹ quản (dễ "trúng bẫy Cự Môn"), mà nên quy đổi thành tài sản có hình (gạo, thuốc, đồ dùng, hoặc giữ hộ trong tài khoản của con).</p>
+    </div>
+
+    <div class="card warn">
+      <h4 style="margin-top:0">Tử Tức (Tý) — LIÊM TRINH + THIÊN TƯỚNG + HOÁ KỴ</h4>
+      <p>Tử Tức có Liêm Trinh Hoá Kỵ năm Bính = <strong>cung con cái có điểm trục trặc về sinh sản hoặc máu huyết</strong>. Liêm Trinh chủ máu → biểu hiện thường gặp: có trắc trở ở một trong các lần sinh, hoặc con cái có giai đoạn sức khoẻ khó khăn.</p>
+      <p>Thiên Tướng có mặt nên <em>các con vẫn được phù trợ</em> (Thiên Tướng là "ấn tướng", quý nhân giúp) — cho nên các con dù có khó khăn vẫn đi được.</p>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:0">Phu Thê (Sửu) — THIÊN LƯƠNG</h4>
+      <p>Thiên Lương ở Phu Thê thường gợi <em>chồng lớn tuổi, chững chạc, có trách nhiệm, mang dáng "trưởng lão"</em>. Nhưng Phu Thê Sửu tam hợp với Thái Âm (Dậu, Thân cư) + Thái Dương (Tỵ, Phúc Đức) → cấu trúc <strong>"Nhật Nguyệt" chiếu cung hôn nhân</strong> → biểu hiện điển hình: chồng có thể có <em>2 mặt đời sống</em> (2 gia đình, 2 nơi ở, hoặc đời sống kép dưới hình thức khác), hôn nhân có yếu tố xa cách dài hạn.</p>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:0">Tật Ách (Tuất) — THAM LANG</h4>
+      <p>Tham Lang ở Tật Ách → cảnh báo các hệ <strong>sinh dục - phụ khoa, tiêu hoá (bao tử, ăn uống)</strong>. Đây là điểm yếu sức khoẻ bẩm sinh cần theo dõi định kỳ suốt đời. Tham Lang cũng chủ <em>lòng ham muốn khó kiểm soát</em> — biểu hiện có thể là ăn nhiều, suy nghĩ nhiều, khó ngủ.</p>
+    </div>
+
+    <h3>Vận 2026 của Mẹ</h3>
+    <div class="card info">
+      <p>Mẹ 60 tuổi dương (61 âm). Tiểu hạn 2026 với tuổi Ngọ, Nữ: theo vòng tiểu hạn cho nhóm Dần-Ngọ-Tuất, khởi Thìn tuổi 1, nghịch hành. Tuổi 61 → Thìn-Mão-Dần-Sửu-Tý... = Thìn (ngoài vòng 12).</p>
+      <p>Tiểu hạn Thìn = cung Phụ Mẫu của Mẹ (có Vũ Khúc). Kết hợp Tứ Hoá năm Bính (lặp lại năm sinh, nhân đôi tác động):</p>
+      <ul>
+        <li>Thiên Đồng Lộc lặp tại Mệnh → Mẹ vẫn giữ phúc khí, tấm lòng nhân hậu; nhưng vẫn cần cảnh giác với lòng tốt dễ bị lợi dụng về tiền</li>
+        <li><strong>Liêm Trinh Kỵ lặp ở Tử Tức</strong> → năm 2026 có thể có chuyện của <em>các con</em> (Chị 2 hoặc Chị 3 hoặc Hoà) khiến Mẹ lo; cần giữ sức khoẻ tâm để không stress vì con</li>
+        <li>Thiên Cơ Quyền ở Quan Lộc → Mẹ có thể tìm được việc nhỏ, hoạt động, có hứng làm cái gì đó mới (buôn bán nhỏ, trồng trọt)</li>
+      </ul>
+      <p><strong>Tư vấn sức khoẻ theo cấu trúc lá số:</strong> cung Tật Ách có Tham Lang → nên khám định kỳ các hệ <em>sinh sản/nội tiết + tiêu hoá</em>. 2026 là năm Personal Year 1 (khởi đầu lối sống mới) → thời điểm phù hợp để điều trị dứt điểm bất kỳ vấn đề sức khoẻ tồn đọng nào.</p>
+    </div>
+  </section>
+
+  <section class="astrology">
+    <h2>3 · Biểu đồ sao Hoàng đạo</h2>
+    <p>Tính cho <strong>24/12/1966 17:30 VN (UT+7) tại Long An</strong>. Giờ sinh là ước đoán, nên Cung Mọc có biên độ ±1 sign.</p>
+
+    <h3>3 điểm nòng cốt</h3>
+    <div class="card star">
+      <h4 style="margin-top:0">☉ Mặt Trời · Capricorn (Ma Kết) ~2° (Nhà 7 — Đối tác)</h4>
+      <p><strong>Cái tôi Capricorn (Ma Kết):</strong> kỷ luật, trách nhiệm, bền bỉ, hướng mục tiêu dài hạn, nhưng cũng cứng và khó bộc lộ cảm xúc. Sun ở Nhà 7 → <em>cái tôi định hình qua mối quan hệ — đặc biệt hôn nhân</em>. Chồng (hoặc đối tác lớn) là "gương" của Mẹ.</p>
+    </div>
+
+    <div class="card star">
+      <h4 style="margin-top:0">☽ Mặt Trăng · Aquarius (Bảo Bình) sớm (Nhà 8 — Chuyển hoá)</h4>
+      <p><strong>Moon Aquarius (Bảo Bình):</strong> cảm xúc có khoảng cách, "mình thuộc về đám đông nhưng cô đơn trong đám đông". Thích suy nghĩ về cái lớn (giúp đời, trúng số, giàu toàn xã hội). Moon Nhà 8 → <em>cảm xúc dính chặt tới tài sản chung, mất mát, chiều sâu</em>.</p>
+    </div>
+
+    <div class="card star">
+      <h4 style="margin-top:0">↑ Cung Mọc · Cancer (Cự Giải) ~2° (Cự Giải mọc)</h4>
+      <p><strong>Cancer (Cự Giải) Rising (Cung Mọc):</strong> vẻ ngoài nhạy cảm, hay thay đổi tâm trạng, bề ngoài mềm nhưng bên trong bảo vệ rất mạnh, thiên về gia đình. Nhưng Saturn Capricorn (Ma Kết) ở Nhà 7 đối Asc → vỏ Cancer (Cự Giải) bị "giảm âm" bởi áp lực trách nhiệm từ hôn nhân.</p>
+    </div>
+
+    <h3>Các hành tinh chính</h3>
+    <div class="planet-row"><div class="sym">☉</div><div class="pos">Capricorn (Ma Kết) 2°</div><div class="house">Nhà 7 — Đối tác</div><div>Cái tôi qua bạn đời; nặng trách nhiệm</div></div>
+    <div class="planet-row"><div class="sym">☽</div><div class="pos">Aquarius (Bảo Bình) ~2°</div><div class="house">Nhà 8 — Sâu</div><div>Cảm xúc khoảng cách, hướng tập thể</div></div>
+    <div class="planet-row"><div class="sym">☿</div><div class="pos">Capricorn (Ma Kết) ~10°</div><div class="house">Nhà 7</div><div>Suy nghĩ thực tế, nghiêm túc</div></div>
+    <div class="planet-row"><div class="sym">♀</div><div class="pos">Scorpio (Bọ Cạp) ~28°</div><div class="house">Nhà 5</div><div>Yêu sâu, có chất ám</div></div>
+    <div class="planet-row"><div class="sym">♂</div><div class="pos">Cancer (Cự Giải) ~25° (R)</div><div class="house">Nhà 1</div><div>Năng lượng hành động dính với gia đình, khá thất thường</div></div>
+    <div class="planet-row"><div class="sym">♃</div><div class="pos">Cancer (Cự Giải) ~27° (R)</div><div class="house">Nhà 1</div><div>Jupiter Cancer (Cự Giải) — rộng lượng với nhà; có may về gia đình gốc</div></div>
+    <div class="planet-row"><div class="sym">♄</div><div class="pos">Pisces (Song Ngư) ~28° (R)</div><div class="house">Nhà 9</div><div>Saturn Pisces (Song Ngư) — bài học về niềm tin, triết lý sống</div></div>
+    <div class="planet-row"><div class="sym">♇</div><div class="pos">Virgo (Xử Nữ) ~20° (R)</div><div class="house">Nhà 3</div><div>Pluto thế hệ — biến đổi trong giao tiếp hàng ngày</div></div>
+
+    <div class="card info">
+      <strong>Chủ đề chiêm tinh chính:</strong>
+      <ul>
+        <li>Sun + Mercury Capricorn (Ma Kết) ở Nhà 7 → cái tôi và tư duy <em>bị trói với hôn nhân</em>. Cả đời Mẹ nghĩ qua lăng kính "mình là vợ/mẹ" hơn là "mình là cá nhân"</li>
+        <li>Moon Aquarius (Bảo Bình) Nhà 8 + Mars/Jupiter ở Nhà 1 (Cancer (Cự Giải)) → <em>bề ngoài hiền gia đình nhưng bên trong có chất nổi loạn âm thầm, khát vọng rộng lớn</em></li>
+        <li>Thân-Thiên Di bên Tử Vi + Moon Nhà 8 bên chiêm tinh = 2 hệ cùng nói "Mẹ không thuộc về 1 chỗ"</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="numerology">
+    <h2>4 · Thần Số Học</h2>
+
+    <div class="number-row">
+      <div class="number-big">4</div>
+      <div class="desc">
+        <span class="label">Life Path (Số Đường Đời)</span>
+        2+4+1+2+1+9+6+6 = 31 → 4. <strong>Người xây nền</strong>: thực tế, bền bỉ, có kỷ luật, chịu khó. Sinh ra để <em>xây dựng cái gì đó vững chắc, không bùng nổ</em>. Điểm khớp hệ thống: Mẹ làm rất nhiều nghề nhỏ, không đại phát nhưng bền.
+      </div>
+    </div>
+
+    <div class="number-row">
+      <div class="number-big" style="background:linear-gradient(135deg,var(--burgundy) 0%,var(--burgundy-soft) 100%)">6</div>
+      <div class="desc">
+        <span class="label">Số Ngày Sinh (24)</span>
+        Ngày 24 → 2+4 = 6. <strong>Người chăm sóc, trách nhiệm gia đình, nặng tình</strong>. Dễ hy sinh cho người thân. Số 6 cộng với Life Path 4 → <em>gánh gia đình trên vai cả đời</em>.
+      </div>
+    </div>
+
+    <div class="number-row">
+      <div class="number-big" style="background:linear-gradient(135deg,var(--warn) 0%,#e8a06a 100%)">1</div>
+      <div class="desc">
+        <span class="label">Personal Year 2026 = 1</span>
+        24 + 12 + 2026 → rút gọn = 1. <strong>Năm KHỞI ĐẦU</strong> trong chu kỳ 9 năm — hợp cho quyết định mới, lối sống mới, sức khoẻ mới. Mẹ 60 tuổi + năm 1 = cơ hội chọn "chương tiếp theo của đời" (nghỉ ngơi trọn vẹn, chăm sức khoẻ, hoặc thử việc nhỏ mới).
+      </div>
+    </div>
+
+    <h3>Biểu đồ Pythagorean — 24/12/1966</h3>
+    <p>Chữ số ngày sinh: 2-4-1-2-1-9-6-6 (bỏ 0).</p>
+    <div class="grid-table">
+      <div class="cell missing">3<small>sáng tạo</small></div>
+      <div class="cell has">6<br>×2<small>gia đình</small></div>
+      <div class="cell has">9<br>×1<small>nhân đạo</small></div>
+      <div class="cell has">2<br>×2<small>cảm thông</small></div>
+      <div class="cell missing">5<small>tự do</small></div>
+      <div class="cell missing">8<small>tiền</small></div>
+      <div class="cell has">1<br>×2<small>cá nhân</small></div>
+      <div class="cell has">4<br>×1<small>kỷ luật</small></div>
+      <div class="cell missing">7<small>tâm linh</small></div>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:0">Các số HIỆN:</h4>
+      <ul>
+        <li><strong>1 × 2</strong>: có cá tính, ý kiến riêng (quyết đoán như con nói)</li>
+        <li><strong>2 × 2</strong>: hợp tác, nhạy cảm người khác</li>
+        <li><strong>4 × 1</strong>: có kỷ luật làm việc</li>
+        <li><strong>6 × 2</strong>: tình gia đình rất mạnh</li>
+        <li><strong>9 × 1</strong>: lòng nhân đạo (giúp đời trong lòng)</li>
+      </ul>
+      <h4>Các số ẨN (bài học):</h4>
+      <ul>
+        <li><strong>Thiếu 3</strong>: khó biểu đạt sáng tạo — Mẹ hay giữ trong lòng, không diễn đạt được</li>
+        <li><strong>Thiếu 5</strong>: thiếu khả năng tự do thay đổi — cuộc đời bị buộc</li>
+        <li><strong>Thiếu 7</strong>: ít tâm linh/suy sâu — mơ mộng nhưng không đào sâu</li>
+        <li><strong>Thiếu 8</strong>: <span class="highlight">thiếu kỹ năng tiền bạc, quyền lực</span> — giống Hoà! Đây là đặc điểm di truyền rõ rệt</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="synthesis" style="border-top-color:var(--burgundy)">
+    <h2 style="color:var(--burgundy)">5 · Tổng hợp &amp; Bổ khuyết giữa 3 trường phái</h2>
+
+    <h3>Ba trường phái nói cùng 1 người (Mẹ) — khớp đến đâu?</h3>
+    <table>
+      <tr style="background:rgba(122,31,43,0.1)"><th>Chủ đề</th><th>Tử Vi</th><th>Thần số học</th><th>Chiêm tinh</th><th>Kết luận khớp</th></tr>
+      <tr>
+        <td><strong>Bản chất con người</strong></td>
+        <td>Thiên Đồng Hoá Lộc ở Mệnh — phúc hậu, mơ mộng + Thân cư Thiên Di — không thuộc về 1 chỗ</td>
+        <td>Life Path 4 (xây nền) + Số ngày 6 (chăm gia đình)</td>
+        <td>Sun Capricorn (Ma Kết) Nhà 7 + Moon Aquarius (Bảo Bình) Nhà 8 + Asc Cancer (Cự Giải) — cái tôi qua hôn nhân, cảm xúc tập thể</td>
+        <td><span class="tag good">Khớp mạnh</span> Phúc hậu, xây nền cho người khác, cả đời bôn ba; "không thuộc về một chỗ" là motif trung tâm cả 3 trường phái</td>
+      </tr>
+      <tr>
+        <td><strong>Hôn nhân</strong></td>
+        <td>Phu Thê (Sửu) — Thiên Lương (chồng trưởng lão) + chiếu Nhật-Nguyệt → chồng có 2 mặt đời</td>
+        <td>—</td>
+        <td>Sun Nhà 7 — cái tôi bị trói với hôn nhân; Venus Scorpio → yêu sâu có chất ám</td>
+        <td><span class="tag warn">Khớp</span> Hôn nhân phức tạp, chồng có đời sống kép (2 gia đình); Mẹ tự định nghĩa qua vai "vợ/mẹ"</td>
+      </tr>
+      <tr>
+        <td><strong>Tiền bạc</strong></td>
+        <td>Cự Môn ở Tài Bạch — tiền đến qua miệng/nói, nhưng dễ nợ nần, thị phi về tiền</td>
+        <td><span class="highlight">Thiếu số 8</span> trong biểu đồ — thiếu kỹ năng tiền/quyền lực bẩm sinh</td>
+        <td>Moon Nhà 8 — cảm xúc dính vào tài sản chung, mất mát</td>
+        <td><span class="tag warn">Khớp tuyệt đối</span> Cả 3 cùng báo: điểm yếu lớn nhất đời Mẹ là tiền; không nên nhận giữ tiền hộ</td>
+      </tr>
+      <tr>
+        <td><strong>Sức khoẻ</strong></td>
+        <td>Tham Lang ở Tật Ách — phụ khoa, bao tử, ăn uống</td>
+        <td>—</td>
+        <td>Mars/Jupiter Cancer Nhà 1 — năng lượng gắn chặt gia đình, bất ổn</td>
+        <td><span class="tag warn">Cảnh báo 2026</span> Khám phụ khoa + bao tử dứt điểm; Personal Year 1 là năm khởi đầu lối sống mới</td>
+      </tr>
+      <tr>
+        <td><strong>Vận 2026</strong></td>
+        <td>Liêm Trinh Kỵ lặp ở Tử Tức — lo cho các con</td>
+        <td>Personal Year 1 — năm khởi đầu chu kỳ 9</td>
+        <td>—</td>
+        <td><span class="tag good">Năm chuyển trang</span> Cơ hội chọn "chương tiếp theo của đời": nghỉ ngơi trọn vẹn hoặc thử việc nhỏ mới</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="recommend" style="border-top-color:var(--gold)">
+    <h2 style="color:var(--burgundy)">6 · Chân dung tổng hợp &amp; Đề xuất hành động</h2>
+
+    <h3>Chân dung 1 câu</h3>
+    <div class="card info" style="border-left:4px solid var(--burgundy); background:rgba(122,31,43,0.05); padding:20px 24px">
+      <p style="font-style:italic; font-size:1.1em; margin:0; color:var(--ink)"><span style="font-size:1.6em; color:var(--burgundy)">❝</span> Một người mẹ <strong>phúc hậu mang lòng nhân đạo</strong>, cả đời bôn ba nhiều nghề để xây nền cho chồng con dù bản thân hay mơ mộng về những điều lớn hơn; bài học đời là <strong>kỹ năng tiền bạc và chăm sóc thân thể</strong> trước khi nghĩ đến người khác. <span style="font-size:1.6em; color:var(--burgundy)">❞</span></p>
+    </div>
+
+    <h3>Đề xuất hành động 2026</h3>
+    <ul>
+      <li><strong>Sức khoẻ là ưu tiên số 1:</strong> khám định kỳ các hệ Tham Lang chỉ báo (sinh sản/nội tiết/tiêu hoá). Tiểu hạn + Personal Year 1 đều báo năm "reset lối sống".</li>
+      <li><strong>KHÔNG nhận giữ tiền hộ, KHÔNG ký bảo lãnh</strong> — Cự Môn Tài + thiếu số 8 = cả 2 trường phái cùng cảnh báo. Nếu con cái đưa tiền, đổi thành tài sản có hình (gạo, thuốc, đồ dùng).</li>
+      <li><strong>Không stress vì con:</strong> Liêm Kỵ lặp ở Tử Tức → có thể có chuyện của các con khiến Mẹ lo. Học cách "thương từ xa, không gánh thay".</li>
+      <li><strong>Thử một hoạt động nhỏ</strong> — trồng trọt, buôn bán nhỏ — để Thiên Cơ Quyền ở Quan Lộc có chỗ phát. Không cần kiếm tiền, chỉ cần có hoạt động.</li>
+      <li><strong>Giữ liên lạc đều với các con</strong> qua trung gian thay vì đối thoại tay đôi với Hoà (Tý-Ngọ xung).</li>
+    </ul>
+  </section>
+</div>
+
+
+<!-- ========================================= -->
+<!-- ================= TAB: CHỊ 2 ================= -->
+<!-- ========================================= -->
+<div id="tab-c2" class="tab-content">
+  <div class="person-header c2">
+    <h2>Chị 2 — Tô Thị Diệu Thảo</h2>
+    <div class="role">❦ Chị cả trong 3 chị em ❦</div>
+    <div class="basic-info">
+      <strong>Dương:</strong> 14/09/1989 (CCCD) ·
+      <strong>Âm:</strong> 15/08 Kỷ Tỵ ·
+      <strong>Giờ:</strong> Tỵ (9h sáng) ·
+      <strong>Nơi sinh:</strong> Phước Lại, Cần Giuộc, Long An
+    </div>
+  </div>
+
+  <div class="card info" style="border-left:4px solid var(--gold); background:rgba(184,137,43,0.06)">
+    <h3 style="margin-top:0; color:var(--burgundy)">❦ Tổng quan cho người mới đọc</h3>
+    <p>Mệnh có sao <em>Thất Sát</em> (1 trong 3 sao cương nhất Tử Vi) — cấu trúc của người <strong>cương quyết, thẳng thắn, độc lập, ghét bị chỉ đạo, nói thẳng</strong>. Có cách tam hợp <strong>"Sát Phá Tham"</strong> (Thất Sát Mệnh, Phá Quân Quan Lộc, Tham Lang Hoá Quyền Tài Bạch) → kiểu người <em>tự lập, thay đổi mạnh, không an phận</em>, thường thấy ở các nhà lãnh đạo / doanh nhân tự thân / chuyên gia có quyền quyết. Đời sống gắn chặt với hôn nhân (Thân cư Phu Thê — chồng, con là khung đời).</p>
+    <p><strong>Điểm mạnh theo lá số:</strong> kỷ luật, có năng lực chuyên môn và ý chí học hỏi (Tham Lang Hoá Quyền); cha mẹ phù trợ về tài lộc (Phụ Mẫu có Thiên Cơ); <strong>chồng là "lộc lớn" của đời</strong> — Vũ Khúc Hoá Lộc rơi trúng cung Phu Thê, cặp "Vũ Tướng" = bạn đời có tài khí và vai trò quản lý ổn định. Hợp nghề <em>chuyên môn có quyền quyết</em> (tài chính, tư vấn, kiểm soát, quản lý vận hành).<br>
+       <strong>Điểm yếu hệ thống:</strong> tính cương dễ tạo áp lực với người trong nhà; Phá Quân Quan Lộc → có xu hướng đổi môi trường làm việc nhiều, khó tích luỹ sớm; Văn Khúc Hoá Kỵ → cẩn trọng với hợp đồng/văn bản/lời hứa.</p>
+    <p><strong>Định hướng 2026 (theo Tiểu hạn + Tứ Hoá + PY):</strong> Personal Year 6 = vận Gia Đình; Liêm Kỵ chiếu Thiên Di = tránh đi xa/môi trường ngoài phức tạp. Tổng hợp: năm tập trung vào tổ ấm, sức khoẻ sinh sản, kế hoạch con cái; <em>không mở rộng kinh doanh, không đổi việc lớn trừ khi chuẩn bị rất kỹ</em>.</p>
+  </div>
+
+  <section class="info">
+    <h2>1 · Thông tin gốc</h2>
+    <table>
+      <tr><td style="width:220px"><strong>Can chi 4 trụ</strong></td><td>Kỷ Tỵ · Quý Dậu · <strong>Ất Mùi</strong> · <strong>Tân Tỵ</strong></td></tr>
+      <tr><td><strong>Bản mệnh (nạp âm)</strong></td><td>Đại Lâm Mộc — rừng cây lớn (theo năm Kỷ Tỵ)</td></tr>
+      <tr><td><strong>Cung Mệnh</strong></td><td>Thìn (Mậu Thìn — Đại Lâm Mộc)</td></tr>
+      <tr><td><strong>Thân cư</strong></td><td><strong>Phu Thê</strong> (cung Dần)</td></tr>
+      <tr><td><strong>Ngũ Hành Cục</strong></td><td>Mộc Tam Cục — trùng hành với bản mệnh, cách cục tốt</td></tr>
+      <tr><td><strong>Chính tinh Mệnh</strong></td><td><strong>Thất Sát</strong> (đơn) — cương, quyết đoán, độc lập</td></tr>
+      <tr><td><strong>Cách cục</strong></td><td><strong>"Sát Phá Tham"</strong> (Thất Sát Mệnh + Phá Quân Quan Lộc + Tham Lang Tài Bạch) — tam hợp chủ đạo đời</td></tr>
+    </table>
+  </section>
+
+  <section class="tuvi">
+    <h2>2 · Lá số Tử Vi</h2>
+
+    <h3>Tứ Hoá năm Kỷ Tỵ</h3>
+    <p style="font-size:0.92em; color:var(--ink-soft); font-style:italic">(Tứ Hoá = 4 sao biến đổi quan trọng nhất của năm sinh. Lộc = thêm may, Quyền = thêm quyền, Khoa = thêm danh, Kỵ = cản/thị phi.)</p>
+    <ul>
+      <li><span class="tag good">Vũ Khúc Hoá Lộc</span> → <strong>Phu Thê (Dần, Thân cư)</strong> — <em>ĐIỂM VÀNG</em>: chồng là lộc lớn của đời, chồng có tài khí, ổn định kinh tế</li>
+      <li><span class="tag good">Tham Lang Hoá Quyền</span> → <strong>Tài Bạch (Tý)</strong> — kiếm tiền có quyền quyết, làm chủ chuyên môn</li>
+      <li><span class="tag good">Thiên Lương Hoá Khoa</span> → <strong>Huynh Đệ (Mão)</strong> — anh chị em có danh/học vấn</li>
+      <li><span class="tag warn">Văn Khúc Hoá Kỵ</span> → cung có Văn Khúc (sao phụ) — cẩn trọng hợp đồng, văn bản, giao tế bằng lời</li>
+    </ul>
+
+    <h3>12 cung &amp; chính tinh</h3>
+    <div class="twelve-cung">
+      <div class="cung"><div class="cung-name">Phụ Mẫu</div><small>Tỵ · Kỷ Tỵ</small><div class="stars">Thiên Cơ</div></div>
+      <div class="cung"><div class="cung-name">Phúc Đức</div><small>Ngọ · Canh Ngọ</small><div class="stars">Tử Vi</div></div>
+      <div class="cung"><div class="cung-name">Điền Trạch</div><small>Mùi · Tân Mùi</small><div class="stars">(Vô Chính Tinh)</div></div>
+      <div class="cung"><div class="cung-name">Quan Lộc</div><small>Thân · Nhâm Thân</small><div class="stars">Phá Quân</div></div>
+
+      <div class="cung menh"><div class="cung-name">MỆNH</div><small>Thìn · Mậu Thìn</small><div class="stars"><strong>Thất Sát</strong></div></div>
+      <div class="cung center">
+        <strong>CHỊ 2 — THẢO</strong><br>
+        Kỷ Tỵ · Âm Nữ<br>
+        Đại Lâm Mộc<br>
+        Mộc Tam Cục<br>
+        Mệnh Thìn · Thân Dần (Phu Thê)
+      </div>
+      <div class="cung"><div class="cung-name">Nô Bộc</div><small>Dậu · Quý Dậu</small><div class="stars">(Vô Chính Tinh)</div></div>
+
+      <div class="cung"><div class="cung-name">Huynh Đệ</div><small>Mão · Đinh Mão</small><div class="stars">Thái Dương + Thiên Lương <span class="hoa">(Khoa)</span></div></div>
+      <div class="cung"><div class="cung-name">Thiên Di</div><small>Tuất · Giáp Tuất</small><div class="stars">Liêm Trinh + Thiên Phủ</div></div>
+
+      <div class="cung than"><div class="cung-name">Phu Thê</div><small>Dần · Bính Dần · <strong>THÂN</strong></small><div class="stars"><strong>Vũ Khúc <span class="hoa">(Lộc)</span> + Thiên Tướng</strong></div></div>
+      <div class="cung"><div class="cung-name">Tử Tức</div><small>Sửu · Ất Sửu</small><div class="stars">Thiên Đồng + Cự Môn</div></div>
+      <div class="cung"><div class="cung-name">Tài Bạch</div><small>Tý · Bính Tý</small><div class="stars">Tham Lang <span class="hoa">(Quyền)</span></div></div>
+      <div class="cung"><div class="cung-name">Tật Ách</div><small>Hợi · Đinh Hợi</small><div class="stars">Thái Âm</div></div>
+    </div>
+
+    <h3>Luận chính</h3>
+
+    <div class="card star">
+      <h4 style="margin-top:0">Mệnh ở Thìn — THẤT SÁT (đơn)</h4>
+      <p><strong>Thất Sát</strong> là 1 trong 3 sao cương nhất Tử Vi (cùng với Phá Quân, Tham Lang — gọi là bộ "Sát Phá Tham"). Đặc tính <strong>Thất Sát Mệnh</strong>:</p>
+      <ul>
+        <li><em>Quyết đoán, thẳng thắn, làm rồi mới nghĩ</em> — không vòng vo</li>
+        <li><em>Độc lập, không thích bị chỉ đạo</em>, khó chịu khi ai đó quản lý mình</li>
+        <li><em>Nghiêm khắc với bản thân và người khác</em>, tiêu chuẩn cao</li>
+        <li><em>Có sức chịu đựng và ý chí mạnh</em>, khi quyết rồi thì theo tới cùng</li>
+      </ul>
+      <p>Khớp mô tả thực tế của Chị 2: <em>"quyết đoán, hơi nghiêm khắc, chịu khó học hỏi trau dồi chuyên môn, đổi việc nhiều lần"</em> — đây là Thất Sát đúng kiểu.</p>
+      <p>Thất Sát Thìn ở vị trí <strong>Thiên La</strong> (cung giam giữ) → cương tính bị kìm nén một chút, không "bùng nổ ra ngoài" mà <em>dồn vào bên trong</em> → người ngoài thấy vẫn có duyên, vẫn cười, nhưng <strong>trong lòng luôn có giới hạn rõ ràng</strong>. Không phải ai cũng được vào sâu.</p>
+    </div>
+
+    <div class="card good">
+      <h4 style="margin-top:0">⚜ Phu Thê (Dần, Thân cư) — VŨ KHÚC HOÁ LỘC + THIÊN TƯỚNG (cách "Vũ Tướng")</h4>
+      <p><span style="background:rgba(184,137,43,0.3); padding:2px 6px"><strong>ĐIỂM SÁNG LỚN NHẤT của lá số Chị 2.</strong></span> Thân cư Phu Thê = <em>đời sống gắn chặt với hôn nhân/bạn đời</em>. Chồng là "cái khung" định hình vận mệnh. Đặc biệt ở đây là:</p>
+      <ul>
+        <li><strong>Vũ Khúc Hoá Lộc</strong> rơi trúng cung Phu Thê → <em>bạn đời mang lộc tới đời mình</em>. Vũ Khúc là <em>tài tinh</em> (sao tài chính, thực dụng, quản lý vật chất). Hoá Lộc = thêm may mắn → bạn đời có năng lực quản lý kinh tế, tính cách thực tế, đáng tin.</li>
+        <li><strong>Thiên Tướng đồng cung</strong> ("Ấn tướng" — sao trợ giúp, quyền uy ngầm) → bạn đời có vị trí quản lý, được kính trọng.</li>
+        <li>Cặp <strong>"Vũ Tướng"</strong> ở Phu Thê là cách rất tốt: <em>bạn đời thường làm nghề quản lý có trách nhiệm thực tế</em> — quản lý sản xuất, kho vận, tài chính, nhân sự vận hành, hoặc các vai trò giám sát cụ thể.</li>
+        <li>Về tính cách: Vũ Khúc thực tế điềm đạm + Thiên Tướng có chất "trợ giúp, bảo hộ" → thường biểu hiện ở người đàn ông <em>điềm tĩnh dễ chịu, có trách nhiệm với gia đình, biết chăm sóc con cái</em>.</li>
+      </ul>
+      <p><strong>Gợi ý giữ hôn nhân:</strong> cấu trúc "vợ cương trong (Thất Sát) - chồng ổn định (Vũ Tướng)" là cặp bổ trợ tự nhiên. Chủ nhân cần <em>ý thức không dùng tính Thất Sát để ép bạn đời</em>, vì người Vũ Tướng không thích bị "chỉ đạo từ trên"; đổi lại, bạn đời mang sự ổn định mà Thất Sát nội tại rất cần.</p>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:0">Quan Lộc (Thân) — PHÁ QUÂN</h4>
+      <p>Quan Lộc (sự nghiệp) có <strong>Phá Quân</strong> — sao "phá cũ dựng mới". Đặc tính: <em>đổi việc liên tục, phá cách, không chịu nếp cũ, thích làm theo cách của mình</em>.</p>
+      <p>Khớp mô tả: <em>"đổi việc nhiều lần, nhưng cùng 1 nghề (kế toán)"</em> — Phá Quân đổi <strong>môi trường làm việc</strong> (công ty, vị trí), nhưng Chị 2 vẫn giữ nghề chuyên môn (vì Tài Bạch có Tham Lang Hoá Quyền → muốn làm chủ chuyên môn). Sự kết hợp tạo ra kiểu <em>"đổi công ty liên tục để trau dồi chuyên môn và có vị trí quyền quyết hơn"</em>.</p>
+      <p><strong>Gợi ý nghề:</strong> vị trí <em>chuyên môn cao có quyền quyết</em> (kế toán trưởng, tư vấn trưởng, kiểm soát nội bộ). Không hợp vị trí "làm thuê thuần tuý" — Phá Quân không chịu nổi.</p>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:0">Tài Bạch (Tý) — THAM LANG HOÁ QUYỀN</h4>
+      <p><strong>Tham Lang</strong> là sao <em>sức hút, khao khát, đa tài, tham vọng học hỏi</em>. Hoá Quyền cộng thêm = <strong>có quyền quyết trong chuyên môn, làm chủ kiến thức</strong>. Đây không phải "tiền bạo phát" mà là <em>tiền đến nhờ làm chủ lĩnh vực</em>.</p>
+      <p>Tham Lang Hoá Quyền rất hợp với <strong>nghề tư vấn chuyên môn, kế toán/kiểm toán cao cấp, quản lý tài chính, chuyên gia phân tích</strong> — những nghề đòi hỏi phải <em>"biết sâu" để có quyền quyết</em>. Cấu trúc này sinh ra người chịu khó học hỏi liên tục để làm chủ lĩnh vực.</p>
+      <p><em>Lưu ý:</em> Tham Lang cũng là sao đào hoa — trong công việc có thể có người "mến mộ chuyên môn" dẫn tới tình cảm công sở. Cần giữ giới hạn rõ.</p>
+    </div>
+
+    <div class="card good">
+      <h4 style="margin-top:0">Huynh Đệ (Mão) — THÁI DƯƠNG + THIÊN LƯƠNG HOÁ KHOA ("Nhật Lương")</h4>
+      <p>Anh chị em có cặp <strong>Nhật Lương</strong> (Thái Dương = sao dương, danh tiếng + Thiên Lương = sao trưởng bối, quý nhân) + <strong>Hoá Khoa</strong> (thêm danh). → <em>Trong anh chị em có người có học vấn, có danh văn, có uy tín</em>. Có thể là Hoà (tài văn chương — Thân cư Thiên Di có Xương Khúc Khoa bên lá số Hoà), cũng có thể là Chị 3 (Thiên Phủ + Life Path 11 trực giác mạnh).</p>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:0">Phụ Mẫu (Tỵ) — THIÊN CƠ</h4>
+      <p>Cung Phụ Mẫu có <strong>Thiên Cơ</strong> — sao thông minh, biến hoá, đa nghề, linh hoạt suy tính. Ý nghĩa: cha mẹ không phải mẫu "giàu có ổn định từ đầu" mà là <em>người linh hoạt, chịu khó, đổi nghề/môi trường theo thời vụ hoặc cơ hội</em> để xây nền cho gia đình.</p>
+    </div>
+
+    <div class="card info">
+      <h4 style="margin-top:0">Phúc Đức (Ngọ) — TỬ VI (đơn, Miếu địa)</h4>
+      <p>Cung phúc đức có <strong>Tử Vi ở Ngọ</strong> (vị trí Miếu, mạnh nhất) — đây là điểm <em>phúc khí đế vương</em>. Dù bản Mệnh Thất Sát cương nhưng Phúc Đức có Tử Vi → <strong>nội tâm có khí chất quý, có lý tưởng, biết đặt mục tiêu cao</strong>. Về già cũng có phúc được kính trọng.</p>
+    </div>
+
+    <h3>Vận 2026 của Chị 2</h3>
+    <div class="card info">
+      <p>Chị 2 37 tuổi dương (38 âm), <strong>PY 6</strong> (Personal Year 6 — năm Gia Đình trong chu kỳ 9 năm Thần số).</p>
+      <p>Tử Vi năm Bính Ngọ: <strong>Liêm Trinh Hoá Kỵ năm 2026</strong> rơi vào cung có Liêm Trinh sinh ra. Liêm Trinh của Chị 2 ở <strong>Thiên Di (Tuất)</strong> đồng cung Thiên Phủ → năm 2026 có thể có <em>chuyện đi lại / môi trường ngoài gây phiền</em> (đồng nghiệp, xã giao, di chuyển). Cũng có thể là chuyện liên quan đến "ra ngoài gia đình" — công tác, khách hàng, xa nhà.</p>
+      <p><strong>Kết hợp PY 6 + Liêm Kỵ Thiên Di:</strong></p>
+      <ul>
+        <li>✓ Tập trung <strong>chăm sóc gia đình, con cái, tổ ấm</strong> — PY 6 hợp việc này</li>
+        <li>✓ Cân nhắc sinh con (nếu trong kế hoạch) — khám sức khoẻ phụ khoa kỹ trước</li>
+        <li>⚠ Hạn chế đi xa, công tác phức tạp, giao thiệp người lạ khó đoán</li>
+        <li>⚠ Không đổi việc lớn năm này (Phá Quân Quan Lộc có thể bị kích bởi Liêm Kỵ Thiên Di đối diện → đổi nhưng dễ hố)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="astrology">
+    <h2>3 · Biểu đồ sao Hoàng đạo</h2>
+    <p>Tính cho <strong>14/09/1989 09:00 VN (UT+7) tại Long An</strong>.</p>
+
+    <div class="card star">
+      <h4 style="margin-top:0">☉ Sun (Mặt Trời) · Virgo (Xử Nữ) ~21° (Nhà 11 — Bạn bè, lý tưởng)</h4>
+      <p>Virgo (Xử Nữ): <em>tỉ mỉ, thực tế, chu đáo, hay lo, cầu toàn</em>. Rất khớp với tính quyết đoán + nghiêm khắc chuyên môn kế toán. Nhà 11 → cái tôi qua nhóm/bạn bè/cộng đồng — Chị 2 có duyên bạn bè dù ít nói.</p>
+    </div>
+
+    <div class="card star">
+      <h4 style="margin-top:0">☽ Moon (Mặt Trăng) · Pisces (Song Ngư) muộn ~20° (Nhà 5 — Con cái, sáng tạo)</h4>
+      <p>Moon Pisces (Song Ngư): <em>cảm xúc sâu, nhạy cảm, mơ mộng, có lòng thương người</em>. Đây là phần "mềm" ẩn phía sau vẻ ngoài Scorpio cứng. Nhà 5 → cảm xúc nuôi bằng con cái/tình yêu/sáng tạo. Giải thích vì sao Chị 2 cương trong công việc nhưng <em>vẫn có duyên, vẫn cười, vẫn chăm con</em> — Moon Pisces làm dịu toàn bộ lá số.</p>
+    </div>
+
+    <div class="card star">
+      <h4 style="margin-top:0">↑ Ascendant (Cung Mọc) · Scorpio (Bọ Cạp) ~13° (Bọ Cạp mọc)</h4>
+      <p>Scorpio (Bọ Cạp) Rising (Cung Mọc): <em>vẻ ngoài kín, sâu, khó đoán, có chiều sâu, người lạ phải làm quen lâu mới được vào sâu</em>. Ngược với Sun Virgo (tỉ mỉ bên trong) → <strong>bên ngoài bí ẩn, bên trong thực tế chi tiết</strong>.</p>
+    </div>
+
+    <div class="card info">
+      <strong>Kết hợp Sun Virgo + Moon Pisces + Asc Scorpio:</strong>
+      <ul>
+        <li>Chị 2 có vẻ ngoài ít nói, sâu (Scorpio) nhưng bên trong cầu toàn, chi tiết (Virgo), và <em>cảm xúc sâu sắc hơn mọi người nghĩ</em> (Moon Pisces)</li>
+        <li>Cấu trúc này giải thích vì sao Chị 2 <strong>cương bên ngoài nhưng biết thương con/chồng sâu</strong> — Moon Pisces là điểm mềm ít ai thấy</li>
+        <li>Đối lập với Mẹ (Cancer Asc mềm) và Hoà (Libra Asc duyên) — Chị 2 là người <strong>"có gai" nhất nhà</strong> nhưng cũng <em>có cảm xúc sâu nhất nội tâm</em></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="numerology">
+    <h2>4 · Thần Số Học</h2>
+
+    <div class="number-row">
+      <div class="number-big" style="background:linear-gradient(135deg,var(--purple) 0%,var(--purple-soft) 100%)">5</div>
+      <div class="desc">
+        <span class="label">Life Path = 5 (Số Đường Đời)</span>
+        1+4+9+1+9+8+9 = 41 → 5. <strong>Người tự do, đa năng, ưa thay đổi, học nhanh</strong>. Sinh ra để <em>trải nghiệm nhiều, không chịu nổi lối mòn</em>. Khớp hoàn toàn với cách Sát Phá Tham bên Tử Vi — đều nói về chất "thay đổi, không an phận".
+      </div>
+    </div>
+
+    <div class="number-row">
+      <div class="number-big" style="background:linear-gradient(135deg,var(--purple) 0%,var(--purple-soft) 100%)">5</div>
+      <div class="desc">
+        <span class="label">Số Ngày Sinh (14)</span>
+        Ngày 14 → 1+4 = 5. <strong>Ngày 5 cộng Life Path 5 = DOUBLE 5</strong>. Chị 2 là người <em>có ý chí tự do rất mạnh</em>, khó chịu nổi sự bó buộc; phù hợp với việc đổi công ty/việc liên tục để học và thăng tiến.
+      </div>
+    </div>
+
+    <div class="number-row">
+      <div class="number-big" style="background:linear-gradient(135deg,var(--burgundy) 0%,var(--burgundy-soft) 100%)">6</div>
+      <div class="desc">
+        <span class="label">Personal Year 2026 = 6 (Năm Cá Nhân)</span>
+        14 + 9 + 2026 rút gọn = 6. <strong>Năm GIA ĐÌNH, trách nhiệm, chăm sóc</strong>. Trong chu kỳ 9 năm của Thần số, PY 6 là năm <em>quay về tổ ấm</em>, chăm con, cân bằng công việc - gia đình. Hợp cho kế hoạch sinh sản, ổn định nhà cửa. <strong>Không hợp</strong> bùng nổ kinh doanh hay đổi nghề lớn.
+      </div>
+    </div>
+
+    <h3>Biểu đồ Pythagorean — 14/09/1989</h3>
+    <p>Chữ số: 1-4-9-1-9-8-9.</p>
+    <div class="grid-table">
+      <div class="cell missing">3</div>
+      <div class="cell missing">6</div>
+      <div class="cell has">9<br>×3</div>
+      <div class="cell missing">2</div>
+      <div class="cell missing">5</div>
+      <div class="cell has">8<br>×1</div>
+      <div class="cell has">1<br>×2</div>
+      <div class="cell has">4<br>×1</div>
+      <div class="cell missing">7</div>
+    </div>
+
+    <div class="card">
+      <p><strong>Các số HIỆN:</strong></p>
+      <ul>
+        <li><strong>9 × 3</strong>: nhân đạo rất mạnh, lòng giúp đỡ</li>
+        <li><strong>1 × 2</strong>: cá tính, ý kiến riêng (quyết đoán — khớp Thất Sát Mệnh)</li>
+        <li><strong>8 × 1</strong>: <em>có gen tiền bạc bẩm sinh</em> (giống Chị 3, khác Mẹ và Hoà!)</li>
+        <li><strong>4 × 1</strong>: kỷ luật làm việc, chuyên môn</li>
+      </ul>
+      <p><strong>Các số ẨN (bài học đời):</strong></p>
+      <ul>
+        <li><strong>Thiếu 5 dù Life Path = 5</strong>: nghịch lý — đường đời cần tự do (5), nhưng biểu đồ thiếu 5 → Chị 2 <em>phải TẠO tự do cho mình</em>, không có sẵn. Khớp với việc đổi việc nhiều lần để tìm không gian phát triển.</li>
+        <li><strong>Thiếu 6</strong>: không có sẵn "gen chăm nhà", phải HỌC (nghịch lý với PY 2026 = 6 là năm gia đình). Ý nghĩa: 2026 là năm Chị 2 cần <em>ý thức học làm người phụ nữ trong nhà</em>, không tự nhiên như người khác.</li>
+        <li>Thiếu 2, 3, 7: hợp tác thụ động, sáng tạo biểu đạt, tâm linh đều chưa mạnh</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="synthesis" style="border-top-color:var(--burgundy)">
+    <h2 style="color:var(--burgundy)">5 · Tổng hợp &amp; Bổ khuyết giữa 3 trường phái</h2>
+
+    <h3>Ba trường phái nói cùng 1 người (Chị 2) — khớp đến đâu?</h3>
+    <table>
+      <tr style="background:rgba(122,31,43,0.1)"><th>Chủ đề</th><th>Tử Vi</th><th>Thần số học</th><th>Chiêm tinh</th><th>Kết luận khớp</th></tr>
+      <tr>
+        <td><strong>Bản chất con người</strong></td>
+        <td>Thất Sát Mệnh + cách Sát Phá Tham — cương quyết, độc lập, không an phận</td>
+        <td>Life Path 5 + Số ngày 5 (Double 5) — tự do, đa năng, ưa thay đổi</td>
+        <td>Sun Virgo (Xử Nữ) + Moon Aries (Bạch Dương) + Asc Scorpio (Bọ Cạp) — tỉ mỉ + bùng cảm xúc + bí ẩn</td>
+        <td><span class="tag good">Khớp mạnh</span> Cả 3 cùng vẽ ra: phụ nữ cương quyết, chuyên môn sâu, ưa tự do thay đổi, không chịu lối mòn</td>
+      </tr>
+      <tr>
+        <td><strong>Hôn nhân</strong></td>
+        <td>Phu Thê Vũ Khúc Hoá Lộc + Thiên Tướng (cặp "Vũ Tướng") — chồng tài khí, quản lý thực tế, ổn định</td>
+        <td>PY 2026 = 6 — năm gia đình, trách nhiệm</td>
+        <td>Sun Nhà 11 (bạn bè) — đối tác có chất cộng đồng/chia sẻ</td>
+        <td><span class="tag good">Khớp rất mạnh</span> Cặp Vũ Tướng + Lộc ở Phu Thê vẽ ra bạn đời quản lý thực tế, điềm đạm, có trách nhiệm gia đình — cấu trúc hôn nhân vững; 2026 là năm tổ ấm</td>
+      </tr>
+      <tr>
+        <td><strong>Tiền &amp; sự nghiệp</strong></td>
+        <td>Tham Lang Hoá Quyền Tài Bạch + Phá Quân Quan Lộc — chuyên môn có quyền, đổi công ty để thăng tiến</td>
+        <td>Có số 8 bẩm sinh — <em>gen tiền bạc</em> (điểm khác Mẹ/Hoà)</td>
+        <td>Sun Virgo — tỉ mỉ, chuyên môn; Moon Aries — hành động nhanh</td>
+        <td><span class="tag good">Khớp tuyệt đối</span> Kế toán + tư vấn, chuyên môn cao, đổi việc nhiều cùng nghề; khác Mẹ/Hoà ở chỗ có "gen tiền"</td>
+      </tr>
+      <tr>
+        <td><strong>Điểm yếu &amp; bài học</strong></td>
+        <td>Cương tính dễ ép chồng/con; Văn Khúc Kỵ — thận trọng hợp đồng/văn bản</td>
+        <td>Thiếu 6 dù PY 6 — chưa có "gen chăm nhà", phải học</td>
+        <td>Asc Scorpio — giữ kín, khó mở lòng với bạn đời</td>
+        <td><span class="tag warn">Bài học 2026</span> Học làm mềm trong nhà, mở lòng với chồng/con, giảm áp lực nghiêm khắc</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="recommend" style="border-top-color:var(--gold)">
+    <h2 style="color:var(--burgundy)">6 · Chân dung tổng hợp &amp; Đề xuất hành động</h2>
+
+    <h3>Chân dung 1 câu</h3>
+    <div class="card info" style="border-left:4px solid var(--burgundy); background:rgba(122,31,43,0.05); padding:20px 24px">
+      <p style="font-style:italic; font-size:1.1em; margin:0; color:var(--ink)"><span style="font-size:1.6em; color:var(--burgundy)">❝</span> Một phụ nữ <strong>cương quyết, chuyên môn sâu, có sẵn gen tiền bạc</strong>, lấy được chồng tài khí làm bệ đỡ ổn định; bài học đời là <strong>học mềm trong nhà</strong> và không để tính Thất Sát biến tổ ấm thành công sở. <span style="font-size:1.6em; color:var(--burgundy)">❞</span></p>
+    </div>
+
+    <h3>Đề xuất hành động 2026</h3>
+    <ul>
+      <li><strong>Năm GIA ĐÌNH (PY 6):</strong> tập trung chăm con, tổ ấm, sức khoẻ phụ khoa. Nếu có kế hoạch sinh con → năm này là thời điểm cân nhắc; khám kỹ trước.</li>
+      <li><strong>KHÔNG đổi việc lớn</strong> năm nay — Liêm Kỵ Thiên Di chiếu Quan Lộc qua tam hợp có thể làm quyết định đổi bị hố. Muốn đổi thì chuẩn bị kỹ sang 2027.</li>
+      <li><strong>Ý thức giảm nghiêm khắc trong nhà:</strong> chồng kiểu Vũ Tướng không thích bị chỉ đạo; con cái cần cảm giác an toàn. Thất Sát tốt cho công sở, không tốt cho phòng bếp.</li>
+      <li><strong>Giữ kỷ luật hợp đồng/văn bản:</strong> Văn Khúc Kỵ cảnh báo lời nói, giấy tờ. Không ký gì vội; đọc kỹ trước khi đồng ý.</li>
+      <li><strong>Dùng "gen tiền bạc" (số 8):</strong> đây là lợi thế — học thêm kỹ năng tài chính cá nhân, đầu tư nhỏ (ETF/gửi tiết kiệm) để phát triển khả năng bẩm sinh này.</li>
+    </ul>
+  </section>
+</div>
+
+
+<!-- ========================================= -->
+<!-- ================= TAB: CHỊ 3 ================= -->
+<!-- ========================================= -->
+<div id="tab-c3" class="tab-content">
+  <div class="person-header c3">
+    <h2>Chị 3 — Tô Thị Thanh Hiền</h2>
+    <div class="role">❦ Chị thứ 2 trong 3 chị em ❦</div>
+    <div class="basic-info">
+      <strong>Dương:</strong> 19/08/1991 ·
+      <strong>Âm:</strong> 10/07 Tân Mùi ·
+      <strong>Giờ:</strong> Mùi (14h) ·
+      <strong>Nơi sinh:</strong> Phước Lại, Cần Giuộc, Long An
+    </div>
+  </div>
+
+  <div class="card info" style="border-left:4px solid var(--gold); background:rgba(184,137,43,0.06)">
+    <h3 style="margin-top:0; color:var(--burgundy)">❦ Tổng quan cho người mới đọc</h3>
+    <p>Chị 3 là người <strong>sâu tinh thần — có lửa cháy bên trong</strong>. Bên ngoài nhìn kín đáo, khó đoán, cần thời gian để mở (Cung Mọc Scorpio/Bọ Cạp), nhưng bên trong cháy sáng, đam mê đi xa, học, tìm ý nghĩa cuộc sống (Mặt Trời Leo/Sư Tử). Đời sống tinh thần quan trọng hơn tiền hay sự nghiệp — lá số gọi là <em>"Thân cư Phúc Đức"</em> (trục đời là nội tâm và niềm vui tinh thần).</p>
+    <p><strong>Điểm mạnh:</strong> <em>kho tài bẩm sinh</em> (Mệnh có sao Thiên Phủ = quản gia, giữ của), <em>trực giác rất mạnh</em> (Số Đường Đời 11 — "bậc thầy cảm nhận"), và là <strong>người DUY NHẤT trong 4 người có sẵn "gen tiền bạc"</strong> (số 8 trong biểu đồ thần số). Hợp nghề môi giới, tư vấn, bất động sản, dịch vụ có tính danh tiếng.<br>
+       <strong>Điểm yếu cần chú ý:</strong> rất cẩn thận với <em>giấy tờ, hợp đồng, văn bản</em> (Văn Xương Hoá Kỵ ở Phúc Đức — dễ hớ do không đọc kỹ); không hợp ngành tẻ nhạt, làm việc một chỗ cả đời.</p>
+    <p><strong>Năm 2026 quan trọng nhất cần làm:</strong> năm <strong>KHỞI ĐẦU LỚN</strong> — phù hợp đổi việc, chuyển nơi ở, mở chương mới, quyết định hướng đi dài hạn. Đây là <em>năm duy nhất trong 9 năm để dám bước ngoặt</em>. Nhưng cần chuẩn bị kỹ (Thiên Di có Liêm Trinh Hoá Kỵ = di chuyển có trắc trở nhẹ).</p>
+  </div>
+
+  <section class="info">
+    <h2>1 · Thông tin gốc</h2>
+    <table>
+      <tr><td style="width:220px"><strong>Can chi 4 trụ</strong></td><td>Tân Mùi · Bính Thân · Kỷ Mão · Tân Mùi</td></tr>
+      <tr><td><strong>Bản mệnh (nạp âm)</strong></td><td>Lộ Bàng Thổ — đất đường cái</td></tr>
+      <tr><td><strong>Cung Mệnh</strong></td><td>Sửu (Tân Sửu — Bích Thượng Thổ)</td></tr>
+      <tr><td><strong>Thân cư</strong></td><td><strong>Phúc Đức</strong> (cung Mão)</td></tr>
+      <tr><td><strong>Ngũ Hành Cục</strong></td><td>Thổ Ngũ Cục</td></tr>
+      <tr><td><strong>Chủ Mệnh · Chủ Thân</strong></td><td>Cự Môn · Thiên Lương</td></tr>
+    </table>
+  </section>
+
+  <section class="tuvi">
+    <h2>2 · Lá số Tử Vi</h2>
+
+    <h3>Tứ Hoá năm Tân Mùi</h3>
+    <ul>
+      <li><span class="tag good">Cự Môn Hoá Lộc</span> → <strong>Điền Trạch (Thìn)</strong> — nhà cửa có lộc qua "nói/bán/giao dịch" (môi giới BĐS?)</li>
+      <li><span class="tag good">Thái Dương Hoá Quyền</span> → <strong>Huynh Đệ (Tý)</strong> — anh chị em có người có quyền/uy</li>
+      <li><span class="tag good">Văn Khúc Hoá Khoa</span> → <strong>Phu Thê (Hợi)</strong> — chồng có danh văn / học vấn</li>
+      <li><span class="tag warn">Văn Xương Hoá Kỵ</span> → <strong>Phúc Đức (Mão, Thân cư)</strong> — Phúc Đức có điểm yếu về giấy tờ/văn chương</li>
+    </ul>
+
+    <h3>12 cung &amp; chính tinh</h3>
+    <div class="twelve-cung">
+      <div class="cung"><div class="cung-name">Quan Lộc</div><small>Tỵ · Quý Tỵ</small><div class="stars">Thiên Tướng</div></div>
+      <div class="cung"><div class="cung-name">Nô Bộc</div><small>Ngọ · Giáp Ngọ</small><div class="stars">Thiên Lương</div></div>
+      <div class="cung"><div class="cung-name">Thiên Di</div><small>Mùi · Ất Mùi</small><div class="stars">Liêm Trinh + Thất Sát</div></div>
+      <div class="cung"><div class="cung-name">Tật Ách</div><small>Thân · Bính Thân</small><div class="stars">(Vô Chính Tinh)</div></div>
+
+      <div class="cung"><div class="cung-name">Điền Trạch</div><small>Thìn · Nhâm Thìn</small><div class="stars">Cự Môn <span class="hoa">(Lộc)</span></div></div>
+      <div class="cung center">
+        <strong>CHỊ 3 — HIỀN</strong><br>
+        Tân Mùi · Âm Nữ<br>
+        Lộ Bàng Thổ<br>
+        Thổ Ngũ Cục<br>
+        Mệnh Sửu · Thân Mão (Phúc Đức)
+      </div>
+      <div class="cung"><div class="cung-name">Tài Bạch</div><small>Dậu · Đinh Dậu</small><div class="stars">(Vô Chính Tinh)</div></div>
+
+      <div class="cung than"><div class="cung-name">Phúc Đức</div><small>Mão · Tân Mão · <strong>THÂN</strong></small><div class="stars">Tử Vi + Tham Lang <span class="hoa">(Xương Kỵ)</span></div></div>
+      <div class="cung"><div class="cung-name">Tử Tức</div><small>Tuất · Mậu Tuất</small><div class="stars">Thiên Đồng</div></div>
+
+      <div class="cung"><div class="cung-name">Phụ Mẫu</div><small>Dần · Canh Dần</small><div class="stars">Thiên Cơ + Thái Âm</div></div>
+      <div class="cung menh"><div class="cung-name">MỆNH</div><small>Sửu · Tân Sửu</small><div class="stars">Thiên Phủ</div></div>
+      <div class="cung"><div class="cung-name">Huynh Đệ</div><small>Tý · Canh Tý</small><div class="stars">Thái Dương <span class="hoa">(Quyền)</span></div></div>
+      <div class="cung"><div class="cung-name">Phu Thê</div><small>Hợi · Kỷ Hợi</small><div class="stars">Vũ Khúc + Phá Quân <span class="hoa">(Văn Khúc Khoa)</span></div></div>
+    </div>
+
+    <h3>Luận chính</h3>
+
+    <div class="card star">
+      <h4 style="margin-top:0">Mệnh ở Sửu — THIÊN PHỦ</h4>
+      <p>Thiên Phủ là <em>kho tài, sao quản lý, sao mẹ hiền</em>. Mệnh Thiên Phủ là người <strong>cẩn trọng, giữ của, có kỹ năng quản gia, thích ổn định</strong>. Người Thiên Phủ thường <em>tích luỹ chậm mà bền, không phá cách</em>.</p>
+      <p>Trong 3 chị em, Chị 3 có lẽ là <strong>người "giữ nhà" tốt nhất</strong> — tiết kiệm, giữ tiền, giữ đồ đạc, giữ truyền thống gia đình.</p>
+      <p>Điểm yếu: Thiên Phủ đơn thủ (không có Lộc Tồn, Hoá Lộc đi kèm) → <em>có kho nhưng chưa chắc có của đầy</em>. Cần gặp sao tài khác để phát.</p>
+    </div>
+
+    <div class="card" style="border-left-color:var(--burgundy)">
+      <h4 style="margin-top:0">Thân cư Phúc Đức (Mão) — TỬ VI + THAM LANG + VĂN XƯƠNG KỴ</h4>
+      <p><strong>Đặc điểm lớn nhất của Chị 3</strong>. Thân cư Phúc Đức = <em>đời sống tinh thần là trọng tâm</em>; cảm giác "có ý nghĩa cuộc sống" quan trọng hơn tiền/chồng/sự nghiệp.</p>
+      <p>Tử Vi + Tham Lang ở Phúc Đức là cách <strong>"Tử Tham cùng cung"</strong> — có khí vương giả (muốn sống đẹp, có gu) + đam mê trải nghiệm (đi xa, học, yêu nhiều loại sở thích). Nhưng <strong>Văn Xương Hoá Kỵ rơi đúng đây</strong> → <em>có điểm yếu về văn bằng/giấy tờ/học hành/văn chương trong đời sống tinh thần</em>. Cẩn trọng: ký giấy tờ không đọc kỹ, văn bản quan trọng nhờ người khác chứ đừng tự xử lý.</p>
+    </div>
+
+    <div class="card good">
+      <h4 style="margin-top:0">Điền Trạch (Thìn) — CỰ MÔN HOÁ LỘC</h4>
+      <p>Điền Trạch = nhà cửa, bất động sản. Cự Môn + Hoá Lộc = <strong>BĐS qua "miệng/nói" có lộc</strong>. Hiểu: Chị 3 có thể <em>kiếm tiền qua môi giới, tư vấn, bán/cho thuê nhà</em>. Hoặc có tin vui về nhà cửa do người khác giới thiệu.</p>
+      <p>Cùng hướng với Mẹ và Hoà (Điền Trạch là mạch quan trọng cho cả nhà), nhưng Chị 3 có Lộc tại đây rõ nhất!</p>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:0">Phu Thê (Hợi) — VŨ KHÚC + PHÁ QUÂN + VĂN KHÚC HOÁ KHOA</h4>
+      <p>Vũ Khúc (tài tinh) + Phá Quân (phá cách) ở Phu Thê = <em>chồng là người có tài khí, nhưng đời anh ấy có biến động</em> (có thể đã qua một lần đổ vỡ, hoặc làm nghề có sóng). Văn Khúc Hoá Khoa ở đây = <strong>chồng có học vấn, có danh văn</strong>, hoặc làm nghề có tính truyền thông/trí thức.</p>
+      <p>Gợi ý: chồng của Chị 3 khả năng cao là <em>người có học, nghề có liên quan đến tài chính / kỹ thuật / truyền thông</em>. Không hợp người làm nghề thủ công đơn thuần.</p>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:0">Huynh Đệ (Tý) — THÁI DƯƠNG HOÁ QUYỀN</h4>
+      <p>Thái Dương Quyền ở Huynh Đệ = <strong>trong anh chị em có người có quyền/uy</strong>. Có thể là Chị 2, có thể là Hoà (Tử Phá Mệnh — có chất lãnh đạo). Thái Dương ở Tý hơi kém sáng, nhưng có Quyền nên vẫn mạnh.</p>
+    </div>
+
+    <h3>Vận 2026 của Chị 3</h3>
+    <div class="card info">
+      <p>Chị 3 35 tuổi dương, PY 1 (năm khởi đầu trong chu kỳ 9).</p>
+      <p>Tử Vi năm Bính Ngọ: Liêm Trinh Hoá Kỵ rơi vào cung có Liêm Trinh. Liêm Trinh của Chị 3 ở Mùi (Thiên Di, có Thất Sát đi cùng) → <strong>2026 có thể có di chuyển/thay đổi lớn</strong>: đổi nơi ở, chuyển việc, đi xa. Nhưng Thiên Di có Kỵ → <em>không hoàn toàn suôn sẻ, cần chuẩn bị kỹ</em>.</p>
+      <p>Năm 1 (PY) + Thiên Di có biến = <strong>năm cực kỳ thích hợp cho bước ngoặt lớn trong đời Chị 3</strong>. Nếu chuẩn bị tốt trước, 2026 là năm mở chương mới.</p>
+    </div>
+  </section>
+
+  <section class="astrology">
+    <h2>3 · Biểu đồ sao Hoàng đạo</h2>
+    <p>Tính cho <strong>19/08/1991 14:00 VN (UT+7) tại Long An</strong>.</p>
+
+    <div class="card star">
+      <h4 style="margin-top:0">☉ Sun · Leo (Sư Tử) ~26° (Nhà 10 — Sự nghiệp)</h4>
+      <p>Leo (Sư Tử): tự tin, có sức hút, có cá tính, thích được chú ý. Nhà 10 → <strong>cái tôi thể hiện qua sự nghiệp công khai, danh tiếng</strong>. Chị 3 có xu hướng tỏa sáng trong công việc hơn trong gia đình.</p>
+    </div>
+
+    <div class="card star">
+      <h4 style="margin-top:0">☽ Moon · Sagittarius (Nhân Mã) ~17° (Nhà 2 — Tiền bạc)</h4>
+      <p>Moon Sagittarius (Nhân Mã): cảm xúc rộng rãi, thích tự do, lạc quan. Nhà 2 → cảm xúc gắn với tiền/giá trị bản thân. Chị 3 <em>thấy vui khi có tiền trong tay, buồn khi thiếu</em>.</p>
+    </div>
+
+    <div class="card star">
+      <h4 style="margin-top:0">↑ Ascendant · Scorpio (Bọ Cạp) (Bọ Cạp mọc)</h4>
+      <p>Cũng giống Chị 2 — Scorpio (Bọ Cạp) Rising (Cung Mọc). Vẻ ngoài kín đáo, sâu, quan sát trước khi mở. Nhưng bên trong (Leo (Sư Tử) Sun) Chị 3 có lửa và khát khao được công nhận hơn Chị 2.</p>
+    </div>
+
+    <div class="card info">
+      <strong>Tổ hợp Sun Leo (Sư Tử) + Moon Sagittarius (Nhân Mã) + Asc Scorpio (Bọ Cạp):</strong> đây là <strong>tổ hợp "năng lượng Hoả mạnh"</strong> (Leo (Sư Tử) Hoả + Sagittarius (Nhân Mã) Hoả). Chị 3 là người <em>có ngọn lửa bên trong lớn</em>, dám làm, dám đi xa. Nhưng Asc Scorpio (Bọ Cạp) che kín ra ngoài nên nhìn hiền, ai không thân không đoán được.
+    </div>
+  </section>
+
+  <section class="numerology">
+    <h2>4 · Thần Số Học</h2>
+
+    <div class="number-row">
+      <div class="number-big" style="background:linear-gradient(135deg,var(--gold) 0%,var(--gold-soft) 100%)">11/2</div>
+      <div class="desc">
+        <span class="label">Life Path = 11/2 (MASTER NUMBER)</span>
+        1+9+8+1+9+9+1 = 38 → 3+8 = 11 → giữ master. <strong>Số 11 là "nhà cân bằng tâm linh", bậc thầy trực giác</strong>. Chị 3 sinh ra có <em>trực giác mạnh, cảm người khác nhanh, có chiều sâu tinh thần</em>. Khớp chính xác với Thân cư Phúc Đức (cuộc đời dựa vào tinh thần).
+      </div>
+    </div>
+
+    <div class="number-row">
+      <div class="number-big" style="background:linear-gradient(135deg,var(--navy) 0%,var(--navy-soft) 100%)">1</div>
+      <div class="desc">
+        <span class="label">Số Ngày Sinh (19)</span>
+        Ngày 19 → 1+9 = 10 → 1. <strong>Người số 1 có ý chí cá nhân mạnh, tự lập</strong>. Sinh ngày 19 đặc biệt vì có cả 1 + 9 → vừa cá nhân vừa nhân đạo. Kết hợp Life Path 11 → <em>người có sứ mệnh dẫn dắt tinh thần, không chịu được làm "việc tẻ nhạt"</em>.
+      </div>
+    </div>
+
+    <div class="number-row">
+      <div class="number-big" style="background:linear-gradient(135deg,var(--good) 0%,#5ca364 100%)">1</div>
+      <div class="desc">
+        <span class="label">Personal Year 2026 = 1</span>
+        19 + 8 + 2026 rút gọn = 1. <strong>Năm KHỞI ĐẦU</strong>. Chị 3 nên <em>quyết định hướng đi lớn trong 2026</em> — đổi việc, mở rộng, chuyển nơi ở, bắt đầu sự nghiệp riêng.
+      </div>
+    </div>
+
+    <h3>Biểu đồ Pythagorean — 19/08/1991</h3>
+    <p>Chữ số: 1-9-8-1-9-9-1.</p>
+    <div class="grid-table">
+      <div class="cell missing">3</div>
+      <div class="cell missing">6</div>
+      <div class="cell has">9<br>×3</div>
+      <div class="cell missing">2</div>
+      <div class="cell missing">5</div>
+      <div class="cell has">8<br>×1</div>
+      <div class="cell has">1<br>×3</div>
+      <div class="cell missing">4</div>
+      <div class="cell missing">7</div>
+    </div>
+
+    <div class="card">
+      <p><strong>Mạnh:</strong> 1 (3 lần — cá nhân MẠNH), 9 (3 lần — nhân đạo), 8 (kỹ năng tiền)</p>
+      <p><strong>Thiếu:</strong> 2, 3, 4, 5, 6, 7</p>
+      <p><strong>Đường quyết tâm 1-5-9:</strong> có 1 và 9, thiếu 5 → <em>đường quyết tâm GẦN ĐẦY ĐỦ</em>, nếu phát triển được tính linh hoạt (5) sẽ rất mạnh.</p>
+      <p><strong>Chị 3 có số 8 hiện</strong> — cùng với Chị 2 là 2 người trong nhà có <em>"gen tiền bạc"</em> bẩm sinh (Mẹ và Hoà đều thiếu 8). Chị 3 có thêm <em>Life Path 11/2 (bậc thầy trực giác)</em> → kết hợp số 8 + trực giác tạo ra người <strong>cảm nhanh cơ hội tiền bạc</strong>, rất hợp môi giới/tư vấn/đầu tư.</p>
+    </div>
+  </section>
+
+  <section class="synthesis" style="border-top-color:var(--burgundy)">
+    <h2 style="color:var(--burgundy)">5 · Tổng hợp &amp; Bổ khuyết giữa 3 trường phái</h2>
+
+    <h3>Ba trường phái nói cùng 1 người (Chị 3) — khớp đến đâu?</h3>
+    <table>
+      <tr style="background:rgba(122,31,43,0.1)"><th>Chủ đề</th><th>Tử Vi</th><th>Thần số học</th><th>Chiêm tinh</th><th>Kết luận khớp</th></tr>
+      <tr>
+        <td><strong>Bản chất con người</strong></td>
+        <td>Thiên Phủ Mệnh (kho tài, giữ của, quản gia) + Thân cư Phúc Đức (đời sống tinh thần là trọng tâm)</td>
+        <td>Life Path 11/2 (Master Number — bậc thầy trực giác, cân bằng tâm linh) + Số ngày 1 (tự lập)</td>
+        <td>Sun Leo (Sư Tử) Nhà 10 (sự nghiệp) + Moon Sagittarius (Nhân Mã) Nhà 2 (tiền) + Asc Scorpio (Bọ Cạp) — Hoả mạnh trong + kín ngoài</td>
+        <td><span class="tag good">Khớp mạnh</span> Cả 3 vẽ ra: phụ nữ kín đáo ngoài - lửa và trực giác bên trong, sứ mệnh dẫn dắt tinh thần + làm tiền qua chuyên môn</td>
+      </tr>
+      <tr>
+        <td><strong>Hôn nhân</strong></td>
+        <td>Phu Thê có Vũ Khúc + Phá Quân + Văn Khúc Hoá Khoa — chồng có tài, có học vấn/danh văn, đời có biến động</td>
+        <td>—</td>
+        <td>Venus (chưa phân tích chi tiết trong file này)</td>
+        <td><span class="tag info">Gợi ý</span> Chồng khả năng là người có học, nghề liên quan tài chính/kỹ thuật/truyền thông; có thể đã qua 1 biến cố tình cảm</td>
+      </tr>
+      <tr>
+        <td><strong>Tiền &amp; sự nghiệp</strong></td>
+        <td>Cự Môn Hoá Lộc Điền Trạch (BĐS qua môi giới, nói) + Tham Lang Phúc Đức (đam mê trải nghiệm)</td>
+        <td><span class="highlight">Có số 8 bẩm sinh</span> — gen tiền bạc + Life Path 11/2 + Personal Year 1 (khởi đầu)</td>
+        <td>Sun Nhà 10 — danh tiếng qua sự nghiệp công khai</td>
+        <td><span class="tag good">Khớp tuyệt đối</span> 3 trường phái cùng báo: Chị 3 sinh ra để <em>làm tiền qua môi giới/tư vấn/BĐS + xây danh công khai</em>; 2026 là năm bước ngoặt</td>
+      </tr>
+      <tr>
+        <td><strong>Điểm yếu &amp; bài học</strong></td>
+        <td>Văn Xương Hoá Kỵ ở Phúc Đức — giấy tờ, hợp đồng dễ hớ; Thân cư Phúc Đức nên dễ cảm giác "không đủ ý nghĩa"</td>
+        <td>Thiếu 5 (đường quyết tâm) — cần rèn tính linh hoạt; thiếu 2/3/4/6 — điểm trống nhiều</td>
+        <td>Asc Scorpio — khó mở lòng, cần thời gian để tin người</td>
+        <td><span class="tag warn">Cảnh báo</span> KHÔNG ký hợp đồng không đọc kỹ (Văn Xương Kỵ); học mở lòng với đối tác dài hạn</td>
+      </tr>
+      <tr>
+        <td><strong>Vận 2026</strong></td>
+        <td>Liêm Kỵ chiếu Thiên Di (có biến di chuyển/môi trường) + Tiểu hạn khởi vận mới</td>
+        <td>Personal Year 1 — năm KHỞI ĐẦU, năm duy nhất trong 9 năm để dám bước ngoặt</td>
+        <td>—</td>
+        <td><span class="tag good">NĂM NGÃ RẼ</span> Tử Vi + Thần số đồng thuận: 2026 là năm quyết định hướng đi dài hạn; nên chuẩn bị kỹ</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="recommend" style="border-top-color:var(--gold)">
+    <h2 style="color:var(--burgundy)">6 · Chân dung tổng hợp &amp; Đề xuất hành động</h2>
+
+    <h3>Chân dung 1 câu</h3>
+    <div class="card info" style="border-left:4px solid var(--burgundy); background:rgba(122,31,43,0.05); padding:20px 24px">
+      <p style="font-style:italic; font-size:1.1em; margin:0; color:var(--ink)"><span style="font-size:1.6em; color:var(--burgundy)">❝</span> Một phụ nữ <strong>có lửa bên trong và trực giác bậc thầy</strong>, kho tài bẩm sinh + gen tiền bạc, sứ mệnh là <strong>đi xa và dẫn dắt tinh thần qua làm môi giới/tư vấn/BĐS</strong>; 2026 là năm ngã rẽ lớn nhất trong chu kỳ 9 năm — không nên bỏ lỡ. <span style="font-size:1.6em; color:var(--burgundy)">❞</span></p>
+    </div>
+
+    <h3>Đề xuất hành động 2026</h3>
+    <ul>
+      <li><strong>Năm KHỞI ĐẦU (PY 1):</strong> đây là <em>năm duy nhất trong 9 năm</em> để quyết định hướng đi lớn. Đừng chần chừ — nếu muốn đổi việc, đổi ngành, chuyển nơi, 2026 là cửa sổ cơ hội. Lỡ mất phải đợi 9 năm nữa.</li>
+      <li><strong>Tận dụng "gen tiền 8" + trực giác 11/2:</strong> kết hợp 2 lợi thế này để thử nghề <em>môi giới BĐS, tư vấn đầu tư, hoặc dịch vụ tài chính có danh</em>. Cự Môn Lộc Điền Trạch + Sun Nhà 10 đều ủng hộ.</li>
+      <li><strong>Đọc kỹ mọi hợp đồng/giấy tờ:</strong> Văn Xương Kỵ ở Phúc Đức cảnh báo <em>dễ hớ do tin vào "ý nghĩa" không kiểm tra chi tiết</em>. Nhờ người có chuyên môn xem giúp trước khi ký.</li>
+      <li><strong>Chuẩn bị cho di chuyển:</strong> Liêm Kỵ Thiên Di có thể tạo biến về nơi ở/môi trường. Nếu phải chuyển, nên chuẩn bị kỹ về tài chính + hợp đồng. Nếu không muốn chuyển, chủ động ổn định trước để tránh bị "đẩy đi" bị động.</li>
+      <li><strong>Rèn tính linh hoạt (số 5 thiếu):</strong> hạn chế lập kế hoạch quá cứng, học chấp nhận thay đổi đột xuất — đây là bài học đường quyết tâm.</li>
+    </ul>
+  </section>
+</div>
+
+
+<!-- ========================================= -->
+<!-- ================= TAB: EM ÚT (HOÀ) ================= -->
+<!-- ========================================= -->
+<div id="tab-ut" class="tab-content">
+  <div class="person-header ut">
+    <h2>Em Út — Tô Thị Thanh Hoà</h2>
+    <div class="role">❦ Con út của nhà ❦</div>
+    <div class="basic-info">
+      <strong>Dương:</strong> 01/05/1996 ·
+      <strong>Âm:</strong> 14/03 Bính Tý ·
+      <strong>Giờ:</strong> Dậu (17h) ·
+      <strong>Nơi sinh:</strong> BV Từ Dũ, Sài Gòn
+    </div>
+  </div>
+
+  <div class="card info" style="border-left:4px solid var(--gold); background:rgba(184,137,43,0.06)">
+    <h3 style="margin-top:0; color:var(--burgundy)">❦ Tổng quan cho người mới đọc</h3>
+    <p>Hoà là <strong>người "khác dàn" nhất nhà</strong>. Mẹ mang khí "phúc hậu - bôn ba" (Thiên Đồng Lộc), Chị 2 mang khí "cương quyết - chuyên môn" (Thất Sát — cùng bộ Sát Phá Tham với Hoà), Chị 3 mang khí "kho tài - tinh thần" (Thiên Phủ); Hoà mang khí <em>"cách mạng - phá cũ dựng mới"</em> (Tử Phá Linh — "vương giả phá cách"). Bên ngoài duyên dáng, hoà nhã, có gu (Libra đôi — Mặt Trăng + Cung Mọc cùng Thiên Bình), nhưng bên trong có <em>chấp niệm đúng/sai rất mạnh</em>, tiêu chuẩn cao với bản thân và người khác. Chị 2 và Hoà là 2 người <strong>cương nhất nhà</strong>, khác Mẹ (phúc) và Chị 3 (giữ).</p>
+    <p><strong>Điểm mạnh:</strong> <em>tài văn chương - giao tiếp - truyền đạt</em> đại cách (Thiên Tướng + Văn Xương + Văn Khúc + Hoá Khoa ở Thân cư Thiên Di — nôm na: sự nghiệp phát qua chữ nghĩa, nói, dạy, viết); <em>mạch bất động sản lớn</em> trong đời (Thái Âm Miếu ở Điền Trạch); ý chí 1-5-9 đầy đủ trên biểu đồ thần số → nội lực cực mạnh nếu đặt mục tiêu.<br>
+       <strong>Điểm yếu cần chú ý:</strong> <em>sự nghiệp dễ thị phi</em> nếu chọn ngành "xám" (giải trí mờ, tình cảm công sở); hôn nhân không truyền thống (muộn, có thể lấy người khác vùng/quốc tịch); con cái trễ hoặc khó; <em>thiếu số 8</em> trong biểu đồ thần số → bài học lớn của đời là kỹ năng tiền bạc (giống Mẹ di truyền sang).</p>
+    <p><strong>Năm 2026 quan trọng nhất cần làm:</strong> năm <strong>nội quán - học sâu - khám sức khoẻ</strong> (Personal Year 7 trong chu kỳ 9 năm). Đây là năm <em>không bùng nổ tiền</em> mà là năm <em>chuẩn bị nền</em> cho bứt phá ở 2027 (Personal Year 8 — năm tiền) và đại hạn Điền Trạch 2030-2039 (mạch BĐS mở). Định hướng: rà sức khoẻ tổng thể (đặc biệt hệ sinh sản do Tử Tức + Triệt), học kỹ năng nghề văn/nói, ổn định nhịp sinh hoạt và sức khoẻ thể chất.</p>
+  </div>
+
+  <div class="card info">
+    <p><strong>Lưu ý:</strong> Hoà có <strong>file luận giải chi tiết riêng</strong> tại <code>Hoà/Hoa_luan_giai.html</code> (1576 dòng) — bao gồm thêm <em>Nhân Tướng</em> (khuôn mặt · chỉ tay · thanh tướng) và các phần sâu hơn. Trang này trình bày đủ 3 trường phái (Tử Vi · Chiêm tinh · Thần số) để đối chiếu với Mẹ và 2 chị.</p>
+  </div>
+
+  <section class="info">
+    <h2>1 · Thông tin gốc</h2>
+    <table>
+      <tr><td style="width:220px"><strong>Can chi 4 trụ</strong></td><td>Bính Tý · Nhâm Thìn · Mậu Tuất · Tân Dậu</td></tr>
+      <tr><td><strong>Bản mệnh (nạp âm)</strong></td><td>Giản Hạ Thuỷ — nước khe dưới núi</td></tr>
+      <tr><td><strong>Cung Mệnh</strong></td><td>Mùi (Ất Mùi) — cách <strong>Tử Phá Linh</strong></td></tr>
+      <tr><td><strong>Thân cư</strong></td><td><strong>Thiên Di</strong> (cung Sửu, đời gắn đi lại - xã giao)</td></tr>
+      <tr><td><strong>Ngũ Hành Cục</strong></td><td>Kim Tứ Cục (cục số 4)</td></tr>
+      <tr><td><strong>Chủ Mệnh · Chủ Thân</strong></td><td>Tham Lang · Linh Tinh</td></tr>
+      <tr><td><strong>Cân lượng</strong></td><td>6 lượng — trung cách, có phúc</td></tr>
+      <tr><td><strong>Tuần – Triệt</strong></td><td>Tuần tại Thân–Dậu · Triệt tại Thìn–Tỵ (hai "thanh chặn" rơi vào cung Tử Tức &amp; Phu Thê)</td></tr>
+    </table>
+  </section>
+
+  <section class="tuvi">
+    <h2>2 · Lá số Tử Vi</h2>
+
+    <h3>Tứ Hoá năm Bính Tý</h3>
+    <p style="font-size:0.92em; color:var(--ink-soft); font-style:italic">(Tứ Hoá = 4 sao biến đổi quan trọng nhất của năm sinh, cho biết cung nào được tăng thêm lộc/quyền/khoa hoặc bị cản. Hoà cùng Tứ Hoá với Mẹ — đây là điểm cộng hưởng số 1 giữa hai mẹ con.)</p>
+    <ul>
+      <li><span class="tag good">Thiên Đồng Hoá Lộc</span> → <strong>Tật Ách (Dần)</strong> — phúc cứu bệnh: khi có vấn đề sức khoẻ thường có quý nhân cứu</li>
+      <li><span class="tag good">Thiên Cơ Hoá Quyền</span> → <strong>Huynh Đệ (Ngọ)</strong> — anh chị em/bạn thân có người thông minh, chủ động, giúp được việc</li>
+      <li><span class="tag good">Văn Xương Hoá Khoa</span> → <strong>Thiên Di (Sửu, Thân cư)</strong> — <em>ĐIỂM VÀNG</em>: danh tiếng qua chữ nghĩa, học vấn, giao tiếp</li>
+      <li><span class="tag warn">Liêm Trinh Hoá Kỵ</span> → <strong>Quan Lộc (Hợi)</strong> — sự nghiệp có điểm yếu về thị phi, pháp lý, tình cảm công sở (cả đời, không chỉ 1 năm)</li>
+    </ul>
+
+    <h3>12 cung &amp; chính tinh</h3>
+    <div class="twelve-cung">
+      <div class="cung"><div class="cung-name">Phu Thê</div><small>Tỵ · Quý Tỵ · <strong>TRIỆT</strong></small><div class="stars">(Vô Chính Tinh)</div></div>
+      <div class="cung"><div class="cung-name">Huynh Đệ</div><small>Ngọ · Giáp Ngọ</small><div class="stars">Thiên Cơ <span class="hoa">(Quyền)</span></div></div>
+      <div class="cung menh"><div class="cung-name">MỆNH</div><small>Mùi · Ất Mùi</small><div class="stars">Tử Vi + Phá Quân + Linh Tinh</div></div>
+      <div class="cung"><div class="cung-name">Phụ Mẫu</div><small>Thân · Bính Thân · <strong>TUẦN</strong></small><div class="stars">(Vô Chính Tinh)</div></div>
+
+      <div class="cung"><div class="cung-name">Tử Tức</div><small>Thìn · Nhâm Thìn · <strong>TRIỆT</strong></small><div class="stars">Thái Dương + Đà La</div></div>
+      <div class="cung center">
+        <strong>HOÀ — Em Út</strong><br>
+        Bính Tý · Âm Nữ<br>
+        Giản Hạ Thuỷ<br>
+        Kim Tứ Cục<br>
+        Mệnh Mùi · Thân Sửu (Thiên Di)
+      </div>
+      <div class="cung"><div class="cung-name">Phúc Đức</div><small>Dậu · Đinh Dậu · <strong>TUẦN</strong></small><div class="stars">Thiên Phủ</div></div>
+
+      <div class="cung"><div class="cung-name">Tài Bạch</div><small>Mão · Tân Mão</small><div class="stars">Vũ Khúc + Thất Sát</div></div>
+      <div class="cung"><div class="cung-name">Điền Trạch</div><small>Tuất · Mậu Tuất</small><div class="stars">Thái Âm (Miếu)</div></div>
+
+      <div class="cung"><div class="cung-name">Tật Ách</div><small>Dần · Canh Dần</small><div class="stars">Thiên Đồng <span class="hoa">(Lộc)</span> + Thiên Lương</div></div>
+      <div class="cung than"><div class="cung-name">Thiên Di</div><small>Sửu · Tân Sửu · <strong>THÂN</strong></small><div class="stars">Thiên Tướng + Xương Khúc <span class="hoa">(Khoa)</span></div></div>
+      <div class="cung"><div class="cung-name">Nô Bộc</div><small>Tý · Canh Tý</small><div class="stars">Cự Môn</div></div>
+      <div class="cung"><div class="cung-name">Quan Lộc</div><small>Hợi · Kỷ Hợi</small><div class="stars">Tham Lang + Liêm Trinh <span class="hoa">(Kỵ)</span></div></div>
+    </div>
+
+    <h3>Luận chính</h3>
+
+    <div class="card star">
+      <h4 style="margin-top:0">Mệnh ở Mùi — CÁCH "TỬ PHÁ LINH"</h4>
+      <p><strong>Tử Vi</strong> (sao đế vương, lãnh đạo) <strong>+ Phá Quân</strong> (sao phá cách, mở đường) <strong>+ Linh Tinh</strong> (sao bộc phát, đột biến) → đây là cách <em>"vương giả phá cách, nhu trong cương ngoài"</em>. Nhìn Hoà có vẻ hiền hoà (Libra Rising), nhưng bên trong <strong>có chất tiên phong, không chịu bó buộc kiểu cũ, sẵn sàng phá bỏ nếp quen để dựng cái mới</strong>.</p>
+      <p>Khác hẳn Mẹ (Thiên Đồng phúc hậu, an nhàn), Chị 3 (Thiên Phủ cẩn trọng, giữ của). Gần nhất với Hoà là Chị 2 (Thất Sát cương) — cả 2 cùng bộ "Sát Phá Tham"; nhưng Hoà có Tử Vi đồng cung → khí vương giả rõ hơn, trong khi Chị 2 Thất Sát đơn → cương thẳng mà không có khí đế. Linh Tinh (sao cản, làm tính nóng bộc phát) cũng là <strong>Chủ Thân</strong> → bản chất Hoà có lửa âm ỉ, đôi khi bùng lên bất ngờ. Đây không phải số an phận.</p>
+    </div>
+
+    <div class="card" style="border-left-color:var(--burgundy)">
+      <h4 style="margin-top:0">Thân cư Thiên Di (Sửu) — ĐIỂM VÀNG CẢ LÁ SỐ</h4>
+      <p>Thân cư Thiên Di = <em>đời sống gắn với đi lại, xã giao, môi trường ngoài</em> (giống Mẹ). Hoà <strong>ra ngoài gặp quý nhân hơn ở nhà</strong> — nếu đóng cửa một mình sẽ chặn luôn dòng vận.</p>
+      <p>Cung này có <strong>Thiên Tướng (Đắc) + Văn Xương (Đắc, Hoá Khoa) + Văn Khúc (Đắc) + quý nhân Ân Quang/Thiên Quý + Đế Vượng</strong> → đây là <strong>ĐẠI CÁCH tài văn chương, học vấn, giao tiếp</strong>. Sự nghiệp của Hoà <em>phát ra ngoài bằng chữ nghĩa, lời nói, danh tiếng</em>. Hợp: dạy học, viết sách, content, tư vấn, diễn giả, làm nghệ thuật gắn chữ nghĩa.</p>
+      <p><em>(Thuật ngữ: "Hoá Khoa" = sao chủ danh tiếng, thi cử, học vấn. "Đắc" = sao ở đúng vị trí mạnh.)</em></p>
+    </div>
+
+    <div class="card good">
+      <h4 style="margin-top:0">Điền Trạch (Tuất) — THÁI ÂM MIẾU ĐỊA = mạch bất động sản</h4>
+      <p>Điền Trạch (cung nhà cửa, bất động sản) có <strong>Thái Âm (sao tài âm) ở Miếu địa</strong> — vị trí mạnh nhất. Đây là <span style="background:rgba(184,137,43,0.3); padding:2px 6px">ĐIỂM TÀI VẬN SÁNG NHẤT</span> trong lá số Hoà. <strong>Bất động sản là kho tài chính lớn nhất của đời Hoà</strong>, không phải tiền lương hay kinh doanh.</p>
+      <p>Đặc biệt: đại hạn Điền Trạch rơi vào tuổi <strong>34-43</strong> (2030-2039) → đây là giai đoạn <em>"mở khoá"</em> đời Hoà. Từ giờ tới đó nên <strong>tích luỹ hướng mua nhà/đất</strong>, đừng tiêu xài phung phí.</p>
+    </div>
+
+    <div class="card warn">
+      <h4 style="margin-top:0">Quan Lộc (Hợi) — TỬ HUYỆT cả đời: LIÊM TRINH HOÁ KỴ + THAM LANG</h4>
+      <p>Sự nghiệp của Hoà có <strong>Liêm Trinh (sao thị phi, pháp lý, tình cảm) + Tham Lang (sao đào hoa, tham vọng, sức hút) + Hoá Kỵ (sao cản) + Thiên Hình (sao pháp luật)</strong> → <em>điểm yếu hệ thống lớn nhất</em>:</p>
+      <ul>
+        <li><strong>Thị phi công sở, tình cảm lẫn vào công việc</strong>, hợp đồng mập mờ, pháp lý rắc rối</li>
+        <li><strong>Tuyệt đối không yêu đương nơi làm việc</strong> — đây là cảnh báo cả đời</li>
+        <li>Tránh ngành "xám" (giải trí mờ, nightlife, ngành không có quy định rõ), ưu tiên ngành chính quy, có hợp đồng rõ ràng</li>
+      </ul>
+      <p>Có quý nhân (Thiên Khôi) cứu lại — nhưng phải chủ động tránh, không phải phó mặc.</p>
+    </div>
+
+    <div class="card warn">
+      <h4 style="margin-top:0">Phu Thê (Tỵ) — VCT + TRIỆT + Hoả Tinh: hôn nhân không truyền thống</h4>
+      <p>Cung hôn nhân <em>Vô Chính Tinh (không có sao chính trụ) + Triệt (thanh chặn) + Hoả Tinh (sao nóng) + Kiếp Sát + Phá Toái</em> → <strong>hôn nhân rất không đi đường mòn</strong>. Khả năng:</p>
+      <ul>
+        <li>Muộn lấy chồng</li>
+        <li>Hoặc lấy rồi đổ vỡ rồi tái hôn</li>
+        <li>Hoặc lấy <em>người khác vùng miền / quốc tịch / tôn giáo</em></li>
+        <li>Hoặc có biến cố lớn về bạn đời</li>
+      </ul>
+      <p>Có Lộc Tồn + Nguyệt Đức bù lại → nếu vượt qua khó khăn đầu thì về già có phúc. <strong>Khớp với bên chiêm tinh: Saturn ở Nhà 7</strong> — 2 trường phái cùng báo một chuyện.</p>
+    </div>
+
+    <div class="card warn">
+      <h4 style="margin-top:0">Tử Tức (Thìn) — THÁI DƯƠNG + TRIỆT + ĐÀ LA</h4>
+      <p>Cung con cái bị Triệt (thanh chặn) + Đà La (sao cản, chậm) → biểu hiện điển hình: <strong>muộn con, ít con (khả năng 1 con), có trắc trở khi sinh</strong>. Cấu trúc này cũng cảnh báo về <em>rối loạn sinh sản/kinh nguyệt</em> — nên theo dõi và khám định kỳ từ sớm.</p>
+    </div>
+
+    <h3>Vận 2026 của Hoà</h3>
+    <div class="card info">
+      <p>Hoà 30 tuổi dương (31 âm), PY 7 (năm nội quán trong Thần số). Đang ở <strong>đại hạn Phúc Đức</strong> (24-33 tuổi) — vận tâm, nội tâm, nhiều "câu hỏi bản thân".</p>
+      <p><strong>Liêm Trinh Hoá Kỵ năm 2026 rơi trúng Quan Lộc của Hoà</strong> (cùng cung có Liêm Trinh sinh ra) → <em>năm này cực kỳ cảnh giác về công việc</em>: không ký hợp đồng mập mờ, không dính tình cảm công sở, không ngành xám.</p>
+      <p>Đồng thời tiểu hạn rơi vào <strong>Tử Tức + Triệt</strong> → năm <strong>bắt buộc phải khám sức khoẻ sinh sản</strong>.</p>
+      <p><strong>Hướng năm 2026:</strong> chuẩn bị cho đại hạn Điền Trạch 2030-2039 — học nghề chữ nghĩa (tận dụng Xương Khúc Khoa ở Thân), ổn định sức khoẻ, tích luỹ cho mua nhà/đất. Không bùng nổ tiền năm này, không đổi nghề lớn.</p>
+    </div>
+  </section>
+
+  <section class="astrology">
+    <h2>3 · Biểu đồ sao Hoàng đạo</h2>
+    <p>Tính cho <strong>01/05/1996 17:00 VN (UT+7) tại Sài Gòn</strong> (BV Từ Dũ, 10.76°N, 106.68°E).</p>
+
+    <h3>3 điểm nòng cốt</h3>
+    <div class="card star">
+      <h4 style="margin-top:0">☉ Mặt Trời · Taurus (Kim Ngưu) ~11° (Nhà 8 — Chiều sâu)</h4>
+      <p><strong>Cái tôi cốt lõi:</strong> ổn định, kiên định, hưởng thụ, yêu cái đẹp thực tế. Taurus (Kim Ngưu) là cung đất mềm — thích an toàn, thoải mái, ghét xáo trộn, trung thành, chậm đổi. <em>Đây là "hạt nhân" của Hoà — dù mặt ngoài thay đổi, bên trong vẫn luôn muốn yên ổn, ấm no.</em></p>
+      <p><strong>Taurus ở Nhà 8</strong> (nhà chuyển hoá, tài sản chung, tâm lý sâu) → cái tôi <em>đi vào chiều sâu qua tài sản/tâm lý</em>. Suy nghĩ không hời hợt. Hợp nghề nghiên cứu, tâm lý, tài chính chuyên sâu.</p>
+    </div>
+
+    <div class="card star">
+      <h4 style="margin-top:0">☽ Mặt Trăng · Libra (Thiên Bình) ~16° (Nhà 1 — Bản ngã, sát Asc)</h4>
+      <p><strong>Thế giới cảm xúc:</strong> khao khát cân bằng, đẹp, hoà hợp; <em>cực kỳ nhạy với sự bất công / "sai"</em>. Libra Moon là "người cảm bằng cán cân" — cảm xúc gắn chặt với đúng/sai, đẹp/xấu, công bằng. Khi thấy ai làm sai, không chỉ khó chịu mà <strong>cảm giác cán cân nội tâm lệch, phải sửa mới yên</strong>. Đây chính là <em>chấp niệm đạo đức</em> Hoà tự nhận.</p>
+      <p>Moon sát Cung Mọc (~10°) → cảm xúc <em>hiện ra ngay qua khuôn mặt, giọng nói</em>. Không giấu được buồn. Người ngoài cảm được Hoà nhanh.</p>
+      <p><strong>Điểm yếu:</strong> ngại xung đột trực tiếp → hay "dằn lòng" → tích tụ → nổ một lần. Vì cần hài hoà, đôi khi hy sinh nhu cầu mình.</p>
+    </div>
+
+    <div class="card star">
+      <h4 style="margin-top:0">↑ Cung Mọc · Libra (Thiên Bình) ~26° (Libra Rising)</h4>
+      <p><strong>Vỏ ngoài thế giới thấy:</strong> duyên dáng, hoà nhã, ưa thẩm mỹ, biết làm dịu không khí. Libra Rising là "người có mặt làm không gian êm lại" — lần đầu gặp thấy dịu, dễ chịu, có gu. Khí chất <em>ngoại giao tự nhiên</em>, biết cách nói không làm ai tổn thương.</p>
+      <p><strong>DOUBLE LIBRA</strong> (Moon + Asc cùng Thiên Bình) — đặc điểm nổi bật nhất của lá số chiêm tinh Hoà:</p>
+      <ul>
+        <li>Cực nhạy với cái đẹp &amp; sự hài hoà — không gian xấu, quần áo lộn xộn đều khó chịu</li>
+        <li>Ghét xung đột trực diện nhưng <strong>chịu không nổi sự bất công lâu</strong></li>
+        <li>Dễ do dự khi phải chọn (vì cân nhắc cả hai bên)</li>
+        <li>Cần có "đối phương" để thấy trọn vẹn — Libra một mình hay thấy thiếu</li>
+      </ul>
+      <p>Kết hợp Taurus Sun + Double Libra → <em>vừa ổn định bên trong, vừa khao khát đẹp bên ngoài, lối hiện diện êm ái có gu</em>.</p>
+    </div>
+
+    <div class="card warn">
+      <h4 style="margin-top:0">⚠ Aspect quan trọng: SATURN đối MOON + ASC</h4>
+      <p>Saturn 9° Aries (Bạch Dương) ở Nhà 7, đối lập Moon 16° Libra và Asc 26° Libra. Đây là <strong>cấu hình cốt lõi</strong> giải thích "chấp niệm đúng/sai":</p>
+      <ul>
+        <li><strong>Saturn đối Moon</strong>: tiêu chuẩn đạo đức nghiêm khắc (với mình và người), cảm xúc bị kỷ luật kiểm soát → đôi khi tự dồn nén, khó bộc lộ thoải mái</li>
+        <li><strong>Saturn đối Asc</strong>: người khác thấy Hoà "chín chắn hơn tuổi", nhưng bên trong có áp lực phải chuẩn mực</li>
+        <li><strong>Saturn ở Nhà 7 (hôn nhân)</strong>: bài học về kỳ vọng &amp; ranh giới trong quan hệ; kết hôn muộn hoặc trách nhiệm nặng; dễ chọn người lớn tuổi/chững chạc</li>
+      </ul>
+      <p>→ <strong>Khớp chặt với Phu Thê bị Triệt bên Tử Vi</strong>: cả hai trường phái cùng báo hôn nhân không đi đường mòn, kết muộn, kỳ vọng cao.</p>
+    </div>
+
+    <h3>Các hành tinh &amp; nhà</h3>
+    <div class="planet-row" style="background:rgba(184,137,43,0.08)"><div class="sym">☽</div><div class="pos">Libra 16°</div><div class="house"><strong>Nhà 1 · Bản ngã</strong></div><div>Cảm xúc = danh tính, cảm gì người khác thấy đó</div></div>
+    <div class="planet-row"><div class="sym">☉</div><div class="pos">Taurus 11°</div><div class="house">Nhà 8 · Chuyển hoá</div><div>Cái tôi đi vào chiều sâu qua tài sản/tâm lý</div></div>
+    <div class="planet-row"><div class="sym">☿</div><div class="pos">Taurus 6°</div><div class="house">Nhà 8</div><div>Suy nghĩ sâu, nghiên cứu, tâm lý, không nói hời hợt</div></div>
+    <div class="planet-row"><div class="sym">♀</div><div class="pos">Gemini 5°</div><div class="house">Nhà 9 · Triết lý, xa</div><div>Yêu qua trao đổi trí thức; hấp dẫn với người học cao / ngoại quốc</div></div>
+    <div class="planet-row"><div class="sym">♂</div><div class="pos">Gemini 11°</div><div class="house">Nhà 9</div><div>Hành động qua truyền dạy, viết, tranh luận, di chuyển xa</div></div>
+    <div class="planet-row" style="background:rgba(61,122,74,0.08)"><div class="sym">♃</div><div class="pos">Capricorn 16° (R)</div><div class="house"><strong>Nhà 4 · Gia đình</strong></div><div><strong>May mắn qua BẤT ĐỘNG SẢN — khớp Thái Âm Miếu Điền Trạch!</strong></div></div>
+    <div class="planet-row" style="background:rgba(200,98,26,0.08)"><div class="sym">♄</div><div class="pos">Aries 9°</div><div class="house"><strong>Nhà 7 · Hôn nhân</strong></div><div><strong>THẮT NÚT: bài học quan hệ — kết hôn muộn/nặng trách nhiệm</strong></div></div>
+    <div class="planet-row"><div class="sym">♅</div><div class="pos">Aquarius 2° (R)</div><div class="house">Nhà 5 · Sáng tạo</div><div>Sáng tạo độc đáo, không khuôn; bạn bè nghệ thuật/tự do</div></div>
+    <div class="planet-row"><div class="sym">♆</div><div class="pos">Capricorn 27° (R)</div><div class="house">Nhà 4</div><div>Mộng mơ/khó thấy rõ về gốc; có thể có bí mật gia đình</div></div>
+    <div class="planet-row"><div class="sym">♇</div><div class="pos">Sagittarius 2° (R)</div><div class="house">Nhà 3 · Giao tiếp</div><div>Tư duy đào sâu, có sức "lộ chân tướng" qua ngôn ngữ</div></div>
+
+    <div class="card info">
+      <strong>Trục sự nghiệp (MC Cancer — Thiên Đỉnh ở Cự Giải):</strong> Hoà hợp nghề <em>"nuôi dưỡng người khác"</em> — chăm sóc, giáo dục trẻ em, tư vấn tình cảm, ẩm thực gia đình, bất động sản. Công chúng nhìn Hoà như <em>"người phụ nữ đáng tin của gia đình"</em>. Kết hợp với Văn Xương Hoá Khoa bên Tử Vi → viết/nói/dạy về đề tài gia đình - chăm sóc - phụ nữ là ngành <strong>sinh ra để làm</strong>.
+    </div>
+  </section>
+
+  <section class="numerology">
+    <h2>4 · Thần Số Học</h2>
+
+    <div class="number-row">
+      <div class="number-big">4</div>
+      <div class="desc">
+        <span class="label">Life Path = 4 (Số Đường Đời)</span>
+        1+5+1+9+9+6 = 31 → 4. <strong>Người xây nền</strong>: thực tế, bền bỉ, có kỷ luật, chịu khó. Sinh ra để <em>xây dựng cái gì đó vững chắc, không bùng nổ</em>. <strong>Cùng Life Path 4 với Mẹ</strong> — 2 mẹ con cùng bản chất "xây nền".
+      </div>
+    </div>
+
+    <div class="number-row">
+      <div class="number-big" style="background:linear-gradient(135deg,var(--navy) 0%,var(--navy-soft) 100%)">1</div>
+      <div class="desc">
+        <span class="label">Số Ngày Sinh (1)</span>
+        Ngày 1 → 1. <strong>Người có cá tính mạnh, tự lập, tiên phong</strong>. Khớp với Tử Phá bên Tử Vi — đều nói về chất "đứng một mình".
+      </div>
+    </div>
+
+    <div class="number-row">
+      <div class="number-big" style="background:linear-gradient(135deg,var(--purple) 0%,var(--purple-soft) 100%)">5</div>
+      <div class="desc">
+        <span class="label">Soul Urge = 5 (Số Linh Hồn)</span>
+        Tính từ nguyên âm trong tên. <strong>Khao khát tự do, trải nghiệm, thay đổi</strong>. Khác với Life Path 4 (xây nền) → <em>tâm hồn muốn bay nhảy trong khi số phận bắt xây nền</em>. Đây là xung đột nội tại phải học cân bằng.
+      </div>
+    </div>
+
+    <div class="number-row">
+      <div class="number-big" style="background:linear-gradient(135deg,var(--good) 0%,#5ca364 100%)">3</div>
+      <div class="desc">
+        <span class="label">Expression = 3 (Số Biểu Đạt)</span>
+        Tính từ tất cả chữ trong tên. <strong>Năng khiếu giao tiếp, viết, biểu diễn</strong>. Khớp chặt với Văn Xương Hoá Khoa bên Tử Vi — 2 trường phái cùng nói tài văn.
+      </div>
+    </div>
+
+    <div class="number-row">
+      <div class="number-big" style="background:linear-gradient(135deg,var(--warn) 0%,#e8a06a 100%)">7</div>
+      <div class="desc">
+        <span class="label">Personal Year 2026 = 7 (Năm Cá Nhân)</span>
+        1 + 5 + 2026 rút gọn = 7. <strong>Năm NỘI QUÁN, nghỉ ngơi, học sâu, khám sức khoẻ</strong>. Không phải năm bùng nổ tiền. Hợp cho: rà sức khoẻ, học kỹ năng mới, chuẩn bị cho 2027 (Personal Year 8 — năm tiền).
+      </div>
+    </div>
+
+    <h3>Biểu đồ Pythagorean (Pitago) — 01/05/1996</h3>
+    <p>Chữ số: 1-5-1-9-9-6 (bỏ số 0).</p>
+    <div class="grid-table">
+      <div class="cell missing">3<small>sáng tạo</small></div>
+      <div class="cell has">6<br>×1<small>gia đình</small></div>
+      <div class="cell has">9<br>×2<small>nhân đạo</small></div>
+      <div class="cell missing">2<small>cảm thông</small></div>
+      <div class="cell has">5<br>×1<small>tự do</small></div>
+      <div class="cell missing">8<small>tiền</small></div>
+      <div class="cell has">1<br>×2<small>cá nhân</small></div>
+      <div class="cell missing">4<small>kỷ luật</small></div>
+      <div class="cell missing">7<small>tâm linh</small></div>
+    </div>
+
+    <div class="card">
+      <h4 style="margin-top:0">Các số HIỆN:</h4>
+      <ul>
+        <li><strong>1 × 2</strong>: cá tính mạnh, ý kiến riêng</li>
+        <li><strong>5 × 1</strong>: thích tự do, khao khát trải nghiệm</li>
+        <li><strong>6 × 1</strong>: có tình gia đình</li>
+        <li><strong>9 × 2</strong>: lòng nhân đạo mạnh</li>
+      </ul>
+      <h4>Các số ẨN (bài học đời):</h4>
+      <ul>
+        <li><span class="highlight">Thiếu 8 — kỹ năng tiền bạc/quyền lực</span> → đây là <strong>bài học trung tâm đời Hoà</strong>, giống Mẹ di truyền sang. Khớp với Quan Lộc có Liêm Trinh Kỵ bên Tử Vi.</li>
+        <li>Thiếu 2: khó hợp tác thụ động, thường dẫn dắt hơn theo</li>
+        <li>Thiếu 3: biểu đạt sáng tạo chưa trọn vẹn (dù Expression = 3 có sẵn tiềm năng)</li>
+        <li>Thiếu 4: kỷ luật chưa phải bản năng, phải học (dù Life Path = 4!)</li>
+        <li>Thiếu 7: suy sâu tâm linh chưa mạnh</li>
+      </ul>
+      <p style="margin-top:12px"><strong>Đường QUYẾT TÂM 1-5-9 ĐẦY ĐỦ:</strong> <em>đây là điểm cực mạnh</em> — đường chéo có đủ 3 số 1, 5, 9 → <strong>khi đặt mục tiêu thì ý chí rất mạnh, bền bỉ, không bỏ cuộc</strong>. Đây là vũ khí lớn nhất của Hoà trong biểu đồ thần số.</p>
+    </div>
+  </section>
+
+  <section class="synthesis" style="border-top-color:var(--burgundy)">
+    <h2 style="color:var(--burgundy)">5 · Tổng hợp &amp; Bổ khuyết giữa 3 trường phái</h2>
+
+    <h3>Ba trường phái nói cùng 1 người (Hoà) — khớp đến đâu?</h3>
+    <p style="font-size:0.9em; color:var(--ink-soft); font-style:italic">(Phần chi tiết + Nhân Tướng có trong file riêng <code>Hoà/Hoa_luan_giai.html</code> — phần 6 &amp; 7.)</p>
+    <table>
+      <tr style="background:rgba(122,31,43,0.1)"><th>Chủ đề</th><th>Tử Vi</th><th>Thần số học</th><th>Chiêm tinh</th><th>Kết luận khớp</th></tr>
+      <tr>
+        <td><strong>Bản chất con người</strong></td>
+        <td>Tử Phá Linh ở Mệnh (cách mạng, phá cũ) + Thân cư Thiên Di + Xương Khúc Khoa (tài văn) — vương giả phá cách, nhu ngoài cương trong</td>
+        <td>Life Path 4 + Số ngày 1 + đường 1-5-9 đầy đủ — xây nền, cá tính mạnh, ý chí bền</td>
+        <td>Sun Taurus (Kim Ngưu) Nhà 8 + Double Libra (Moon + Asc) — ổn định sâu trong, duyên dáng có gu ngoài</td>
+        <td><span class="tag good">Khớp mạnh</span> Cả 3 vẽ người "khác dàn nhất nhà": duyên ngoài + cách mạng trong + ý chí bền; tài văn là sứ mệnh chính</td>
+      </tr>
+      <tr>
+        <td><strong>Hôn nhân</strong></td>
+        <td>Phu Thê VCT + Triệt + Hoả Tinh — hôn nhân không truyền thống (muộn/khác vùng/tái hôn)</td>
+        <td>—</td>
+        <td>Saturn ở Nhà 7 đối Moon + Asc — bài học quan hệ: kết hôn muộn/nặng trách nhiệm/chọn người chững chạc</td>
+        <td><span class="tag warn">Khớp tuyệt đối</span> Tử Vi + Chiêm tinh cùng báo 1 chuyện: hôn nhân không đi đường mòn; bài học là buông kỳ vọng đạo đức tuyệt đối</td>
+      </tr>
+      <tr>
+        <td><strong>Tiền &amp; sự nghiệp</strong></td>
+        <td>Thái Âm Miếu ở Điền Trạch — mạch BĐS cực lớn; Xương Khúc Khoa ở Thân — tài văn</td>
+        <td><span class="highlight">Thiếu số 8</span> — bài học đời là kỹ năng tiền (giống Mẹ di truyền); Expression 3 — năng khiếu biểu đạt</td>
+        <td>Jupiter ở Nhà 4 Capricorn (Ma Kết) — may mắn qua BĐS/gia đình; MC Cancer (Cự Giải) — nghề "nuôi dưỡng"</td>
+        <td><span class="tag good">Khớp tuyệt đối</span> 3 trường phái đồng thuận: <strong>mạch tài là BĐS + nghề chữ nghĩa về gia đình/chăm sóc</strong>. Không phải tiền từ chiến đấu.</td>
+      </tr>
+      <tr>
+        <td><strong>Điểm yếu lớn nhất</strong></td>
+        <td>Liêm Trinh Hoá Kỵ ở Quan Lộc — sự nghiệp thị phi, tình cảm công sở, pháp lý</td>
+        <td>Thiếu 8 + thiếu 4 + thiếu 2 — yếu tiền/kỷ luật/hợp tác thụ động</td>
+        <td>Saturn Nhà 7 — chấp niệm đúng/sai, áp lực tự đặt lên bản thân</td>
+        <td><span class="tag warn">3 bài học chính</span> (1) Tránh ngành "xám" + không yêu công sở · (2) Học kỷ luật tiền + hợp tác · (3) Buông chấp niệm hoàn hảo đạo đức</td>
+      </tr>
+      <tr>
+        <td><strong>Vận 2026 &amp; lộ trình</strong></td>
+        <td>Tiểu hạn Tử Tức + Triệt — khám sức khoẻ sinh sản; Liêm Kỵ chiếu Quan Lộc</td>
+        <td>Personal Year 7 — năm NỘI QUÁN, không bùng nổ; chuẩn bị cho PY 8 (2027 — năm tiền)</td>
+        <td>Đại hạn Điền Trạch 2030-2039 sắp tới — mạch BĐS mở</td>
+        <td><span class="tag info">Lộ trình rõ</span> 2026 nghỉ + chuẩn bị · 2027 mở rộng · 2030-2039 bứt phá BĐS</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="recommend" style="border-top-color:var(--gold)">
+    <h2 style="color:var(--burgundy)">6 · Chân dung tổng hợp &amp; Đề xuất hành động</h2>
+
+    <h3>Chân dung 1 câu</h3>
+    <div class="card info" style="border-left:4px solid var(--burgundy); background:rgba(122,31,43,0.05); padding:20px 24px">
+      <p style="font-style:italic; font-size:1.1em; margin:0; color:var(--ink)"><span style="font-size:1.6em; color:var(--burgundy)">❝</span> Một phụ nữ <strong>cách mạng trong nhà, tài văn nói viết đại cách, có ý chí bền</strong>, sinh ra để làm nghề chữ nghĩa về gia đình/chăm sóc và tích luỹ bất động sản; bài học đời là <strong>hôn nhân không truyền thống + kỹ năng tiền bạc + buông chấp niệm hoàn hảo</strong>. 2026 chuẩn bị nền, 2027 mở rộng, 2030+ bứt phá. <span style="font-size:1.6em; color:var(--burgundy)">❞</span></p>
+    </div>
+
+    <h3>Đề xuất hành động 2026</h3>
+    <ul>
+      <li><strong>Năm NỘI QUÁN (PY 7):</strong> KHÔNG bùng nổ tiền, KHÔNG đổi nghề lớn. Đây là năm <em>xây nền cho 2027 (PY 8 — năm tiền)</em> và đại hạn Điền Trạch 2030-2039.</li>
+      <li><strong>Khám sức khoẻ sinh sản định kỳ:</strong> Tiểu hạn Tử Tức + Triệt là 2 chỉ báo cấu trúc cần theo dõi từ sớm. Đừng trì hoãn.</li>
+      <li><strong>Học kỹ năng chữ nghĩa:</strong> tận dụng Xương Khúc Khoa ở Thân + Expression 3 + MC Cancer — học viết/nói về <em>đề tài gia đình, chăm sóc, phụ nữ</em>. Đây là nghề sinh ra để làm.</li>
+      <li><strong>Tích luỹ hướng BĐS:</strong> mỗi tháng trích một phần lương để tiết kiệm hướng mua nhà/đất. Đừng tiêu phung phí — Thái Âm Miếu ở Điền Trạch chỉ phát khi có tích luỹ.</li>
+      <li><strong>Tránh ngành "xám" + không yêu công sở:</strong> Liêm Trinh Kỵ ở Quan Lộc là cảnh báo cả đời, 2026 là năm đặc biệt cần giữ.</li>
+      <li><strong>Rèn buông chấp niệm đúng/sai:</strong> Saturn Nhà 7 bài học lớn — học chấp nhận người khác không hoàn hảo để yêu được trọn vẹn.</li>
+      <li><strong>Gặp Mẹ qua trung gian Chị 3:</strong> Tý-Ngọ xung trực diện; gặp tay đôi dễ cãi. Chị 3 (hợp Mẹ và thương Hoà) là cầu nối tự nhiên.</li>
+    </ul>
+  </section>
+</div>
+
+
+<!-- ========================================= -->
+<!-- ================ TAB: CHÚ GIẢI ================ -->
+<!-- ========================================= -->
+<div id="tab-glossary" class="tab-content">
+  <div style="text-align:center; padding:20px 10px; border-bottom:3px double var(--gold); margin-bottom:25px">
+    <h2 style="color:var(--burgundy); margin:0 0 8px">📖 Chú giải thuật ngữ</h2>
+    <p style="font-style:italic; color:var(--ink-soft); margin:0">Kiến thức cơ bản để đọc hiểu 3 trường phái trong file này — dành cho người mới</p>
+  </div>
+
+  <section class="info">
+    <h2>1 · Tử Vi Đẩu Số — khung căn bản</h2>
+    <p>Tử Vi Đẩu Số là hệ thống chiêm tinh của Trung Hoa, xem đời người qua <strong>12 cung</strong> (12 mặt đời sống) có các <strong>sao</strong> đóng vào. Mỗi lá số được an dựa trên <em>năm, tháng, ngày, giờ âm lịch</em> của người được xem.</p>
+
+    <h3>12 cung — 12 mặt đời sống</h3>
+    <table>
+      <tr style="background:rgba(184,137,43,0.15)"><th>Cung</th><th>Ý nghĩa</th></tr>
+      <tr><td><strong>Mệnh</strong></td><td><em>Bản chất cốt lõi</em> — tính cách, khí chất, "cái tôi gốc" của người đó</td></tr>
+      <tr><td><strong>Thân</strong></td><td><em>Cuộc đời hậu vận</em> — Thân cư ở cung nào thì đời người gắn với cung đó (ví dụ Thân cư Phu Thê = đời gắn với hôn nhân; Thân cư Thiên Di = đời gắn với đi lại/xã giao)</td></tr>
+      <tr><td><strong>Phụ Mẫu</strong></td><td>Cha mẹ, mối quan hệ với cha mẹ, di truyền</td></tr>
+      <tr><td><strong>Phúc Đức</strong></td><td>Phúc khí, đời sống tinh thần, niềm vui bẩm sinh</td></tr>
+      <tr><td><strong>Điền Trạch</strong></td><td>Nhà cửa, bất động sản, tài sản cố định</td></tr>
+      <tr><td><strong>Quan Lộc</strong></td><td>Sự nghiệp, vị trí xã hội, thăng tiến</td></tr>
+      <tr><td><strong>Nô Bộc</strong></td><td>Bạn bè, đồng nghiệp, người giúp việc, mối quan hệ xã hội</td></tr>
+      <tr><td><strong>Thiên Di</strong></td><td>Đi lại, xã giao, môi trường ngoài, thay đổi chỗ ở</td></tr>
+      <tr><td><strong>Tật Ách</strong></td><td>Sức khoẻ, bệnh tật, điểm yếu cơ thể</td></tr>
+      <tr><td><strong>Tài Bạch</strong></td><td>Tiền bạc, cách kiếm tiền, năng lực tài chính</td></tr>
+      <tr><td><strong>Tử Tức</strong></td><td>Con cái, khả năng sinh sản, mối quan hệ với con</td></tr>
+      <tr><td><strong>Phu Thê</strong></td><td>Hôn nhân, bạn đời, chất lượng cuộc sống vợ chồng</td></tr>
+      <tr><td><strong>Huynh Đệ</strong></td><td>Anh chị em, bạn thân như người nhà</td></tr>
+    </table>
+
+    <h3>14 chính tinh — các sao chủ đạo</h3>
+    <p style="font-size:0.9em; color:var(--ink-soft); font-style:italic">Chính tinh là "sao chủ" quyết định tính chất của cung mà nó đóng vào. 14 sao chia 2 dãy: dãy Tử Vi (6 sao) và dãy Thiên Phủ (8 sao).</p>
+    <table>
+      <tr style="background:rgba(184,137,43,0.15)"><th>Sao</th><th>Bản chất</th></tr>
+      <tr><td><strong>Tử Vi</strong></td><td>Sao đế vương — lãnh đạo, khí chất quý, có chất "đứng đầu"</td></tr>
+      <tr><td><strong>Thiên Cơ</strong></td><td>Sao thông minh, linh hoạt, biến hoá, đa nghề, hay suy tính</td></tr>
+      <tr><td><strong>Thái Dương</strong></td><td>Sao dương (Mặt Trời) — danh tiếng, sức mạnh lộ ra ngoài, vai trò công khai</td></tr>
+      <tr><td><strong>Vũ Khúc</strong></td><td>Sao tài chính, thực dụng, quản lý vật chất, kỷ luật cương</td></tr>
+      <tr><td><strong>Thiên Đồng</strong></td><td>Sao phúc — hiền hậu, tấm lòng nhân ái, tích luỹ bền bỉ, không đột phá</td></tr>
+      <tr><td><strong>Liêm Trinh</strong></td><td>Sao pháp lý, máu huyết, thị phi, tình cảm phức tạp</td></tr>
+      <tr><td><strong>Thiên Phủ</strong></td><td>Sao kho tài — quản gia, giữ của, cẩn trọng, ổn định, mẹ hiền</td></tr>
+      <tr><td><strong>Thái Âm</strong></td><td>Sao âm (Mặt Trăng) — tài âm (bất động sản, tiết kiệm), tỉ mỉ, mẫu tính</td></tr>
+      <tr><td><strong>Tham Lang</strong></td><td>Sao đào hoa — sức hút, khao khát, đa tài, tham vọng học hỏi, nhiều sở thích</td></tr>
+      <tr><td><strong>Cự Môn</strong></td><td>Sao "cái miệng" — tiền qua lời nói/bán hàng, dễ thị phi, dễ có nợ/tranh cãi</td></tr>
+      <tr><td><strong>Thiên Tướng</strong></td><td>Sao "ấn tướng" — trợ giúp, quý nhân, có vai trò quản lý, được kính trọng</td></tr>
+      <tr><td><strong>Thiên Lương</strong></td><td>Sao trưởng bối — quý nhân, chữa bệnh, nghề y/giáo/tư vấn/chăm sóc</td></tr>
+      <tr><td><strong>Thất Sát</strong></td><td>Sao cương — quyết đoán, độc lập, nghiêm khắc, ghét bị quản lý</td></tr>
+      <tr><td><strong>Phá Quân</strong></td><td>Sao phá cũ dựng mới — đổi việc liên tục, phá cách, không theo nếp</td></tr>
+    </table>
+
+    <h3>Tứ Hoá — 4 sao biến đổi quan trọng nhất của năm sinh</h3>
+    <p>Mỗi năm sinh (theo Can, ví dụ Bính, Kỷ, Tân...) có 4 sao được "kích hoạt" theo 4 cách. Tứ Hoá cho biết <em>cung nào được thêm may mắn / quyền / danh / cản</em>.</p>
+    <ul>
+      <li><strong>Hoá Lộc</strong> (<span class="tag good">Lộc</span>): sao chủ <em>may mắn, tài lộc</em> — cung nào có Hoá Lộc thì cung đó được thêm may</li>
+      <li><strong>Hoá Quyền</strong> (<span class="tag good">Quyền</span>): sao chủ <em>quyền lực, quyền quyết</em> — cung đó có sức mạnh ra quyết định</li>
+      <li><strong>Hoá Khoa</strong> (<span class="tag good">Khoa</span>): sao chủ <em>danh tiếng, học vấn, thi cử</em> — cung đó có danh tiếng, uy tín</li>
+      <li><strong>Hoá Kỵ</strong> (<span class="tag warn">Kỵ</span>): sao chủ <em>cản trở, thị phi, khó khăn</em> — cung đó là điểm yếu hệ thống, cần cảnh giác cả đời</li>
+    </ul>
+
+    <h3>Các khái niệm hỗ trợ</h3>
+    <ul>
+      <li><strong>Miếu / Vượng / Đắc / Bình / Hãm</strong>: độ mạnh của sao tại cung — mạnh nhất là Miếu, yếu nhất là Hãm. Một sao Hãm ở cung xấu tạo thành "điểm yếu hệ thống".</li>
+      <li><strong>Tuần / Triệt</strong>: 2 "thanh chặn" đặc biệt. Cung có Tuần/Triệt thì sao ở đó phát tác không trọn vẹn, hoặc có giai đoạn "gián đoạn". Triệt mạnh hơn Tuần.</li>
+      <li><strong>Vô Chính Tinh (VCT)</strong>: cung không có chính tinh đóng. Phải luận qua <em>xung chiếu</em> (cung đối diện) để biết tính chất.</li>
+      <li><strong>Xung chiếu / Tam hợp</strong>: các cung liên kết với nhau theo vị trí — cung đối diện (xung chiếu) ảnh hưởng mạnh nhất; 3 cung cách nhau 4 (tam hợp) cũng liên kết chặt.</li>
+      <li><strong>Cục</strong> (Mộc 3 / Thuỷ 2 / Kim 4 / Thổ 5 / Hoả 6): chỉ số điều hành sự an sao Tử Vi và mốc đại hạn. Cục trùng hành với bản mệnh (nạp âm) là cách cục tốt.</li>
+      <li><strong>Nạp âm (Bản mệnh)</strong>: ngũ hành riêng theo năm sinh (ví dụ Đại Lâm Mộc, Giản Hạ Thuỷ, Thiên Hà Thuỷ). Khác với ngũ hành theo Can/Chi thông thường.</li>
+      <li><strong>Đại hạn</strong>: vận 10 năm, khởi đầu từ tuổi quy định theo Cục (Cục 3 → 3 tuổi; Cục 4 → 4 tuổi). Đại hạn cho biết "đề tài chính" của mỗi thập kỷ đời.</li>
+      <li><strong>Tiểu hạn</strong>: vận từng năm cụ thể, tính theo tuổi + chi năm sinh.</li>
+    </ul>
+  </section>
+
+  <section class="astrology">
+    <h2>2 · Chiêm tinh phương Tây — khung căn bản</h2>
+    <p>Chiêm tinh phương Tây xem lá số dựa trên <em>vị trí các hành tinh</em> tại thời điểm sinh, đặt trong <strong>12 cung hoàng đạo</strong> (đường đi của Mặt Trời) và <strong>12 nhà</strong> (phân khu không gian xung quanh người sinh).</p>
+
+    <h3>12 cung hoàng đạo — "màu sắc" năng lượng</h3>
+    <table>
+      <tr style="background:rgba(31,58,95,0.15)"><th>Tên tiếng Anh</th><th>Tên tiếng Việt</th><th>Nguyên tố · Tính</th></tr>
+      <tr><td>Aries</td><td>Bạch Dương (Dương)</td><td>Lửa · thẳng, bốc, tiên phong</td></tr>
+      <tr><td>Taurus</td><td>Kim Ngưu (Trâu vàng)</td><td>Đất · ổn định, hưởng thụ, chậm đổi</td></tr>
+      <tr><td>Gemini</td><td>Song Tử</td><td>Gió · đa năng, giao tiếp, tò mò</td></tr>
+      <tr><td>Cancer</td><td>Cự Giải (Cua)</td><td>Nước · mẫu tính, bảo vệ, cảm xúc</td></tr>
+      <tr><td>Leo</td><td>Sư Tử</td><td>Lửa · tự tin, có sức hút, thích được chú ý</td></tr>
+      <tr><td>Virgo</td><td>Xử Nữ (Trinh Nữ)</td><td>Đất · tỉ mỉ, thực tế, chu đáo, cầu toàn</td></tr>
+      <tr><td>Libra</td><td>Thiên Bình (Cán cân)</td><td>Gió · cân bằng, ngoại giao, thẩm mỹ, chấp niệm đúng/sai</td></tr>
+      <tr><td>Scorpio</td><td>Bọ Cạp</td><td>Nước · sâu, kín, mãnh liệt, biến đổi</td></tr>
+      <tr><td>Sagittarius</td><td>Nhân Mã</td><td>Lửa · lạc quan, triết lý, thích tự do/đi xa</td></tr>
+      <tr><td>Capricorn</td><td>Ma Kết (Dê núi)</td><td>Đất · kỷ luật, trách nhiệm, bền bỉ, nghiêm túc</td></tr>
+      <tr><td>Aquarius</td><td>Bảo Bình</td><td>Gió · cấp tiến, độc lập, hướng cộng đồng</td></tr>
+      <tr><td>Pisces</td><td>Song Ngư</td><td>Nước · mơ mộng, nhạy cảm, giàu lòng thương</td></tr>
+    </table>
+
+    <h3>3 điểm cốt lõi trong lá số</h3>
+    <ul>
+      <li><strong>☉ Mặt Trời (Sun)</strong>: cái tôi cốt lõi, bản chất "mình là ai"</li>
+      <li><strong>☽ Mặt Trăng (Moon)</strong>: thế giới cảm xúc, nhu cầu nội tâm, cách phản ứng tự nhiên</li>
+      <li><strong>↑ Cung Mọc (Ascendant / Asc)</strong>: vỏ ngoài thế giới thấy, cách mình "xuất hiện" với người lạ, gương mặt đầu tiên</li>
+    </ul>
+
+    <h3>12 nhà — các lĩnh vực đời sống (giống cung Tử Vi nhưng theo không gian)</h3>
+    <table>
+      <tr style="background:rgba(31,58,95,0.15)"><th>Nhà</th><th>Chủ đề</th></tr>
+      <tr><td>Nhà 1</td><td>Bản ngã, thân thể, cách hiện diện</td></tr>
+      <tr><td>Nhà 2</td><td>Tiền bạc, giá trị bản thân, tài sản</td></tr>
+      <tr><td>Nhà 3</td><td>Giao tiếp, học hành sơ cấp, anh chị em</td></tr>
+      <tr><td>Nhà 4</td><td>Gia đình, cội rễ, nhà cửa</td></tr>
+      <tr><td>Nhà 5</td><td>Sáng tạo, tình yêu, con cái, niềm vui</td></tr>
+      <tr><td>Nhà 6</td><td>Sức khoẻ, thói quen, công việc hàng ngày</td></tr>
+      <tr><td>Nhà 7</td><td>Hôn nhân, đối tác, mối quan hệ 1-1</td></tr>
+      <tr><td>Nhà 8</td><td>Chuyển hoá, tài sản chung, tâm lý sâu, thừa kế</td></tr>
+      <tr><td>Nhà 9</td><td>Triết lý, học cao, đi xa, tôn giáo</td></tr>
+      <tr><td>Nhà 10</td><td>Sự nghiệp công khai, danh tiếng, vai trò xã hội</td></tr>
+      <tr><td>Nhà 11</td><td>Bạn bè, cộng đồng, lý tưởng</td></tr>
+      <tr><td>Nhà 12</td><td>Vô thức, tâm linh, nghiệp, nơi ẩn</td></tr>
+    </table>
+
+    <h3>Các hành tinh (ký hiệu trong file)</h3>
+    <p><strong>☉ Sun</strong> (Mặt Trời) · <strong>☽ Moon</strong> (Mặt Trăng) · <strong>☿ Mercury</strong> (Thuỷ tinh — giao tiếp, tư duy) · <strong>♀ Venus</strong> (Kim tinh — yêu, thẩm mỹ) · <strong>♂ Mars</strong> (Hoả tinh — hành động, ham muốn) · <strong>♃ Jupiter</strong> (Mộc tinh — may mắn, mở rộng) · <strong>♄ Saturn</strong> (Thổ tinh — bài học, kỷ luật, hạn chế) · <strong>♅ Uranus</strong> (Thiên Vương — đột biến, tự do) · <strong>♆ Neptune</strong> (Hải Vương — mộng mơ, tâm linh) · <strong>♇ Pluto</strong> (Diêm Vương — biến đổi sâu, quyền lực ngầm).</p>
+    <p style="font-size:0.92em; color:var(--ink-soft); font-style:italic">Ký hiệu "(R)" sau hành tinh = "Retrograde" (nghịch hành) — hành tinh đang đi ngược so với góc nhìn từ Trái Đất; năng lượng mang tính nội tại/chiêm nghiệm hơn bình thường.</p>
+    <p style="font-size:0.92em; color:var(--ink-soft); font-style:italic">"Aspect" = góc tương tác giữa 2 hành tinh. "Opposition" (đối lập, 180°) là aspect quan trọng, thường tạo căng thẳng cần hoà giải.</p>
+  </section>
+
+  <section class="numerology">
+    <h2>3 · Thần Số Học (Pythagorean) — khung căn bản</h2>
+    <p>Thần số học theo hệ Pythagoras quy đổi <em>ngày tháng năm sinh + các chữ trong tên</em> thành các con số từ 1-9 (đôi khi giữ số chủ 11, 22, 33). Mỗi số mang 1 tính cách / bài học.</p>
+
+    <h3>Các con số quan trọng nhất</h3>
+    <table>
+      <tr style="background:rgba(91,58,112,0.15)"><th>Tên</th><th>Cách tính</th><th>Ý nghĩa</th></tr>
+      <tr><td><strong>Life Path (Số Đường Đời)</strong></td><td>Cộng tất cả chữ số ngày-tháng-năm sinh, rút gọn về 1 chữ số (hoặc giữ 11/22/33)</td><td>Con đường đời chính — sứ mệnh cần sống, bài học cốt lõi</td></tr>
+      <tr><td><strong>Birth Day (Số Ngày Sinh)</strong></td><td>Lấy số ngày sinh, cộng rút gọn (VD ngày 14 → 1+4 = 5)</td><td>Đặc điểm nổi bật của cá nhân, "tem" riêng</td></tr>
+      <tr><td><strong>Soul Urge (Số Linh Hồn)</strong></td><td>Cộng giá trị các <em>nguyên âm</em> trong tên</td><td>Khao khát sâu bên trong, điều linh hồn thực sự muốn</td></tr>
+      <tr><td><strong>Expression (Số Biểu Đạt)</strong></td><td>Cộng giá trị <em>tất cả chữ</em> trong tên</td><td>Năng khiếu tự nhiên, cách mình thể hiện với thế giới</td></tr>
+      <tr><td><strong>Personal Year (Năm Cá Nhân)</strong></td><td>Cộng ngày + tháng sinh + năm hiện tại, rút gọn</td><td>"Đề tài" của năm đó trong chu kỳ 9 năm</td></tr>
+    </table>
+
+    <h3>Ý nghĩa các con số 1-9</h3>
+    <table>
+      <tr style="background:rgba(91,58,112,0.15)"><th>Số</th><th>Ý nghĩa</th></tr>
+      <tr><td><strong>1</strong></td><td>Cá nhân, tiên phong, tự lập, khởi đầu</td></tr>
+      <tr><td><strong>2</strong></td><td>Hợp tác, cảm thông, cân bằng, ngoại giao</td></tr>
+      <tr><td><strong>3</strong></td><td>Sáng tạo, biểu đạt, giao tiếp, vui vẻ</td></tr>
+      <tr><td><strong>4</strong></td><td>Kỷ luật, xây nền, bền bỉ, thực tế</td></tr>
+      <tr><td><strong>5</strong></td><td>Tự do, đa năng, thay đổi, trải nghiệm</td></tr>
+      <tr><td><strong>6</strong></td><td>Gia đình, trách nhiệm, chăm sóc, nghĩa tình</td></tr>
+      <tr><td><strong>7</strong></td><td>Tâm linh, nội quán, suy sâu, tìm ý nghĩa</td></tr>
+      <tr><td><strong>8</strong></td><td>Tiền bạc, quyền lực, quản lý vật chất</td></tr>
+      <tr><td><strong>9</strong></td><td>Nhân đạo, giúp đời, tổng kết, buông bỏ</td></tr>
+    </table>
+    <p style="margin-top:10px"><strong>Master Numbers (Số Chủ 11, 22, 33):</strong> các con số không rút gọn, mang năng lượng mạnh hơn — 11 (trực giác bậc thầy), 22 (người kiến tạo), 33 (thầy chữa lành).</p>
+
+    <h3>Biểu đồ Pythagorean (Pitago Birth Grid)</h3>
+    <p>Ngày tháng năm sinh được sắp vào một lưới 3×3, mỗi ô là 1 số từ 1-9. Số nào <em>xuất hiện</em> = điểm mạnh; số nào <em>trống</em> = bài học cần học. Các "đường" chéo/thẳng nếu đầy đủ là năng lực đặc biệt.</p>
+    <ul>
+      <li><strong>Đường Quyết Tâm (1-5-9)</strong>: đường chéo chính — nếu có đủ 3 số này, ý chí rất mạnh khi đặt mục tiêu</li>
+      <li><strong>Đường Trí Tuệ (3-5-7)</strong>: đường chéo phụ — nếu đầy đủ, đầu óc sáng tạo + tâm linh cân bằng</li>
+      <li><strong>Đường Gia Đình (4-5-6)</strong>: cột giữa — nếu đầy đủ, có năng lực làm trụ cột gia đình</li>
+    </ul>
+    <p><strong>Personal Year (PY)</strong>: trong chu kỳ 9 năm, mỗi năm có "đề tài" riêng:</p>
+    <ol style="margin:0; padding-left:20px">
+      <li>PY 1 — Khởi đầu chu kỳ mới, quyết định hướng đi lớn</li>
+      <li>PY 2 — Hợp tác, xây mối quan hệ, chờ đợi</li>
+      <li>PY 3 — Sáng tạo, xã hội, giao tiếp</li>
+      <li>PY 4 — Xây nền, kỷ luật, làm việc chăm chỉ</li>
+      <li>PY 5 — Thay đổi, đi xa, tự do, trải nghiệm mới</li>
+      <li>PY 6 — Gia đình, trách nhiệm, chăm sóc, tổ ấm</li>
+      <li>PY 7 — Nội quán, nghỉ ngơi, học sâu, tâm linh</li>
+      <li>PY 8 — Tiền bạc, quyền lực, sự nghiệp đỉnh cao của chu kỳ</li>
+      <li>PY 9 — Tổng kết, buông bỏ, chuẩn bị đóng chu kỳ</li>
+    </ol>
+  </section>
+
+  <section class="info" style="border-top-color:var(--burgundy)">
+    <h2 style="color:var(--burgundy)">4 · Cách đọc file luận giải này</h2>
+    <div class="card info">
+      <ol>
+        <li><strong>Bắt đầu từ tab TỔNG</strong> — có bảng đối chiếu 4 người + các điểm cộng hưởng trong gia đình.</li>
+        <li><strong>Sau đó đọc tab người cụ thể</strong> (Mẹ / Chị 2 / Chị 3 / Hoà). Mỗi tab có:
+          <ul>
+            <li><em>Tổng quan cho người mới đọc</em> — bản tóm tắt không dùng thuật ngữ; nếu không muốn đọc chi tiết có thể dừng ở đây</li>
+            <li>Các mục 1-4: Thông tin gốc · Tử Vi · Chiêm tinh · Thần số học — luận giải chi tiết</li>
+            <li>Mục 5 (Tổng hợp &amp; Bổ khuyết) — so khớp 3 trường phái</li>
+            <li>Mục 6 (Chân dung tổng hợp &amp; Đề xuất hành động) — kết luận + định hướng năm 2026</li>
+          </ul>
+        </li>
+        <li><strong>Khi gặp thuật ngữ không hiểu</strong>, quay lại tab này để tra.</li>
+      </ol>
+      <p style="margin-top:12px"><em>Nhắc: file mang tính chiêm nghiệm và tham khảo. Các luận giải dựa trên cấu trúc lá số nên có tính <strong>xác suất cao</strong> chứ không phải chắc chắn 100% — cuộc đời thực tế còn chịu ảnh hưởng của ý chí, môi trường, và hoàn cảnh cụ thể.</em></p>
+    </div>
+  </section>
+</div>
+
+
+<footer>
+  ❦ ☯ ❦<br><br>
+  Luận giải tổng hợp gia đình — Tử Vi · Chiêm Tinh · Thần Số Học<br>
+  Hoà · Hiền · Thảo · Phiền<br><br>
+  <em>Bản luận giải mang tính chiêm nghiệm và tham khảo.</em>
+</footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      history.replaceState(null, '', '#' + target);
+    });
+  });
+
+  const hash = window.location.hash.substring(1);
+  if (hash) {
+    const btn = document.querySelector(`.tab-btn[data-tab="${hash}"]`);
+    if (btn) btn.click();
+  }
+</script>
+</body>
+</html>
