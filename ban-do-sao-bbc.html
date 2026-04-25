@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bản Đồ Sao — Thanh Hoà BBC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --water-50: #f0f4ff;
+            --water-100: #dbe4ff;
+            --water-200: #93c5fd;
+            --water-300: #60a5fa;
+            --water-400: #3b82f6;
+            --water-500: #2563eb;
+            --water-600: #1d4ed8;
+            --water-700: #1e3a8a;
+            --silver: #94a3b8;
+            --silver-light: #cbd5e1;
+            --ice: #f0f4ff;
+            --gold: #eab308;
+            --gold-light: #fef08a;
+            --text-primary: #0f172a;
+            --text-secondary: #1e293b;
+            --text-muted: #64748b;
+            --bg: #070b18;
+            --bg-card: rgba(15, 23, 42, 0.7);
+            --border: rgba(59, 130, 246, 0.15);
+            --glow: rgba(59, 130, 246, 0.3);
+            --radius: 16px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: #e2e8f0;
+            line-height: 1.7;
+            overflow-x: hidden;
+            font-weight: 300;
+            min-height: 100vh;
+        }
+
+        /* ========== STARFIELD ========== */
+        .starfield {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
+            overflow: hidden;
+        }
+        .starfield .star {
+            position: absolute;
+            border-radius: 50%;
+            background: #fff;
+            animation: twinkle var(--dur, 3s) infinite ease-in-out var(--delay, 0s);
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.15; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.4); }
+        }
+
+        /* ========== NEBULA ORBS ========== */
+        .nebula {
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
+        }
+        .nebula .orb {
+            position: absolute; border-radius: 50%;
+            filter: blur(100px); opacity: 0.15;
+            animation: drift 25s infinite ease-in-out;
+        }
+        .nebula .orb:nth-child(1) { width: 500px; height: 500px; background: #3b82f6; top: -150px; right: -100px; }
+        .nebula .orb:nth-child(2) { width: 400px; height: 400px; background: #8b5cf6; bottom: 10%; left: -120px; animation-delay: -8s; }
+        .nebula .orb:nth-child(3) { width: 350px; height: 350px; background: #06b6d4; top: 50%; right: 20%; animation-delay: -16s; }
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -30px) scale(1.05); }
+            66% { transform: translate(-30px, 20px) scale(0.95); }
+        }
+
+        /* ========== LAYOUT ========== */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            padding: 8px 20px; border-radius: 50px;
+            font-size: 0.8rem; color: var(--water-300);
+            letter-spacing: 3px; text-transform: uppercase;
+            margin-bottom: 32px;
+            animation: fadeIn 1s ease-out;
+        }
+        .hero-badge .dot {
+            width: 6px; height: 6px; background: var(--water-400);
+            border-radius: 50%; animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.3} }
+
+        .hero-symbol {
+            font-size: 48px; margin-bottom: 20px;
+            animation: fadeUp 1s ease-out 0.2s backwards;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #93c5fd, #fff, #60a5fa);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2; margin-bottom: 12px;
+            animation: fadeUp 1s ease-out 0.4s backwards;
+        }
+        .hero-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            color: var(--water-200);
+            font-style: italic;
+            margin-bottom: 8px;
+            animation: fadeUp 1s ease-out 0.6s backwards;
+        }
+        .hero-meta {
+            font-size: 0.9rem; color: var(--text-muted);
+            letter-spacing: 1px;
+            animation: fadeUp 1s ease-out 0.8s backwards;
+        }
+        .hero-divider {
+            width: 80px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--water-400), transparent);
+            margin: 28px auto;
+            animation: fadeUp 1s ease-out 0.7s backwards;
+        }
+        .hero-info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 40px;
+            animation: fadeUp 1s ease-out 1s backwards;
+        }
+        .hero-info-item {
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 12px;
+            text-align: center;
+        }
+        .hero-info-item .label {
+            font-size: 0.65rem; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--water-300);
+            margin-bottom: 6px;
+        }
+        .hero-info-item .value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem; font-weight: 700; color: #fff;
+        }
+        .hero-info-item .sub {
+            font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;
+        }
+
+        .scroll-hint {
+            position: absolute; bottom: 32px;
+            display: flex; flex-direction: column;
+            align-items: center; gap: 6px;
+            color: var(--text-muted); font-size: 0.75rem; letter-spacing: 2px;
+            animation: fadeUp 1s ease-out 1.2s backwards;
+        }
+        .scroll-hint .arrow {
+            width: 16px; height: 16px;
+            border-right: 1.5px solid var(--water-400);
+            border-bottom: 1.5px solid var(--water-400);
+            transform: rotate(45deg);
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce { 0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(4px,4px)} }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)} }
+        @keyframes fadeIn { from{opacity:0}to{opacity:1} }
+
+        /* ========== SECTIONS ========== */
+        .section {
+            padding: 80px 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-label {
+            font-size: 0.75rem; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--water-400);
+            margin-bottom: 12px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 700; color: #fff;
+            margin-bottom: 8px;
+        }
+        .section-desc {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem; color: var(--silver);
+            font-style: italic;
+        }
+        .section-divider {
+            text-align: center; padding: 20px 0;
+            color: var(--water-400); font-size: 1.2rem;
+            opacity: 0.5;
+        }
+
+        /* ========== PLANET TABLE ========== */
+        .planet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .planet-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
+            opacity: 0; transform: translateY(30px);
+            cursor: pointer;
+            position: relative;
+        }
+        .planet-card::after {
+            content: '\25BC';
+            position: absolute; top: 22px; right: 20px;
+            font-size: 0.65rem; color: var(--water-400);
+            transition: transform 0.3s ease;
+            opacity: 0.7;
+        }
+        .planet-card.open::after { transform: rotate(180deg); }
+        .planet-extra {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .planet-card.open .planet-extra { max-height: 1200px; }
+        .planet-extra-inner {
+            margin-top: 16px; padding-top: 16px;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem; color: var(--silver-light);
+            line-height: 1.75;
+        }
+        .planet-extra-inner p { margin-bottom: 10px; }
+        .planet-extra-inner strong { color: var(--water-200); font-weight: 500; }
+        .angle-card { cursor: pointer; }
+        .angle-extra {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.6s ease;
+        }
+        .angle-card.open .angle-extra { max-height: 600px; }
+        .angle-extra-inner {
+            margin-top: 14px; padding-top: 14px;
+            border-top: 1px solid var(--border);
+            font-size: 0.82rem; color: var(--silver-light);
+            line-height: 1.7; text-align: left;
+        }
+
+        /* ========== ASPECTS ========== */
+        .aspects-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            backdrop-filter: blur(12px);
+        }
+        .aspects-list { display: grid; gap: 10px; }
+        .aspect-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto;
+            align-items: center; gap: 12px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: rgba(59,130,246,0.04);
+            border: 1px solid rgba(59,130,246,0.08);
+            font-size: 0.85rem;
+        }
+        .aspect-p { color: #fff; font-weight: 500; }
+        .aspect-type {
+            font-size: 0.7rem; padding: 3px 10px;
+            border-radius: 20px; letter-spacing: 1px;
+            text-transform: uppercase; font-weight: 600;
+        }
+        .aspect-harm { background: rgba(34,197,94,0.12); color: #4ade80; }
+        .aspect-tense { background: rgba(239,68,68,0.12); color: #f87171; }
+        .aspect-neutral { background: rgba(234,179,8,0.12); color: #facc15; }
+        .aspect-orb { color: var(--text-muted); font-size: 0.75rem; text-align: right; }
+        @media (max-width: 600px) {
+            .aspect-row { grid-template-columns: 1fr; text-align: center; }
+            .aspect-orb { text-align: center; }
+        }
+        .planet-card.visible {
+            opacity: 1; transform: translateY(0);
+        }
+        .planet-card:hover {
+            border-color: var(--water-400);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.1);
+            transform: translateY(-4px);
+        }
+        .planet-header {
+            display: flex; align-items: center; gap: 12px;
+            margin-bottom: 14px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+        }
+        .planet-icon {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(139,92,246,0.2));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .planet-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem; font-weight: 700; color: #fff;
+        }
+        .planet-name-en {
+            font-size: 0.75rem; color: var(--text-muted); font-weight: 300;
+        }
+        .planet-badge {
+            margin-left: auto;
+            font-size: 0.65rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .badge-vuong { background: rgba(34,197,94,0.15); color: #4ade80; border: 1px solid rgba(34,197,94,0.3); }
+        .badge-ham { background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
+        .badge-retro { background: rgba(234,179,8,0.15); color: #facc15; border: 1px solid rgba(234,179,8,0.3); }
+
+        .planet-details {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+        }
+        .planet-detail {
+            display: flex; flex-direction: column;
+        }
+        .planet-detail .dt-label {
+            font-size: 0.65rem; letter-spacing: 1.5px;
+            text-transform: uppercase; color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+        .planet-detail .dt-value {
+            font-size: 0.9rem; color: var(--water-200); font-weight: 500;
+        }
+        .planet-detail .dt-degree {
+            font-size: 0.78rem; color: var(--silver); font-weight: 300;
+        }
+
+        /* ========== ANGLES ========== */
+        .angles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .angle-card {
+            background: linear-gradient(145deg, rgba(59,130,246,0.1), rgba(15,23,42,0.8));
+            border: 1px solid rgba(59,130,246,0.25);
+            border-radius: var(--radius);
+            padding: 24px 16px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
+            opacity: 0; transform: translateY(30px);
+        }
+        .angle-card.visible {
+            opacity: 1; transform: translateY(0);
+        }
+        .angle-card:hover {
+            border-color: var(--water-300);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.15);
+        }
+        .angle-abbr {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem; font-weight: 700;
+            color: var(--water-300);
+            margin-bottom: 4px;
+        }
+        .angle-name {
+            font-size: 0.7rem; letter-spacing: 1.5px;
+            text-transform: uppercase; color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        .angle-sign {
+            font-size: 1rem; color: #fff; font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .angle-degree {
+            font-size: 0.8rem; color: var(--silver);
+        }
+
+        /* ========== HOUSES TABLE ========== */
+        .houses-wrapper {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            backdrop-filter: blur(12px);
+            overflow-x: auto;
+            opacity: 0; transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .houses-wrapper.visible {
+            opacity: 1; transform: translateY(0);
+        }
+        .houses-table {
+            width: 100%; border-collapse: collapse;
+        }
+        .houses-table th {
+            font-size: 0.7rem; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--water-400);
+            padding: 10px 16px; text-align: left;
+            border-bottom: 1px solid var(--border);
+            font-weight: 600;
+        }
+        .houses-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.06);
+            font-size: 0.9rem;
+        }
+        .houses-table tr:hover td {
+            background: rgba(59, 130, 246, 0.04);
+        }
+        .houses-table .house-num {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700; color: var(--water-300);
+            font-size: 1rem;
+        }
+        .houses-table .house-sign { color: #fff; font-weight: 500; }
+        .houses-table .house-deg { color: var(--silver); }
+
+        /* ========== ANALYSIS ========== */
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .analysis-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
+            opacity: 0; transform: translateY(30px);
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .analysis-card.visible {
+            opacity: 1; transform: translateY(0);
+        }
+        .analysis-card:hover {
+            border-color: var(--water-400);
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.1);
+        }
+        .analysis-header {
+            display: flex; align-items: center; gap: 14px;
+            padding: 22px 24px;
+        }
+        .analysis-arrow {
+            width: 20px; height: 20px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            transition: transform 0.3s ease;
+            color: var(--water-400);
+            font-size: 0.75rem;
+        }
+        .analysis-card.open .analysis-arrow {
+            transform: rotate(90deg);
+        }
+        .analysis-header-text { flex: 1; }
+        .analysis-tag {
+            display: inline-block;
+            font-size: 0.6rem; letter-spacing: 2px;
+            text-transform: uppercase; color: var(--water-400);
+            margin-bottom: 6px;
+            padding: 3px 8px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+        }
+        .analysis-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem; font-weight: 700; color: #fff;
+        }
+        .analysis-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .analysis-card.open .analysis-body {
+            max-height: 500px;
+        }
+        .analysis-text {
+            font-size: 0.9rem; color: var(--silver-light);
+            line-height: 1.8;
+            padding: 0 24px 24px;
+            border-top: 1px solid var(--border);
+            padding-top: 18px;
+            margin-top: 0;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            text-align: center;
+            padding: 60px 20px 40px;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+        .footer-symbol {
+            font-size: 1.2rem; color: var(--water-400);
+            margin-bottom: 12px;
+        }
+        .footer-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem; font-style: italic;
+            color: var(--silver); margin-bottom: 8px;
+        }
+
+        /* ========== NAV DOTS ========== */
+        .nav-dots {
+            position: fixed; right: 20px; top: 50%;
+            transform: translateY(-50%);
+            display: flex; flex-direction: column; gap: 10px;
+            z-index: 100;
+        }
+        .nav-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: transparent;
+            border: 1.5px solid var(--silver);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .nav-dot:hover, .nav-dot.active {
+            background: var(--water-400);
+            border-color: var(--water-400);
+            transform: scale(1.3);
+        }
+        .nav-dot .tip {
+            position: absolute; right: 20px; top: 50%;
+            transform: translateY(-50%);
+            background: var(--text-primary); color: #fff;
+            padding: 4px 10px; border-radius: 6px;
+            font-size: 0.7rem; white-space: nowrap;
+            opacity: 0; pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .nav-dot:hover .tip { opacity: 1; right: 24px; }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .hero-info-grid { grid-template-columns: repeat(2, 1fr); }
+            .angles-grid { grid-template-columns: repeat(2, 1fr); }
+            .planet-grid { grid-template-columns: 1fr; }
+            .analysis-grid { grid-template-columns: 1fr; }
+            .nav-dots { display: none; }
+        }
+        @media (max-width: 480px) {
+            .hero-info-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .angles-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- BG Effects -->
+    <div class="nebula">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+    <div class="starfield" id="starfield"></div>
+
+    <!-- Nav Dots -->
+    <nav class="nav-dots" id="navDots">
+        <div class="nav-dot active" data-target="hero"><span class="tip">Trang Đầu</span></div>
+        <div class="nav-dot" data-target="planets"><span class="tip">Hành Tinh</span></div>
+        <div class="nav-dot" data-target="angles"><span class="tip">4 Đỉnh</span></div>
+        <div class="nav-dot" data-target="houses"><span class="tip">12 Nhà</span></div>
+        <div class="nav-dot" data-target="analysis"><span class="tip">Phân Tích</span></div>
+    </nav>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            <span>Bản Đồ Sao Cá Nhân</span>
+        </div>
+        <div class="hero-symbol">&#9737;</div>
+        <h1>Thanh Hoà</h1>
+        <div class="hero-name">Bản Đồ Sao Cá Nhân</div>
+        <div class="hero-divider"></div>
+        <p class="hero-meta">01 . 05 . 1996 &nbsp;|&nbsp; 17:00 GMT+7 &nbsp;|&nbsp; TP. Hồ Chí Minh</p>
+
+        <div class="hero-info-grid">
+            <div class="hero-info-item">
+                <div class="label">Sun</div>
+                <div class="value">Kim Ngưu</div>
+                <div class="sub">Nhà 7 &bull; 11&deg;18'</div>
+            </div>
+            <div class="hero-info-item">
+                <div class="label">Moon</div>
+                <div class="value">Thiên Bình</div>
+                <div class="sub">Nhà 12 &bull; 14&deg;59'</div>
+            </div>
+            <div class="hero-info-item">
+                <div class="label">Ascendant</div>
+                <div class="value">Thiên Bình</div>
+                <div class="sub">26&deg;16'</div>
+            </div>
+            <div class="hero-info-item">
+                <div class="label">Midheaven</div>
+                <div class="value">Cự Giải</div>
+                <div class="sub">24&deg;24'</div>
+            </div>
+        </div>
+
+        <div class="scroll-hint">
+            <span>Khám Phá</span>
+            <div class="arrow"></div>
+        </div>
+    </section>
+
+    <!-- ==================== HÀNH TINH ==================== -->
+    <!-- ==================== CHÚ GIẢI ==================== -->
+    <section class="section" id="glossary">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">&#10023; Chú Giải &#10023;</div>
+                <h2 class="section-title">Đọc Bản Đồ Sao Như Thế Nào?</h2>
+                <p class="section-desc">Hiểu các khái niệm cơ bản trước khi đi vào chi tiết</p>
+            </div>
+
+            <div class="analysis-grid">
+                <div class="analysis-card open">
+                    <div class="analysis-header">
+                        <div class="analysis-arrow">&#9654;</div>
+                        <div class="analysis-header-text">
+                            <div class="analysis-tag">Khái niệm</div>
+                            <div class="analysis-title">Hành Tinh, Cung &amp; Nhà</div>
+                        </div>
+                    </div>
+                    <div class="analysis-body"><div class="analysis-text">
+                        <p><strong style="color:var(--water-200)">Hành tinh (Planet)</strong> = <em>cái gì</em>. Mỗi hành tinh đại diện cho một phần năng lượng/tâm lý: Mặt Trời = bản ngã, Mặt Trăng = cảm xúc, Thủy Tinh = tư duy, Kim Tinh = tình yêu, Hỏa Tinh = hành động&hellip;</p>
+                        <p><strong style="color:var(--water-200)">Cung hoàng đạo (Sign)</strong> = <em>như thế nào</em>. 12 cung (Bạch Dương → Song Ngư) tô màu cho hành tinh: Mặt Trời ở Kim Ngưu sẽ &ldquo;tỏa sáng&rdquo; theo kiểu Kim Ngưu (kiên định, thực tế).</p>
+                        <p><strong style="color:var(--water-200)">Nhà (House)</strong> = <em>ở đâu trong cuộc sống</em>. 12 nhà tương ứng 12 lĩnh vực: Nhà 1 bản thân, Nhà 7 hôn nhân, Nhà 10 sự nghiệp&hellip; Hành tinh nằm ở nhà nào sẽ hoạt động mạnh trong lĩnh vực đó.</p>
+                        <p style="font-style:italic;color:var(--text-muted);font-size:0.82rem;">Công thức đọc: <strong>Hành tinh</strong> + <strong>ở Cung</strong> + <strong>trong Nhà</strong> = năng lượng X biểu hiện theo kiểu Y trong lĩnh vực Z.</p>
+                    </div></div>
+                </div>
+
+                <div class="analysis-card open">
+                    <div class="analysis-header">
+                        <div class="analysis-arrow">&#9654;</div>
+                        <div class="analysis-header-text">
+                            <div class="analysis-tag">Tình trạng hành tinh</div>
+                            <div class="analysis-title">Vượng / Hãm / Rx là gì?</div>
+                        </div>
+                    </div>
+                    <div class="analysis-body"><div class="analysis-text">
+                        <p><span class="planet-badge badge-vuong" style="margin:0">Vượng</span> &nbsp; (Domicile/Exaltation) — hành tinh ở cung &ldquo;hợp&rdquo;, hoạt động mạnh và dễ dàng. Ví dụ Hỏa Tinh ở Bạch Dương là nhà của nó nên năng lượng hành động rất rõ.</p>
+                        <p><span class="planet-badge badge-ham" style="margin:0">Hãm</span> &nbsp; (Detriment/Fall) — hành tinh ở cung &ldquo;đối nghịch&rdquo;, hoạt động khó khăn hơn, cần nỗ lực ý thức để phát huy. KHÔNG có nghĩa là xấu — chỉ là bài học cần học.</p>
+                        <p><span class="planet-badge badge-retro" style="margin:0">Rx</span> &nbsp; (Retrograde / Nghịch hành) — nhìn từ Trái Đất hành tinh có vẻ đi lùi. Năng lượng chuyển vào trong, mang tính chiêm nghiệm, ôn lại, học bài học cũ thay vì biểu hiện ra ngoài.</p>
+                    </div></div>
+                </div>
+
+                <div class="analysis-card open">
+                    <div class="analysis-header">
+                        <div class="analysis-arrow">&#9654;</div>
+                        <div class="analysis-header-text">
+                            <div class="analysis-tag">Trục chính</div>
+                            <div class="analysis-title">4 Đỉnh: AC, DC, MC, IC</div>
+                        </div>
+                    </div>
+                    <div class="analysis-body"><div class="analysis-text">
+                        <p><strong>AC (Ascendant / Cung Mọc)</strong> — &ldquo;mặt nạ&rdquo; bạn trình bày với thế giới, ấn tượng đầu tiên, ngoại hình, cách bạn bước vào tình huống mới.</p>
+                        <p><strong>DC (Descendant / Cung Lặn)</strong> — đối tác lý tưởng, kiểu người bạn bị thu hút, chiếu vào các mối quan hệ 1&ndash;1.</p>
+                        <p><strong>MC (Midheaven / Thiên Đỉnh)</strong> — sự nghiệp, danh tiếng, hình ảnh công khai, mục tiêu cao nhất.</p>
+                        <p><strong>IC (Imum Coeli / Thiên Đế)</strong> — gốc rễ, gia đình, tổ ấm, nền tảng nội tâm, đời sống riêng tư.</p>
+                    </div></div>
+                </div>
+
+                <div class="analysis-card open">
+                    <div class="analysis-header">
+                        <div class="analysis-arrow">&#9654;</div>
+                        <div class="analysis-header-text">
+                            <div class="analysis-tag">Tương tác</div>
+                            <div class="analysis-title">Aspects (Góc Hợp)</div>
+                        </div>
+                    </div>
+                    <div class="analysis-body"><div class="analysis-text">
+                        <p>Aspects là <strong>góc hình học giữa 2 hành tinh</strong> — cho biết chúng &ldquo;nói chuyện&rdquo; với nhau ra sao.</p>
+                        <p><span class="aspect-type aspect-harm" style="display:inline-block">Trine 120°</span> &nbsp; Tam hợp — hài hòa, năng lượng chảy thuận, &ldquo;tài năng tự nhiên&rdquo;.</p>
+                        <p><span class="aspect-type aspect-harm" style="display:inline-block">Sextile 60°</span> &nbsp; Lục hợp — cơ hội, dễ phối hợp khi chủ động.</p>
+                        <p><span class="aspect-type aspect-tense" style="display:inline-block">Square 90°</span> &nbsp; Vuông góc — căng thẳng, xung đột nội tại, nhưng là động lực phát triển mạnh nhất.</p>
+                        <p><span class="aspect-type aspect-tense" style="display:inline-block">Opposition 180°</span> &nbsp; Đối đỉnh — kéo về 2 hướng đối lập, cần cân bằng.</p>
+                        <p><span class="aspect-type aspect-neutral" style="display:inline-block">Conjunction 0°</span> &nbsp; Trùng tụ — hai năng lượng hòa làm một, cường độ cao.</p>
+                        <p><span class="aspect-type aspect-neutral" style="display:inline-block">Quincunx 150°</span> &nbsp; Ngũ chiếu — hai năng lượng &ldquo;không hiểu nhau&rdquo;, cần điều chỉnh liên tục.</p>
+                    </div></div>
+                </div>
+
+                <div class="analysis-card open">
+                    <div class="analysis-header">
+                        <div class="analysis-arrow">&#9654;</div>
+                        <div class="analysis-header-text">
+                            <div class="analysis-tag">Mẹo</div>
+                            <div class="analysis-title">Cách Đọc Trang Này</div>
+                        </div>
+                    </div>
+                    <div class="analysis-body"><div class="analysis-text">
+                        <p>1. Bắt đầu với <strong>3 yếu tố cốt lõi</strong>: Mặt Trời (bản chất), Mặt Trăng (cảm xúc), Cung Mọc (mặt nạ). Đây là &ldquo;bộ ba thân thiết&rdquo;.</p>
+                        <p>2. Sau đó xem các hành tinh cá nhân khác (Thủy Tinh, Kim Tinh, Hỏa Tinh) để hiểu giao tiếp, tình yêu, hành động.</p>
+                        <p>3. Mộc Tinh &amp; Thổ Tinh = bài học trưởng thành. Thiên Vương / Hải Vương / Diêm Vương = năng lượng thế hệ + chiều sâu cá nhân.</p>
+                        <p>4. <strong>Click vào bất kỳ thẻ nào</strong> để mở rộng và đọc luận giải chi tiết. Mâu thuẫn giữa các phần là bình thường — con người luôn nhiều mặt!</p>
+                    </div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">&#10042;</div>
+
+    <section class="section" id="planets">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">&#10023; Hành Tinh &#10023;</div>
+                <h2 class="section-title">Vị Trí Các Hành Tinh</h2>
+                <p class="section-desc">Placidus &bull; Tropical &bull; 106&deg;42'E, 10&deg;46'N</p>
+            </div>
+
+            <div class="planet-grid">
+                <!-- Mặt Trời -->
+                <div class="planet-card" data-delay="0">
+                    <div class="planet-header">
+                        <div class="planet-icon">&#9737;</div>
+                        <div>
+                            <div class="planet-name">Mặt Trời</div>
+                            <div class="planet-name-en">Sun</div>
+                        </div>
+                    </div>
+                    <div class="planet-details">
+                        <div class="planet-detail">
+                            <span class="dt-label">Cung</span>
+                            <span class="dt-value">Kim Ngưu</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Nhà</span>
+                            <span class="dt-value">7</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Độ</span>
+                            <span class="dt-degree">11&deg;18'29"</span>
+                        </div>
+                    </div>
+                    <div class="planet-extra"><div class="planet-extra-inner">
+                        <p><strong>Bản chất cốt lõi.</strong> Mặt Trời ở Kim Ngưu mang đến sự thực tế, kiên định và lòng trung thành. Bạn có ý chí mạnh mẽ, theo đuổi mục tiêu một cách bền bỉ, yêu thích vẻ đẹp, sự thoải mái và những giá trị hữu hình. Tính cách điềm đạm nhưng một khi đã quyết định thì rất khó thay đổi.</p>
+                        <p><strong>Nhà 7 &mdash; Đối tác.</strong> Bạn xác định bản thân thông qua các mối quan hệ 1&ndash;1: hôn nhân, cộng sự, đối tác kinh doanh. Người bạn đời thường mang nét Kim Ngưu (vững chãi, gợi cảm, thực tế) và đóng vai trò trung tâm trong hành trình trưởng thành. Sự cân bằng trong tương quan là bài học sống.</p>
+                        <p><strong>Lưu ý.</strong> Cần tránh sự bám víu vào vật chất hoặc quá phụ thuộc cảm xúc vào người khác để xác lập giá trị bản thân.</p>
+                    </div></div>
+                </div>
+
+                <!-- Mặt Trăng -->
+                <div class="planet-card" data-delay="50">
+                    <div class="planet-header">
+                        <div class="planet-icon">&#9789;</div>
+                        <div>
+                            <div class="planet-name">Mặt Trăng</div>
+                            <div class="planet-name-en">Moon</div>
+                        </div>
+                    </div>
+                    <div class="planet-details">
+                        <div class="planet-detail">
+                            <span class="dt-label">Cung</span>
+                            <span class="dt-value">Thiên Bình</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Nhà</span>
+                            <span class="dt-value">12</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Độ</span>
+                            <span class="dt-degree">14&deg;59'59"</span>
+                        </div>
+                    </div>
+                    <div class="planet-extra"><div class="planet-extra-inner">
+                        <p><strong>Cảm xúc &amp; nội tâm.</strong> Mặt Trăng ở Thiên Bình khiến bạn khao khát sự hài hòa, công bằng và kết nối tinh tế. Bạn cảm thấy an toàn nhất khi mọi thứ xung quanh đẹp đẽ, có trật tự và không có xung đột. Trực giác về cảm xúc người khác rất nhạy.</p>
+                        <p><strong>Nhà 12 &mdash; Tiềm thức.</strong> Đây là vị trí của một tâm hồn hướng nội sâu sắc. Bạn có đời sống nội tâm phong phú, dễ thấu cảm với nỗi đau của người khác, có thể có những trải nghiệm tâm linh hoặc giấc mơ ý nghĩa. Bạn cần thời gian một mình để &ldquo;sạc lại&rdquo; năng lượng.</p>
+                        <p><strong>Bóng tối.</strong> Có xu hướng che giấu cảm xúc thật, dồn nén để giữ hòa khí. Cần học cách bày tỏ nhu cầu trực tiếp thay vì hy sinh thầm lặng.</p>
+                    </div></div>
+                </div>
+
+                <!-- Thủy Tinh -->
+                <div class="planet-card" data-delay="100">
+                    <div class="planet-header">
+                        <div class="planet-icon">&#9791;</div>
+                        <div>
+                            <div class="planet-name">Thủy Tinh</div>
+                            <div class="planet-name-en">Mercury</div>
+                        </div>
+                    </div>
+                    <div class="planet-details">
+                        <div class="planet-detail">
+                            <span class="dt-label">Cung</span>
+                            <span class="dt-value">Kim Ngưu</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Nhà</span>
+                            <span class="dt-value">8</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Độ</span>
+                            <span class="dt-degree">28&deg;21'34"</span>
+                        </div>
+                    </div>
+                    <div class="planet-extra"><div class="planet-extra-inner">
+                        <p><strong>Tư duy &amp; giao tiếp.</strong> Thủy Tinh ở Kim Ngưu cho lối suy nghĩ chậm rãi, thực tế, có chiều sâu. Bạn không quyết định nhanh nhưng một khi đã chốt thì rất chắc chắn. Lời nói có trọng lượng, ưu tiên sự thật và tính ứng dụng.</p>
+                        <p><strong>Nhà 8 &mdash; Chiều sâu.</strong> Trí tuệ của bạn bị hấp dẫn bởi những điều bí ẩn: tâm lý học, tài chính chung, sự sống &ndash; cái chết, tình dục, sự chuyển hóa. Bạn có khả năng nghiên cứu và đào sâu rất tốt, biết giữ bí mật, và thường nhìn ra động cơ ẩn của người khác.</p>
+                    </div></div>
+                </div>
+
+                <!-- Kim Tinh -->
+                <div class="planet-card" data-delay="150">
+                    <div class="planet-header">
+                        <div class="planet-icon">&#9792;</div>
+                        <div>
+                            <div class="planet-name">Kim Tinh</div>
+                            <div class="planet-name-en">Venus</div>
+                        </div>
+                    </div>
+                    <div class="planet-details">
+                        <div class="planet-detail">
+                            <span class="dt-label">Cung</span>
+                            <span class="dt-value">Song Tử</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Nhà</span>
+                            <span class="dt-value">8</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Độ</span>
+                            <span class="dt-degree">22&deg;18'39"</span>
+                        </div>
+                    </div>
+                    <div class="planet-extra"><div class="planet-extra-inner">
+                        <p><strong>Tình yêu &amp; vẻ đẹp.</strong> Kim Tinh ở Song Tử yêu thông qua trí tuệ và lời nói. Bạn bị hấp dẫn bởi những người dí dỏm, thông minh, biết trò chuyện. Trong tình yêu, bạn cần sự kích thích tinh thần và đa dạng &mdash; sự nhàm chán là kẻ thù lớn nhất.</p>
+                        <p><strong>Nhà 8 &mdash; Liên kết sâu.</strong> Dù Song Tử thoáng đãng, vị trí Nhà 8 lại đẩy tình yêu vào chiều sâu mãnh liệt: cần sự thân mật về tinh thần, chia sẻ bí mật, và những kết nối có sức biến đổi. Tài chính chung với người khác (đầu tư, thừa kế) có thể là chủ đề quan trọng.</p>
+                    </div></div>
+                </div>
+
+                <!-- Hỏa Tinh -->
+                <div class="planet-card" data-delay="200">
+                    <div class="planet-header">
+                        <div class="planet-icon">&#9794;</div>
+                        <div>
+                            <div class="planet-name">Hỏa Tinh</div>
+                            <div class="planet-name-en">Mars</div>
+                        </div>
+                        <span class="planet-badge badge-vuong">Vượng</span>
+                    </div>
+                    <div class="planet-details">
+                        <div class="planet-detail">
+                            <span class="dt-label">Cung</span>
+                            <span class="dt-value">Bạch Dương</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Nhà</span>
+                            <span class="dt-value">7</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Độ</span>
+                            <span class="dt-degree">28&deg;59'17"</span>
+                        </div>
+                    </div>
+                    <div class="planet-extra"><div class="planet-extra-inner">
+                        <p><strong>Vượng địa.</strong> Hỏa Tinh ở Bạch Dương là vị trí mạnh nhất &mdash; bạn có ý chí, năng lượng hành động và lòng dũng cảm tự nhiên. Khi muốn điều gì, bạn lao vào mà không do dự. Tinh thần tiên phong, không sợ thử thách.</p>
+                        <p><strong>Nhà 7.</strong> Năng lượng chiến đấu thể hiện qua các mối quan hệ: bạn có thể bị thu hút bởi đối tác mạnh mẽ, đầy nam tính/cá tính, hoặc đôi khi tranh cãi với người khác là cách bạn tự khẳng định. Bài học là chuyển xung đột thành hợp tác lành mạnh.</p>
+                        <p><strong>Lưu ý.</strong> Ở 28°59' &mdash; gần cuối cung, gọi là &ldquo;anaretic degree&rdquo;, mang theo sự cấp bách và khủng hoảng tăng trưởng quanh chủ đề Hỏa Tinh.</p>
+                    </div></div>
+                </div>
+
+                <!-- Mộc Tinh -->
+                <div class="planet-card" data-delay="250">
+                    <div class="planet-header">
+                        <div class="planet-icon">&#9795;</div>
+                        <div>
+                            <div class="planet-name">Mộc Tinh</div>
+                            <div class="planet-name-en">Jupiter</div>
+                        </div>
+                        <span class="planet-badge badge-ham">Hãm</span>
+                    </div>
+                    <div class="planet-details">
+                        <div class="planet-detail">
+                            <span class="dt-label">Cung</span>
+                            <span class="dt-value">Ma Kết</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Nhà</span>
+                            <span class="dt-value">3</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Độ</span>
+                            <span class="dt-degree">17&deg;38'20"</span>
+                        </div>
+                    </div>
+                    <div class="planet-extra"><div class="planet-extra-inner">
+                        <p><strong>Hãm địa.</strong> Mộc Tinh (mở rộng, niềm tin) ở Ma Kết (giới hạn, kỷ luật) bị thu nhỏ lại. Sự may mắn của bạn không đến từ &ldquo;trời cho&rdquo; mà đến từ nỗ lực, tính kỷ luật và sự kiên trì &mdash; phần thưởng lớn nhưng phải làm việc để đạt được.</p>
+                        <p><strong>Nhà 3 &mdash; Học hỏi.</strong> Bạn phát triển qua việc học, viết lách, giao tiếp và những mối quan hệ với anh chị em hoặc môi trường gần gũi. Có thiên hướng nghiên cứu nghiêm túc, thích kiến thức có tính ứng dụng cao, và dạy lại người khác là cách bạn mở rộng bản thân.</p>
+                    </div></div>
+                </div>
+
+                <!-- Thổ Tinh -->
+                <div class="planet-card" data-delay="300">
+                    <div class="planet-header">
+                        <div class="planet-icon">&#9796;</div>
+                        <div>
+                            <div class="planet-name">Thổ Tinh</div>
+                            <div class="planet-name-en">Saturn</div>
+                        </div>
+                        <span class="planet-badge badge-ham">Hãm</span>
+                    </div>
+                    <div class="planet-details">
+                        <div class="planet-detail">
+                            <span class="dt-label">Cung</span>
+                            <span class="dt-value">Bạch Dương</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Nhà</span>
+                            <span class="dt-value">6</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Độ</span>
+                            <span class="dt-degree">02&deg;44'36"</span>
+                        </div>
+                    </div>
+                    <div class="planet-extra"><div class="planet-extra-inner">
+                        <p><strong>Hãm địa.</strong> Thổ Tinh (giới hạn, trách nhiệm) ở Bạch Dương (bốc đồng, độc lập) tạo căng thẳng nội tại: bạn muốn hành động ngay nhưng lại bị chính sự thận trọng của mình cản trở. Bài học lớn là học cách hành động có kỷ luật mà không đánh mất sự tự phát.</p>
+                        <p><strong>Nhà 6 &mdash; Công việc &amp; sức khỏe.</strong> Trách nhiệm và bài học đến qua thói quen hàng ngày, công việc và sức khỏe. Bạn có thể bị quá tải bởi nhiệm vụ, hoặc cầu toàn đến mức kiệt sức. Xây dựng hệ thống làm việc bền vững là chìa khóa thành công lâu dài.</p>
+                    </div></div>
+                </div>
+
+                <!-- Thiên Vương -->
+                <div class="planet-card" data-delay="350">
+                    <div class="planet-header">
+                        <div class="planet-icon">&#9954;</div>
+                        <div>
+                            <div class="planet-name">Thiên Vương Tinh</div>
+                            <div class="planet-name-en">Uranus</div>
+                        </div>
+                        <span class="planet-badge badge-vuong">Vượng</span>
+                    </div>
+                    <div class="planet-details">
+                        <div class="planet-detail">
+                            <span class="dt-label">Cung</span>
+                            <span class="dt-value">Bảo Bình</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Nhà</span>
+                            <span class="dt-value">4</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Độ</span>
+                            <span class="dt-degree">04&deg;33'41"</span>
+                        </div>
+                    </div>
+                    <div class="planet-extra"><div class="planet-extra-inner">
+                        <p><strong>Vượng địa.</strong> Thiên Vương ở Bảo Bình hoạt động mạnh nhất &mdash; bạn thuộc thế hệ mang tinh thần đổi mới, nhân văn, tư duy độc lập và tầm nhìn vượt thời đại. Có khả năng nhìn ra giải pháp khác biệt cho những vấn đề chung.</p>
+                        <p><strong>Nhà 4 &mdash; Gốc rễ.</strong> Sự đột phá và khác biệt đến từ chính nền tảng gia đình, hoặc ngược lại bạn cần phá vỡ khuôn mẫu gia đình để là chính mình. Có thể có tuổi thơ không theo lối truyền thống, hoặc bạn tự tạo một &ldquo;mái ấm&rdquo; theo cách riêng, không lệ thuộc quy ước.</p>
+                    </div></div>
+                </div>
+
+                <!-- Hải Vương -->
+                <div class="planet-card" data-delay="400">
+                    <div class="planet-header">
+                        <div class="planet-icon">&#9798;</div>
+                        <div>
+                            <div class="planet-name">Hải Vương Tinh</div>
+                            <div class="planet-name-en">Neptune</div>
+                        </div>
+                        <span class="planet-badge badge-retro">Rx</span>
+                    </div>
+                    <div class="planet-details">
+                        <div class="planet-detail">
+                            <span class="dt-label">Cung</span>
+                            <span class="dt-value">Ma Kết</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Nhà</span>
+                            <span class="dt-value">4</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Độ</span>
+                            <span class="dt-degree">27&deg;45'07"</span>
+                        </div>
+                    </div>
+                    <div class="planet-extra"><div class="planet-extra-inner">
+                        <p><strong>Hải Vương ở Ma Kết.</strong> Thế hệ của bạn có nhiệm vụ &ldquo;hòa tan&rdquo; những cấu trúc cũ, đem yếu tố tâm linh vào những lĩnh vực thực tế (kinh doanh, chính trị, vật chất). Cá nhân bạn dễ có ước mơ lớn nhưng cần kỷ luật để hiện thực hóa.</p>
+                        <p><strong>Nhà 4.</strong> Gia đình hoặc tuổi thơ có thể có yếu tố mơ hồ, không rõ ràng &mdash; có thể là thiếu vắng cha mẹ, hoặc có người thân mang chiều sâu tâm linh/nghệ sĩ. Cần ranh giới rõ ràng trong gia đình để tránh hi sinh quá mức.</p>
+                        <p><strong>Nghịch hành (Rx).</strong> Quá trình &ldquo;tan hòa cái tôi&rdquo; diễn ra trong nội tâm thay vì biểu hiện ra ngoài.</p>
+                    </div></div>
+                </div>
+
+                <!-- Diêm Vương -->
+                <div class="planet-card" data-delay="450">
+                    <div class="planet-header">
+                        <div class="planet-icon">&#9799;</div>
+                        <div>
+                            <div class="planet-name">Diêm Vương Tinh</div>
+                            <div class="planet-name-en">Pluto</div>
+                        </div>
+                        <span class="planet-badge badge-retro">Rx</span>
+                    </div>
+                    <div class="planet-details">
+                        <div class="planet-detail">
+                            <span class="dt-label">Cung</span>
+                            <span class="dt-value">Nhân Mã</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Nhà</span>
+                            <span class="dt-value">2</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Độ</span>
+                            <span class="dt-degree">02&deg;18'26"</span>
+                        </div>
+                    </div>
+                    <div class="planet-extra"><div class="planet-extra-inner">
+                        <p><strong>Diêm Vương ở Nhân Mã.</strong> Thế hệ tái sinh thông qua niềm tin, triết học, tôn giáo và tầm nhìn mở rộng. Bạn có khả năng biến đổi sâu sắc qua việc đặt câu hỏi lớn về ý nghĩa cuộc sống.</p>
+                        <p><strong>Nhà 2 &mdash; Giá trị &amp; tài chính.</strong> Sự chuyển hóa diễn ra trong cách bạn xác định giá trị bản thân và quản lý tài nguyên. Có thể trải qua những giai đoạn &ldquo;chết đi sống lại&rdquo; về tài chính, mỗi lần đều khiến bạn xây dựng lại trên nền tảng vững chắc hơn. Sức mạnh đến từ việc biết mình thực sự coi trọng điều gì.</p>
+                    </div></div>
+                </div>
+
+                <!-- Chiron -->
+                <div class="planet-card" data-delay="500">
+                    <div class="planet-header">
+                        <div class="planet-icon">&#9919;</div>
+                        <div>
+                            <div class="planet-name">Chiron</div>
+                            <div class="planet-name-en">Wounded Healer</div>
+                        </div>
+                        <span class="planet-badge badge-retro">Rx</span>
+                    </div>
+                    <div class="planet-details">
+                        <div class="planet-detail">
+                            <span class="dt-label">Cung</span>
+                            <span class="dt-value">Thiên Bình</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Nhà</span>
+                            <span class="dt-value">12</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Độ</span>
+                            <span class="dt-degree">08&deg;57'47"</span>
+                        </div>
+                    </div>
+                    <div class="planet-extra"><div class="planet-extra-inner">
+                        <p><strong>Vết thương chữa lành.</strong> Chiron ở Thiên Bình đại diện cho vết thương sâu liên quan đến mối quan hệ, công bằng và giá trị bản thân thông qua người khác. Có thể bạn từng bị từ chối, bị đối xử bất công, hoặc cảm thấy mình &ldquo;không xứng đáng được yêu&rdquo;.</p>
+                        <p><strong>Nhà 12.</strong> Vết thương này nằm sâu trong tiềm thức &mdash; có thể đến từ trước khi bạn nhận thức rõ, hoặc từ những trải nghiệm bị quên lãng. Khi chữa lành nó, bạn trở thành người chữa lành mạnh mẽ cho người khác đang đau khổ vì cô đơn hoặc bị bỏ rơi.</p>
+                    </div></div>
+                </div>
+
+                <!-- Lilith -->
+                <div class="planet-card" data-delay="550">
+                    <div class="planet-header">
+                        <div class="planet-icon">&#9876;</div>
+                        <div>
+                            <div class="planet-name">Black Moon Lilith</div>
+                            <div class="planet-name-en">Mean Apogee</div>
+                        </div>
+                    </div>
+                    <div class="planet-details">
+                        <div class="planet-detail">
+                            <span class="dt-label">Cung</span>
+                            <span class="dt-value">Cự Giải</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Nhà</span>
+                            <span class="dt-value">9</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Độ</span>
+                            <span class="dt-degree">24&deg;05'47"</span>
+                        </div>
+                    </div>
+                    <div class="planet-extra"><div class="planet-extra-inner">
+                        <p><strong>Lilith ở Cự Giải.</strong> Sức mạnh nguyên thủy &amp; bị đè nén của bạn liên quan đến cảm xúc, gia đình, vai trò người mẹ, sự nuôi dưỡng. Có thể bạn đã học cách che giấu nhu cầu yêu thương, tự lập từ sớm, hoặc có cảm giác bất an về &ldquo;được nuôi dưỡng đầy đủ&rdquo;.</p>
+                        <p><strong>Nhà 9.</strong> Sự nổi loạn thể hiện ở niềm tin, triết lý, hoặc các vấn đề văn hóa &mdash; bạn không chấp nhận giáo điều mà cần tự khám phá chân lý theo cách riêng.</p>
+                    </div></div>
+                </div>
+
+                <!-- North Node -->
+                <div class="planet-card" data-delay="600">
+                    <div class="planet-header">
+                        <div class="planet-icon">&#9738;</div>
+                        <div>
+                            <div class="planet-name">North Node</div>
+                            <div class="planet-name-en">Rahu</div>
+                        </div>
+                    </div>
+                    <div class="planet-details">
+                        <div class="planet-detail">
+                            <span class="dt-label">Cung</span>
+                            <span class="dt-value">Thiên Bình</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Nhà</span>
+                            <span class="dt-value">12</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Độ</span>
+                            <span class="dt-degree">16&deg;00'29"</span>
+                        </div>
+                    </div>
+                    <div class="planet-extra"><div class="planet-extra-inner">
+                        <p><strong>Hướng phát triển nghiệp.</strong> North Node ở Thiên Bình &mdash; Nhà 12: bài học cuộc đời là học cách kết nối, hợp tác, mở lòng với người khác và tin vào trực giác tâm linh. Trong kiếp trước (South Node ở Bạch Dương &mdash; Nhà 6) bạn đã rất giỏi tự lập, làm việc cá nhân, chiến đấu một mình.</p>
+                        <p><strong>Mục tiêu.</strong> Buông bớt cái tôi cứng đầu, học sự uyển chuyển và tin vào sức mạnh của sự hợp tác cũng như chiều sâu tâm linh. Phục vụ qua sự thấu cảm, không qua sự hi sinh kiệt sức.</p>
+                    </div></div>
+                </div>
+
+                <!-- Part of Fortune -->
+                <div class="planet-card" data-delay="650">
+                    <div class="planet-header">
+                        <div class="planet-icon">&#10025;</div>
+                        <div>
+                            <div class="planet-name">Part of Fortune</div>
+                            <div class="planet-name-en">Lot of Fortune</div>
+                        </div>
+                    </div>
+                    <div class="planet-details">
+                        <div class="planet-detail">
+                            <span class="dt-label">Cung</span>
+                            <span class="dt-value">Song Ngư</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Nhà</span>
+                            <span class="dt-value">6</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Độ</span>
+                            <span class="dt-degree">29&deg;57'40"</span>
+                        </div>
+                    </div>
+                    <div class="planet-extra"><div class="planet-extra-inner">
+                        <p><strong>Điểm may mắn.</strong> Part of Fortune ở Song Ngư &mdash; Nhà 6: hạnh phúc và sự sung túc đến với bạn khi bạn dấn thân vào công việc phục vụ, chữa lành, sáng tạo, hoặc những hoạt động mang chiều kích tâm linh trong đời sống hàng ngày.</p>
+                        <p><strong>Cách kích hoạt.</strong> Thực hành thường xuyên (yoga, thiền, nghệ thuật, viết lách, chăm sóc người khác). Đừng tìm hạnh phúc ở những thành tựu lớn lao &mdash; tìm trong những điều nhỏ, đều đặn, có ý nghĩa.</p>
+                    </div></div>
+                </div>
+
+                <!-- Vertex -->
+                <div class="planet-card" data-delay="700">
+                    <div class="planet-header">
+                        <div class="planet-icon">&#10038;</div>
+                        <div>
+                            <div class="planet-name">Vertex</div>
+                            <div class="planet-name-en">Fated Point</div>
+                        </div>
+                    </div>
+                    <div class="planet-details">
+                        <div class="planet-detail">
+                            <span class="dt-label">Cung</span>
+                            <span class="dt-value">Song Ngư</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Nhà</span>
+                            <span class="dt-value">5</span>
+                        </div>
+                        <div class="planet-detail">
+                            <span class="dt-label">Độ</span>
+                            <span class="dt-degree">10&deg;44'57"</span>
+                        </div>
+                    </div>
+                    <div class="planet-extra"><div class="planet-extra-inner">
+                        <p><strong>Điểm định mệnh.</strong> Vertex ở Song Ngư &mdash; Nhà 5: bạn dễ gặp những con người &ldquo;duyên trời sắp đặt&rdquo; trong những bối cảnh sáng tạo, lãng mạn, vui chơi, hoặc liên quan đến trẻ em &amp; nghệ thuật. Những cuộc gặp gỡ này có thể có cảm giác &ldquo;đã từng quen&rdquo; và mang sức biến đổi.</p>
+                    </div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">&#10042;</div>
+
+    <!-- ==================== 4 ĐỈNH ==================== -->
+    <section class="section" id="angles">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">&#10023; Trục Chính &#10023;</div>
+                <h2 class="section-title">4 Đỉnh — Angles</h2>
+                <p class="section-desc">Bốn trục nền tảng định hình bản đồ sao của bạn</p>
+            </div>
+
+            <div class="angles-grid">
+                <div class="angle-card" data-delay="0">
+                    <div class="angle-abbr">AC</div>
+                    <div class="angle-name">Cung Mọc &bull; Ascendant</div>
+                    <div class="angle-sign">Thiên Bình</div>
+                    <div class="angle-degree">26&deg;16'10"</div>
+                    <div class="angle-extra"><div class="angle-extra-inner">
+                        Mặt nạ xã hội của bạn duyên dáng, hòa nhã, biết lắng nghe. Người khác cảm nhận bạn như một người dễ kết nối, có gu thẩm mỹ và biết giữ hòa khí. Điểm yếu: hay do dự, ngại làm mất lòng, đôi khi đánh mất chính kiến để chiều ý người khác.
+                    </div></div>
+                </div>
+                <div class="angle-card" data-delay="100">
+                    <div class="angle-abbr">DC</div>
+                    <div class="angle-name">Cung Lặn &bull; Descendant</div>
+                    <div class="angle-sign">Bạch Dương</div>
+                    <div class="angle-degree">26&deg;16'10"</div>
+                    <div class="angle-extra"><div class="angle-extra-inner">
+                        Bạn bị thu hút bởi đối tác mạnh mẽ, độc lập, quyết đoán &mdash; những phẩm chất bạn cần học. Đối tác có thể &ldquo;nóng tính&rdquo; hoặc rất chủ động, là tấm gương để bạn phát triển sự dứt khoát.
+                    </div></div>
+                </div>
+                <div class="angle-card" data-delay="200">
+                    <div class="angle-abbr">MC</div>
+                    <div class="angle-name">Thiên Đỉnh &bull; Midheaven</div>
+                    <div class="angle-sign">Cự Giải</div>
+                    <div class="angle-degree">24&deg;24'12"</div>
+                    <div class="angle-extra"><div class="angle-extra-inner">
+                        Sự nghiệp lý tưởng liên quan đến nuôi dưỡng, chăm sóc, gia đình, bất động sản, ẩm thực, hoặc công việc liên quan đến phụ nữ &amp; trẻ em. Hình ảnh công khai của bạn ấm áp, đáng tin cậy. Bạn thành công nhất khi công việc kết nối với cảm xúc và ý nghĩa cá nhân.
+                    </div></div>
+                </div>
+                <div class="angle-card" data-delay="300">
+                    <div class="angle-abbr">IC</div>
+                    <div class="angle-name">Thiên Đế &bull; Imum Coeli</div>
+                    <div class="angle-sign">Ma Kết</div>
+                    <div class="angle-degree">24&deg;24'12"</div>
+                    <div class="angle-extra"><div class="angle-extra-inner">
+                        Nền tảng nội tâm đến từ một gia đình có kỷ luật, có thể có người cha/người trụ cột nghiêm khắc. Bạn cần xây dựng sự an toàn nội tâm thông qua kỷ luật, trách nhiệm và những thành tựu cụ thể.
+                    </div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">&#10042;</div>
+
+    <!-- ==================== 12 NHÀ ==================== -->
+    <section class="section" id="houses">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">&#10023; 12 Nhà &#10023;</div>
+                <h2 class="section-title">Cusps Các Nhà</h2>
+                <p class="section-desc">Hệ thống Placidus</p>
+            </div>
+
+            <div class="houses-wrapper" data-animate>
+                <table class="houses-table">
+                    <thead>
+                        <tr>
+                            <th>Nhà</th>
+                            <th>Cung</th>
+                            <th>Độ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="house-num">I</td><td class="house-sign">Thiên Bình</td><td class="house-deg">26&deg;16'10"</td></tr>
+                        <tr><td class="house-num">II</td><td class="house-sign">Bọ Cạp</td><td class="house-deg">26&deg;05'22"</td></tr>
+                        <tr><td class="house-num">III</td><td class="house-sign">Nhân Mã</td><td class="house-deg">25&deg;10'26"</td></tr>
+                        <tr><td class="house-num">IV</td><td class="house-sign">Ma Kết</td><td class="house-deg">24&deg;24'12"</td></tr>
+                        <tr><td class="house-num">V</td><td class="house-sign">Bảo Bình</td><td class="house-deg">24&deg;52'49"</td></tr>
+                        <tr><td class="house-num">VI</td><td class="house-sign">Song Ngư</td><td class="house-deg">26&deg;11'26"</td></tr>
+                        <tr><td class="house-num">VII</td><td class="house-sign">Bạch Dương</td><td class="house-deg">26&deg;16'10"</td></tr>
+                        <tr><td class="house-num">VIII</td><td class="house-sign">Kim Ngưu</td><td class="house-deg">26&deg;05'22"</td></tr>
+                        <tr><td class="house-num">IX</td><td class="house-sign">Song Tử</td><td class="house-deg">25&deg;10'26"</td></tr>
+                        <tr><td class="house-num">X</td><td class="house-sign">Cự Giải</td><td class="house-deg">24&deg;24'12"</td></tr>
+                        <tr><td class="house-num">XI</td><td class="house-sign">Sư Tử</td><td class="house-deg">24&deg;52'49"</td></tr>
+                        <tr><td class="house-num">XII</td><td class="house-sign">Xử Nữ</td><td class="house-deg">26&deg;11'26"</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">&#10042;</div>
+
+    <!-- ==================== ASPECTS ==================== -->
+    <section class="section" id="aspects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">&#10023; Góc Hợp &#10023;</div>
+                <h2 class="section-title">Aspects Chính</h2>
+                <p class="section-desc">Những tương tác quan trọng giữa các hành tinh</p>
+            </div>
+            <div class="aspects-wrapper">
+                <div class="aspects-list">
+                    <div class="aspect-row">
+                        <span class="aspect-p">Mặt Trời (Kim Ngưu)</span>
+                        <span class="aspect-type aspect-neutral">Ngũ chiếu 150°</span>
+                        <span class="aspect-p">Mặt Trăng (Thiên Bình)</span>
+                        <span class="aspect-orb">Quincunx</span>
+                    </div>
+                    <div class="aspect-row">
+                        <span class="aspect-p">Mặt Trời (Kim Ngưu)</span>
+                        <span class="aspect-type aspect-harm">Tam hợp 120°</span>
+                        <span class="aspect-p">Mộc Tinh (Ma Kết)</span>
+                        <span class="aspect-orb">Trine &mdash; may mắn, mở rộng</span>
+                    </div>
+                    <div class="aspect-row">
+                        <span class="aspect-p">Mặt Trời (Kim Ngưu)</span>
+                        <span class="aspect-type aspect-tense">Vuông góc 90°</span>
+                        <span class="aspect-p">Thiên Vương (Bảo Bình)</span>
+                        <span class="aspect-orb">Square &mdash; căng thẳng, đột phá</span>
+                    </div>
+                    <div class="aspect-row">
+                        <span class="aspect-p">Mặt Trăng (Thiên Bình)</span>
+                        <span class="aspect-type aspect-harm">Tam hợp 120°</span>
+                        <span class="aspect-p">Kim Tinh (Song Tử)</span>
+                        <span class="aspect-orb">Trine &mdash; cảm xúc &amp; tình yêu</span>
+                    </div>
+                    <div class="aspect-row">
+                        <span class="aspect-p">Mặt Trăng (Thiên Bình)</span>
+                        <span class="aspect-type aspect-neutral">Trùng tụ 0°</span>
+                        <span class="aspect-p">Chiron (Thiên Bình)</span>
+                        <span class="aspect-orb">Conjunction &mdash; vết thương cảm xúc</span>
+                    </div>
+                </div>
+                <p style="margin-top:18px;font-size:0.78rem;color:var(--text-muted);text-align:center;font-style:italic;">
+                    Tam hợp / Lục hợp = hài hòa &bull; Vuông góc / Đối đỉnh = căng thẳng &mdash; thúc đẩy phát triển
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">&#10042;</div>
+
+    <!-- ==================== PHÂN TÍCH ==================== -->
+    <section class="section" id="analysis">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">&#10023; Phân Tích &#10023;</div>
+                <h2 class="section-title">Luận Giải Tổng Quan</h2>
+                <p class="section-desc">Những nét chính trong bản đồ sao của bạn</p>
+            </div>
+
+            <div class="analysis-grid">
+                <div class="analysis-card" data-delay="0" onclick="this.classList.toggle('open')">
+                    <div class="analysis-header">
+                        <div class="analysis-arrow">&#9654;</div>
+                        <div class="analysis-header-text">
+                            <div class="analysis-tag">AC Thiên Bình</div>
+                            <div class="analysis-title">Cung Mọc Thiên Bình</div>
+                        </div>
+                    </div>
+                    <div class="analysis-body">
+                        <p class="analysis-text">Duyên dáng, hòa nhã, dễ kết nối, nhưng có xu hướng do dự trong quyết định. Ấn tượng đầu tiên bạn tạo ra luôn mềm mại, cân bằng và mang tính thẩm mỹ cao.</p>
+                    </div>
+                </div>
+                <div class="analysis-card" data-delay="100" onclick="this.classList.toggle('open')">
+                    <div class="analysis-header">
+                        <div class="analysis-arrow">&#9654;</div>
+                        <div class="analysis-header-text">
+                            <div class="analysis-tag">Sun Kim Ngưu &bull; Nhà 7</div>
+                            <div class="analysis-title">Mặt Trời Kim Ngưu</div>
+                        </div>
+                    </div>
+                    <div class="analysis-body">
+                        <p class="analysis-text">Thực tế, kiên định, cẩn thận, có tiềm năng thành công bền vững qua nỗ lực liên tục. Mặt Trời ở Nhà 7 cho thấy các mối quan hệ đối tác đóng vai trò trung tâm trong đời bạn.</p>
+                    </div>
+                </div>
+                <div class="analysis-card" data-delay="200" onclick="this.classList.toggle('open')">
+                    <div class="analysis-header">
+                        <div class="analysis-arrow">&#9654;</div>
+                        <div class="analysis-header-text">
+                            <div class="analysis-tag">Moon Thiên Bình &bull; Nhà 12</div>
+                            <div class="analysis-title">Mặt Trăng Thiên Bình</div>
+                        </div>
+                    </div>
+                    <div class="analysis-body">
+                        <p class="analysis-text">Thế giới nội tâm sâu sắc, nhạy cảm, trực giác mạnh, có xu hướng che giấu cảm xúc. Nhà 12 mang đến chiều sâu tâm linh và nhu cầu có không gian riêng tư để nạp lại năng lượng.</p>
+                    </div>
+                </div>
+                <div class="analysis-card" data-delay="300" onclick="this.classList.toggle('open')">
+                    <div class="analysis-header">
+                        <div class="analysis-arrow">&#9654;</div>
+                        <div class="analysis-header-text">
+                            <div class="analysis-tag">Pha Trăng</div>
+                            <div class="analysis-title">Pha Trăng Khuyết</div>
+                        </div>
+                    </div>
+                    <div class="analysis-body">
+                        <p class="analysis-text">Năng lượng hoàn thiện, tự cải thiện, hay giúp người khác phát triển, nhưng dễ căng thẳng từ sự cầu toàn. Bạn mang trong mình sự khôn ngoan của người đã trải nghiệm nhiều.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-symbol">&#10022;</div>
+        <p class="footer-quote">"Các vì sao không ép buộc, chúng chỉ chỉ đường."</p>
+        <p>Dữ liệu từ chiemtinhlaso.com &bull; Trình bày bởi BBC Reader</p>
+    </footer>
+
+    <script>
+        // Stars
+        (function() {
+            const sf = document.getElementById('starfield');
+            for (let i = 0; i < 60; i++) {
+                const s = document.createElement('div');
+                s.className = 'star';
+                s.style.left = Math.random() * 100 + '%';
+                s.style.top = Math.random() * 100 + '%';
+                s.style.setProperty('--delay', (Math.random() * 5) + 's');
+                s.style.setProperty('--dur', (2 + Math.random() * 4) + 's');
+                const sz = (1.5 + Math.random() * 2) + 'px';
+                s.style.width = sz; s.style.height = sz;
+                sf.appendChild(s);
+            }
+        })();
+
+        // Scroll reveal
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    const d = e.target.getAttribute('data-delay') || 0;
+                    setTimeout(() => e.target.classList.add('visible'), parseInt(d));
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.planet-card, .angle-card, .analysis-card, .houses-wrapper').forEach(el => obs.observe(el));
+
+        // Click toggle for planet & angle cards
+        document.querySelectorAll('.planet-card, .angle-card').forEach(el => {
+            el.addEventListener('click', () => el.classList.toggle('open'));
+        });
+
+        // Nav dots
+        const secs = ['hero','glossary','planets','angles','houses','aspects','analysis'];
+        const dots = document.querySelectorAll('.nav-dot');
+        function updateDots() {
+            let cur = 'hero';
+            secs.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && el.getBoundingClientRect().top <= window.innerHeight / 2) cur = id;
+            });
+            dots.forEach(d => d.classList.toggle('active', d.dataset.target === cur));
+        }
+        window.addEventListener('scroll', updateDots, { passive: true });
+        dots.forEach(d => d.addEventListener('click', () => {
+            const t = document.getElementById(d.dataset.target);
+            if (t) t.scrollIntoView({ behavior: 'smooth' });
+        }));
+
+        // Parallax orbs
+        window.addEventListener('scroll', () => {
+            const y = window.scrollY;
+            document.querySelectorAll('.nebula .orb').forEach((o, i) => {
+                o.style.transform = `translateY(${y * (0.015 + i * 0.008)}px)`;
+            });
+        }, { passive: true });
+    </script>
+</body>
+</html>
