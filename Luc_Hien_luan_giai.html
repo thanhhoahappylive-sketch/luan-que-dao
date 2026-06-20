@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luận Giải Vợ Chồng — Lực & Hiền — Tử Vi · Thần Số · Chiêm Tinh</title>
+<style>
+  :root {
+    --cream: #f9f4ec; --paper: #fffdf8;
+    --ink: #2b2416; --ink-soft: #5c513d;
+    --gold: #b8892b; --gold-soft: #d4b16a;
+    --burgundy: #7a1f2b; --burgundy-soft: #a8414d;
+    --navy: #1f3a5f; --navy-soft: #4a6d99;
+    --purple: #5b3a70; --purple-soft: #8a66a3;
+    --green: #3d5a3d; --green-soft: #6b8a6b;
+    --warn: #c8621a; --good: #3d7a4a;
+    --pink: #b8527a; --pink-soft: #d68fae;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 0; font-family: 'Georgia', 'Times New Roman', serif;
+    background: linear-gradient(135deg, var(--cream) 0%, #f4ead9 100%);
+    color: var(--ink); line-height: 1.7; font-size: 15.5px; }
+  .container { max-width: 1080px; margin: 0 auto; padding: 30px 25px; }
+  header.title-block { text-align: center; padding: 40px 20px 30px;
+    border-bottom: 3px double var(--gold); margin-bottom: 20px;
+    background: radial-gradient(ellipse at center, rgba(184,137,43,0.08) 0%, transparent 70%); }
+  header.title-block h1 { font-size: 2.4em; margin: 0 0 8px;
+    color: var(--burgundy); letter-spacing: 2px; font-weight: normal; }
+  header.title-block .subtitle { font-size: 1.05em; color: var(--ink-soft);
+    font-style: italic; letter-spacing: 3px; }
+  header.title-block .ornament { font-size: 1.3em; color: var(--gold);
+    margin: 14px 0; letter-spacing: 10px; }
+  header.title-block .names { font-size: 1.4em; color: var(--navy);
+    margin-top: 12px; letter-spacing: 4px; }
+  header.title-block .heart { color: var(--pink); margin: 0 14px; font-size: 1.2em; }
+
+  .tab-nav { display: flex; flex-wrap: wrap; gap: 6px;
+    padding: 10px 0 0; margin: 0 0 25px; border-bottom: 2px solid var(--gold-soft);
+    position: sticky; top: 0;
+    background: linear-gradient(135deg, var(--cream) 0%, #f4ead9 100%); z-index: 10; }
+  .tab-btn { padding: 12px 22px; background: transparent;
+    border: 2px solid transparent; border-bottom: none;
+    border-radius: 6px 6px 0 0; cursor: pointer; font-family: inherit; font-size: 1em;
+    color: var(--ink-soft); letter-spacing: 0.5px; transition: all 0.2s ease;
+    position: relative; bottom: -2px; }
+  .tab-btn:hover { color: var(--burgundy); background: rgba(184,137,43,0.08); }
+  .tab-btn.active { background: var(--paper); border-color: var(--gold-soft);
+    border-bottom: 2px solid var(--paper); color: var(--burgundy); font-weight: bold; z-index: 2; }
+  .tab-btn.summary { color: var(--gold); }
+  .tab-btn.summary.active { color: var(--gold);
+    background: linear-gradient(180deg, #fff8e8 0%, var(--paper) 100%); }
+  .tab-content { display: none; animation: fadeIn 0.3s ease; }
+  .tab-content.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  section { margin-bottom: 30px; background: var(--paper);
+    padding: 25px 30px; border-radius: 4px;
+    box-shadow: 0 2px 20px rgba(43,36,22,0.06), 0 0 0 1px rgba(184,137,43,0.15);
+    border-top: 4px solid var(--gold); }
+  section.info { border-top-color: var(--ink-soft); }
+  section.tuvi { border-top-color: var(--burgundy); }
+  section.numerology { border-top-color: var(--purple); }
+  section.astrology { border-top-color: var(--navy); }
+  section.tuong { border-top-color: var(--green); }
+  section.synthesis { border-top-color: var(--gold); background: linear-gradient(135deg, #fffdf8 0%, #faf4e4 100%); }
+  section.compat { border-top-color: var(--pink); background: linear-gradient(135deg, #fffdf8 0%, #faf0f4 100%); }
+
+  h2 { font-size: 1.7em; margin: 0 0 18px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--gold-soft); color: var(--burgundy);
+    font-weight: normal; letter-spacing: 1px; }
+  section.tuvi h2 { color: var(--burgundy); }
+  section.numerology h2 { color: var(--purple); }
+  section.astrology h2 { color: var(--navy); }
+  section.info h2 { color: var(--ink); }
+  section.compat h2 { color: var(--pink); }
+  h3 { font-size: 1.2em; margin: 22px 0 10px; color: var(--ink);
+    font-weight: normal; font-style: italic; padding-left: 12px;
+    border-left: 3px solid var(--gold); }
+  h4 { font-size: 0.92em; margin: 14px 0 6px; color: var(--ink-soft);
+    font-weight: bold; text-transform: uppercase; letter-spacing: 1.2px; }
+  p { margin: 0 0 10px; }
+  ul, ol { padding-left: 22px; margin: 6px 0 12px; }
+  li { margin-bottom: 5px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 18px; font-size: 0.92em; background: #fffdf8; }
+  th { background: linear-gradient(180deg, var(--gold-soft) 0%, var(--gold) 100%);
+    color: #fff; padding: 8px 11px; text-align: left; font-weight: normal; letter-spacing: 0.5px; }
+  td { padding: 8px 11px; border-bottom: 1px solid rgba(184,137,43,0.2); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(184,137,43,0.04); }
+
+  .card { background: #fff; border-left: 4px solid var(--gold);
+    padding: 14px 18px; margin: 12px 0; border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .card.good { border-left-color: var(--good); background: #f5faf6; }
+  .card.warn { border-left-color: var(--warn); background: #fdf5ed; }
+  .card.info { border-left-color: var(--navy-soft); background: #f2f5fa; }
+  .card.star { border-left-color: var(--burgundy-soft); background: #fbf3f4; }
+  .card.love { border-left-color: var(--pink); background: #fdf3f7; }
+
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 12px;
+    font-size: 0.82em; margin: 0 4px 4px 0; background: var(--gold-soft); color: #fff; }
+  .tag.good { background: var(--good); }
+  .tag.warn { background: var(--warn); }
+  .tag.info { background: var(--navy-soft); }
+
+  .quote { font-style: italic; color: var(--ink-soft);
+    padding: 10px 18px; border-left: 3px solid var(--gold);
+    background: rgba(184,137,43,0.06); margin: 12px 0; }
+  .highlight { background: linear-gradient(180deg, transparent 50%, rgba(184,137,43,0.3) 50%); padding: 0 3px; }
+
+  .number-big { display: inline-block; width: 54px; height: 54px; line-height: 54px;
+    text-align: center;
+    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-soft) 100%);
+    color: #fff; font-size: 1.7em; border-radius: 50%;
+    margin: 6px 10px 6px 0; font-weight: bold; vertical-align: middle;
+    box-shadow: 0 3px 8px rgba(91,58,112,0.25); }
+  .number-row { display: flex; align-items: center; flex-wrap: wrap;
+    gap: 12px; margin: 12px 0; padding: 10px;
+    background: rgba(91,58,112,0.05); border-radius: 6px; }
+  .number-row .desc { flex: 1; min-width: 240px; font-size: 0.92em; }
+  .number-row .desc .label { font-weight: bold; color: var(--purple);
+    display: block; margin-bottom: 3px; font-size: 0.98em; }
+
+  .twelve-cung { display: grid; grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 3px; max-width: 580px; margin: 14px auto; aspect-ratio: 1; }
+  .cung { background: #fff; border: 1px solid var(--burgundy-soft);
+    padding: 6px; font-size: 0.7em; border-radius: 3px; line-height: 1.25; }
+  .cung.center { background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-soft) 100%);
+    color: #fff; grid-column: 2 / span 2; grid-row: 2 / span 2;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; font-size: 0.92em; padding: 14px; text-align: center; }
+  .cung .cung-name { font-weight: bold; color: var(--burgundy); font-size: 0.94em; margin-bottom: 3px; }
+  .cung .stars { color: var(--ink); font-size: 0.95em; }
+  .cung .hoa { color: var(--warn); font-weight: bold; font-size: 0.9em; }
+  .cung.menh { border-width: 2px; background: #fff8e8; }
+  .cung.menh .cung-name { background: var(--burgundy); color: #fff;
+    padding: 2px 6px; border-radius: 2px; display: inline-block; }
+  .cung.than { border-color: var(--gold); border-width: 2px; }
+
+  .planet-row { display: grid; grid-template-columns: 30px 110px 120px 1fr;
+    align-items: center; gap: 10px; padding: 6px 10px;
+    border-bottom: 1px solid rgba(31,58,95,0.1); font-size: 0.9em; }
+  .planet-row .sym { font-size: 1.3em; color: var(--navy); text-align: center; }
+  .planet-row .pos { color: var(--navy); font-weight: bold; }
+  .planet-row .house { color: var(--ink-soft); font-style: italic; }
+
+  .person-header { background: linear-gradient(135deg, var(--paper) 0%, #fffbe8 100%);
+    border-radius: 8px; padding: 22px 26px; margin-bottom: 22px;
+    border-left: 6px solid var(--gold);
+    box-shadow: 0 2px 15px rgba(184,137,43,0.1); }
+  .person-header.luc { border-left-color: var(--navy); }
+  .person-header.hien { border-left-color: var(--purple); }
+  .person-header h2 { margin: 0 0 6px; border: none; padding: 0;
+    color: var(--burgundy); font-size: 2em; }
+  .person-header .role { color: var(--ink-soft); font-style: italic;
+    letter-spacing: 2px; font-size: 1em; }
+  .person-header .basic-info { margin-top: 12px; color: var(--ink-soft); font-size: 0.94em; }
+
+  .compare-table { width: 100%; font-size: 0.88em; }
+  .compare-table th { background: linear-gradient(180deg, var(--burgundy-soft) 0%, var(--burgundy) 100%);
+    text-align: center; }
+  .compare-table th:first-child { background: var(--ink); width: 200px; text-align: left; }
+  .compare-table td { text-align: center; }
+  .compare-table td:first-child { text-align: left; font-weight: bold;
+    background: rgba(184,137,43,0.1); color: var(--burgundy); }
+  .compare-table .match { background: rgba(61,122,74,0.12) !important; font-weight: bold; }
+  .compare-table .conflict { background: rgba(200,98,26,0.12) !important; font-weight: bold; }
+
+  footer { text-align: center; padding: 30px 20px; color: var(--ink-soft);
+    font-style: italic; border-top: 1px solid var(--gold-soft); margin-top: 40px; font-size: 0.9em; }
+
+  @media (max-width: 720px) {
+    .container { padding: 15px 10px; }
+    section { padding: 18px 15px; }
+    header.title-block h1 { font-size: 1.5em; }
+    .tab-btn { padding: 8px 14px; font-size: 0.85em; }
+    .person-header { padding: 14px 18px; }
+    .person-header h2 { font-size: 1.5em; }
+    .twelve-cung { max-width: 100%; }
+    .cung { font-size: 0.58em; padding: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="title-block">
+  <div class="ornament">❦ ☯ ❦</div>
+  <h1>LUẬN GIẢI VỢ CHỒNG</h1>
+  <div class="subtitle">Tử Vi · Thần Số Học · Chiêm Tinh Tây Phương</div>
+  <div class="names">TRẦN TIẾN LỰC <span class="heart">❤</span> TÔ THỊ THANH HIỀN</div>
+  <div class="ornament">❦ ☯ ❦</div>
+</header>
+
+<nav class="tab-nav" role="tablist">
+  <button class="tab-btn summary active" data-tab="tab-compat">✦ Vợ chồng đối chiếu</button>
+  <button class="tab-btn" data-tab="tab-luc">Lực — Chồng</button>
+  <button class="tab-btn" data-tab="tab-hien">Hiền — Vợ</button>
+  <button class="tab-btn" data-tab="tab-glossary">📖 Chú giải</button>
+</nav>
+
+<!-- TAB 1 — ĐỐI CHIẾU -->
+<div id="tab-compat" class="tab-content active">
+
+<section class="compat">
+  <h2>✦ Đối chiếu vợ chồng — Lực &amp; Hiền</h2>
+
+  <div class="card love">
+    <strong>Tổng kết một câu:</strong> Một là <em>Đại Lâm Mộc</em> (rừng cây lớn bền vững — kiên nhẫn, che chở), một là <em>Lộ Bàng Thổ</em> (đất ven đường — rộng mở, đón tiếp). Mộc mọc trên Thổ, Thổ nuôi rễ Mộc — hai người <span class="highlight">cần nhau để đứng vững</span>, nhưng nếu Mộc bành trướng quá mức thì Thổ sẽ mòn. Cặp này hợp kiểu <strong>Lực là cột chống — Hiền là nền đất</strong>: Lực cho Hiền định hướng và bảo vệ, Hiền cho Lực nền tảng để bám rễ và phát triển.
+  </div>
+
+  <h3>Bảng đối chiếu nhanh</h3>
+  <table class="compare-table">
+    <tr><th>Trường</th><th>Lực (chồng)</th><th>Hiền (vợ)</th></tr>
+    <tr><td>Ngày sinh (DL)</td><td>30/12/1989</td><td>19/08/1991</td></tr>
+    <tr><td>Năm can-chi</td><td>Kỷ Tỵ</td><td>Tân Mùi</td></tr>
+    <tr><td>Giờ sinh</td><td>8:00 — Thìn</td><td>14:00 — Mùi</td></tr>
+    <tr><td>Bản mệnh nạp âm</td><td>Đại Lâm Mộc (Mộc)</td><td>Lộ Bàng Thổ (Thổ)</td></tr>
+    <tr class="conflict"><td>Tương quan bản mệnh</td><td colspan="2"><strong>Mộc khắc Thổ</strong> — cần ý thức, không để khắc thành bào mòn</td></tr>
+    <tr><td>Ngũ Hành Cục</td><td>Kim Tứ Cục (4)</td><td>Thổ Ngũ Cục (5)</td></tr>
+    <tr class="conflict"><td>Tương quan cục</td><td colspan="2"><strong>Khác cục</strong> — nhịp đại vận lệch pha (4 năm vs 5 năm), vận thăng-giáng không đồng bộ</td></tr>
+    <tr><td>Chi năm</td><td>Tỵ (Hỏa)</td><td>Mùi (Thổ)</td></tr>
+    <tr class="match"><td>Tương quan chi năm</td><td colspan="2"><strong>Tỵ Hỏa sinh Mùi Thổ</strong> — Lực (Tỵ) tự nhiên nâng đỡ Hiền (Mùi) về năng lượng</td></tr>
+    <tr><td>Sao chủ Mệnh</td><td><strong>Vũ Khúc</strong></td><td><strong>Vũ Khúc</strong></td></tr>
+    <tr class="match"><td>Tương quan sao chủ Mệnh</td><td colspan="2"><strong>Cùng Vũ Khúc chủ Mệnh</strong> — cùng đặt "tài chính &amp; năng lực thực tế" làm lõi sống. Hiểu nhau ở điểm căn bản nhất: trọng thực tế, đánh giá qua việc làm.</td></tr>
+    <tr><td>Sao chủ Thân</td><td>Thiên Cơ (Thân cư Tài Bạch)</td><td>Thiên Tướng (Thân cư Mệnh)</td></tr>
+    <tr><td>Đường đời (Thần số)</td><td>6 (Master 33/6)</td><td>2 (Master 11/2)</td></tr>
+    <tr class="match"><td>Tương quan thần số</td><td colspan="2">Số 6 (người nuôi dưỡng) + số 2 (người hòa giải) = <strong>cặp bổ sung lý tưởng</strong>. Cả hai đều là <strong>số chủ đạo (Master number)</strong> — hai người mang sứ mệnh/trách nhiệm nội tâm lớn hơn bình thường.</td></tr>
+    <tr><td>Sun (chiêm tinh)</td><td>Ma Kết (30/12)</td><td>Sư Tử (19/08)</td></tr>
+    <tr><td>Cân lượng</td><td>2 lượng 7 chỉ</td><td>4 lượng 1 chỉ</td></tr>
+    <tr><td>Tuổi (2026)</td><td>38 tuổi</td><td>36 tuổi</td></tr>
+  </table>
+
+  <h3>5 điểm cộng hưởng nổi bật ★★★</h3>
+
+  <div class="card good">
+    <strong>1 · Chi năm Tỵ–Mùi: Hỏa sinh Thổ — Lực nuôi Hiền tự nhiên.</strong> Tỵ thuộc Hỏa, Mùi thuộc Thổ. Hỏa sinh Thổ → trong quan hệ 12 địa chi, Lực (Tỵ) có xu hướng <em>tự nhiên nâng đỡ, thắp sáng</em> Hiền (Mùi). Không phải kiểu Lực cố ý "lo cho vợ" mà là <strong>khí chất Lực cộng hưởng tốt với nền tảng của Hiền</strong>. Hiền ở cạnh Lực thường cảm thấy ổn hơn, vững hơn — dù không giải thích được tại sao.
+  </div>
+
+  <div class="card good">
+    <strong>2 · Thần số 6 + 2 — cặp nuôi dưỡng &amp; hỗ trợ hoàn hảo.</strong> Đường đời 6 (Lực) = người chăm lo, trách nhiệm, gắn bó gia đình sâu. Đường đời 2 (Hiền) = người hòa giải, nhạy cảm, đồng hành. Đây là <strong>hai vai trò bổ sung hoàn toàn</strong>: Lực lo và quyết, Hiền điều phối và cân bằng. Trong thần số học, 6+2 là cặp cổ điển cho hôn nhân bền.
+  </div>
+
+  <div class="card good">
+    <strong>3 · Ma Kết (Lực) + Sư Tử (Hiền) — đất và lửa bổ sung nhau.</strong> Ma Kết: đất — kiên nhẫn, thực tế, xây dài hạn. Sư Tử: lửa — ấm áp, hào phóng, tỏa sáng tự nhiên. Lực là người <em>đặt nền</em>, Hiền là người <em>thắp sáng</em>. Ra ngoài xã hội: Hiền dễ tạo ấn tượng đầu tiên, Lực giữ cho mọi thứ đứng vững phía sau. Không cạnh tranh — phân vai tự nhiên.
+  </div>
+
+  <div class="card good">
+    <strong>4 · Vũ Khúc chủ Mệnh (Hiền) + Thiên Cơ chủ Thân (Lực) — tài chính &amp; trí tuệ bổ sung.</strong> Vũ Khúc là sao tài chính chủ — Hiền có bản năng tài chính vững. Thiên Cơ là sao mưu lược, biến hóa — Lực giỏi tính toán, linh hoạt thích nghi. Hai người không trùng vai: <strong>Hiền giữ tiền vững chắc, Lực tính toán cơ hội</strong>. Đây là phân công tài chính lý tưởng nếu được tổ chức rõ ràng.
+  </div>
+
+  <div class="card good">
+    <strong>5 · Thiên Tướng chủ Thân (Hiền) — vợ có nguyên tắc rõ, không bị lung lay.</strong> Thiên Tướng là sao công bằng, có hệ thống, chính trực. Cùng Vũ Khúc chủ Mệnh → Hiền là người <em>"nói là làm, có lập trường"</em>. Điều này quan trọng cho Lực: có người bạn đời <strong>không phải kiểu thuận chiều tất cả</strong> — khi Lực sai, Hiền dám nói thẳng. Đây là đối trọng lành mạnh.
+  </div>
+
+  <h3>3 điểm cần lưu ý ⚠</h3>
+
+  <div class="card warn">
+    <strong>1 · Bản mệnh Đại Lâm Mộc (Lực) khắc Lộ Bàng Thổ (Hiền).</strong> Mộc khắc Thổ — <em>rễ cây đâm xuyên đất</em>. Trong đời thực, Lực có thể vô tình <strong>làm Hiền mất nền tảng</strong>: phán quyết quá mạnh, áp đặt kế hoạch mà không hỏi, ra quyết định lớn mà không tham vấn Hiền. Khắc trong bản mệnh không phải là thảm họa — nhiều cặp Mộc-Thổ rất bền — nhưng <span class="highlight">Lực phải ý thức: khi Lực "mạnh tay", Hiền bị bào mòn thầm lặng</span>, không nói ra nhưng tích lũy.
+  </div>
+
+  <div class="card warn">
+    <strong>2 · Khác cục — nhịp vận lệch pha.</strong> Kim Tứ Cục (4) và Thổ Ngũ Cục (5) là hai "đồng hồ vận mệnh" chạy khác nhịp. Khi Lực vào giai đoạn chuyển đổi lớn (đổi nghề, đổi hướng), Hiền có thể đang ở giữa chu kỳ ổn định — và ngược lại. <strong>Nguy hiểm nhất là khi một người đang "sôi" (muốn thay đổi, bức bối), người kia đang "lặng" (muốn yên ổn)</strong> → gây cảm giác không được đồng hành. Cần nhận biết: "Mình đang ở giai đoạn vận nào?" để hiểu thay vì phán xét.
+  </div>
+
+  <div class="card warn">
+    <strong>3 · Liêm Trinh hãm ở Thiên Di (Hiền) + năm 2026 Hóa Kỵ Liêm Trinh.</strong> Thiên Di là cung đối ngoại, đi xa, xã giao. Liêm Trinh ở trạng thái hãm (yếu) tại đây → Hiền đã có xu hướng <em>gặp trắc trở khi đi xa, hợp tác xa, hoặc làm việc đối ngoại</em>. Năm Bính Ngọ 2026, Hóa Kỵ rơi vào Liêm Trinh → kép lại lần hai. <strong>Năm 2026, Hiền nên tránh: ký hợp đồng xa nhà, đi công tác dài ngày, mở rộng đối tác mới vội vàng.</strong> Lực cần hỗ trợ phần đối ngoại thay Hiền trong giai đoạn này.
+  </div>
+
+  <h3>Tương tác chi năm — Tỵ (Lực) ↔ Mùi (Hiền)</h3>
+  <table>
+    <tr><th>Cặp địa chi</th><th>Quan hệ</th><th>Diễn giải</th></tr>
+    <tr><td>Tỵ (Lực) – Mùi (Hiền)</td><td><span class="tag good">Hỏa sinh Thổ — tương sinh</span></td><td>Tỵ (Hỏa) sinh Mùi (Thổ). Tỵ và Mùi đều thuộc vùng phương nam, đi liền nhau. Về ngũ hành: Lực cho Hiền năng lượng và định hướng, Hiền cho Lực nền tảng. Không xung, không hình — là cặp địa chi bình hòa và tương trợ tốt.</td></tr>
+  </table>
+
+  <div class="card love">
+    <strong>Lưu ý quan trọng:</strong> Về <em>bản mệnh nạp âm</em> (Đại Lâm Mộc khắc Lộ Bàng Thổ) và về <em>chi năm</em> (Tỵ sinh Mùi) — hai lớp này không mâu thuẫn nhau, chúng phản ánh hai bình diện khác nhau. Chi năm nói về "tâm tư, khí chất cộng hưởng" → hai người hòa hợp ngầm tốt. Bản mệnh nói về "chất sống, cách tiếp cận cuộc đời" → cần cân bằng cẩn thận hơn. Cụ thể: <span class="highlight">ở gần nhau thoải mái (chi năm), nhưng khi bàn chuyện lớn phải nghe nhau (bản mệnh).</span>
+  </div>
+
+  <h3>5 tình huống điển hình &amp; cách xử lý</h3>
+
+  <div class="card love">
+    <h4 style="margin-top:0">Tình huống 1 · Lực quyết định nhanh, Hiền chưa kịp xử lý</h4>
+    <p><strong>Vì sao xảy ra:</strong> Thiên Cơ (Lực) là sao biến hóa nhanh, mưu lược linh hoạt → Lực quyết và chuyển trạng thái nhanh. Vũ Khúc + Thiên Tướng (hai sao chủ của Hiền) là năng lượng kỷ luật và nguyên tắc → Hiền cần thời gian xử lý, không thích "đã xong rồi mới nói".</p>
+    <p><strong>Cách xử:</strong>
+      <ul>
+        <li><strong>Lực:</strong> Với bất kỳ quyết định nào ảnh hưởng đến hai người (tài chính, nhà cửa, công việc) — <em>báo trước ít nhất 24 giờ</em>, không phải xin phép mà là để Hiền chuẩn bị tâm lý và đóng góp ý kiến.</li>
+        <li><strong>Hiền:</strong> Khi không kịp xử lý, đừng im lặng chịu đựng. Nói thẳng: "Em cần thêm thời gian để suy nghĩ về chuyện này." Vũ Khúc cần lên tiếng rõ ràng.</li>
+      </ul>
+    </p>
+  </div>
+
+  <div class="card love">
+    <h4 style="margin-top:0">Tình huống 2 · Hiền có lập trường khác, Lực cảm thấy bị "phản bác"</h4>
+    <p><strong>Vì sao xảy ra:</strong> Thiên Tướng ở Mệnh Hiền → Hiền có nguyên tắc và không dễ bẻ. Lực với Đại Lâm Mộc (rừng cây lớn) → có xu hướng muốn ý kiến mình được theo. Khi Hiền phản bác, Lực dễ cảm thấy bị thách thức thay vì được giúp đỡ.</p>
+    <p><strong>Cách xử:</strong>
+      <ul>
+        <li><strong>Lực:</strong> Hiền phản bác không phải vì chống Lực — Vũ Khúc + Thiên Tướng là sao <em>"nói thật để bảo vệ"</em>. Đặt câu hỏi mở: "Em thấy chỗ nào chưa ổn?" thay vì im lặng hoặc tranh luận phản xạ.</li>
+        <li><strong>Nguyên tắc chung:</strong> Khi Hiền phản đối, dừng 30 giây trước khi phản hồi. Thiên Cơ linh hoạt đủ để học kỹ năng này.</li>
+      </ul>
+    </p>
+  </div>
+
+  <div class="card love">
+    <h4 style="margin-top:0">Tình huống 3 · Nhịp vận lệch — một người muốn đổi, một người muốn ổn</h4>
+    <p><strong>Vì sao xảy ra:</strong> Khác cục (Kim 4 vs Thổ 5) → hai người không đồng bộ về "vận chuyển mình". Có thể Lực đang ở đầu đại vận mới (hứng khởi, muốn thay đổi lớn) trong khi Hiền đang giữa chu kỳ (muốn ổn định để nuôi dưỡng những gì đang có) — và ngược lại.</p>
+    <p><strong>Cách xử:</strong>
+      <ul>
+        <li><strong>Nhận biết pha vận:</strong> Định kỳ hỏi nhau "Mình đang cảm thấy thế nào với nhịp cuộc sống hiện tại?" — không phải để phán xét, mà để biết người kia đang ở pha nào.</li>
+        <li><strong>Quy tắc quyết định lớn:</strong> Khi một người đang ở cuối chu kỳ (bức bối, muốn đổi hết) → hoãn quyết định lớn sang đầu chu kỳ mới. Cuối chu kỳ là thời điểm cảm xúc, không phải lý trí.</li>
+      </ul>
+    </p>
+  </div>
+
+  <div class="card love">
+    <h4 style="margin-top:0">Tình huống 4 · Vấn đề tài chính — ai giữ, ai chi</h4>
+    <p><strong>Vì sao xảy ra:</strong> Vũ Khúc chủ Mệnh Hiền = bản năng tài chính vững. Thiên Cơ chủ Thân (cư Tài Bạch) Lực = Lực linh hoạt với tiền, giỏi tính toán cơ hội nhưng dễ thay đổi hướng chi. Hai phong cách khác nhau: Hiền giữ, Lực tìm cơ hội.</p>
+    <p><strong>Đề xuất phân công:</strong>
+      <ul>
+        <li><strong>Hiền quản tài khoản chung:</strong> Vũ Khúc chủ Mệnh = bản năng giữ tiền tốt, không để rò rỉ. Hiền phụ trách tiết kiệm, chi tiêu gia đình.</li>
+        <li><strong>Lực có ngân sách "cơ hội" riêng:</strong> Thiên Cơ ở Tài Bạch cần không gian để tính toán và thử. Dành 10-15% thu nhập cho Lực vận hành độc lập — nhưng mức trần cố định.</li>
+        <li><strong>Quyết định &gt; 50 triệu:</strong> Phải có cả hai đồng ý, không phải "anh quyết rồi báo em".</li>
+      </ul>
+    </p>
+  </div>
+
+  <div class="card love">
+    <h4 style="margin-top:0">Tình huống 5 · Năm 2026 — Hiền gặp trắc trở đối ngoại</h4>
+    <p><strong>Vì sao xảy ra:</strong> Liêm Trinh hãm ở Thiên Di (Hiền) + năm Bính Ngọ 2026 Hóa Kỵ Liêm Trinh → cung Thiên Di của Hiền bị kép kỵ. Thiên Di là cung đi xa, đối tác ngoài, hợp đồng, công tác.</p>
+    <p><strong>Cách ứng phó cho cả hai:</strong>
+      <ul>
+        <li><strong>Hiền:</strong> Năm 2026 không phải lúc mở rộng đối ngoại. Tập trung củng cố bên trong — quan hệ hiện có, tài chính nội bộ, sức khỏe. Tránh ký hợp đồng quan trọng với đối tác mới xa lạ.</li>
+        <li><strong>Lực:</strong> Đây là năm Lực nên là người <em>ra tiếp, ra gặp</em> thay cho cả hai. Đừng để Hiền một mình xử lý các mối quan hệ đối ngoại khó.</li>
+        <li><strong>Cơ hội ẩn:</strong> Kỵ ở Thiên Di không chỉ cản — đôi khi đẩy người tập trung vào <em>điền trạch (nhà cửa), tài bạch</em>. Năm 2026 Hiền nên dùng sức cho việc nhà, tài chính nội tại — thay vì mở rộng bên ngoài.</li>
+      </ul>
+    </p>
+  </div>
+
+  <h3>Ba góc nhìn cho hôn nhân này</h3>
+  <table>
+    <tr><th>Góc nhìn</th><th>Nội dung</th></tr>
+    <tr><td><strong>Tử Vi</strong></td><td>Vũ Khúc chủ Mệnh + Thiên Tướng chủ Thân (Hiền) là chân dung của người có nội lực và nguyên tắc. Thiên Cơ chủ Thân cư Tài Bạch (Lực) là người đời gắn với trí tuệ và tài lộc. Cả hai cùng Vũ Khúc chủ Mệnh — cùng gốc trọng thực tế. Hai người không phải kiểu "một người mạnh — một người yếu", mà là <strong>hai điểm mạnh khác nhau cần nhau để bổ sung</strong>. Vũ Khúc-Thiên Tướng giữ nền; Thiên Cơ khai thác cơ hội. Tổng thể là nền tảng vững + đầu óc linh hoạt = gia đình cân bằng.</td></tr>
+    <tr><td><strong>Thần số</strong></td><td>Số 6 (Lực) + số 2 (Hiền). Số 6 là người <em>"nuôi"</em> — gắn bó, chịu trách nhiệm, không thích để người thân thiếu thứ gì. Số 2 là người <em>"nối"</em> — làm cầu kết nối, giữ hòa khí, nhạy cảm với cảm xúc của người khác. Cộng hưởng tự nhiên: 6 lo phần vật chất-trách nhiệm, 2 lo phần cảm xúc-quan hệ. <strong>Tổng 6+2=8: số thu hoạch, số của sự vững chắc và thành quả lâu dài.</strong></td></tr>
+    <tr><td><strong>Chiêm tinh</strong></td><td>Ma Kết (Lực) là dấu hiệu Đất — xây dài hạn, không hấp tấp, thực tế cao. Sư Tử (Hiền) là dấu hiệu Lửa — ấm áp, hào phóng, muốn được công nhận. Ma Kết cần Sư Tử để bớt nghiêm và biết tận hưởng; Sư Tử cần Ma Kết để có phương hướng và bền bỉ. <strong>Đây là cặp Đất-Lửa kinh điển: lửa sưởi ấm đất, đất giữ cho lửa không tắt nhanh.</strong></td></tr>
+  </table>
+
+  <h3>Đề xuất cho hôn nhân này</h3>
+
+  <div class="card good">
+    <h4>Cho Lực:</h4>
+    <ul>
+      <li><strong>Thiên Cơ linh hoạt là sức mạnh</strong> — nhưng đừng dùng sự linh hoạt đó để "qua mặt" Hiền trong quyết định chung. Mỗi lần Lực "đã quyết rồi mới báo" là một lần bào mòn Lộ Bàng Thổ của Hiền.</li>
+      <li><strong>Số đường đời 6:</strong> Lực là người yêu gia đình sâu — hãy thể hiện điều đó bằng <em>hành động cụ thể, không phải bằng lời</em>. Nấu cơm, sắp xếp chuyến đi gia đình, nhớ ngày quan trọng của Hiền — đây là ngôn ngữ của số 6.</li>
+      <li><strong>Ma Kết đôi khi quá nghiêm:</strong> để Hiền (Sư Tử) kéo Lực ra khỏi vùng "lo nghĩ" đôi khi. Đừng dập tắt những lúc Hiền muốn vui bằng câu "nhưng thực tế thì..."</li>
+    </ul>
+  </div>
+
+  <div class="card good">
+    <h4>Cho Hiền:</h4>
+    <ul>
+      <li><strong>Vũ Khúc chủ Mệnh + Thiên Tướng chủ Thân</strong> → Hiền có lập trường và nguyên tắc mạnh. Đây là điểm mạnh, nhưng đôi khi cần <em>linh hoạt hóa</em> khi ở nhà, không phải tất cả mọi thứ đều cần chuẩn mực.</li>
+      <li><strong>Năm 2026 (Liêm Trinh Kỵ Thiên Di):</strong> tập trung vào nội bộ. Nhờ Lực phụ các mối đối ngoại khó — đây là năm để <em>xây bên trong</em>, không phải mở rộng bên ngoài.</li>
+      <li><strong>Sư Tử cần được công nhận:</strong> đừng chờ Lực (Ma Kết) tự biết. Nói thẳng "Em muốn anh ghi nhận điều em đã làm" — Ma Kết cần hướng dẫn cụ thể về cách biểu hiện tình cảm.</li>
+    </ul>
+  </div>
+
+  <div class="card love">
+    <h4>Cho cả hai:</h4>
+    <ul>
+      <li><strong>Khác cục = khác nhịp:</strong> hàng tháng dành 30 phút check-in "chúng mình đang ở đâu trong năm này?" — không bàn việc cụ thể, mà bàn về cảm giác và hướng đi. Đây là cách đồng bộ nhịp khi cục khác nhau.</li>
+      <li><strong>Tài chính:</strong> Hiền giữ quỹ chung (Vũ Khúc), Lực giữ quỹ cơ hội riêng (Thiên Cơ). Không trộn lẫn. Mỗi quý ngồi xem lại cùng nhau.</li>
+      <li><strong>Đại Lâm Mộc + Lộ Bàng Thổ:</strong> rừng cây và đất đường — hình ảnh của một đường có cây xanh hai bên. Hai người ở cạnh nhau, không phải một người đứng trên người kia. Khi Lực nhớ rằng Hiền là <em>đất đỡ rễ mình</em> chứ không phải đất để mình đi qua — hôn nhân này rất vững.</li>
+    </ul>
+  </div>
+</section>
+</div>
+
+<!-- TAB 2 — LỰC (CHỒNG) -->
+<div id="tab-luc" class="tab-content">
+
+<div class="person-header luc">
+  <h2>Trần Tiến Lực</h2>
+  <div class="role">❦ Chồng — sinh 30/12/1989 Kỷ Tỵ ❦</div>
+  <div class="basic-info">
+    <strong>Dương lịch:</strong> 30/12/1989 · <strong>Âm lịch:</strong> 03/12 năm Kỷ Tỵ · <strong>Giờ:</strong> 8:00 (Thìn)<br>
+    <strong>Tứ trụ:</strong> Kỷ Tỵ · Đinh Sửu · Giáp Tý · Mậu Thìn · <strong>Bản mệnh:</strong> Đại Lâm Mộc<br>
+    <strong>Ngũ Hành Cục:</strong> Kim Tứ Cục · <strong>Căn lương:</strong> 2 lương 7 chí
+  </div>
+</div>
+
+<div class="card info" style="border-left:4px solid var(--gold); background:rgba(184,137,43,0.06)">
+  <h3 style="margin-top:0; color:var(--burgundy)">❦ Tinh thần một câu</h3>
+  <p><strong>"Rừng cây lớn trên núi — che chở mọi thứ bên dưới, nhưng rễ cần đất tốt để không ngã."</strong></p>
+  <p>Lực là người mang khí chất <em>Đại Lâm Mộc</em>: rừng cây đại thụ, bền bỉ, rộng lớn, che chở xung quanh. Bên trong có Thiên Cơ — sao mưu lược, linh hoạt, thích ứng nhanh. Đây là người <strong>bề ngoài điềm tĩnh, bên trong luôn tính toán</strong>. Cuộc đời Lực gắn với tài lộc (Thân cư Tài Bạch) — tiền bạc và cơ hội là trục chính của số phận Lực.</p>
+</div>
+
+<section class="tuvi">
+  <h2>Tử Vi — Trần Tiến Lực</h2>
+  <table>
+    <tr><th style="width:220px">Yếu tố</th><th>Kết quả</th><th>Ý nghĩa</th></tr>
+    <tr><td>Năm sinh</td><td>Kỷ Tỵ (1989)</td><td>Can Kỷ (Âm Thổ) + Chi Tỵ (Hỏa) → Âm Nam</td></tr>
+    <tr><td>Tứ trụ</td><td>Kỷ Tỵ · Đinh Sửu · Giáp Tý · Mậu Thìn</td><td>Ngày Giáp Tý — thiên can Giáp (Dương Mộc), chi Tý (Thủy)</td></tr>
+    <tr><td>Bản mệnh nạp âm</td><td><strong>Đại Lâm Mộc</strong></td><td>Rừng cây đại thụ — bền vững, che chở, phát triển lâu dài</td></tr>
+    <tr><td>Ngũ Hành Cục</td><td><strong>Kim Tứ Cục</strong></td><td>4 năm/giai đoạn trong đại vận. Khởi vận số 4.</td></tr>
+    <tr><td>Cục – Bản mệnh</td><td>Kim khắc Mộc</td><td>Cục tự khắc bản mệnh → người cần kỷ luật (Kim) để Mộc phát triển đúng hướng, nếu thiếu kỷ luật thì mộc mọc lan tràn, phá hại</td></tr>
+    <tr><td><strong>Sao chủ Mệnh</strong></td><td><strong>Vũ Khúc</strong></td><td>Sao tài chính kim loại — kỷ luật, năng lực thực tế. Là "lõi" cuộc đời Lực. <em>(Trùng sao chủ Mệnh với Hiền — xem ghi chú bên dưới)</em></td></tr>
+    <tr><td><strong>Sao chủ Thân</strong></td><td><strong>Thiên Cơ</strong></td><td>Sao mưu lược, biến hóa, thông minh. Định hình cách Lực "đi qua đời" — bằng trí, bằng tính toán.</td></tr>
+    <tr><td>Lai nhân cung (Thân cư)</td><td>Tài Bạch</td><td>Cung Thân (số phận) nằm ở Tài Bạch → tiền tài, cơ hội kinh tế là trục trung tâm cuộc đời</td></tr>
+    <tr><td>Cân lượng</td><td>2 lượng 7 chỉ</td><td>Số cân xương — phận khởi điểm nhẹ, đời lên dần nhờ tự thân; hậu vận tốt hơn tiền vận</td></tr>
+    <tr><td>Năm xem</td><td>Bính Ngọ (2026), 38 tuổi</td><td>Đang trong giai đoạn "đào móng" của Đại Lâm Mộc — xem phần phát muộn bên dưới</td></tr>
+  </table>
+
+  <div class="card info">
+    <strong>Trùng sao chủ Mệnh với Hiền — một điểm cộng hưởng đẹp:</strong> Cả Lực và Hiền đều có <strong>Vũ Khúc làm sao chủ Mệnh</strong>. Vũ Khúc là sao Tài — điều này nghĩa là <span class="highlight">cả hai cùng đặt "tiền bạc &amp; năng lực thực tế" làm cốt lõi giá trị sống</span>. Hai người hiểu nhau ở điểm căn bản nhất: coi trọng sự thực tế, không thích viển vông, đánh giá nhau (và người khác) qua việc làm chứ không qua lời nói. Đây là nền chung rất vững cho một gia đình.
+  </div>
+
+  <div class="card star">
+    <strong>Điểm cốt lõi:</strong> <span class="highlight">Thiên Cơ chủ Thân, Thân cư Tài Bạch</span> — đây là người mà <em>cuộc đời thực sự bộc lộ qua tiền bạc và cơ hội tài chính</em>. Khi tài lộc tốt, Lực tự tin và phát sáng. Khi tài lộc khó, Lực mất phương hướng hơn người khác. Thiên Cơ ở Tài Bạch cũng cho thấy: tiền của Lực đến nhờ <strong>trí tuệ, mưu lược và thích nghi</strong> — không phải nhờ may mắn hay bạo lực thị trường.
+  </div>
+
+  <h3>Đại Lâm Mộc — 4 thông điệp về Lực</h3>
+  <ul>
+    <li><strong>Rừng cây lớn:</strong> Lực có khả năng tự nhiên tạo "bóng mát" cho xung quanh — người thân, đồng nghiệp, gia đình đều muốn dựa vào. Điều này vừa là sức mạnh vừa là gánh nặng nếu Lực không biết giới hạn.</li>
+    <li><strong>Bền bỉ qua thời gian:</strong> Đại Lâm Mộc không lớn nhanh — lớn chậm và bền. Lực không phải kiểu "thành công sớm" mà là kiểu "30 năm sau nhìn lại thấy đã đi rất xa". Đừng so sánh với người cùng tuổi đang đỉnh sớm.</li>
+    <li><strong>Rễ cần đất:</strong> Rừng cây không tự đứng — cần đất. Lực cần Hiền (Lộ Bàng Thổ) như cây cần đất. Khi Lực coi trọng điều này, hôn nhân vững. Khi Lực "vươn cành quá cao mà quên rễ", đất bị xói mòn.</li>
+    <li><strong>Kim Tứ Cục khắc Đại Lâm Mộc:</strong> Cục Kim khắc bản mệnh Mộc → Lực là người cần <em>tự kỷ luật</em> để phát huy tiềm năng. Nếu buông thả, năng lượng Mộc bị Kim bóp. Nếu có kỷ luật, Kim luyện Mộc thành gỗ quý.</li>
+  </ul>
+
+  <h3>Thiên Cơ — sao chủ Thân (Thân cư Tài Bạch)</h3>
+  <p>Thiên Cơ là sao <strong>Âm Mộc, mưu lược, biến hóa, thông minh</strong>. Là sao "chiến lược gia" — không phải kiểu mạnh bạo, mà kiểu tính toán trước vài nước cờ. Là sao chủ Thân và cung Thân lại an ở Tài Bạch (tài chính), Thiên Cơ cho thấy:</p>
+  <ul>
+    <li><strong>Giỏi nhìn cơ hội:</strong> Lực thường thấy "cơ hội" ở chỗ người khác không thấy. Đây là điểm mạnh thực sự.</li>
+    <li><strong>Tiền đến nhờ trí:</strong> Không phải nhờ cơ bắp hay may rủi — nhờ phân tích, tính toán, thông tin. Nghề hợp với Lực là những việc đòi hỏi tư duy chiến lược.</li>
+    <li><strong>Rủi ro: biến hóa quá nhiều:</strong> Thiên Cơ ưa đổi — nếu không kiểm soát, Lực dễ "chạy từ cơ hội này sang cơ hội khác" mà không đào sâu. Cần Hiền (Vũ Khúc — ổn định tài chính) làm neo.</li>
+  </ul>
+</section>
+
+<section class="numerology">
+  <h2>Thần Số Học — Trần Tiến Lực</h2>
+  <div class="card info" style="margin-bottom:16px">
+    <strong>Cách tính đường đời:</strong> 30/12/1989 → 3+0+1+2+1+9+8+9 = <strong>33</strong> → 3+3 = <strong>6</strong><br>
+    <em>Đây là số chủ đạo Master 33/6</em> — một trong những con số hiếm và "nặng" nhất trong thần số học: "người thầy của tình yêu thương", trách nhiệm rất lớn với người xung quanh.
+  </div>
+
+  <div class="number-row">
+    <span class="number-big">6</span>
+    <div class="desc"><span class="label">Đường đời (Life Path) — Master 33/6</span>
+      Người nuôi dưỡng, chăm lo, trách nhiệm. Số 6 yêu gia đình sâu sắc, ghét thấy người thân thiếu thứ gì. Vì là <strong>Master 33</strong> (số cao nhất của nhánh 6), tinh thần trách nhiệm và mong muốn "chăm lo cho cả tập thể" của Lực <em>rất mạnh</em> — đôi khi tự gánh vác quá nhiều, vượt cả phạm vi gia đình. Hạnh phúc nhất khi cảm thấy <em>mình đang bảo vệ và lo cho người mình yêu</em>. Điểm yếu: dễ kiểm soát người thân vì "lo quá", và dễ kiệt sức vì ôm việc của người khác. Cần học: buông và tin tưởng.
+    </div>
+  </div>
+
+  <div class="number-row">
+    <span class="number-big">3</span>
+    <div class="desc"><span class="label">Số ngày sinh (Birthday) — số 3 (ngày 30 → 3)</span>
+      Tài năng bẩm sinh: <strong>giao tiếp, diễn đạt, tạo không khí</strong>. Dù đường đời 33/6 nghiêng về trách nhiệm (dễ thành nghiêm túc), số 3 cho Lực khả năng <em>nói chuyện có duyên, kết nối, làm người khác thoải mái</em>. Đây là "van xả" cân bằng cho cái nặng của số 6 — Lực nên giữ và nuôi phần hài hước, nhẹ nhõm này, đừng để trách nhiệm đè mất.
+    </div>
+  </div>
+
+  <div class="card good" style="margin-top:8px">
+    <strong>Master 33/6 + vai trò chồng:</strong> Đây là con số lý tưởng cho người chồng theo nghĩa truyền thống tốt nhất — không phải "gia trưởng", mà là <em>người cột trụ cảm xúc và trách nhiệm của gia đình</em>. Lực sinh ra để là người giữ tổ ấm. Vấn đề chỉ xảy ra khi Lực "lo" bằng cách kiểm soát thay vì bằng cách hỗ trợ — hoặc khi ôm trách nhiệm của quá nhiều người mà quên chính mình và vợ con.
+  </div>
+  <div class="card warn" style="margin-top:8px">
+    <strong>Cảnh báo số 6:</strong> Khi bị tổn thương, số 6 có xu hướng <em>hy sinh quá mức rồi oán</em> — làm nhiều mà không được ghi nhận, sau đó tích lại và bùng. Lực cần học nói thẳng khi cần được công nhận, thay vì chờ đợi.
+  </div>
+</section>
+
+<section class="astrology">
+  <h2>Chiêm Tinh — Trần Tiến Lực</h2>
+  <p style="font-size:0.9em; color:var(--ink-soft)"><em>Sun tính chắc chắn theo ngày sinh. Mercury &amp; Venus ước lượng theo vị trí gần Mặt Trời. Moon &amp; Asc cần <strong>giờ + nơi sinh chính xác</strong> mới tính đúng.</em></p>
+  <div class="planet-row"><span class="sym">☉</span><span class="pos">Sun (Mặt Trời)</span><span class="house">Ma Kết ~8°</span><span><span class="tag good">chắc chắn</span> Bản chất: kiên nhẫn, thực tế, xây dài hạn, có tham vọng ngầm. Không nói nhiều nhưng làm tới cùng.</span></div>
+  <div class="planet-row"><span class="sym">♄</span><span class="pos">Saturn (chủ tinh)</span><span class="house">Chủ tinh Ma Kết</span><span>Lực mang năng lượng Saturn: trách nhiệm, kỷ luật, học từ thất bại. Không thích đường tắt.</span></div>
+  <div class="planet-row"><span class="sym">☿</span><span class="pos">Mercury (Tư duy)</span><span class="house">Ma Kết / Nhân Mã</span><span><span class="tag info">ước lượng</span> Cách nghĩ: thực tế, có cấu trúc, thận trọng khi phát ngôn (Ma Kết); nếu nghiêng Nhân Mã thì thêm phần thẳng thắn, thích triết lý.</span></div>
+  <div class="planet-row"><span class="sym">♀</span><span class="pos">Venus (Tình yêu)</span><span class="house">Bảo Bình / Ma Kết</span><span><span class="tag info">ước lượng</span> Yêu kiểu chung thủy, bền, ít phô trương. Thể hiện tình cảm bằng hành động &amp; sự lo toan hơn lời ngọt.</span></div>
+  <div class="planet-row"><span class="sym">↑</span><span class="pos">Moon &amp; Asc</span><span class="house">cần nơi sinh</span><span><span class="tag warn">chưa đủ dữ liệu</span> Cần nơi sinh + giờ chính xác để tính Mặt Trăng (cảm xúc) &amp; cung Mọc (vẻ ngoài).</span></div>
+
+  <div class="card star">
+    <strong>Ma Kết trong đời thường của Lực:</strong>
+    <ul style="margin-top:6px">
+      <li><strong>Ở nơi làm việc:</strong> được coi là người đáng tin, chắc chắn. Không hay nói hoa mỹ nhưng khi nhận việc là làm xong.</li>
+      <li><strong>Ở nhà:</strong> cần được ghi nhận rõ hơn — Ma Kết dễ hiểu "yên lặng không phàn nàn" là hài lòng. Hiền (Sư Tử) muốn được nói "anh thấy em làm tốt lắm" — Lực cần học điều này.</li>
+      <li><strong>Tiền bạc:</strong> Ma Kết + Thiên Cơ Tài Bạch = thực tế với tiền, nhưng không ngại tính toán cơ hội. Không hoang phí, nhưng không cũng ngại đầu tư có tính toán.</li>
+      <li><strong>Saturn Return (tuổi ~29-30 và ~58-60):</strong> Lực đã qua lần 1 (khoảng 2018-2019). Đây là giai đoạn lột xác — nếu có biến cố lớn giai đoạn đó (đổi nghề, đổi môi trường, mất mát), đó là Saturn Return định hình con người Lực hiện tại.</li>
+    </ul>
+  </div>
+</section>
+
+</div>
+
+<!-- TAB 3 — HIỀN (VỢ) -->
+<div id="tab-hien" class="tab-content">
+
+<div class="person-header hien">
+  <h2>Tô Thị Thanh Hiền</h2>
+  <div class="role">❦ Vợ — sinh 19/08/1991 Tân Mùi ❦</div>
+  <div class="basic-info">
+    <strong>Dương lịch:</strong> 19/08/1991 · <strong>Âm lịch:</strong> 10/07 năm Tân Mùi · <strong>Giờ:</strong> 14:00 (Mùi)<br>
+    <strong>Tứ trụ:</strong> Tân Mùi · Bính Thân · Tân Dậu · Ất Mùi · <strong>Bản mệnh:</strong> Lộ Bàng Thổ<br>
+    <strong>Chủ Mệnh:</strong> Vũ Khúc · <strong>Chủ Thân:</strong> Thiên Tướng · <strong>Thân cư Mệnh</strong> · <strong>Âm Nữ</strong>
+  </div>
+</div>
+
+<div class="card info" style="border-left:4px solid var(--gold); background:rgba(184,137,43,0.06)">
+  <h3 style="margin-top:0; color:var(--burgundy)">❦ Tinh thần một câu</h3>
+  <p><strong>"Đất ven đường — rộng mở, đón tiếp tất cả, nhưng cần ranh giới để không bị đi qua mà không được trân trọng."</strong></p>
+  <p>Hiền là người mang khí chất <em>Lộ Bàng Thổ</em>: đất ở ven đường, tiếp xúc rộng, nuôi dưỡng nhiều. Sao <strong>chủ Mệnh là Vũ Khúc</strong> (sao tài chính, kỷ luật) và sao <strong>chủ Thân là Thiên Tướng</strong> (sao công bằng, nguyên tắc) — hai sao này là "cốt lõi vận mệnh" của Hiền, cho thấy một người <strong>cứng rắn, có nguyên tắc, giỏi tài chính</strong>. Bề ngoài rộng mở nhưng bên trong có lập trường rõ; không dễ bị lung lay khi đã quyết.</p>
+</div>
+
+<section class="tuvi">
+  <h2>Tử Vi — Tô Thị Thanh Hiền</h2>
+  <table>
+    <tr><th style="width:220px">Yếu tố</th><th>Kết quả</th><th>Ý nghĩa</th></tr>
+    <tr><td>Năm sinh</td><td>Tân Mùi (1991)</td><td>Can Tân (Âm Kim) + Chi Mùi (Thổ) → Âm Nữ</td></tr>
+    <tr><td>Tứ trụ</td><td>Tân Mùi · Bính Thân · Tân Dậu · Ất Mùi</td><td>Ngày Tân Dậu — Âm Kim toàn phần (can-chi đều Kim)</td></tr>
+    <tr><td>Bản mệnh nạp âm</td><td><strong>Lộ Bàng Thổ</strong></td><td>Đất ven đường — rộng, tiếp xúc nhiều, nuôi cây hai bên</td></tr>
+    <tr><td>Mệnh – Bản mệnh</td><td>Thổ – Thổ bình hòa</td><td>Bảng lá số ghi "Thổ Mệnh Thổ bình hòa" → cung Mệnh và bản mệnh cùng hành Thổ, không tự khắc → nền tảng vững, ổn định từ bên trong</td></tr>
+    <tr><td><strong>Sao chủ Mệnh</strong></td><td><strong>Vũ Khúc</strong></td><td>Sao tài chính kim loại — kỷ luật, kiên cường, bản năng quản tiền. Là "lõi" cuộc đời Hiền.</td></tr>
+    <tr><td><strong>Sao chủ Thân</strong></td><td><strong>Thiên Tướng</strong></td><td>Sao công bằng, nguyên tắc, có hệ thống, trọng chữ tín. Định hình cách Hiền "đi qua đời".</td></tr>
+    <tr><td>Thân cư Mệnh</td><td>Mệnh và Thân đồng cung</td><td>Sống thật với bản thân, không phân tách "mặt trong - mặt ngoài". Cái gì Hiền là → đời Hiền đi theo đó.</td></tr>
+    <tr><td>Cân lượng</td><td>4 lượng 1 chỉ</td><td>Số cân xương theo Viên Thiên Cang — phận trung bình khá, hậu vận nhờ tự thân tích lũy</td></tr>
+    <tr><td>Năm xem</td><td>Bính Ngọ (2026), 36 tuổi</td><td>Năm Bính → Hóa Kỵ rơi vào Liêm Trinh (xem cảnh báo cung Thiên Di bên dưới)</td></tr>
+  </table>
+
+  <div class="card info">
+    <strong>Vũ Khúc chủ Mệnh nghĩa là gì?</strong> Trong tử vi, mỗi người có một "sao chủ Mệnh" — sao đại diện cho cốt lõi vận mệnh, an theo vị trí cung Mệnh. Của Hiền là <strong>Vũ Khúc — sao Tài</strong>. Điều này nói lên: tài chính, sự kỷ luật và năng lực thực tế là <em>trục xương sống</em> của cuộc đời Hiền. Người Vũ Khúc chủ Mệnh thường <span class="highlight">quản tiền giỏi tự nhiên, nói ít làm nhiều, coi trọng năng lực thật hơn lời nói hoa mỹ</span>, và có lòng tự trọng cao về khả năng của mình.
+  </div>
+
+  <h3>12 cung — sơ đồ tham khảo (Tô Thị Thanh Hiền)</h3>
+  <div class="card warn" style="font-size:0.92em">
+    ⚠ <strong>Lưu ý:</strong> Sơ đồ dưới đây đọc từ ảnh chụp lá số, một số cung &amp; sao phụ chưa rõ hoàn toàn. Phần chắc chắn là cung <strong>Thiên Di (Liêm Trinh)</strong> và bảng trung tâm. Để có bản đồ 12 cung chính xác từng sao, nên đối chiếu lại bản gốc trên tuvi.vn.
+  </div>
+
+  <div class="twelve-cung">
+    <div class="cung" style="grid-column:1;grid-row:1">
+      <div class="cung-name">Quan Lộc</div>
+      <div style="font-size:0.8em">Tỵ</div>
+      <div class="stars">Chính tinh đang xét</div>
+    </div>
+    <div class="cung" style="grid-column:2;grid-row:1">
+      <div class="cung-name">Nô Bộc</div>
+      <div style="font-size:0.8em">Ngọ</div>
+      <div class="stars">Thiên Khôi<br>Địa Kiếp</div>
+    </div>
+    <div class="cung" style="grid-column:3;grid-row:1">
+      <div class="cung-name">Thiên Di</div>
+      <div style="font-size:0.8em">Mùi</div>
+      <div class="stars"><strong>Liêm Trinh (Hãm)</strong><br><span class="hoa">Kỵ năm 2026</span></div>
+    </div>
+    <div class="cung" style="grid-column:4;grid-row:1">
+      <div class="cung-name">Tật Ách</div>
+      <div style="font-size:0.8em">Thân</div>
+      <div class="stars">Hồng Loan</div>
+    </div>
+
+    <div class="cung" style="grid-column:1;grid-row:2">
+      <div class="cung-name">Điền Trạch</div>
+      <div style="font-size:0.8em">Thìn</div>
+      <div class="stars"><strong>Cự Môn</strong></div>
+    </div>
+
+    <div class="cung center">
+      <h3 style="color:#fff;border:none;margin:0 0 6px;padding:0">TÔ THỊ THANH HIỀN</h3>
+      <div style="font-size:0.85em">Tân Mùi · Âm Nữ · Thổ Ngũ Cục</div>
+      <div style="font-size:0.85em;margin-top:4px">Bản mệnh: Lộ Bàng Thổ</div>
+      <div style="font-size:0.8em;margin-top:8px;opacity:0.85">Thân cư Mệnh<br>Chủ Mệnh: Vũ Khúc · Chủ Thân: Thiên Tướng</div>
+    </div>
+
+    <div class="cung" style="grid-column:4;grid-row:2">
+      <div class="cung-name">Tài Bạch</div>
+      <div style="font-size:0.8em">Dậu</div>
+      <div class="stars">—</div>
+    </div>
+
+    <div class="cung" style="grid-column:1;grid-row:3">
+      <div class="cung-name">Phúc Đức</div>
+      <div style="font-size:0.8em">Mão</div>
+      <div class="stars">—</div>
+    </div>
+
+    <div class="cung" style="grid-column:4;grid-row:3">
+      <div class="cung-name">Tử Tức</div>
+      <div style="font-size:0.8em">Tuất</div>
+      <div class="stars">—</div>
+    </div>
+
+    <div class="cung" style="grid-column:1;grid-row:4">
+      <div class="cung-name">Phụ Mẫu</div>
+      <div style="font-size:0.8em">Dần</div>
+      <div class="stars"><strong>Thái Âm (Bình)</strong></div>
+    </div>
+    <div class="cung menh than" style="grid-column:2;grid-row:4">
+      <div class="cung-name" style="background:var(--burgundy);color:#fff;padding:2px 6px;border-radius:2px;display:inline-block">Mệnh + Thân</div>
+      <div style="font-size:0.8em">Sửu</div>
+      <div class="stars"><strong>Vũ Khúc</strong><br><strong>Thiên Tướng</strong></div>
+    </div>
+    <div class="cung" style="grid-column:3;grid-row:4">
+      <div class="cung-name">Huynh Đệ</div>
+      <div style="font-size:0.8em">Tý</div>
+      <div class="stars">—</div>
+    </div>
+    <div class="cung" style="grid-column:4;grid-row:4">
+      <div class="cung-name">Phu Thê</div>
+      <div style="font-size:0.8em">Hợi</div>
+      <div class="stars">—</div>
+    </div>
+  </div>
+
+  <h3>Diễn giải hai sao chủ — Vũ Khúc (chủ Mệnh) &amp; Thiên Tướng (chủ Thân)</h3>
+  <p><strong>Vũ Khúc</strong> (sao chủ Mệnh) là sao tài chính kim loại — kỷ luật, kiên cường, không thích hoa mỹ suông, đánh giá người qua năng lực thực tế. <strong>Thiên Tướng</strong> (sao chủ Thân) là sao công bằng, nguyên tắc, có hệ thống. Hai sao chủ này định hình một người:</p>
+  <ul>
+    <li><strong>Biết quản lý tài chính tự nhiên:</strong> Hiền không cần học mà đã có bản năng phân biệt "đáng chi" và "không đáng chi". Tiền trong tay Hiền thường đến chỗ đúng.</li>
+    <li><strong>Có lập trường:</strong> Khi đã quyết, Hiền khó bị lung lay. Đây là sức mạnh, nhưng đôi khi cần linh hoạt hơn trong quan hệ — không phải mọi thứ đều cần "nguyên tắc".</li>
+    <li><strong>Không thích bị coi thường:</strong> Vũ Khúc có tự trọng cao về năng lực. Khi Lực vô tình nói câu gì đó coi nhẹ ý kiến Hiền, đó là điểm dễ tổn thương nhất.</li>
+    <li><strong>Mệnh-Thân đồng cung:</strong> Hiền sống thật với mình — không có "chế độ biểu diễn" khác với "chế độ ở nhà". Người gặp Hiền lần đầu nhận được đúng con người thật của Hiền.</li>
+  </ul>
+
+  <div class="card warn">
+    <strong>Cung Thiên Di — Liêm Trinh hãm (đặc biệt năm 2026):</strong> Cung Thiên Di của Hiền có Liêm Trinh ở trạng thái yếu (hãm hoặc bình). Liêm Trinh là sao tình-tài-danh đan xen — ở Thiên Di có nghĩa các quan hệ xa-đối ngoại-hợp tác dễ có rắc rối liên quan đến tình cảm hoặc tiền bạc. Năm 2026 (Hóa Kỵ Liêm Trinh): <strong>đừng vay mượn với người xa, đừng ký hợp đồng vội với đối tác mới quen, đừng để quan hệ đối ngoại nào có tính mờ ám về tiền bạc.</strong>
+  </div>
+
+  <h3>Lộ Bàng Thổ — 3 thông điệp về Hiền</h3>
+  <ul>
+    <li><strong>"Đất ven đường" — tiếp xúc rộng nhưng không chọn lọc được ai đi qua:</strong> Hiền có xu hướng rộng mở với người xung quanh, dễ bị người khác dựa dẫm hoặc lợi dụng lòng tốt. Cần học: không phải ai đến cũng cần phải giúp đến cùng.</li>
+    <li><strong>Đất đường nuôi cây hai bên:</strong> Trong gia đình và tập thể, Hiền thường là người "nền" — âm thầm nuôi dưỡng, giữ ổn định. Dễ bị xem là "hiển nhiên" nếu không nói lên đóng góp của mình.</li>
+    <li><strong>"Thổ Mệnh Thổ bình hòa":</strong> Bảng lá số ghi rõ cung Mệnh và bản mệnh cùng hành Thổ, bình hòa — không tự khắc. Hiền có nền tảng nội lực khá ổn định, không phải kiểu bị cuộc đời "xé từ trong". Đây là điểm vững hơn Lực (Kim khắc Mộc) về mặt nội tại.</li>
+  </ul>
+</section>
+
+<section class="numerology">
+  <h2>Thần Số Học — Tô Thị Thanh Hiền</h2>
+  <div class="card info" style="margin-bottom:16px">
+    <strong>Cách tính đường đời:</strong> 19/08/1991 → 1+9+0+8+1+9+9+1 = 38 → 3+8 = <strong>11</strong> → 1+1 = <strong>2</strong><br>
+    <em>Đây là số chủ đạo Master 11/2</em> — con số đặc biệt: mang năng lượng trực giác mạnh của 11, biểu hiện ra ngoài qua sự hòa hợp của 2.
+  </div>
+
+  <div class="number-row">
+    <span class="number-big">2</span>
+    <div class="desc"><span class="label">Đường đời (Life Path) — Master 11/2</span>
+      Người hòa giải, kết nối, nhạy cảm với cảm xúc người khác. Số 2 giỏi tạo hòa khí, làm cầu nối, lắng nghe. Vì là <strong>Master 11</strong>, Hiền còn có <em>trực giác rất nhạy</em> — thường "cảm" được điều gì đó trước khi lý trí giải thích được. Hạnh phúc nhất trong quan hệ <em>thực sự bình đẳng và được tôn trọng</em>. Điểm yếu: dễ chịu đựng quá lâu vì sợ xung đột, và đôi khi bị quá tải vì cảm nhận quá nhiều. Cần học: bày tỏ cảm xúc sớm thay vì tích lại.
+    </div>
+  </div>
+
+  <div class="number-row">
+    <span class="number-big">1</span>
+    <div class="desc"><span class="label">Số ngày sinh (Birthday) — số 1 (ngày 19 → 1+9 = 10 → 1)</span>
+      Tài năng bẩm sinh: <strong>khả năng lãnh đạo &amp; độc lập</strong>. Dù đường đời là số 2 (hòa hợp, đứng cùng), bên trong Hiền có một <em>"hạt nhân số 1"</em> — muốn tự chủ, tự quyết, không thích phụ thuộc. Điều này cộng hưởng với Vũ Khúc chủ Mệnh: <span class="highlight">một người ngoài mềm trong cứng, biết nhường nhưng có giới hạn rõ.</span>
+    </div>
+  </div>
+
+  <div class="card warn" style="margin-top:8px">
+    <strong>Số 2 (đường đời) + số 1 (ngày sinh) + Vũ Khúc chủ Mệnh — chân dung hợp nhất:</strong> Ba lớp này cùng kể một câu chuyện: <em>"bên ngoài ôn nhu, hòa hợp (số 2) — bên trong độc lập, có lập trường (số 1) — cốt lõi là kỷ luật &amp; năng lực thực tế (Vũ Khúc)"</em>. Khi có mâu thuẫn nội tâm giữa "muốn giữ hòa khí" và "không chịu được điều sai", Hiền nên nghe phần lõi: <strong>nói thẳng sớm, đừng tích âm ỉ rồi bùng.</strong> Tích lâu là điểm dễ tổn thương nhất của tổ hợp này.
+  </div>
+</section>
+
+<section class="astrology">
+  <h2>Chiêm Tinh — Tô Thị Thanh Hiền</h2>
+  <p style="font-size:0.9em; color:var(--ink-soft)"><em>Sun (Mặt Trời) tính chắc chắn theo ngày sinh. Mercury &amp; Venus luôn ở gần Mặt Trời nên ước lượng được. Moon &amp; Asc cần <strong>giờ + nơi sinh chính xác</strong> mới tính đúng — phần dưới đánh dấu rõ mức tin cậy.</em></p>
+  <div class="planet-row"><span class="sym">☉</span><span class="pos">Sun (Mặt Trời)</span><span class="house">Sư Tử ~26°</span><span><span class="tag good">chắc chắn</span> Bản chất: ấm áp, hào phóng, muốn được yêu thương và công nhận. Có lòng kiêu hãnh lành mạnh.</span></div>
+  <div class="planet-row"><span class="sym">☿</span><span class="pos">Mercury (Tư duy)</span><span class="house">Sư Tử / Xử Nữ</span><span><span class="tag info">ước lượng</span> Cách nghĩ &amp; nói: tự tin, có chính kiến (Sư Tử), pha chút tỉ mỉ phân tích nếu nghiêng Xử Nữ. Nói có trọng lượng.</span></div>
+  <div class="planet-row"><span class="sym">♀</span><span class="pos">Venus (Tình yêu)</span><span class="house">Cự Giải / Sư Tử</span><span><span class="tag info">ước lượng</span> Yêu kiểu nồng ấm, trung thành, coi trọng gia đình &amp; sự tận tụy. Thích được thể hiện tình cảm rõ ràng.</span></div>
+  <div class="planet-row"><span class="sym">↑</span><span class="pos">Moon &amp; Asc</span><span class="house">cần nơi sinh</span><span><span class="tag warn">chưa đủ dữ liệu</span> Cần nơi sinh + giờ chính xác. Nếu bổ sung, mình tính được Mặt Trăng (cảm xúc) &amp; cung Mọc (vẻ ngoài).</span></div>
+
+  <div class="card star">
+    <strong>Sư Tử trong đời thường của Hiền:</strong>
+    <ul style="margin-top:6px">
+      <li><strong>Với Lực:</strong> Hiền cần Lực <em>nói rõ sự ghi nhận</em> — không phải giả tạo, mà là thật sự để ý và nói ra. "Em làm tốt lắm", "Anh biết em đã cố nhiều" — những câu này với Sư Tử có giá trị rất cao. Ma Kết (Lực) thường không nói vì cho rằng "làm là đủ rồi" — đây là điểm cần học.</li>
+      <li><strong>Ở xã hội:</strong> Hiền thường tạo được thiện cảm và ấn tượng tốt với người mới gặp. Sư Tử có sức thu hút tự nhiên. Đây là tài nguyên — nhưng với Liêm Trinh hãm ở Thiên Di, cần cẩn thận không để ai lợi dụng sức thu hút đó.</li>
+      <li><strong>Với con cái:</strong> Sư Tử là dấu hiệu của sự hào phóng và ấm áp — Hiền nhiều khả năng là người mẹ rất ấm áp và khuyến khích con phát triển.</li>
+    </ul>
+  </div>
+
+  <div class="card love">
+    <strong>Một câu cho Hiền:</strong> Đất ven đường của Sư Tử — rộng mở, ấm áp, tiếp đón tất cả. Nhưng trong nhà, với Lực, hãy cho phép mình yêu cầu được trân trọng. <em>Lộ Bàng Thổ cần người đi qua biết ơn mình — không phải cứ ai đi qua cũng được.</em>
+  </div>
+</section>
+
+</div>
+
+<!-- TAB 4 — CHÚ GIẢI -->
+<div id="tab-glossary" class="tab-content">
+<section>
+  <h2>📖 Chú giải thuật ngữ</h2>
+
+  <h3>Tử Vi Đẩu Số</h3>
+  <table>
+    <tr><th style="width:200px">Thuật ngữ</th><th>Giải thích</th></tr>
+    <tr><td>Cung Mệnh</td><td>Cung "tôi là ai" — tính cách cốt lõi, định hướng đời.</td></tr>
+    <tr><td>Cung Thân</td><td>Cung "đời tôi đi đâu" — số phận thực tế. Khi đồng cung Mệnh thì người + số phận hợp nhất (như Hiền).</td></tr>
+    <tr><td>Chính tinh</td><td>14 sao chính trong tử vi (Tử Vi, Thiên Cơ, Thái Dương... Phá Quân). Đặt vào 12 cung quyết định cách cục.</td></tr>
+    <tr><td><strong>Sao chủ Mệnh</strong></td><td>Sao đại diện cho "lõi" vận mệnh, an theo địa chi của cung Mệnh. <em>Khác với chính tinh tọa Mệnh</em> — đây là sao biểu trưng cốt cách. Cả Lực và Hiền đều có sao chủ Mệnh là <strong>Vũ Khúc</strong> (sao Tài).</td></tr>
+    <tr><td><strong>Sao chủ Thân</strong></td><td>Sao biểu trưng cho cách "đi qua đời" — phần số phận bộc lộ ra ngoài. Của Lực là Thiên Cơ (trí, mưu lược), của Hiền là Thiên Tướng (nguyên tắc, chữ tín).</td></tr>
+    <tr><td>Lai nhân cung (Thân cư)</td><td>Cho biết cung Thân an ở cung nào trong 12 cung. Lực: Thân cư Tài Bạch (đời gắn tài lộc). Hiền: Thân cư Mệnh (sống thật, trong-ngoài như một).</td></tr>
+    <tr><td>Cân lượng (cân xương)</td><td>Phép "xưng cốt" của Viên Thiên Cang — quy ngày giờ sinh thành số lượng/chỉ xương, ước lượng phúc phận tổng quát. Lực 2 lượng 7 chỉ, Hiền 4 lượng 1 chỉ.</td></tr>
+    <tr><td>Tứ Hóa</td><td>4 sao biến đổi theo can năm: Hóa Lộc (tài), Hóa Quyền (uy), Hóa Khoa (danh), Hóa Kỵ (cản trở).</td></tr>
+    <tr><td>Năm Bính → Tứ Hóa</td><td>Lộc Thiên Đồng · Quyền Thiên Cơ · Khoa Văn Xương · <strong>Kỵ Liêm Trinh</strong> — ảnh hưởng trực tiếp đến cung Thiên Di của Hiền năm 2026.</td></tr>
+    <tr><td>Cục</td><td>Số năm mỗi giai đoạn đại vận. Thủy 2 / Mộc 3 / Kim 4 / Thổ 5 / Hỏa 6.</td></tr>
+    <tr><td>Đại vận</td><td>Mỗi 10 năm chuyển sang một cung — số phận giai đoạn đó nhuộm theo cung đó.</td></tr>
+    <tr><td>Nạp âm</td><td>Hệ phân loại 60 năm Giáp Tý ra 5 hành với 60 tên cụ thể. Cho biết "chất" của năm/người.</td></tr>
+    <tr><td>Đại Lâm Mộc</td><td>Rừng cây lớn — bền vững, che chở. Nạp âm năm Mậu Thìn / Kỷ Tỵ.</td></tr>
+    <tr><td>Lộ Bàng Thổ</td><td>Đất ven đường — rộng mở, tiếp xúc nhiều. Nạp âm năm Canh Ngọ / Tân Mùi.</td></tr>
+    <tr><td>Mộc khắc Thổ</td><td>Rễ cây đâm xuyên đất — Mộc "kiểm soát" Thổ. Trong thực tế: người Mộc có thể vô tình làm lung lay nền tảng người Thổ.</td></tr>
+  </table>
+
+  <h3>Sao chính của lá số Hiền</h3>
+  <table>
+    <tr><th>Sao</th><th>Ý nghĩa cốt lõi</th></tr>
+    <tr><td><strong>Vũ Khúc</strong></td><td>Sao tài chính kim loại — kỷ luật, kiên cường, không thích hoa mỹ. Là <strong>sao chủ Mệnh</strong> của Hiền (và cả Lực) → bản năng tài chính vững, lập trường rõ.</td></tr>
+    <tr><td><strong>Thiên Tướng</strong></td><td>Sao công bằng, nguyên tắc, hệ thống. Là <strong>sao chủ Thân</strong> của Hiền → cách "đi qua đời" trọng chữ tín, có đạo đức rõ ràng.</td></tr>
+    <tr><td><strong>Liêm Trinh</strong></td><td>Sao tình-tài-danh đan xen. Ở Thiên Di (hãm) → đối ngoại có trắc trở. Năm 2026 Hóa Kỵ → tránh hợp tác xa/mới.</td></tr>
+    <tr><td><strong>Cự Môn</strong></td><td>Sao miệng lưỡi. Ở Điền Trạch → nhà cửa đôi khi có chuyện lời nói, thị phi nội bộ; cần kiên nhẫn.</td></tr>
+    <tr><td><strong>Thái Âm</strong></td><td>Sao nữ tính, nội tâm. Ở Phụ Mẫu (Bình) → quan hệ cha mẹ ổn định.</td></tr>
+    <tr><td><strong>Thiên Cơ (Lực)</strong></td><td>Sao mưu lược, biến hóa, Âm Mộc. Thủ Thân tại Tài Bạch → đời Lực gắn với trí tuệ và tài lộc.</td></tr>
+  </table>
+
+  <h3>Chiêm Tinh Phương Tây</h3>
+  <table>
+    <tr><th>Thuật ngữ</th><th>Giải thích</th></tr>
+    <tr><td>Sun (Mặt Trời)</td><td>Bản chất cốt lõi — "tôi là". Ma Kết (Lực): xây dài hạn. Sư Tử (Hiền): tỏa sáng, ấm áp.</td></tr>
+    <tr><td>Saturn (Thổ Tinh)</td><td>Chủ tinh Ma Kết. Mang năng lượng kỷ luật, trách nhiệm, học từ thất bại.</td></tr>
+    <tr><td>Saturn Return</td><td>Tuổi ~29-30, Saturn về vị trí lúc sinh → giai đoạn lột xác trưởng thành. Lực đã qua (~2018-2019). Hiền sắp qua hoặc vừa qua (~2020-2021).</td></tr>
+    <tr><td>Ma Kết + Sư Tử</td><td>Đất + Lửa — bổ sung nhau. Ma Kết cho Sư Tử nền tảng và hướng đi. Sư Tử cho Ma Kết hơi ấm và niềm vui sống.</td></tr>
+  </table>
+
+  <h3>Thần Số Học (Pythagorean)</h3>
+  <table>
+    <tr><th>Thuật ngữ</th><th>Giải thích</th></tr>
+    <tr><td>Đường đời (Life Path)</td><td>Cộng tất cả số trong ngày sinh → rút gọn đến 1 chữ số. Số "DNA" cuộc đời.</td></tr>
+    <tr><td>Số ngày sinh (Birthday)</td><td>Lấy riêng ngày sinh rút gọn 1 chữ số → tài năng bẩm sinh. Lực: số 3 (giao tiếp). Hiền: số 1 (độc lập).</td></tr>
+    <tr><td><strong>Master number (số chủ đạo)</strong></td><td>Khi tổng ra <strong>11, 22 hoặc 33</strong> thì giữ lại trước khi rút gọn — đây là số "nâng cấp", mang trực giác/sứ mệnh/trách nhiệm lớn hơn. Lực = <strong>33/6</strong> (33 → 6), Hiền = <strong>11/2</strong> (11 → 2). Cả hai đều mang Master number.</td></tr>
+    <tr><td>Số 6 (Lực, Master 33/6)</td><td>Người nuôi dưỡng, trách nhiệm, yêu gia đình. 33 là "thầy của tình thương" → trách nhiệm rất lớn.</td></tr>
+    <tr><td>Số 2 (Hiền, Master 11/2)</td><td>Người hòa giải, nhạy cảm, kết nối. 11 → trực giác rất mạnh.</td></tr>
+    <tr><td>6 + 2 = 8</td><td>Tổng năng lượng của cặp → số 8: thành quả, vững chắc, thu hoạch lâu dài. Rất tốt cho hôn nhân bền.</td></tr>
+  </table>
+</section>
+</div>
+
+<footer>
+  ❦ Luận giải vợ chồng Lực &amp; Hiền — biên soạn dựa trên Tử Vi Đẩu Số, Chiêm Tinh Tây Phương &amp; Thần Số Học Pythagorean ❦<br>
+  <em>Mọi trường phái chỉ cho thấy xu hướng — quyết định cuộc đời vẫn ở hai người.</em>
+</footer>
+
+</div>
+
+<script>
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.tab;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(target).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
