@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hồ sơ Nhân số học — Tô Thị Thanh Hòa</title>
+<style>
+:root{
+  --bg:#faf7f2; --bg2:#ffffff; --ink:#26221c; --ink2:#5b5346; --line:#e3dccf;
+  --accent:#8a6a33; --accent-soft:#f3ece0; --deep:#2f4858; --deep-soft:#e9eff2;
+  --rose:#8c5b62; --rose-soft:#f6ecec;
+  --shadow:0 1px 2px rgba(38,34,28,.05), 0 8px 24px rgba(38,34,28,.06);
+  --maxw:1080px;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#17150f; --bg2:#1e1b15; --ink:#ece6da; --ink2:#b0a894; --line:#332e24;
+    --accent:#d8b071; --accent-soft:#2a2318; --deep:#9dc0d2; --deep-soft:#1b2429;
+    --rose:#d7a2a8; --rose-soft:#291d1e;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:80px}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  font-size:16.5px; line-height:1.72; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,.ui{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:linear-gradient(160deg,var(--deep-soft),var(--accent-soft));
+  border-bottom:1px solid var(--line); padding:56px 24px 44px;
+}
+.hero-in{max-width:var(--maxw); margin:0 auto}
+.kicker{font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); font-weight:700; margin:0 0 14px}
+.hero h1{margin:0; font-size:clamp(30px,5.2vw,46px); line-height:1.15; letter-spacing:-.01em}
+.hero .tagline{margin:14px 0 0; font-style:italic; font-size:clamp(16px,2.3vw,19px); color:var(--ink2); max-width:46em}
+.idbar{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px}
+.idbar .pill{
+  background:var(--bg2); border:1px solid var(--line); border-radius:999px;
+  padding:7px 15px; font-size:13.5px; box-shadow:var(--shadow);
+}
+.idbar .pill b{color:var(--accent)}
+
+/* ---------- LAYOUT ---------- */
+.layout{max-width:var(--maxw); margin:0 auto; padding:0 24px 90px; display:grid; grid-template-columns:238px 1fr; gap:44px; align-items:start}
+@media (max-width:900px){ .layout{grid-template-columns:1fr; gap:0} }
+
+/* ---------- TOC ---------- */
+.toc{position:sticky; top:20px; max-height:calc(100vh - 40px); overflow:auto; padding:26px 0 20px; font-size:13.5px}
+.toc .toc-h{font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink2); font-weight:700; margin:0 0 12px}
+.toc a{display:block; color:var(--ink2); text-decoration:none; padding:4px 10px; border-left:2px solid transparent; line-height:1.45}
+.toc a:hover{color:var(--ink); background:var(--accent-soft)}
+.toc a.book{margin-top:14px; font-weight:700; color:var(--ink); font-size:12.5px; letter-spacing:.02em}
+.toc a.active{color:var(--accent); border-left-color:var(--accent); background:var(--accent-soft); font-weight:600}
+.toc-toggle{display:none}
+@media (max-width:900px){
+  .toc{position:static; max-height:none; border-bottom:1px solid var(--line); margin-bottom:8px}
+  .toc-toggle{display:block; width:100%; text-align:left; background:var(--bg2); border:1px solid var(--line);
+    border-radius:10px; padding:11px 14px; font-size:14px; color:var(--ink); cursor:pointer; margin:22px 0 0; font-weight:600}
+  .toc-list{display:none; padding-top:10px}
+  .toc-list.open{display:block}
+}
+
+/* ---------- SEARCH ---------- */
+.searchwrap{margin:20px 0 0}
+.searchwrap input{
+  width:100%; padding:10px 14px; border:1px solid var(--line); border-radius:10px;
+  background:var(--bg2); color:var(--ink); font-size:14px; font-family:inherit;
+}
+.searchwrap input:focus{outline:2px solid var(--accent); outline-offset:1px}
+.searchwrap .hint{font-size:11.5px; color:var(--ink2); margin-top:6px}
+mark{background:#ffe9a8; color:#3a2f10; border-radius:2px; padding:0 1px}
+@media (prefers-color-scheme:dark){ mark{background:#5c4a17; color:#ffeec2} }
+.dimmed{opacity:.18}
+
+/* ---------- CONTENT ---------- */
+main{padding-top:30px; min-width:0}
+.book{margin:0 0 20px}
+.book-head{
+  margin:56px 0 30px; padding:22px 26px; border-radius:14px;
+  background:var(--bg2); border:1px solid var(--line); border-left:5px solid var(--accent); box-shadow:var(--shadow);
+}
+.book-head:first-of-type{margin-top:8px}
+.book-head .bk{font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); font-weight:700}
+.book-head h2{margin:8px 0 0; font-size:clamp(21px,3.2vw,27px); line-height:1.25}
+.book-head p{margin:10px 0 0; color:var(--ink2); font-size:14.5px}
+
+section.chap{margin:0 0 8px; padding:26px 0 8px; border-top:1px solid var(--line)}
+section.chap:first-child{border-top:none}
+h3.chap-t{margin:0 0 16px; font-size:19.5px; line-height:1.3; color:var(--deep); letter-spacing:-.005em}
+h3.chap-t .no{color:var(--accent); font-weight:800; margin-right:8px; font-size:15px; letter-spacing:.06em}
+h4{margin:24px 0 8px; font-size:16.5px; color:var(--ink)}
+h5{margin:18px 0 6px; font-size:14.5px; color:var(--ink2); font-weight:700; letter-spacing:.01em}
+p{margin:10px 0}
+ul{margin:8px 0 14px; padding-left:22px}
+li{margin:4px 0}
+.tight li{margin:2px 0}
+
+/* ---------- COMPONENTS ---------- */
+.quote{
+  margin:18px 0; padding:16px 22px; border-left:3px solid var(--accent);
+  background:var(--accent-soft); border-radius:0 10px 10px 0;
+  font-style:italic; font-size:17px; color:var(--ink);
+}
+.quote.big{font-size:19px; text-align:center; border-left:none; border-radius:12px; padding:24px}
+.note{
+  margin:16px 0; padding:13px 18px; background:var(--deep-soft); border:1px solid var(--line);
+  border-radius:10px; font-size:14px; color:var(--ink2);
+}
+.note b{color:var(--deep)}
+.calc{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:14.5px;
+  background:var(--bg2); border:1px solid var(--line); border-radius:10px;
+  padding:12px 16px; margin:12px 0; overflow-x:auto; white-space:pre-wrap; color:var(--ink)
+}
+.lbl{display:inline-block; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:700; padding:3px 9px; border-radius:999px; margin:14px 0 2px}
+.lbl.plus{background:var(--deep-soft); color:var(--deep)}
+.lbl.minus{background:var(--rose-soft); color:var(--rose)}
+.lbl.learn{background:var(--accent-soft); color:var(--accent)}
+
+/* number chips */
+.n{
+  display:inline-flex; align-items:center; justify-content:center; min-width:1.75em; height:1.75em;
+  padding:0 .45em; border-radius:999px; background:var(--accent-soft); color:var(--accent);
+  font-weight:800; font-size:.86em; text-decoration:none; border:1px solid transparent;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; vertical-align:baseline;
+}
+a.n:hover{border-color:var(--accent)}
+.n.d{background:var(--deep-soft); color:var(--deep)}
+.n.r{background:var(--rose-soft); color:var(--rose)}
+
+/* card grids */
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(212px,1fr)); gap:14px; margin:18px 0}
+.card{
+  background:var(--bg2); border:1px solid var(--line); border-radius:12px; padding:16px 18px; box-shadow:var(--shadow);
+}
+.card .cn{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink2); font-weight:700}
+.card .cv{font-size:26px; font-weight:800; color:var(--accent); line-height:1.2; margin:4px 0 4px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.card .cd{font-size:14px; color:var(--ink2); line-height:1.5}
+.card a{color:inherit; text-decoration:none}
+
+/* table */
+.tblwrap{overflow-x:auto; margin:18px 0; border:1px solid var(--line); border-radius:12px; background:var(--bg2)}
+table{border-collapse:collapse; width:100%; font-size:14px; min-width:560px}
+th,td{padding:10px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+thead th{background:var(--accent-soft); color:var(--accent); font-size:11.5px; letter-spacing:.1em;
+  text-transform:uppercase; font-weight:800; white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:var(--accent-soft)}
+td.yr{font-weight:800; color:var(--deep); white-space:nowrap;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.wide-table{min-width:900px}
+
+/* pythagoras matrix */
+.matrix{display:grid; grid-template-columns:repeat(3,86px); gap:8px; margin:18px 0; justify-content:start}
+.cell{
+  height:86px; border:1px solid var(--line); border-radius:10px; background:var(--bg2);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; position:relative;
+}
+.cell .pos{position:absolute; top:6px; left:9px; font-size:10.5px; color:var(--ink2); letter-spacing:.06em}
+.cell .val{font-size:23px; font-weight:800; letter-spacing:.06em; color:var(--accent);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.cell.empty{background:transparent; border-style:dashed}
+.cell.empty .val{color:var(--ink2); opacity:.35; font-size:17px; font-weight:500}
+.legend{display:flex; flex-wrap:wrap; gap:16px; font-size:13px; color:var(--ink2); margin:6px 0 16px}
+.legend span b{color:var(--accent)}
+
+/* timeline */
+.tl{border-left:2px solid var(--line); margin:18px 0 18px 6px; padding-left:22px}
+.tl .ev{position:relative; margin:0 0 22px}
+.tl .ev::before{
+  content:""; position:absolute; left:-29px; top:8px; width:11px; height:11px; border-radius:50%;
+  background:var(--accent); border:2px solid var(--bg);
+}
+.tl .ev .ey{font-weight:800; color:var(--deep); font-size:15.5px;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.tl .ev .et{font-style:italic; color:var(--accent); font-size:14.5px; margin:2px 0 6px}
+
+/* swot */
+.swot{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin:18px 0}
+.swot .q{border-radius:12px; padding:16px 18px; border:1px solid var(--line); background:var(--bg2)}
+.swot .q h4{margin:0 0 8px; font-size:15px}
+.swot .s{border-top:3px solid var(--deep)}
+.swot .w{border-top:3px solid var(--rose)}
+.swot .o{border-top:3px solid var(--accent)}
+.swot .t{border-top:3px solid var(--ink2)}
+.swot ul{margin:0; padding-left:18px; font-size:14.5px}
+
+/* glossary */
+.gloss{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; margin:18px 0}
+.gitem{background:var(--bg2); border:1px solid var(--line); border-radius:12px; padding:16px 18px; box-shadow:var(--shadow)}
+.gitem .gh{display:flex; align-items:center; gap:10px; margin-bottom:8px}
+.gitem .gh .num{font-size:27px; font-weight:800; color:var(--accent); line-height:1;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.gitem .gh .nm{font-size:14.5px; font-weight:700}
+.gitem ul{margin:0; padding-left:18px; font-size:14px; color:var(--ink2)}
+
+.meta-note{
+  margin:20px 0 4px; padding:11px 16px; border:1px dashed var(--line); border-radius:10px;
+  font-size:13px; color:var(--ink2); background:transparent;
+}
+.meta-note em{font-style:italic}
+.src-break{
+  margin:34px 0 0; text-align:center; font-size:11.5px; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--ink2); opacity:.7;
+}
+footer{
+  max-width:var(--maxw); margin:0 auto; padding:34px 24px 70px; border-top:1px solid var(--line);
+  font-size:13px; color:var(--ink2);
+}
+footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
+.totop{
+  position:fixed; right:22px; bottom:22px; width:42px; height:42px; border-radius:50%;
+  background:var(--accent); color:#fff; border:none; cursor:pointer; font-size:17px;
+  box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:opacity .2s;
+}
+.totop.show{opacity:.92; pointer-events:auto}
+@media print{
+  .toc,.searchwrap,.totop,.toc-toggle{display:none}
+  .layout{grid-template-columns:1fr}
+  body{background:#fff; font-size:11pt}
+  section.chap{break-inside:auto}
+  .book-head{break-before:page}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-in">
+    <p class="kicker">Hồ sơ Nhân số học chuyên sâu · Pythagoras</p>
+    <h1>Tô Thị Thanh Hòa</h1>
+    <p class="tagline">“Người kiến tạo giá trị bằng kỷ luật, tri thức và khả năng kết nối”</p>
+    <div class="idbar">
+      <span class="pill">Ngày sinh: <b>01/05/1996</b></span>
+      <span class="pill">Đường đời: <b>4</b></span>
+      <span class="pill">Sứ mệnh: <b>3</b></span>
+      <span class="pill">Ngày sinh: <b>1</b></span>
+      <span class="pill">Tháng sinh: <b>5</b></span>
+      <span class="pill">Năm sinh: <b>7</b></span>
+      <span class="pill">Năng lượng nổi bật: <b>1 – 3 – 4 – 7</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+
+<aside class="toc">
+  <div class="searchwrap">
+    <input type="search" id="q" placeholder="Tìm trong hồ sơ…" aria-label="Tìm trong hồ sơ">
+    <div class="hint" id="qhint">Gõ từ khóa để lọc &amp; tô sáng</div>
+  </div>
+  <button class="toc-toggle" id="tocToggle">☰ Mục lục</button>
+  <nav class="toc-list" id="tocList">
+    <p class="toc-h" style="margin-top:22px">Mục lục</p>
+    <a href="#tong-quan" class="book">★ Bảng điều khiển tổng quan</a>
+    <a href="#tq-chiso">Bản đồ chỉ số</a>
+    <a href="#tq-bieudo">Biểu đồ ngày sinh</a>
+    <a href="#tq-vantrinh">Vận trình 2026–2040 (hợp nhất)</a>
+    <a href="#tq-tudien">Từ điển các con số</a>
+
+    <a href="#q1" class="book">Quyển I · Báo cáo phân tích</a>
+    <a href="#q1-1">I. Các chỉ số cốt lõi</a>
+    <a href="#q1-2">II. Phân tích ngày sinh: số 1</a>
+    <a href="#q1-3">III. Năng lượng tháng sinh: số 5</a>
+    <a href="#q1-4">IV. Năng lượng năm sinh: số 7</a>
+    <a href="#q1-5">V. Biểu đồ ngày sinh Pythagoras</a>
+    <a href="#q1-6">VI. Phân tích họ tên</a>
+    <a href="#q1-7">VII. Chân dung tổng hợp</a>
+    <a href="#q1-8">VIII. Sự nghiệp</a>
+    <a href="#q1-9">IX. Tình cảm &amp; mối quan hệ</a>
+    <a href="#q1-10">X. Giai đoạn phát triển cuộc đời</a>
+    <a href="#q1-11">XI. Thông điệp phát triển</a>
+    <a href="#q1-12">Kết luận</a>
+
+    <a href="#q2" class="book">Quyển II · 22 chỉ số &amp; vận trình</a>
+    <a href="#q2-1">I. Hồ sơ năng lượng tổng quan</a>
+    <a href="#q2-2">II. 22 chỉ số mở rộng</a>
+    <a href="#q2-3">III. Biểu đồ ngày sinh</a>
+    <a href="#q2-4">IV. Mũi tên năng lực</a>
+    <a href="#q2-5">V. 4 đỉnh cao cuộc đời</a>
+    <a href="#q2-6">VI. 4 thử thách cuộc đời</a>
+    <a href="#q2-7">VII. Vận trình 2026–2035</a>
+    <a href="#q2-8">VIII. Chiến lược phát triển riêng</a>
+    <a href="#q2-9">IX. Tuyên ngôn phát triển</a>
+
+    <a href="#q3" class="book">Quyển III · Bản đồ 2026–2040</a>
+    <a href="#q3-1">I. Bản đồ sứ mệnh cuộc đời</a>
+    <a href="#q3-2">II. Bản đồ nghề nghiệp</a>
+    <a href="#q3-3">III. Chu kỳ sự nghiệp 2026–2040</a>
+    <a href="#q3-4">IV. Bản đồ tài chính</a>
+    <a href="#q3-5">V. Tình yêu và hôn nhân</a>
+    <a href="#q3-6">VI. Bài học linh hồn lớn nhất</a>
+    <a href="#q3-7">VII. Chân dung tương lai</a>
+
+    <a href="#q4" class="book">Quyển IV · Ma trận &amp; kế hoạch</a>
+    <a href="#q4-1">I. Ma trận ngày sinh chi tiết</a>
+    <a href="#q4-2">II. Phân tích từng năng lượng số</a>
+    <a href="#q4-3">III. Các trục phát triển</a>
+    <a href="#q4-4">IV. Kim tự tháp cuộc đời</a>
+    <a href="#q4-5">V. Bài học nghiệp quả</a>
+    <a href="#q4-6">VI. SWOT cá nhân</a>
+    <a href="#q4-7">VII. Kế hoạch hành động 2026–2030</a>
+    <a href="#q4-8">VIII. Lời kết</a>
+
+    <a href="#q5" class="book">Quyển V · Tình duyên</a>
+    <a href="#q5-1">I. Năng lượng tình yêu cốt lõi</a>
+    <a href="#q5-2">II. Cách Thanh Hòa yêu</a>
+    <a href="#q5-3">III. Điểm mạnh trong tình yêu</a>
+    <a href="#q5-4">IV. Thử thách trong tình cảm</a>
+    <a href="#q5-5">V. Chân dung người bạn đời</a>
+    <a href="#q5-6">VI. Mẫu người dễ thu hút bạn</a>
+    <a href="#q5-7">VII. Hôn nhân và gia đình</a>
+    <a href="#q5-8">VIII. Giai đoạn tình cảm 2026–2035</a>
+    <a href="#q5-9">IX. Công thức tình yêu hạnh phúc</a>
+    <a href="#q5-10">X. Thông điệp tình yêu</a>
+
+    <a href="#q6" class="book">Quyển VI · Tài lộc &amp; thương hiệu</a>
+    <a href="#q6-1">I. Mô hình tạo ra thành công</a>
+    <a href="#q6-2">II. Năng lực kiếm tiền</a>
+    <a href="#q6-3">III. Phong cách làm việc</a>
+    <a href="#q6-4">IV. Lĩnh vực nghề nghiệp tiềm năng</a>
+    <a href="#q6-5">V. Bài học tài chính cần vượt qua</a>
+    <a href="#q6-6">VI. Bản đồ tài chính 2026–2040</a>
+    <a href="#q6-7">VII. Thương hiệu cá nhân</a>
+    <a href="#q6-8">VIII. Chiến lược phát triển 5 năm</a>
+    <a href="#q6-9">IX. Thông điệp tài lộc</a>
+    <a href="#q6-10">Kết luận</a>
+  </nav>
+</aside>
+
+<main id="content">
+
+<!-- ============ TỔNG QUAN ============ -->
+<div class="book-head" id="tong-quan">
+  <div class="bk">Bảng điều khiển</div>
+  <h2>Tổng quan — mọi chỉ số nhìn trong một trang</h2>
+  <p>Phần này do người dựng hồ sơ tổng hợp lại để dễ tra cứu và nối các phần với nhau. Toàn bộ nội dung gốc được giữ nguyên vẹn ở sáu quyển phía dưới.</p>
+</div>
+
+<section class="chap" id="tq-chiso">
+  <h3 class="chap-t"><span class="no">A.</span>Bản đồ chỉ số — bấm vào từng thẻ để tới phần giải nghĩa</h3>
+  <div class="cards">
+    <div class="card"><a href="#g4"><div class="cn">Con số chủ đạo / Đường đời</div><div class="cv">4</div><div class="cd">Người xây dựng nền tảng — kỷ luật, kiến tạo, trách nhiệm, bền vững</div></a></div>
+    <div class="card"><a href="#g1"><div class="cn">Số ngày sinh</div><div class="cv">1</div><div class="cd">Người tiên phong — cái tôi, độc lập, khả năng bắt đầu</div></a></div>
+    <div class="card"><a href="#g5"><div class="cn">Năng lượng tháng sinh</div><div class="cv">5</div><div class="cd">Tự do, trải nghiệm, thích nghi, ham học hỏi</div></a></div>
+    <div class="card"><a href="#g7"><div class="cn">Năng lượng năm sinh</div><div class="cv">7</div><div class="cd">Chiêm nghiệm — chiều sâu tư duy, học qua trải nghiệm</div></a></div>
+    <div class="card"><a href="#g3"><div class="cn">Chỉ số sứ mệnh</div><div class="cv">3</div><div class="cd">Người truyền đạt &amp; sáng tạo — giao tiếp, kết nối, truyền cảm hứng</div></a></div>
+    <div class="card"><a href="#g6"><div class="cn">Số thái độ</div><div class="cv">6</div><div class="cd">Quan tâm gia đình, trách nhiệm, chăm sóc người khác</div></a></div>
+    <div class="card"><a href="#g3"><div class="cn">Số linh hồn</div><div class="cv">3</div><div class="cd">Mong muốn được thể hiện bản thân, được ghi nhận, được sáng tạo</div></a></div>
+    <div class="card"><a href="#g9"><div class="cn">Số nhân cách</div><div class="cv">9</div><div class="cd">Ấn tượng bên ngoài: chín chắn, có chiều sâu, bao dung</div></a></div>
+  </div>
+
+  <h4>4 đỉnh cao &amp; 4 thử thách</h4>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Chặng</th><th>Đỉnh cao</th><th>Chủ đề đỉnh cao</th><th>Thử thách</th><th>Bài học thử thách</th></tr></thead>
+      <tbody>
+        <tr><td class="yr">Chặng 1<br><span style="font-weight:400;color:var(--ink2)">0 → ~35/36 tuổi</span></td><td><span class="n">3</span></td><td>Học cách thể hiện bản thân, phát triển biểu đạt, xây sự tự tin</td><td><span class="n r">4</span></td><td>Kiên trì · Xây dựng thói quen · Không nóng vội</td></tr>
+        <tr><td class="yr">Chặng 2<br><span style="font-weight:400;color:var(--ink2)">36 – 45 tuổi</span></td><td><span class="n">8</span></td><td>Thành tựu, tài chính, quyền lực cá nhân</td><td><span class="n r">3</span></td><td>Tin vào tiếng nói của bản thân · Không sợ bị đánh giá</td></tr>
+        <tr><td class="yr">Chặng 3<br><span style="font-weight:400;color:var(--ink2)">45/46 – 54 tuổi</span></td><td><span class="n">2</span></td><td>Hợp tác, quan hệ, sự tinh tế, trí tuệ cảm xúc</td><td><span class="n r">1</span></td><td>Cân bằng cái tôi · Học cách hợp tác</td></tr>
+        <tr><td class="yr">Chặng 4<br><span style="font-weight:400;color:var(--ink2)">sau 54/55 tuổi</span></td><td><span class="n">11/2</span></td><td>Truyền cảm hứng, dẫn dắt tinh thần, chia sẻ trí tuệ</td><td><span class="n r">1</span></td><td>Lãnh đạo nhưng không cô độc · Dùng sức mạnh cá nhân tạo giá trị chung</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="chap" id="tq-bieudo">
+  <h3 class="chap-t"><span class="no">B.</span>Biểu đồ ngày sinh 01/05/1996</h3>
+  <div class="calc">0 – 1 – 0 – 5 – 1 – 9 – 9 – 6</div>
+  <div class="matrix">
+    <div class="cell empty"><span class="pos">3</span><span class="val">–</span></div>
+    <div class="cell"><span class="pos">6</span><span class="val">6</span></div>
+    <div class="cell"><span class="pos">9</span><span class="val">99</span></div>
+    <div class="cell empty"><span class="pos">2</span><span class="val">–</span></div>
+    <div class="cell"><span class="pos">5</span><span class="val">5</span></div>
+    <div class="cell empty"><span class="pos">8</span><span class="val">–</span></div>
+    <div class="cell"><span class="pos">1</span><span class="val">11</span></div>
+    <div class="cell empty"><span class="pos">4</span><span class="val">–</span></div>
+    <div class="cell empty"><span class="pos">7</span><span class="val">–</span></div>
+  </div>
+  <div class="legend">
+    <span><b>Số 1:</b> 2 lần</span><span><b>Số 5:</b> 1 lần</span><span><b>Số 6:</b> 1 lần</span><span><b>Số 9:</b> 2 lần</span>
+    <span style="opacity:.7">Trống: 2 · 3 · 4 · 7 · 8</span>
+  </div>
+
+  <h4>Ba trục phát triển đọc từ biểu đồ</h4>
+  <div class="cards">
+    <div class="card">
+      <div class="cn">Trục thể chất</div><div class="cv">1 – 4 – 7</div>
+      <div class="cd"><b>Có 1 (×2), thiếu 4 và 7.</b> Có ý chí cá nhân mạnh; cần rèn tính đều đặn, thói quen, sự kiên trì. Khi xây được kỷ luật thì tiến rất nhanh.</div>
+    </div>
+    <div class="card">
+      <div class="cn">Trục tinh thần</div><div class="cv">3 – 6 – 9</div>
+      <div class="cd"><b>Có 6 và 9 (×2), thiếu 3.</b> Khả năng quan tâm người khác, tư duy nhân văn, hay suy nghĩ về ý nghĩa cuộc sống — nhưng cần chủ động rèn khả năng nói ra suy nghĩ.</div>
+    </div>
+    <div class="card">
+      <div class="cn">Trục trí não</div><div class="cv">1 – 5 – 9</div>
+      <div class="cd"><b>Đủ cả ba.</b> Tổ hợp mạnh — mũi tên Quyết tâm: suy nghĩ độc lập, học nhanh qua trải nghiệm, kết nối lý trí với trực giác.</div>
+    </div>
+  </div>
+  <p class="note"><b>Nghịch lý thú vị:</b> số <span class="n">3</span> thiếu trong biểu đồ ngày sinh nhưng lại chính là <b>chỉ số sứ mệnh</b> đến từ họ tên. Đó là lý do cuộc đời liên tục thúc đẩy Thanh Hòa phát triển khả năng biểu đạt. Xem thêm <a href="#q4-3">Quyển IV · III. Các trục phát triển</a>.</p>
+</section>
+
+<section class="chap" id="tq-vantrinh">
+  <h3 class="chap-t"><span class="no">C.</span>Vận trình 2026–2040 — hợp nhất bốn bản đồ</h3>
+  <p>Bảng dưới ghép các mốc năm cá nhân được nêu rải rác trong sáu quyển thành một dòng thời gian duy nhất, để thấy mỗi năm nói gì trên cả bốn mặt trận. Ô trống là năm mà bản gốc không luận giải cho lĩnh vực đó.</p>
+  <div class="tblwrap">
+    <table class="wide-table">
+      <thead><tr><th>Năm</th><th>Số</th><th>Chủ đề chung</th><th>Sự nghiệp</th><th>Tài chính</th><th>Tình cảm</th><th>Việc nên làm</th></tr></thead>
+      <tbody>
+        <tr><td class="yr">2026</td><td><span class="n">7</span></td><td>Chiêm nghiệm – học hỏi</td><td>Tái định hướng: học sâu – chuẩn bị – nâng cấp</td><td>Nâng cấp năng lực, đầu tư vào bản thân</td><td>Hiểu bản thân trước khi cam kết, chữa lành điều cũ</td><td>Học thêm một chuyên môn quan trọng; xác định hướng 5 năm; đọc, học, xây mạng lưới chất lượng</td></tr>
+        <tr><td class="yr">2027</td><td><span class="n">8</span></td><td>Thành tựu – tài chính</td><td>Tăng trưởng: thăng tiến, mở rộng kinh doanh</td><td>Thu hoạch năng lực, tăng thu nhập</td><td>Ổn định và xây dựng, quan tâm tương lai chung</td><td>Đàm phán giá trị bản thân; đầu tư có kế hoạch; nhận vai trò lớn hơn</td></tr>
+        <tr><td class="yr">2028</td><td><span class="n">9</span></td><td>Hoàn tất – chuyển hóa</td><td>Thanh lọc: kết thúc việc không phù hợp</td><td>Tái cấu trúc, loại bỏ cái không hiệu quả</td><td>Thanh lọc cảm xúc, tha thứ, buông bỏ quá khứ</td><td>Kết thúc dự án không hiệu quả; tập trung nguồn lực</td></tr>
+        <tr><td class="yr">2029</td><td><span class="n">1</span></td><td>Khởi đầu mới</td><td>Khởi đầu lớn: dự án mới, vai trò mới</td><td>Khởi động lớn, tạo dấu ấn cá nhân</td><td>Khởi đầu mới: một mối quan hệ mới</td><td>Bắt đầu điều lớn hơn: kinh doanh, chuyển vai trò, xây thương hiệu cá nhân</td></tr>
+        <tr><td class="yr">2030</td><td><span class="n">2</span></td><td>Hợp tác</td><td>Hợp tác và xây dựng quan hệ</td><td>Tăng trưởng qua đối tác, đội nhóm</td><td>Gắn kết, đồng hành</td><td>Tạo quan hệ bền vững; xây đội nhóm</td></tr>
+        <tr><td class="yr">2031</td><td><span class="n">3</span></td><td>Sáng tạo – biểu đạt</td><td>Tỏa sáng cá nhân — sứ mệnh số 3 kích hoạt mạnh</td><td>Lan tỏa giá trị: viết, dạy, xây cộng đồng</td><td>Niềm vui và biểu đạt, hâm nóng tình cảm</td><td>Truyền thông, đào tạo, xuất hiện trước cộng đồng</td></tr>
+        <tr><td class="yr">2032</td><td><span class="n">4</span></td><td>Xây dựng</td><td>Xây nền móng lớn: tài sản, hệ thống</td><td>Củng cố nền móng, tài sản dài hạn</td><td>Xây nền tảng, ổn định gia đình</td><td>Xây đội nhóm; tạo quy trình; ổn định tài chính</td></tr>
+        <tr><td class="yr">2033</td><td><span class="n">5</span></td><td>Thay đổi</td><td>Mở rộng: dịch chuyển, trải nghiệm</td><td>Mở rộng, thử nghiệm hướng mới, mở thị trường</td><td>—</td><td>Đi xa; học lĩnh vực mới; mở rộng thị trường</td></tr>
+        <tr><td class="yr">2034</td><td><span class="n">6</span></td><td>Gia đình – trách nhiệm</td><td>Gia đình và trách nhiệm, xây tổ ấm</td><td>Cân bằng: gia đình, tài sản chung</td><td>—</td><td>Chăm các mối quan hệ, nhà cửa, sự cân bằng</td></tr>
+        <tr><td class="yr">2035</td><td><span class="n">7</span></td><td>Trí tuệ – chiều sâu</td><td>Chiều sâu trí tuệ, nghiên cứu</td><td>Trở thành chuyên gia, chia sẻ kinh nghiệm</td><td>—</td><td>Nghiên cứu; chia sẻ kinh nghiệm; phát triển nội tâm</td></tr>
+        <tr><td class="yr">2036</td><td><span class="n">8</span></td><td>Thành quả</td><td>Gặt hái kết quả, củng cố vị trí</td><td>Tăng trưởng tài chính</td><td>—</td><td>Củng cố vị trí đã dựng</td></tr>
+        <tr><td class="yr">2037</td><td><span class="n">9</span></td><td>Hoàn thiện chu kỳ</td><td>Buông vai trò cũ</td><td>—</td><td>Buông mối quan hệ không còn phù hợp</td><td>Buông niềm tin giới hạn</td></tr>
+        <tr><td class="yr">2038</td><td><span class="n">1</span></td><td>Chu kỳ mới lần hai</td><td>Tái sinh sự nghiệp, mục tiêu, hình ảnh cá nhân</td><td>—</td><td>—</td><td>Định vị lại toàn bộ</td></tr>
+        <tr><td class="yr">2039</td><td><span class="n">2</span></td><td>Kết nối</td><td>Phát triển quan hệ hợp tác, cộng đồng</td><td>—</td><td>Gia đình</td><td>Nuôi dưỡng mạng lưới</td></tr>
+        <tr><td class="yr">2040</td><td><span class="n">3</span></td><td>Lan tỏa</td><td>Giảng dạy, chia sẻ, truyền cảm hứng</td><td>—</td><td>—</td><td>Đứng vào vai trò người truyền đạt</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note"><b>Nguồn từng cột:</b> chủ đề chung ← <a href="#q2-7">Quyển II·VII</a>; sự nghiệp ← <a href="#q3-3">Quyển III·III</a>; tài chính ← <a href="#q6-6">Quyển VI·VI</a>; tình cảm ← <a href="#q5-8">Quyển V·VIII</a>; việc nên làm ← <a href="#q4-7">Quyển IV·VII</a> và <a href="#q6-8">Quyển VI·VIII</a>.</p>
+</section>
+
+<section class="chap" id="tq-tudien">
+  <h3 class="chap-t"><span class="no">D.</span>Từ điển các con số trong hồ sơ</h3>
+  <p>Mỗi lần một con số xuất hiện trong sáu quyển, ý nghĩa nền của nó là những điều dưới đây.</p>
+  <div class="gloss">
+    <div class="gitem" id="g1">
+      <div class="gh"><span class="num">1</span><span class="nm">Người tiên phong · khởi xướng</span></div>
+      <ul><li>Cái tôi cá nhân, sự độc lập, khả năng bắt đầu, mong muốn tự quyết</li><li>Có chính kiến, không thích sống phụ thuộc</li><li>Cần học: lắng nghe, hợp tác, chấp nhận hỗ trợ</li><li>Xuất hiện: ngày sinh · 2 lần trong biểu đồ · thử thách 3 &amp; 4 · năm 2029, 2038</li></ul>
+    </div>
+    <div class="gitem" id="g2">
+      <div class="gh"><span class="num">2</span><span class="nm">Hợp tác · tinh tế</span></div>
+      <ul><li>Quan hệ, đối tác, trí tuệ cảm xúc</li><li>Bài học: không cần lúc nào cũng mạnh mẽ một mình</li><li>Xuất hiện: đỉnh cao 3 · đỉnh cao 4 (11/2) · năm 2030, 2039</li></ul>
+    </div>
+    <div class="gitem" id="g3">
+      <div class="gh"><span class="num">3</span><span class="nm">Người truyền đạt · sáng tạo</span></div>
+      <ul><li>Giao tiếp, sáng tạo, truyền cảm hứng, kết nối con người</li><li>Thử thách: dễ phân tán năng lượng, nhiều ý tưởng thiếu hoàn thiện, nhạy cảm với đánh giá</li><li>Xuất hiện: sứ mệnh · số linh hồn · đỉnh cao 1 · thử thách 2 · năm 2031, 2040 · <b>thiếu</b> trong biểu đồ ngày sinh</li></ul>
+    </div>
+    <div class="gitem" id="g4">
+      <div class="gh"><span class="num">4</span><span class="nm">Người xây dựng nền tảng</span></div>
+      <ul><li>Ổn định, kỷ luật, tổ chức, tư duy thực tế, giá trị lâu dài</li><li>Rủi ro: quá nguyên tắc, tự gây áp lực, quên phần cảm xúc</li><li>Bài học lớn: cân bằng giữa “kỷ luật” và “linh hoạt”</li><li>Xuất hiện: con số chủ đạo · thử thách 1 · năm 2032 · <b>thiếu</b> trong biểu đồ ngày sinh</li></ul>
+    </div>
+    <div class="gitem" id="g5">
+      <div class="gh"><span class="num">5</span><span class="nm">Tự do · cân bằng cảm xúc</span></div>
+      <ul><li>Trải nghiệm, thích nghi, ham học hỏi; nằm giữa biểu đồ nên là trung tâm cảm xúc</li><li>Dễ suy nghĩ nhiều, bị ảnh hưởng bởi năng lượng xung quanh</li><li>Cần: thói quen nghỉ ngơi, không gian riêng</li><li>Xuất hiện: tháng sinh · 1 lần trong biểu đồ · năm 2033</li></ul>
+    </div>
+    <div class="gitem" id="g6">
+      <div class="gh"><span class="num">6</span><span class="nm">Trách nhiệm · tình thương</span></div>
+      <ul><li>Chăm sóc, bảo vệ, quan tâm gia đình; là người đáng tin</li><li>Cân bằng: không hy sinh quá mức, không biến quan tâm thành kiểm soát</li><li>Xuất hiện: số thái độ · 1 lần trong biểu đồ · năm 2034</li></ul>
+    </div>
+    <div class="gitem" id="g7">
+      <div class="gh"><span class="num">7</span><span class="nm">Chiều sâu · chiêm nghiệm</span></div>
+      <ul><li>Chiều sâu tư duy, phân tích, tìm ý nghĩa, học bằng trải nghiệm thực tế</li><li>Không dễ tin ngay, muốn tự trải nghiệm để hiểu</li><li>Bài học: buông kiểm soát, chấp nhận bài học cần thời gian, chia sẻ kiến thức</li><li>Xuất hiện: năm sinh · năm 2026, 2035 · <b>thiếu</b> trong biểu đồ ngày sinh</li></ul>
+    </div>
+    <div class="gitem" id="g8">
+      <div class="gh"><span class="num">8</span><span class="nm">Thành tựu · quyền lực vật chất</span></div>
+      <ul><li>Tài chính, vị thế, thành tựu xã hội, quyền quản lý</li><li>Xuất hiện: đỉnh cao 2 (36–45 tuổi) · năm 2027, 2036</li></ul>
+    </div>
+    <div class="gitem" id="g9">
+      <div class="gh"><span class="num">9</span><span class="nm">Trí tuệ · lý tưởng</span></div>
+      <ul><li>Tầm nhìn, lòng nhân ái, mong muốn tạo ảnh hưởng</li><li>Muốn công việc có ý nghĩa, không chỉ quan tâm tiền bạc</li><li>Xuất hiện: số nhân cách · 2 lần trong biểu đồ · năm 2028, 2037</li></ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ QUYỂN I ============ -->
+<div class="book-head" id="q1">
+  <div class="bk">Quyển I</div>
+  <h2>Báo cáo phân tích Nhân số học</h2>
+  <p>Theo trường phái Lê Đỗ Quỳnh Hương – Pythagoras · Họ và tên: Tô Thị Thanh Hòa · Ngày sinh dương lịch: 01/05/1996</p>
+</div>
+
+<p class="note"><b>Lưu ý:</b> Nhân số học (Numerology) theo trường phái được cô Lê Đỗ Quỳnh Hương chia sẻ là một phương pháp chiêm nghiệm bản thân dựa trên hệ thống số Pythagoras, dùng để tham khảo về tính cách, xu hướng phát triển và bài học cuộc đời; không phải là phương pháp khoa học dự đoán chắc chắn tương lai.</p>
+
+<section class="chap" id="q1-1">
+  <h3 class="chap-t"><span class="no">I.</span>Các chỉ số cốt lõi</h3>
+  <h4>1. Con số chủ đạo (Đường đời): <span class="n">4</span></h4>
+  <h5>Cách tính</h5>
+  <div class="calc">Ngày sinh: 01/05/1996
+0 + 1 + 0 + 5 + 1 + 9 + 9 + 6 = 31 = 3 + 1 = 4</div>
+
+  <h5>Ý nghĩa số 4 – Người xây dựng nền tảng</h5>
+  <p>Số 4 đại diện cho năng lượng của:</p>
+  <ul>
+    <li>Sự ổn định</li>
+    <li>Tính kỷ luật</li>
+    <li>Khả năng tổ chức</li>
+    <li>Tư duy thực tế</li>
+    <li>Xây dựng giá trị lâu dài</li>
+  </ul>
+  <p>Người mang số 4 thường không thích sự hời hợt. Bạn có xu hướng muốn mọi việc có kế hoạch, có quy trình và có kết quả cụ thể.</p>
+
+  <span class="lbl plus">Điểm mạnh</span>
+  <ul>
+    <li>Có trách nhiệm, đáng tin cậy.</li>
+    <li>Là người làm việc bền bỉ, càng lâu dài càng phát huy sức mạnh.</li>
+    <li>Có khả năng biến ý tưởng thành hiện thực.</li>
+    <li>Hợp với việc quản lý, vận hành, xây dựng hệ thống.</li>
+  </ul>
+
+  <span class="lbl minus">Thử thách</span>
+  <p>Năng lượng số 4 dễ khiến bạn:</p>
+  <ul>
+    <li>Quá nguyên tắc, khó thay đổi.</li>
+    <li>Tự gây áp lực vì muốn mọi thứ hoàn hảo.</li>
+    <li>Đôi khi tập trung vào trách nhiệm mà quên sự mềm mại, cảm xúc.</li>
+  </ul>
+  <div class="quote"><b>Bài học lớn:</b> Học cách cân bằng giữa “kỷ luật” và “linh hoạt”.</div>
+</section>
+
+<section class="chap" id="q1-2">
+  <h3 class="chap-t"><span class="no">II.</span>Phân tích ngày sinh: số <span class="n">1</span></h3>
+  <p>Bạn sinh ngày 01 → năng lượng ngày sinh là 1.</p>
+  <h4>Ý nghĩa số 1: Người tiên phong</h4>
+  <p>Số 1 tượng trưng cho:</p>
+  <ul>
+    <li>Cái tôi cá nhân</li>
+    <li>Sự độc lập</li>
+    <li>Khả năng bắt đầu</li>
+    <li>Mong muốn tự quyết</li>
+  </ul>
+  <p>Bạn thường có xu hướng:</p>
+  <ul>
+    <li>Muốn tự làm, tự chịu trách nhiệm.</li>
+    <li>Không thích bị kiểm soát quá mức.</li>
+    <li>Có khả năng dẫn dắt khi đã có niềm tin.</li>
+  </ul>
+  <span class="lbl learn">Mặt cần phát triển</span>
+  <p>Số 1 cần học:</p>
+  <ul>
+    <li>Lắng nghe nhiều hơn.</li>
+    <li>Không phải lúc nào tự mình gánh vác cũng là cách tốt nhất.</li>
+    <li>Chấp nhận sự hỗ trợ từ người khác.</li>
+  </ul>
+</section>
+
+<section class="chap" id="q1-3">
+  <h3 class="chap-t"><span class="no">III.</span>Năng lượng tháng sinh: số <span class="n">5</span></h3>
+  <p>Sinh tháng 5 mang năng lượng:</p>
+  <ul>
+    <li>Tự do</li>
+    <li>Trải nghiệm</li>
+    <li>Khả năng thích nghi</li>
+    <li>Ham học hỏi</li>
+  </ul>
+  <p>Điểm đặc biệt trong biểu đồ của bạn là sự kết hợp:</p>
+  <div class="quote">Số 4 (ổn định) + Số 5 (tự do)</div>
+  <p>Điều này tạo nên một người:</p>
+  <ul>
+    <li>Bên ngoài có vẻ chắc chắn, trách nhiệm.</li>
+    <li>Bên trong lại cần không gian khám phá và đổi mới.</li>
+  </ul>
+  <p>Bạn có thể không phù hợp với môi trường quá gò bó trong thời gian dài.</p>
+</section>
+
+<section class="chap" id="q1-4">
+  <h3 class="chap-t"><span class="no">IV.</span>Năng lượng năm sinh: 1996 → số <span class="n">7</span></h3>
+  <div class="calc">1 + 9 + 9 + 6 = 25 → 2 + 5 = 7</div>
+  <h4>Số 7 – Chiêm nghiệm và học hỏi qua trải nghiệm</h4>
+  <p>Số 7 thường gắn với:</p>
+  <ul>
+    <li>Chiều sâu tư duy</li>
+    <li>Khả năng phân tích</li>
+    <li>Tìm kiếm ý nghĩa cuộc sống</li>
+    <li>Học bằng trải nghiệm thực tế</li>
+  </ul>
+  <p>Người có năng lượng 7 thường:</p>
+  <ul>
+    <li>Không dễ tin ngay điều gì.</li>
+    <li>Muốn tự trải nghiệm để hiểu.</li>
+    <li>Có khả năng nhìn vấn đề sâu hơn người khác.</li>
+  </ul>
+  <span class="lbl learn">Bài học số 7</span>
+  <p>Cuộc đời thường mang đến những trải nghiệm giúp bạn trưởng thành:</p>
+  <ul>
+    <li>Học cách buông bỏ kiểm soát.</li>
+    <li>Chấp nhận rằng một số bài học cần thời gian.</li>
+    <li>Chia sẻ kiến thức thay vì chỉ giữ trong lòng.</li>
+  </ul>
+</section>
+
+<section class="chap" id="q1-5">
+  <h3 class="chap-t"><span class="no">V.</span>Biểu đồ ngày sinh Pythagoras</h3>
+  <h5>Ngày sinh</h5>
+  <div class="calc">0 – 1 – 0 – 5 – 1 – 9 – 9 – 6</div>
+  <p>Các số hiện diện:</p>
+  <ul class="tight">
+    <li>Số 1: 2 lần</li>
+    <li>Số 5: 1 lần</li>
+    <li>Số 6: 1 lần</li>
+    <li>Số 9: 2 lần</li>
+  </ul>
+
+  <h4>Trục thể chất (1-4-7)</h4>
+  <p>Có số 1 nhưng thiếu 4, 7 trong ngày sinh.</p>
+  <p><b>Gợi ý:</b></p>
+  <ul>
+    <li>Có ý chí cá nhân.</li>
+    <li>Cần rèn tính đều đặn, thói quen và sự kiên trì.</li>
+    <li>Khi xây dựng được kỷ luật, bạn tiến rất nhanh.</li>
+  </ul>
+
+  <h4>Trục tinh thần (3-6-9)</h4>
+  <p>Có 6 và hai số 9. Đây là dấu hiệu của:</p>
+  <ul>
+    <li>Khả năng quan tâm người khác.</li>
+    <li>Tư duy nhân văn.</li>
+    <li>Dễ suy nghĩ nhiều về ý nghĩa cuộc sống.</li>
+  </ul>
+
+  <h4>Trục trí não (1-5-9)</h4>
+  <p>Có đủ 1-5-9. Đây là một tổ hợp mạnh:</p>
+  <ul>
+    <li>Có khả năng suy nghĩ độc lập.</li>
+    <li>Học nhanh qua trải nghiệm.</li>
+    <li>Có khả năng kết nối giữa lý trí và trực giác.</li>
+  </ul>
+</section>
+
+<section class="chap" id="q1-6">
+  <h3 class="chap-t"><span class="no">VI.</span>Phân tích họ tên: TÔ THỊ THANH HÒA</h3>
+  <p><em>(Quy đổi theo bảng chữ cái Pythagoras, viết không dấu)</em></p>
+  <div class="calc">TO THI THANH HOA</div>
+  <h5>Quy đổi</h5>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Thành tố</th><th>Phép cộng</th><th>Tổng</th><th>Rút gọn</th></tr></thead>
+      <tbody>
+        <tr><td>T O</td><td>2 + 6</td><td>8</td><td><span class="n">8</span></td></tr>
+        <tr><td>THI</td><td>2 + 8 + 9</td><td>19</td><td><span class="n">1</span></td></tr>
+        <tr><td>THANH</td><td>2 + 8 + 1 + 5 + 8</td><td>24</td><td><span class="n">6</span></td></tr>
+        <tr><td>HOA</td><td>8 + 6 + 1</td><td>15</td><td><span class="n">6</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h5>Tổng</h5>
+  <div class="calc">8 + 19 + 24 + 15 = 66
+6 + 6 = 12 → 3</div>
+  <div class="quote big">Chỉ số sứ mệnh: <b>3</b></div>
+
+  <h4>Số 3 – Người truyền đạt và sáng tạo</h4>
+  <p>Năng lượng sứ mệnh của bạn:</p>
+  <ul>
+    <li>Giao tiếp</li>
+    <li>Sáng tạo</li>
+    <li>Truyền cảm hứng</li>
+    <li>Kết nối con người</li>
+  </ul>
+  <p>Bạn có tiềm năng trong các lĩnh vực:</p>
+  <ul>
+    <li>Giáo dục</li>
+    <li>Truyền thông</li>
+    <li>Đào tạo</li>
+    <li>Viết lách</li>
+    <li>Nghệ thuật</li>
+    <li>Công việc cần giao tiếp</li>
+  </ul>
+  <span class="lbl minus">Thử thách số 3</span>
+  <p>Cần tránh:</p>
+  <ul>
+    <li>Dễ phân tán năng lượng.</li>
+    <li>Có nhiều ý tưởng nhưng thiếu hoàn thiện.</li>
+    <li>Nhạy cảm với đánh giá bên ngoài.</li>
+  </ul>
+</section>
+
+<section class="chap" id="q1-7">
+  <h3 class="chap-t"><span class="no">VII.</span>Chân dung tổng hợp</h3>
+  <div class="quote big">“Người xây nền bằng sự sáng tạo”</div>
+  <p>Tô Thị Thanh Hòa có sự kết hợp:</p>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Chỉ số</th><th>Năng lượng</th></tr></thead>
+      <tbody>
+        <tr><td>Đường đời <span class="n">4</span></td><td>Người xây dựng</td></tr>
+        <tr><td>Ngày sinh <span class="n">1</span></td><td>Người tiên phong</td></tr>
+        <tr><td>Tháng sinh <span class="n">5</span></td><td>Người thích khám phá</td></tr>
+        <tr><td>Năm sinh <span class="n">7</span></td><td>Người sâu sắc</td></tr>
+        <tr><td>Sứ mệnh <span class="n">3</span></td><td>Người truyền đạt</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h5>Bức tranh tổng thể</h5>
+  <p>Bạn là người:</p>
+  <ul>
+    <li>Có năng lực tổ chức tốt.</li>
+    <li>Có chiều sâu suy nghĩ.</li>
+    <li>Có khả năng dẫn dắt.</li>
+    <li>Không thích cuộc sống đơn điệu.</li>
+    <li>Cần một công việc vừa có cấu trúc vừa có không gian sáng tạo.</li>
+  </ul>
+</section>
+
+<section class="chap" id="q1-8">
+  <h3 class="chap-t"><span class="no">VIII.</span>Sự nghiệp</h3>
+  <h4>Nhóm nghề phù hợp</h4>
+  <span class="lbl plus">Rất phù hợp</span>
+  <ul>
+    <li>Quản lý dự án</li>
+    <li>Kinh doanh</li>
+    <li>Giáo dục/đào tạo</li>
+    <li>Marketing</li>
+    <li>Truyền thông</li>
+    <li>Tư vấn</li>
+    <li>Nhân sự</li>
+    <li>Xây dựng thương hiệu cá nhân</li>
+  </ul>
+  <span class="lbl plus">Môi trường phù hợp</span>
+  <ul>
+    <li>Có quyền chủ động.</li>
+    <li>Có mục tiêu rõ ràng.</li>
+    <li>Có cơ hội phát triển.</li>
+    <li>Có yếu tố con người.</li>
+  </ul>
+  <span class="lbl minus">Không phù hợp lâu dài</span>
+  <ul>
+    <li>Công việc lặp lại quá nhiều.</li>
+    <li>Môi trường không cho phép sáng tạo.</li>
+    <li>Công việc chỉ chú trọng máy móc, thiếu ý nghĩa.</li>
+  </ul>
+</section>
+
+<section class="chap" id="q1-9">
+  <h3 class="chap-t"><span class="no">IX.</span>Tình cảm &amp; mối quan hệ</h3>
+  <p>Bạn có xu hướng:</p>
+  <ul>
+    <li>Yêu bằng hành động hơn lời nói.</li>
+    <li>Khi đã cam kết sẽ rất trách nhiệm.</li>
+    <li>Cần người bạn đời tôn trọng sự độc lập.</li>
+  </ul>
+  <span class="lbl learn">Điểm cần lưu ý</span>
+  <ul>
+    <li>Đừng biến tình yêu thành “trách nhiệm phải hoàn thành”.</li>
+    <li>Học cách thể hiện cảm xúc nhiều hơn.</li>
+    <li>Cho phép bản thân được yếu mềm.</li>
+  </ul>
+</section>
+
+<section class="chap" id="q1-10">
+  <h3 class="chap-t"><span class="no">X.</span>Giai đoạn phát triển cuộc đời</h3>
+  <p>Theo cách luận giải nhân số học phổ biến:</p>
+  <div class="tl">
+    <div class="ev">
+      <div class="ey">Trước 30 tuổi</div>
+      <div class="et">Giai đoạn tích lũy</div>
+      <ul class="tight"><li>Học hỏi.</li><li>Tích lũy kinh nghiệm.</li><li>Thử nghiệm nhiều hướng đi.</li></ul>
+      <p>Bạn có thể trải qua những thay đổi để tìm ra hướng phù hợp.</p>
+    </div>
+    <div class="ev">
+      <div class="ey">Từ 30 – 45 tuổi</div>
+      <div class="et">Năng lượng số 4 phát triển mạnh</div>
+      <ul class="tight"><li>Xây dựng sự nghiệp.</li><li>Tạo nền tảng tài chính.</li><li>Phát triển vị trí cá nhân.</li></ul>
+    </div>
+    <div class="ev">
+      <div class="ey">Sau 45 tuổi</div>
+      <div class="et">Năng lượng số 7 và 3 nổi bật</div>
+      <ul class="tight"><li>Chia sẻ kinh nghiệm.</li><li>Truyền cảm hứng.</li><li>Đóng góp cho cộng đồng.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="chap" id="q1-11">
+  <h3 class="chap-t"><span class="no">XI.</span>Thông điệp phát triển cá nhân</h3>
+  <div class="quote big">“Bạn sinh ra không chỉ để làm việc chăm chỉ, mà để xây dựng những giá trị có ý nghĩa.”</div>
+  <h5>Ba chìa khóa phát triển</h5>
+  <ol>
+    <li>Kỷ luật nhưng đừng cứng nhắc</li>
+    <li>Tỏa sáng bằng khả năng giao tiếp và sáng tạo</li>
+    <li>Biến trải nghiệm thành trí tuệ để dẫn dắt người khác</li>
+  </ol>
+</section>
+
+<section class="chap" id="q1-12">
+  <h3 class="chap-t">Kết luận Quyển I</h3>
+  <p>Tô Thị Thanh Hòa mang cấu trúc nhân số học của một người xây dựng – sáng tạo – học hỏi sâu sắc. Con đường phát triển mạnh nhất không phải là chạy theo sự nhanh chóng, mà là từng bước tạo nền móng vững chắc, sau đó dùng khả năng giao tiếp và tư duy của mình để tạo ảnh hưởng tích cực.</p>
+  <p class="note">Bản phân tích này dựa trên hệ thống Nhân số học Pythagoras được cô Lê Đỗ Quỳnh Hương giới thiệu; các chỉ số nên được xem như công cụ tự phản chiếu và định hướng phát triển cá nhân.</p>
+  <p class="meta-note"><em>Ghi chú từ bản gốc:</em> “Nếu bạn muốn, tôi có thể làm tiếp bản PDF phong cách chuyên gia gồm: 22 chỉ số nhân số học, biểu đồ ngày sinh, 4 đỉnh cao cuộc đời, 4 thử thách và vận trình từng năm 2026–2035 cho Tô Thị Thanh Hòa.”</p>
+</section>
+
+<p class="src-break">— tiếp —</p>
+
+
+<!-- ============ QUYỂN II ============ -->
+<div class="book-head" id="q2">
+  <div class="bk">Quyển II</div>
+  <h2>22 chỉ số mở rộng · Đỉnh cao · Thử thách · Vận trình 2026–2035</h2>
+  <p>Hồ sơ mở rộng theo phong cách chuyên gia</p>
+</div>
+
+<section class="chap" id="q2-1">
+  <h3 class="chap-t"><span class="no">I.</span>Hồ sơ năng lượng tổng quan</h3>
+  <h4>1. Năng lượng linh hồn nổi bật</h4>
+  <p><b>Trục chính: 4 – 1 – 7 – 3</b></p>
+  <p>Bạn mang sự kết hợp của 4 tầng năng lượng:</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="cn">Số 4</div><div class="cv">Người kiến tạo</div>
+      <div class="cd"><ul class="tight"><li>Muốn tạo ra giá trị bền vững.</li><li>Làm việc tốt với kế hoạch, hệ thống.</li><li>Càng trưởng thành càng vững vàng.</li></ul></div>
+    </div>
+    <div class="card">
+      <div class="cn">Số 1</div><div class="cv">Người khởi xướng</div>
+      <div class="cd"><ul class="tight"><li>Có chính kiến.</li><li>Có khả năng tự quyết.</li><li>Không thích sống phụ thuộc.</li></ul></div>
+    </div>
+    <div class="card">
+      <div class="cn">Số 7</div><div class="cv">Người tìm kiếm chiều sâu</div>
+      <div class="cd"><ul class="tight"><li>Thích hiểu bản chất vấn đề.</li><li>Học qua trải nghiệm.</li><li>Có xu hướng suy ngẫm nhiều.</li></ul></div>
+    </div>
+    <div class="card">
+      <div class="cn">Số 3</div><div class="cv">Người truyền đạt</div>
+      <div class="cd"><ul class="tight"><li>Có năng lực chia sẻ.</li><li>Có duyên với ngôn từ.</li><li>Có khả năng kết nối cảm xúc.</li></ul></div>
+    </div>
+  </div>
+
+  <h5>Chân dung tổng hợp</h5>
+  <div class="quote">“Một người xây dựng nền móng bằng tư duy thực tế, sau đó lan tỏa giá trị bằng sự giao tiếp và trải nghiệm.”</div>
+</section>
+
+<section class="chap" id="q2-2">
+  <h3 class="chap-t"><span class="no">II.</span>22 chỉ số nhân số học mở rộng</h3>
+
+  <h4>1. Con số chủ đạo: <span class="n">4</span></h4>
+  <p><b>Vai trò:</b> Con đường phát triển chính</p>
+  <h5>Từ khóa</h5>
+  <ul class="tight"><li>Kỷ luật</li><li>Kiến tạo</li><li>Trách nhiệm</li><li>Bền vững</li></ul>
+  <span class="lbl learn">Bài học</span>
+  <ul><li>Không ôm quá nhiều trách nhiệm một mình.</li><li>Học cách thay đổi khi hoàn cảnh thay đổi.</li></ul>
+
+  <h4>2. Số ngày sinh: <span class="n">1</span></h4>
+  <p><b>Tài năng bẩm sinh.</b> Bạn có:</p>
+  <ul><li>Tinh thần tiên phong.</li><li>Mong muốn tự chủ.</li><li>Khả năng bắt đầu việc mới.</li></ul>
+  <span class="lbl learn">Cần phát triển</span>
+  <ul><li>Sự kiên nhẫn với người khác.</li><li>Khả năng hợp tác.</li></ul>
+
+  <h4>3. Số thái độ: <span class="n">6</span></h4>
+  <p><em>(Cách bạn phản ứng với cuộc đời)</em></p>
+  <p>Năng lượng 6:</p>
+  <ul><li>Quan tâm gia đình.</li><li>Có trách nhiệm.</li><li>Có xu hướng chăm sóc người khác.</li></ul>
+  <span class="lbl learn">Điểm cần cân bằng</span>
+  <ul><li>Không hy sinh quá mức.</li><li>Không biến sự quan tâm thành kiểm soát.</li></ul>
+
+  <h4>4. Số sứ mệnh: <span class="n">3</span></h4>
+  <p><b>Vai trò xã hội.</b> Bạn phát triển mạnh khi:</p>
+  <ul><li>Nói ra điều mình biết.</li><li>Chia sẻ kinh nghiệm.</li><li>Truyền cảm hứng.</li></ul>
+  <p>Có duyên với:</p>
+  <ul><li>Đào tạo.</li><li>Kinh doanh cá nhân.</li><li>Xây dựng thương hiệu.</li></ul>
+
+  <h4>5. Số linh hồn: <span class="n">3</span></h4>
+  <p>Điều bên trong bạn mong muốn:</p>
+  <ul><li>Được thể hiện bản thân.</li><li>Được ghi nhận.</li><li>Được sáng tạo.</li></ul>
+  <p>Bạn cần môi trường cho phép mình được “là chính mình”.</p>
+
+  <h4>6. Số nhân cách: <span class="n">9</span></h4>
+  <p>Ấn tượng bên ngoài:</p>
+  <ul><li>Chín chắn.</li><li>Có chiều sâu.</li><li>Có sự bao dung.</li></ul>
+  <p>Người khác dễ nhìn nhận bạn là người:</p>
+  <ul><li>Có suy nghĩ.</li><li>Có trách nhiệm.</li><li>Khó bị lay chuyển.</li></ul>
+</section>
+
+<section class="chap" id="q2-3">
+  <h3 class="chap-t"><span class="no">III.</span>Biểu đồ ngày sinh</h3>
+  <div class="calc">3 | 6 | 9
+---------
+  | 5 |
+---------
+1 |   |</div>
+  <p>Các số nổi bật:</p>
+  <ul class="tight">
+    <li>Số 1: 2 lần</li>
+    <li>Số 5: 1 lần</li>
+    <li>Số 6: 1 lần</li>
+    <li>Số 9: 2 lần</li>
+  </ul>
+  <p class="note">Xem bản vẽ trực quan tại <a href="#tq-bieudo">Bảng điều khiển · B. Biểu đồ ngày sinh</a>.</p>
+</section>
+
+<section class="chap" id="q2-4">
+  <h3 class="chap-t"><span class="no">IV.</span>Phân tích mũi tên năng lực</h3>
+  <h4>Mũi tên 1-5-9: Quyết tâm</h4>
+  <p>Bạn có:</p>
+  <ul><li>Ý chí mạnh.</li><li>Khi đã xác định mục tiêu sẽ theo đuổi lâu dài.</li><li>Có khả năng vượt khó.</li></ul>
+  <span class="lbl minus">Điểm cần chú ý</span>
+  <ul><li>Tránh tự ép bản thân quá mức.</li></ul>
+
+  <h4>Mũi tên 5-6-7: (thiếu 7)</h4>
+  <span class="lbl learn">Bài học</span>
+  <ul><li>Cần rèn sự cân bằng cảm xúc.</li><li>Cần trải nghiệm nhiều hơn để phát triển trực giác.</li></ul>
+</section>
+
+<section class="chap" id="q2-5">
+  <h3 class="chap-t"><span class="no">V.</span>4 đỉnh cao cuộc đời</h3>
+  <p><em>(Cách tính theo hệ thống Pythagoras)</em></p>
+  <div class="calc">Ngày sinh: 01   Tháng sinh: 5   Năm sinh: 1996 → 7</div>
+
+  <div class="tl">
+    <div class="ev">
+      <div class="ey">Đỉnh 1 — Số <span class="n">3</span></div>
+      <div class="et">Giai đoạn: Từ nhỏ đến khoảng 36 tuổi</div>
+      <p><b>Chủ đề:</b></p>
+      <ul class="tight"><li>Học giao tiếp.</li><li>Phát triển khả năng biểu đạt.</li><li>Xây dựng sự tự tin.</li></ul>
+      <p>Đây là giai đoạn bạn cần:</p>
+      <ul class="tight"><li>Học hỏi.</li><li>Tạo nền tảng nghề nghiệp.</li><li>Mở rộng quan hệ.</li></ul>
+    </div>
+    <div class="ev">
+      <div class="ey">Đỉnh 2 — Số <span class="n">8</span></div>
+      <div class="et">Khoảng tuổi: 36 – 45</div>
+      <p><b>Chủ đề:</b></p>
+      <ul class="tight"><li>Thành tựu.</li><li>Tài chính.</li><li>Quyền lực cá nhân.</li></ul>
+      <p>Đây là giai đoạn dễ phát triển mạnh về:</p>
+      <ul class="tight"><li>Sự nghiệp.</li><li>Kinh doanh.</li><li>Tài sản.</li></ul>
+    </div>
+    <div class="ev">
+      <div class="ey">Đỉnh 3 — Số <span class="n">2</span></div>
+      <div class="et">Khoảng tuổi: 45 – 54</div>
+      <p><b>Chủ đề:</b></p>
+      <ul class="tight"><li>Hợp tác.</li><li>Quan hệ.</li><li>Sự tinh tế.</li></ul>
+      <p><b>Bài học:</b> Không cần lúc nào cũng mạnh mẽ một mình.</p>
+    </div>
+    <div class="ev">
+      <div class="ey">Đỉnh 4 — Số <span class="n">11/2</span></div>
+      <div class="et">Sau 54 tuổi</div>
+      <p><b>Năng lượng:</b></p>
+      <ul class="tight"><li>Truyền cảm hứng.</li><li>Dẫn dắt tinh thần.</li><li>Chia sẻ trí tuệ.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="chap" id="q2-6">
+  <h3 class="chap-t"><span class="no">VI.</span>4 thử thách cuộc đời</h3>
+  <div class="cards">
+    <div class="card">
+      <div class="cn">Thử thách 1: Số</div><div class="cv">4</div>
+      <div class="cd"><b>Bài học:</b><ul class="tight"><li>Kiên trì.</li><li>Xây dựng thói quen.</li><li>Không nóng vội.</li></ul></div>
+    </div>
+    <div class="card">
+      <div class="cn">Thử thách 2: Số</div><div class="cv">3</div>
+      <div class="cd"><b>Bài học:</b><ul class="tight"><li>Tin vào tiếng nói của bản thân.</li><li>Không sợ bị đánh giá.</li></ul></div>
+    </div>
+    <div class="card">
+      <div class="cn">Thử thách 3: Số</div><div class="cv">1</div>
+      <div class="cd"><b>Bài học:</b><ul class="tight"><li>Cân bằng cái tôi.</li><li>Học cách hợp tác.</li></ul></div>
+    </div>
+    <div class="card">
+      <div class="cn">Thử thách 4: Số</div><div class="cv">1</div>
+      <div class="cd"><b>Bài học cuối:</b><ul class="tight"><li>Trở thành người lãnh đạo nhưng không cô độc.</li><li>Dùng sức mạnh cá nhân để tạo giá trị chung.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="chap" id="q2-7">
+  <h3 class="chap-t"><span class="no">VII.</span>Vận trình năm cá nhân 2026–2035</h3>
+  <p><b>Cách tính năm cá nhân:</b> Ngày + tháng sinh + năm thế giới.</p>
+
+  <div class="tl">
+    <div class="ev"><div class="ey">Năm 2026: Số <span class="n">7</span></div><div class="et">Chủ đề: Chiêm nghiệm – học hỏi</div>
+      <span class="lbl plus">Nên</span><ul class="tight"><li>Học thêm kỹ năng mới.</li><li>Đầu tư chiều sâu.</li><li>Đánh giá lại hướng đi.</li></ul>
+      <span class="lbl minus">Không nên</span><ul class="tight"><li>Ép bản thân chạy quá nhanh.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">Năm 2027: Số <span class="n">8</span></div><div class="et">Chủ đề: Thành tựu – tài chính</div>
+      <span class="lbl plus">Thuận lợi</span><ul class="tight"><li>Phát triển sự nghiệp.</li><li>Tăng thu nhập.</li><li>Mở rộng kinh doanh.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">Năm 2028: Số <span class="n">9</span></div><div class="et">Chủ đề: Hoàn tất – chuyển hóa</div>
+      <span class="lbl plus">Nên</span><ul class="tight"><li>Kết thúc điều không còn phù hợp.</li><li>Dọn đường cho chu kỳ mới.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">Năm 2029: Số <span class="n">1</span></div><div class="et">Chủ đề: Khởi đầu mới</div>
+      <p>Có thể:</p><ul class="tight"><li>Bắt đầu dự án mới.</li><li>Thay đổi vai trò.</li><li>Xây dựng thương hiệu cá nhân.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">Năm 2030: Số <span class="n">2</span></div><div class="et">Chủ đề: Hợp tác</div>
+      <p>Tập trung:</p><ul class="tight"><li>Quan hệ.</li><li>Đối tác.</li><li>Gia đình.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">Năm 2031: Số <span class="n">3</span></div><div class="et">Chủ đề: Sáng tạo – biểu đạt</div>
+      <span class="lbl plus">Thuận lợi</span><ul class="tight"><li>Truyền thông.</li><li>Đào tạo.</li><li>Xuất hiện trước công chúng.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">Năm 2032: Số <span class="n">4</span></div><div class="et">Chủ đề: Xây dựng</div>
+      <p>Tập trung:</p><ul class="tight"><li>Tài sản.</li><li>Nền móng.</li><li>Hệ thống.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">Năm 2033: Số <span class="n">5</span></div><div class="et">Chủ đề: Thay đổi</div>
+      <p>Có thể:</p><ul class="tight"><li>Di chuyển.</li><li>Mở rộng.</li><li>Thử hướng mới.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">Năm 2034: Số <span class="n">6</span></div><div class="et">Chủ đề: Gia đình – trách nhiệm</div>
+      <p>Quan tâm:</p><ul class="tight"><li>Các mối quan hệ.</li><li>Nhà cửa.</li><li>Sự cân bằng.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">Năm 2035: Số <span class="n">7</span></div><div class="et">Chủ đề: Trí tuệ – chiều sâu</div>
+      <p>Giai đoạn:</p><ul class="tight"><li>Nghiên cứu.</li><li>Chia sẻ kinh nghiệm.</li><li>Phát triển nội tâm.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="chap" id="q2-8">
+  <h3 class="chap-t"><span class="no">VIII.</span>Chiến lược phát triển riêng cho Tô Thị Thanh Hòa</h3>
+
+  <h4>1. Sự nghiệp</h4>
+  <p><b>Công thức phát triển:</b></p>
+  <div class="quote"><b>Kỷ luật số 4 · Khả năng dẫn dắt số 1 · Chiều sâu số 7 · Giao tiếp số 3</b></div>
+  <p>→ Phù hợp nhất với vai trò:</p>
+  <ul><li>Nhà quản lý.</li><li>Người đào tạo.</li><li>Người xây dựng thương hiệu.</li><li>Người kinh doanh có giá trị riêng.</li></ul>
+
+  <h4>2. Tài chính</h4>
+  <p>Bạn không phải mẫu người “làm giàu nhanh”.</p>
+  <span class="lbl plus">Thế mạnh</span>
+  <ul><li>Tích lũy.</li><li>Xây dựng tài sản.</li><li>Phát triển bền vững.</li></ul>
+  <span class="lbl learn">Chiến lược phù hợp</span>
+  <ul><li>Đầu tư dài hạn.</li><li>Xây dựng hệ thống thu nhập.</li><li>Không chạy theo xu hướng quá nhanh.</li></ul>
+
+  <h4>3. Tình cảm</h4>
+  <p>Bạn cần người:</p>
+  <ul><li>Tôn trọng sự độc lập.</li><li>Có chiều sâu.</li><li>Đồng hành phát triển.</li></ul>
+  <div class="quote"><b>Bài học:</b> Yêu thương không chỉ là trách nhiệm, mà còn là sự chia sẻ cảm xúc.</div>
+</section>
+
+<section class="chap" id="q2-9">
+  <h3 class="chap-t"><span class="no">IX.</span>Tuyên ngôn phát triển cá nhân</h3>
+  <div class="quote big">“Tôi xây dựng cuộc đời bằng sự kiên trì, trưởng thành qua trải nghiệm và lan tỏa giá trị bằng tiếng nói của chính mình.”</div>
+  <h5>Tổng kết chuyên gia</h5>
+  <p>Tô Thị Thanh Hòa thuộc nhóm năng lượng <b>“Người kiến tạo có khả năng truyền cảm hứng”</b>. Giai đoạn trước 30 tuổi là thời kỳ tích lũy và khám phá. Từ sau 30 tuổi, năng lượng xây dựng, tài chính và vị thế cá nhân sẽ phát triển mạnh hơn nếu bạn biết kết hợp tính kỷ luật của số 4 với khả năng giao tiếp của số 3.</p>
+  <p class="meta-note"><em>Ghi chú từ bản gốc:</em> “Tôi có thể tiếp tục làm thêm phần ‘Bản đồ nghề nghiệp – tình yêu – tài chính – sứ mệnh linh hồn 2026–2040’ theo dạng hồ sơ cá nhân 20–30 trang.”</p>
+</section>
+
+<p class="src-break">— tiếp ạ —</p>
+
+
+<!-- ============ QUYỂN III ============ -->
+<div class="book-head" id="q3">
+  <div class="bk">Quyển III · Hồ sơ chuyên sâu Nhân số học</div>
+  <h2>Bản đồ nghề nghiệp – tình yêu – tài chính – sứ mệnh 2026–2040</h2>
+  <p>Tô Thị Thanh Hòa · Ngày sinh: 01/05/1996 · Con số chủ đạo: 4 | Sứ mệnh: 3 | Ngày sinh: 1</p>
+</div>
+
+<p class="note">(Phần này tiếp tục theo hướng chiêm nghiệm nhân số học Pythagoras. Các phân tích dùng để tự hiểu bản thân, không phải dự báo chắc chắn.)</p>
+
+<section class="chap" id="q3-1">
+  <h3 class="chap-t"><span class="no">Phần I.</span>Bản đồ sứ mệnh cuộc đời</h3>
+  <h4>1. Sứ mệnh cốt lõi: SỐ <span class="n">3</span></h4>
+  <div class="quote">“Người truyền đạt giá trị”</div>
+  <p>Năng lượng số 3 cho thấy con đường phát triển của bạn không chỉ nằm ở việc làm tốt một công việc, mà còn ở việc:</p>
+  <ul>
+    <li>Chia sẻ kiến thức.</li>
+    <li>Kết nối con người.</li>
+    <li>Truyền cảm hứng.</li>
+    <li>Biến trải nghiệm cá nhân thành giá trị cho người khác.</li>
+  </ul>
+  <p>Bạn có xu hướng phát triển mạnh khi được:</p>
+  <ul class="tight"><li>Nói.</li><li>Viết.</li><li>Hướng dẫn.</li><li>Đào tạo.</li><li>Sáng tạo.</li></ul>
+  <span class="lbl plus">Điểm mạnh tiềm ẩn</span>
+  <p>Bạn có thể trở thành người:</p>
+  <ul>
+    <li>Giải thích vấn đề phức tạp thành dễ hiểu.</li>
+    <li>Tạo động lực cho người khác.</li>
+    <li>Kết nối các nhóm người khác nhau.</li>
+  </ul>
+</section>
+
+<section class="chap" id="q3-2">
+  <h3 class="chap-t"><span class="no">Phần II.</span>Bản đồ nghề nghiệp</h3>
+  <h4>1. Mẫu hình nghề nghiệp phù hợp</h4>
+  <p><b>Tổ hợp của bạn:</b></p>
+  <div class="quote">Số 4 (xây dựng) + Số 3 (truyền đạt) + Số 1 (lãnh đạo)</div>
+  <p>Tạo nên hình mẫu:</p>
+  <div class="quote big">“Người xây dựng hệ thống và dẫn dắt bằng giao tiếp.”</div>
+
+  <h4>Nhóm nghề nghiệp tiềm năng cao</h4>
+
+  <h5>Nhóm 1: Quản lý – vận hành</h5>
+  <p>Phù hợp với:</p>
+  <ul><li>Quản lý dự án.</li><li>Quản lý đội nhóm.</li><li>Điều hành kinh doanh.</li><li>Xây dựng quy trình.</li></ul>
+  <p>Vì bạn có khả năng:</p>
+  <ul><li>Nhìn tổng thể.</li><li>Sắp xếp công việc.</li><li>Theo đuổi mục tiêu dài hạn.</li></ul>
+
+  <h5>Nhóm 2: Đào tạo – tư vấn</h5>
+  <p>Rất phù hợp:</p>
+  <ul><li>Đào tạo nội bộ.</li><li>Tư vấn phát triển cá nhân.</li><li>Huấn luyện kỹ năng.</li><li>Giáo dục.</li></ul>
+  <p><b>Lý do:</b> Số 7 trong năm sinh giúp bạn thích đào sâu kiến thức, còn số 3 giúp bạn truyền đạt.</p>
+
+  <h5>Nhóm 3: Kinh doanh cá nhân</h5>
+  <p>Bạn có tiềm năng xây dựng:</p>
+  <ul><li>Thương hiệu cá nhân.</li><li>Dịch vụ riêng.</li><li>Sản phẩm dựa trên chuyên môn.</li></ul>
+  <p><b>Phong cách phù hợp:</b> Không phải kiểu bán hàng áp lực, mà là:</p>
+  <div class="quote">“Bán bằng niềm tin và giá trị.”</div>
+
+  <h4>Công việc cần cân nhắc</h4>
+  <span class="lbl minus">Có thể gây mất năng lượng</span>
+  <ul>
+    <li>Công việc lặp lại không có quyền quyết định.</li>
+    <li>Môi trường quá kiểm soát.</li>
+    <li>Công việc chỉ chạy theo con số mà thiếu ý nghĩa.</li>
+  </ul>
+</section>
+
+<section class="chap" id="q3-3">
+  <h3 class="chap-t"><span class="no">Phần III.</span>Chu kỳ sự nghiệp 2026–2040</h3>
+  <div class="tl">
+    <div class="ev"><div class="ey">2026 — Năm cá nhân <span class="n">7</span></div><div class="et">Giai đoạn tái định hướng</div>
+      <p><b>Từ khóa:</b> Học sâu – chuẩn bị – nâng cấp</p>
+      <span class="lbl plus">Nên</span><ul class="tight"><li>Học chứng chỉ mới.</li><li>Nâng chuyên môn.</li><li>Xây dựng nền tảng.</li></ul>
+      <span class="lbl minus">Không nên</span><ul class="tight"><li>Quyết định quá vội vàng chỉ vì cảm xúc nhất thời.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2027 — Năm cá nhân <span class="n">8</span></div><div class="et">Giai đoạn tăng trưởng</div>
+      <p><b>Từ khóa:</b> Thành tựu – tài chính – vị thế</p>
+      <p>Có thể thuận lợi cho:</p><ul class="tight"><li>Thăng tiến.</li><li>Tăng thu nhập.</li><li>Mở rộng kinh doanh.</li></ul>
+      <span class="lbl minus">Cần chú ý</span><ul class="tight"><li>Quản lý tài chính.</li><li>Không quá tham nhiều mục tiêu cùng lúc.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2028 — Năm cá nhân <span class="n">9</span></div><div class="et">Giai đoạn thanh lọc</div>
+      <p>Có thể xuất hiện:</p><ul class="tight"><li>Kết thúc một công việc.</li><li>Thay đổi môi trường.</li><li>Buông bỏ điều không còn phù hợp.</li></ul>
+      <p>Đây là năm chuẩn bị cho chu kỳ mới.</p>
+    </div>
+    <div class="ev"><div class="ey">2029 — Năm cá nhân <span class="n">1</span></div><div class="et">Khởi đầu lớn</div>
+      <p>Năng lượng mạnh cho:</p><ul class="tight"><li>Dự án mới.</li><li>Vai trò mới.</li><li>Hình ảnh cá nhân mới.</li></ul>
+      <p>Nếu có ý định:</p><ul class="tight"><li>Kinh doanh.</li><li>Xây dựng thương hiệu.</li><li>Bắt đầu hướng đi riêng.</li></ul>
+      <p>Đây là thời điểm đáng chú ý.</p>
+    </div>
+    <div class="ev"><div class="ey">2030 — Năm cá nhân <span class="n">2</span></div><div class="et">Hợp tác và xây dựng quan hệ</div>
+      <span class="lbl learn">Bài học</span><ul class="tight"><li>Kiên nhẫn.</li><li>Làm việc cùng người khác.</li><li>Nuôi dưỡng đối tác.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2031 — Năm cá nhân <span class="n">3</span></div><div class="et">Tỏa sáng cá nhân</div>
+      <p>Đây là năm năng lượng sứ mệnh số 3 được kích hoạt mạnh.</p>
+      <span class="lbl plus">Thuận lợi</span><ul class="tight"><li>Truyền thông.</li><li>Đào tạo.</li><li>Xuất hiện trước cộng đồng.</li><li>Phát triển thương hiệu.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2032 — Năm cá nhân <span class="n">4</span></div><div class="et">Xây nền móng lớn</div>
+      <p><b>Trọng tâm:</b></p><ul class="tight"><li>Tài sản.</li><li>Hệ thống.</li><li>Sự nghiệp lâu dài.</li></ul>
+      <p>Đây là năm phù hợp để:</p><ul class="tight"><li>Xây đội nhóm.</li><li>Tạo quy trình.</li><li>Ổn định tài chính.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2033 — Năm cá nhân <span class="n">5</span></div><div class="et">Mở rộng</div>
+      <p><b>Năng lượng:</b></p><ul class="tight"><li>Thay đổi.</li><li>Dịch chuyển.</li><li>Trải nghiệm.</li></ul>
+      <p>Có thể:</p><ul class="tight"><li>Đi xa.</li><li>Học lĩnh vực mới.</li><li>Mở rộng thị trường.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2034 — Năm cá nhân <span class="n">6</span></div><div class="et">Gia đình và trách nhiệm</div>
+      <p><b>Chủ đề:</b></p><ul class="tight"><li>Gia đình.</li><li>Cam kết.</li><li>Xây dựng tổ ấm.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2035 — Năm cá nhân <span class="n">7</span></div><div class="et">Chiều sâu trí tuệ</div>
+      <p><b>Giai đoạn:</b></p><ul class="tight"><li>Nghiên cứu.</li><li>Chia sẻ kinh nghiệm.</li><li>Phát triển nội tâm.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2036 — Năm cá nhân <span class="n">8</span></div><div class="et">Thành quả</div>
+      <p>Có xu hướng:</p><ul class="tight"><li>Gặt hái kết quả.</li><li>Tăng trưởng tài chính.</li><li>Củng cố vị trí.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2037 — Năm cá nhân <span class="n">9</span></div><div class="et">Hoàn thiện chu kỳ</div>
+      <p><b>Buông bỏ:</b></p><ul class="tight"><li>Vai trò cũ.</li><li>Mối quan hệ không còn phù hợp.</li><li>Niềm tin giới hạn.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2038 — Năm cá nhân <span class="n">1</span></div><div class="et">Chu kỳ mới lần hai</div>
+      <p>Một giai đoạn tái sinh về:</p><ul class="tight"><li>Sự nghiệp.</li><li>Mục tiêu.</li><li>Hình ảnh cá nhân.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2039 — Năm cá nhân <span class="n">2</span></div><div class="et">Kết nối</div>
+      <p><b>Phát triển:</b></p><ul class="tight"><li>Quan hệ hợp tác.</li><li>Gia đình.</li><li>Cộng đồng.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2040 — Năm cá nhân <span class="n">3</span></div><div class="et">Lan tỏa</div>
+      <p>Đây là năm rất hợp với năng lượng:</p><ul class="tight"><li>Giảng dạy.</li><li>Chia sẻ.</li><li>Truyền cảm hứng.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="chap" id="q3-4">
+  <h3 class="chap-t"><span class="no">Phần IV.</span>Bản đồ tài chính</h3>
+  <h4>Mẫu tài chính của Tô Thị Thanh Hòa</h4>
+  <p>Không phải kiểu: <em>“Kiếm tiền nhanh – thắng lớn nhanh”.</em></p>
+  <p>Mà là:</p>
+  <div class="quote big">Xây dựng → tích lũy → nhân rộng → tạo tài sản</div>
+
+  <span class="lbl plus">Điểm mạnh tài chính</span>
+  <ul>
+    <li>Có tính trách nhiệm.</li>
+    <li>Biết giữ tiền khi có mục tiêu.</li>
+    <li>Có khả năng tạo giá trị lâu dài.</li>
+  </ul>
+
+  <span class="lbl minus">Điểm cần cải thiện</span>
+  <p>Năng lượng số 4 đôi khi:</p>
+  <ul>
+    <li>Sợ rủi ro.</li>
+    <li>Chỉ chọn con đường an toàn.</li>
+    <li>Chậm nắm bắt cơ hội.</li>
+  </ul>
+  <div class="quote"><b>Bài học:</b> Kỷ luật là nền móng, nhưng sự linh hoạt tạo ra bước nhảy.</div>
+</section>
+
+<section class="chap" id="q3-5">
+  <h3 class="chap-t"><span class="no">Phần V.</span>Bản đồ tình yêu và hôn nhân</h3>
+  <h4>Phong cách yêu</h4>
+  <p>Bạn thường:</p>
+  <ul>
+    <li>Không dễ mở lòng ngay.</li>
+    <li>Quan sát lâu trước khi tin tưởng.</li>
+    <li>Khi yêu nghiêm túc sẽ rất trách nhiệm.</li>
+  </ul>
+  <p>Bạn thể hiện tình yêu bằng:</p>
+  <ul class="tight"><li>Chăm sóc.</li><li>Hành động.</li><li>Sự ổn định.</li></ul>
+
+  <h4>Thách thức tình cảm</h4>
+  <p>Có thể gặp:</p>
+  <h5>1. Quá mạnh mẽ</h5>
+  <p>Đôi khi bạn tự giải quyết mọi việc khiến người khác cảm thấy khó bước vào cuộc sống của bạn.</p>
+  <h5>2. Ít nói cảm xúc</h5>
+  <p>Bạn có thể nghĩ: <em>“Làm cho họ thấy là đủ.”</em> Nhưng trong tình cảm, lời nói và sự chia sẻ cũng quan trọng.</p>
+
+  <h4>Người phù hợp</h4>
+  <p>Thường hợp với người:</p>
+  <ul><li>Trưởng thành.</li><li>Có trách nhiệm.</li><li>Tôn trọng sự độc lập.</li><li>Có khả năng giao tiếp.</li></ul>
+  <div class="quote">Mối quan hệ tốt nhất với bạn là: hai người cùng xây dựng, không phải một người gánh và một người phụ thuộc.</div>
+</section>
+
+<section class="chap" id="q3-6">
+  <h3 class="chap-t"><span class="no">Phần VI.</span>Bài học linh hồn lớn nhất</h3>
+  <p>Ba bài học quan trọng:</p>
+  <h4>1. Học cách mềm mại</h4>
+  <p>Bạn có năng lượng mạnh của số 1 và số 4.</p>
+  <p><b>Cần nhớ:</b> Mạnh mẽ không có nghĩa là luôn phải tự mình làm tất cả.</p>
+  <h4>2. Học cách thể hiện bản thân</h4>
+  <p>Số 3 muốn được lên tiếng. Đừng giữ quá nhiều ý tưởng trong đầu.</p>
+  <h4>3. Học cách tin vào hành trình</h4>
+  <p>Số 7 thường trưởng thành qua trải nghiệm. Những giai đoạn chậm lại có thể là lúc bạn tích lũy trí tuệ.</p>
+</section>
+
+<section class="chap" id="q3-7">
+  <h3 class="chap-t"><span class="no">Phần VII.</span>Chân dung tương lai</h3>
+  <p>Nếu phát triển đúng năng lượng:</p>
+  <div class="tl">
+    <div class="ev"><div class="ey">35 – 45 tuổi</div>
+      <ul class="tight"><li>Có vị trí nghề nghiệp rõ ràng.</li><li>Có tài sản hoặc nền tảng kinh doanh.</li><li>Có tiếng nói trong lĩnh vực của mình.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">45 tuổi trở đi</div>
+      <ul class="tight"><li>Chuyển mạnh sang vai trò chia sẻ.</li><li>Đào tạo.</li><li>Cố vấn.</li><li>Truyền cảm hứng.</li></ul>
+    </div>
+  </div>
+
+  <h4>Tuyên ngôn cuộc đời</h4>
+  <div class="quote big">“Tôi xây dựng bằng sự kiên trì, dẫn dắt bằng trách nhiệm, và lan tỏa bằng tri thức cùng trái tim.”</div>
+  <p class="meta-note"><em>Ghi chú từ bản gốc:</em> “Tôi có thể làm tiếp phần cuối: ‘Hồ sơ 30 trang dạng PDF: gồm biểu đồ kim tự tháp 4 đỉnh cao, ma trận ngày sinh, phân tích nghiệp quả, điểm mạnh – điểm yếu, chiến lược phát triển bản thân và kế hoạch hành động 2026–2030 cho Tô Thị Thanh Hòa.’”</p>
+</section>
+
+
+<!-- ============ QUYỂN IV ============ -->
+<div class="book-head" id="q4">
+  <div class="bk">Quyển IV</div>
+  <h2>Ma trận ngày sinh · Kim tự tháp · Nghiệp quả · SWOT · Kế hoạch hành động</h2>
+  <p>Hồ sơ Nhân số học chuyên sâu — “Người kiến tạo giá trị bằng kỷ luật, tri thức và khả năng kết nối”<br>Ngày sinh: 01/05/1996 · Đường đời: 4 · Sứ mệnh: 3 · Ngày sinh: 1 · Năng lượng nổi bật: 1 – 3 – 4 – 7</p>
+</div>
+
+<section class="chap" id="q4-1">
+  <h3 class="chap-t"><span class="no">Phần I.</span>Ma trận ngày sinh chi tiết</h3>
+  <h5>Ngày sinh</h5>
+  <div class="calc">01/05/1996</div>
+  <p>Các chữ số:</p>
+  <ul class="tight">
+    <li>1: xuất hiện 2 lần</li>
+    <li>5: xuất hiện 1 lần</li>
+    <li>6: xuất hiện 1 lần</li>
+    <li>9: xuất hiện 2 lần</li>
+  </ul>
+  <h5>Biểu đồ</h5>
+  <div class="calc">        3     6     9
+
+        2     5     8
+
+        1     4     7
+
+
+        1 1   5     6     9 9</div>
+  <p class="note">Bản vẽ trực quan của cùng ma trận này nằm ở <a href="#tq-bieudo">Bảng điều khiển · B</a>.</p>
+</section>
+
+<section class="chap" id="q4-2">
+  <h3 class="chap-t"><span class="no">Phần II.</span>Phân tích từng năng lượng số</h3>
+
+  <h4>SỐ <span class="n">1</span> – CÁI TÔI VÀ Ý CHÍ (2 lần)</h4>
+  <p>Đây là năng lượng mạnh. Bạn có xu hướng:</p>
+  <ul><li>Tự suy nghĩ.</li><li>Tự quyết định.</li><li>Muốn làm việc theo cách của mình.</li><li>Không thích bị ép buộc.</li></ul>
+  <span class="lbl plus">Mặt tích cực</span>
+  <ul><li>Có khả năng đứng đầu.</li><li>Có tinh thần trách nhiệm.</li><li>Không dễ bỏ cuộc.</li></ul>
+  <span class="lbl minus">Mặt cần cân bằng</span>
+  <p>Hai số 1 cũng có thể tạo nên:</p>
+  <ul><li>Sự cứng đầu.</li><li>Khó nhận góp ý khi đang tin vào một hướng đi.</li><li>Tự chịu áp lực quá nhiều.</li></ul>
+  <div class="quote"><b>Bài học:</b> “Lãnh đạo tốt không phải là người luôn đúng, mà là người biết lắng nghe.”</div>
+
+  <h4>SỐ <span class="n">5</span> – CÂN BẰNG CẢM XÚC (1 lần)</h4>
+  <p>Số 5 nằm giữa biểu đồ, là trung tâm cảm xúc.</p>
+  <p>Bạn có:</p>
+  <ul><li>Khả năng thích nghi.</li><li>Cảm nhận tốt về môi trường.</li><li>Khả năng kết nối nhiều kiểu người.</li></ul>
+  <p>Nhưng cũng dễ:</p>
+  <ul><li>Suy nghĩ nhiều.</li><li>Bị ảnh hưởng bởi năng lượng xung quanh.</li></ul>
+  <p>Cần duy trì:</p>
+  <ul><li>Thói quen nghỉ ngơi.</li><li>Không gian riêng.</li><li>Các hoạt động giúp cân bằng tinh thần.</li></ul>
+
+  <h4>SỐ <span class="n">6</span> – TRÁCH NHIỆM VÀ TÌNH THƯƠNG</h4>
+  <p>Bạn có năng lượng:</p>
+  <ul class="tight"><li>Chăm sóc.</li><li>Bảo vệ.</li><li>Quan tâm gia đình.</li></ul>
+  <span class="lbl plus">Điểm mạnh</span>
+  <ul><li>Là người đáng tin.</li><li>Có tinh thần trách nhiệm.</li></ul>
+  <span class="lbl minus">Thử thách</span>
+  <p>Đừng biến trách nhiệm thành gánh nặng.</p>
+
+  <h4>SỐ <span class="n">9</span> – TRÍ TUỆ VÀ LÝ TƯỞNG (2 lần)</h4>
+  <p>Đây là năng lượng của:</p>
+  <ul class="tight"><li>Tầm nhìn.</li><li>Lòng nhân ái.</li><li>Mong muốn tạo ảnh hưởng.</li></ul>
+  <p>Bạn có xu hướng:</p>
+  <ul><li>Muốn công việc có ý nghĩa.</li><li>Không chỉ quan tâm tiền bạc.</li><li>Muốn thấy giá trị mình tạo ra.</li></ul>
+</section>
+
+<section class="chap" id="q4-3">
+  <h3 class="chap-t"><span class="no">Phần III.</span>Các trục phát triển</h3>
+
+  <h4>1. Trục tinh thần: 3 – 6 – 9</h4>
+  <p>Bạn có:</p>
+  <ul class="tight"><li>6</li><li>9</li><li>thiếu 3 trong ngày sinh</li></ul>
+  <p>Điều này cho thấy: Bạn có chiều sâu cảm xúc và lý tưởng, nhưng cần chủ động rèn luyện khả năng:</p>
+  <ul><li>Nói ra suy nghĩ.</li><li>Chia sẻ cảm xúc.</li><li>Thể hiện sự sáng tạo.</li></ul>
+  <p>Đây cũng là lý do sứ mệnh tên của bạn là số 3: cuộc đời thúc đẩy bạn phát triển khả năng biểu đạt.</p>
+
+  <h4>2. Trục thể chất: 1 – 4 – 7</h4>
+  <p>Bạn có: Hai số 1. Thiếu 4 và 7 trong ngày sinh.</p>
+  <p>Điều này gợi ý: Bạn có ý chí mạnh nhưng cần xây dựng:</p>
+  <ul><li>Kỷ luật hàng ngày.</li><li>Thói quen ổn định.</li><li>Sự bền bỉ lâu dài.</li></ul>
+  <p>Khi có hệ thống tốt, bạn phát huy rất mạnh.</p>
+
+  <h4>3. Trục trí não: 1 – 5 – 9</h4>
+  <p>Bạn có đủ: 1 · 5 · 9. Đây là một tổ hợp tốt.</p>
+  <p>Thể hiện:</p>
+  <ul><li>Tư duy độc lập.</li><li>Khả năng phân tích.</li><li>Khả năng nhìn vấn đề nhiều chiều.</li></ul>
+  <p>Phù hợp với:</p>
+  <ul class="tight"><li>Chiến lược.</li><li>Tư vấn.</li><li>Quản lý.</li><li>Nghiên cứu.</li></ul>
+</section>
+
+<section class="chap" id="q4-4">
+  <h3 class="chap-t"><span class="no">Phần IV.</span>Bản đồ kim tự tháp cuộc đời</h3>
+  <div class="tl">
+    <div class="ev"><div class="ey">Đỉnh 1: Số <span class="n">3</span> — Từ 0 – khoảng 35 tuổi</div>
+      <div class="et">Chủ đề: Học cách thể hiện bản thân</div>
+      <p>Giai đoạn này tập trung:</p><ul class="tight"><li>Học nghề.</li><li>Khám phá khả năng.</li><li>Xây dựng giao tiếp.</li></ul>
+      <p><b>Bài học:</b> Không giấu năng lực của mình.</p>
+    </div>
+    <div class="ev"><div class="ey">Đỉnh 2: Số <span class="n">8</span> — khoảng 36 – 45 tuổi</div>
+      <div class="et">Chủ đề: Thành công vật chất</div>
+      <p><b>Năng lượng:</b></p><ul class="tight"><li>Quyền quản lý.</li><li>Tài chính.</li><li>Thành tựu xã hội.</li></ul>
+      <p>Đây là giai đoạn dễ tạo:</p><ul class="tight"><li>Vị thế.</li><li>Tài sản.</li><li>Ảnh hưởng.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">Đỉnh 3: Số <span class="n">2</span> — khoảng 46 – 54 tuổi</div>
+      <div class="et">Chủ đề: Sự hợp tác và trí tuệ cảm xúc</div>
+      <p>Bạn học:</p><ul class="tight"><li>Tin tưởng người khác.</li><li>Làm việc thông qua cộng đồng.</li><li>Kết nối sâu sắc.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">Đỉnh 4: Số <span class="n">11/2</span> — sau 55 tuổi</div>
+      <div class="et">Chủ đề: Truyền cảm hứng</div>
+      <p><b>Năng lượng:</b></p><ul class="tight"><li>Người hướng dẫn.</li><li>Người chia sẻ kinh nghiệm.</li><li>Người tạo ảnh hưởng tích cực.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="chap" id="q4-5">
+  <h3 class="chap-t"><span class="no">Phần V.</span>Bài học nghiệp quả (diễn giải chiêm nghiệm)</h3>
+  <p class="note">(Thuật ngữ “nghiệp quả” trong nhân số học được hiểu như bài học phát triển cá nhân, không phải phán xét hay định mệnh.)</p>
+
+  <h4>Bài học 1: Bớt kiểm soát</h4>
+  <p>Năng lượng số 4 và số 1 mạnh. Bạn cần học:</p>
+  <ul><li>Tin tưởng quá trình.</li><li>Cho phép người khác đóng góp.</li><li>Không cần tự mình hoàn thành mọi thứ.</li></ul>
+
+  <h4>Bài học 2: Cân bằng lý trí và cảm xúc</h4>
+  <p>Bạn có xu hướng:</p>
+  <ul class="tight"><li>Phân tích trước.</li><li>Cảm nhận sau.</li></ul>
+  <p>Cần phát triển:</p>
+  <ul><li>Lắng nghe cảm xúc.</li><li>Nói ra nhu cầu của mình.</li></ul>
+
+  <h4>Bài học 3: Dám bước ra ánh sáng</h4>
+  <p>Số 3 trong sứ mệnh nhắc nhở: Bạn không chỉ đến để làm tốt việc của mình. Bạn còn có khả năng:</p>
+  <ul class="tight"><li>Chia sẻ.</li><li>Dẫn dắt.</li><li>Truyền cảm hứng.</li></ul>
+</section>
+
+<section class="chap" id="q4-6">
+  <h3 class="chap-t"><span class="no">Phần VI.</span>SWOT cá nhân</h3>
+  <div class="swot">
+    <div class="q s">
+      <h4>S – Strengths (Điểm mạnh)</h4>
+      <ul><li>✔ Kiên trì</li><li>✔ Có trách nhiệm</li><li>✔ Tư duy logic</li><li>✔ Học hỏi sâu</li><li>✔ Khả năng xây dựng hệ thống</li><li>✔ Có tố chất lãnh đạo</li></ul>
+    </div>
+    <div class="q w">
+      <h4>W – Weaknesses (Điểm cần cải thiện)</h4>
+      <ul><li>△ Hay tự gây áp lực</li><li>△ Khó nhờ sự hỗ trợ</li><li>△ Đôi khi quá nghiêm khắc với bản thân</li><li>△ Có thể suy nghĩ quá nhiều</li></ul>
+    </div>
+    <div class="q o">
+      <h4>O – Opportunities (Cơ hội)</h4>
+      <p style="margin:0 0 6px; font-size:14px; color:var(--ink2)">Giai đoạn 30–40 tuổi:</p>
+      <ul><li>Xây dựng vị thế.</li><li>Phát triển chuyên môn.</li><li>Tạo thương hiệu cá nhân.</li></ul>
+    </div>
+    <div class="q t">
+      <h4>T – Challenges (Thách thức)</h4>
+      <ul><li>Không để sự an toàn kìm hãm.</li><li>Không trì hoãn vì muốn hoàn hảo.</li><li>Không quên đời sống cảm xúc.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="chap" id="q4-7">
+  <h3 class="chap-t"><span class="no">Phần VII.</span>Kế hoạch hành động 2026–2030</h3>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Năm</th><th>Tên giai đoạn</th><th>Mục tiêu</th><th>Nên làm</th></tr></thead>
+      <tbody>
+        <tr><td class="yr">Năm 2026</td><td>Xây chiều sâu</td><td>Học thêm một chuyên môn quan trọng. Xác định hướng phát triển 5 năm.</td><td>Đọc. Học. Xây mạng lưới chất lượng.</td></tr>
+        <tr><td class="yr">Năm 2027</td><td>Tăng tốc tài chính</td><td>Tăng thu nhập. Nhận vai trò lớn hơn.</td><td>Đàm phán giá trị bản thân. Đầu tư có kế hoạch.</td></tr>
+        <tr><td class="yr">Năm 2028</td><td>Dọn đường</td><td>Loại bỏ việc không phù hợp. Hoàn thiện bản thân.</td><td>Kết thúc dự án không hiệu quả. Tập trung nguồn lực.</td></tr>
+        <tr><td class="yr">Năm 2029</td><td>Khởi động chu kỳ mới</td><td>Bắt đầu điều lớn hơn.</td><td>Có thể: Kinh doanh. Chuyển vai trò. Xây thương hiệu cá nhân.</td></tr>
+        <tr><td class="yr">Năm 2030</td><td>Xây liên minh</td><td>Tạo quan hệ bền vững. Xây đội nhóm.</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="chap" id="q4-8">
+  <h3 class="chap-t"><span class="no">Phần VIII.</span>Lời kết dành cho Tô Thị Thanh Hòa</h3>
+  <p>Bạn mang năng lượng của người:</p>
+  <div class="quote big">“Không nhất thiết phải đi nhanh nhất, nhưng có khả năng đi xa nhất.”</div>
+  <p>Con đường phù hợp của bạn là:</p>
+  <ul>
+    <li>Xây nền tảng vững chắc.</li>
+    <li>Tích lũy tri thức và trải nghiệm.</li>
+    <li>Chuyển hóa thành năng lực dẫn dắt.</li>
+    <li>Chia sẻ giá trị cho cộng đồng.</li>
+  </ul>
+  <p>Giai đoạn quan trọng nhất của bạn không nằm ở việc tìm kiếm sự công nhận bên ngoài, mà là xây dựng một phiên bản đủ vững vàng để tự tin tạo ảnh hưởng.</p>
+  <p class="meta-note"><em>Ghi chú từ bản gốc:</em> “Tôi có thể làm tiếp phần ‘Hồ sơ tình duyên chuyên sâu: chân dung người bạn đời phù hợp, thời điểm thuận lợi cho tình cảm – hôn nhân, cách cải thiện năng lượng tình yêu của Tô Thị Thanh Hòa’.”</p>
+</section>
+
+<p class="src-break">— tiếp —</p>
+
+
+<!-- ============ QUYỂN V ============ -->
+<div class="book-head" id="q5">
+  <div class="bk">Quyển V · Phần IX</div>
+  <h2>Bản đồ tình duyên – hôn nhân – mối quan hệ</h2>
+  <p>Tô Thị Thanh Hòa · Ngày sinh: 01/05/1996 · Đường đời: 4 | Sứ mệnh: 3 | Ngày sinh: 1</p>
+</div>
+
+<p class="note">(Phần này diễn giải theo nhân số học Pythagoras như một công cụ tự chiêm nghiệm về xu hướng tính cách và cách xây dựng mối quan hệ.)</p>
+
+<section class="chap" id="q5-1">
+  <h3 class="chap-t"><span class="no">I.</span>Năng lượng tình yêu cốt lõi</h3>
+  <h4>Tổ hợp 4 – 1 – 3 – 7 trong tình cảm</h4>
+  <p>Bạn không thuộc kiểu người yêu theo cảm xúc nhất thời. Bạn có xu hướng:</p>
+  <ul>
+    <li>Quan sát trước khi mở lòng.</li>
+    <li>Cần thời gian để xây dựng niềm tin.</li>
+    <li>Khi đã lựa chọn thì khá nghiêm túc.</li>
+    <li>Đề cao sự ổn định và sự chung thủy.</li>
+  </ul>
+  <p>Tình yêu với bạn thường không chỉ là <em>“Có cảm xúc hay không”</em> mà còn là:</p>
+  <div class="quote">“Người này có thể cùng mình xây dựng cuộc sống hay không?”</div>
+</section>
+
+<section class="chap" id="q5-2">
+  <h3 class="chap-t"><span class="no">II.</span>Cách Tô Thị Thanh Hòa yêu</h3>
+
+  <h4>1. Yêu bằng hành động – năng lượng số <span class="n">4</span></h4>
+  <p>Bạn thường thể hiện tình cảm qua:</p>
+  <ul>
+    <li>Quan tâm những điều nhỏ.</li>
+    <li>Giúp đỡ khi người kia khó khăn.</li>
+    <li>Chia sẻ trách nhiệm.</li>
+    <li>Cố gắng tạo sự ổn định.</li>
+  </ul>
+  <p>Bạn có thể không phải người nói lời ngọt ngào liên tục, nhưng lại là người:</p>
+  <ul class="tight"><li>Có mặt khi cần.</li><li>Làm điều thiết thực.</li><li>Giữ lời hứa.</li></ul>
+
+  <h4>2. Cần sự tôn trọng – năng lượng số <span class="n">1</span></h4>
+  <p>Bạn cần một người:</p>
+  <ul><li>Tôn trọng quyết định của bạn.</li><li>Không kiểm soát quá mức.</li><li>Công nhận năng lực của bạn.</li></ul>
+  <span class="lbl minus">Điều khiến bạn mất năng lượng</span>
+  <ul><li>Bị xem thường.</li><li>Bị áp đặt.</li><li>Bị hạn chế sự phát triển cá nhân.</li></ul>
+
+  <h4>3. Cần sự kết nối tinh thần – năng lượng số <span class="n">7</span></h4>
+  <p>Bên trong bạn cần một người có thể:</p>
+  <ul><li>Nói chuyện sâu sắc.</li><li>Hiểu suy nghĩ của bạn.</li><li>Đồng hành trong quá trình trưởng thành.</li></ul>
+  <p>Một mối quan hệ chỉ có vui vẻ bề ngoài có thể không đủ lâu dài với bạn.</p>
+</section>
+
+<section class="chap" id="q5-3">
+  <h3 class="chap-t"><span class="no">III.</span>Điểm mạnh trong tình yêu</h3>
+  <h4>1. Sự chung thủy</h4>
+  <p>Khi cam kết, bạn có xu hướng:</p>
+  <ul class="tight"><li>Kiên trì.</li><li>Có trách nhiệm.</li><li>Không dễ từ bỏ.</li></ul>
+
+  <h4>2. Khả năng xây dựng gia đình</h4>
+  <p>Năng lượng số 4 và số 6 trong biểu đồ cho thấy bạn coi trọng:</p>
+  <ul class="tight"><li>Mái ấm.</li><li>Sự ổn định.</li><li>Trách nhiệm gia đình.</li></ul>
+  <p>Bạn có xu hướng muốn tạo một nền tảng:</p>
+  <ul class="tight"><li>An toàn.</li><li>Có kế hoạch.</li><li>Có tương lai rõ ràng.</li></ul>
+
+  <h4>3. Khả năng nâng đỡ người bạn đời</h4>
+  <p>Bạn có thể là người:</p>
+  <ul><li>Khuyến khích đối phương phát triển.</li><li>Hỗ trợ trong lúc khó khăn.</li><li>Cùng nhau vượt thử thách.</li></ul>
+</section>
+
+<section class="chap" id="q5-4">
+  <h3 class="chap-t"><span class="no">IV.</span>Thử thách trong tình cảm</h3>
+
+  <h4>1. Dễ trở thành “người gánh vác”</h4>
+  <p>Năng lượng số 4 mạnh có thể khiến bạn nghĩ: <em>“Tôi làm được thì tôi tự làm.”</em></p>
+  <p>Trong tình yêu, điều này đôi khi khiến:</p>
+  <ul><li>Bạn mệt mỏi.</li><li>Người kia ít có cơ hội đóng góp.</li></ul>
+  <div class="quote"><b>Bài học:</b> Cho phép người mình yêu được chăm sóc và đồng hành cùng bạn.</div>
+
+  <h4>2. Khó bộc lộ sự yếu mềm</h4>
+  <p>Bạn có thể có xu hướng:</p>
+  <ul><li>Giữ cảm xúc trong lòng.</li><li>Tự xử lý vấn đề.</li><li>Không muốn làm phiền người khác.</li></ul>
+  <p>Nhưng một mối quan hệ sâu sắc cần:</p>
+  <ul class="tight"><li>Sự chia sẻ.</li><li>Sự thành thật cảm xúc.</li></ul>
+
+  <h4>3. Kỳ vọng cao</h4>
+  <p>Bạn thường mong muốn:</p>
+  <ul class="tight"><li>Sự trưởng thành.</li><li>Trách nhiệm.</li><li>Sự nghiêm túc.</li></ul>
+  <p>Đây là điểm tốt, nhưng cần tránh:</p>
+  <ul><li>Đánh giá người khác chỉ theo tiêu chuẩn của mình.</li><li>Mong người kia luôn mạnh mẽ như bạn.</li></ul>
+</section>
+
+<section class="chap" id="q5-5">
+  <h3 class="chap-t"><span class="no">V.</span>Chân dung người bạn đời phù hợp</h3>
+  <p>Theo góc nhìn nhân số học, người phù hợp với năng lượng của bạn thường là người có các đặc điểm:</p>
+
+  <h4>1. Có sự ổn định</h4>
+  <p>Người đó nên:</p>
+  <ul><li>Có mục tiêu sống.</li><li>Có trách nhiệm.</li><li>Biết xây dựng tương lai.</li></ul>
+  <p>Bạn khó phù hợp lâu dài với người:</p>
+  <ul><li>Thiếu định hướng.</li><li>Quá bốc đồng.</li><li>Không giữ lời.</li></ul>
+
+  <h4>2. Có khả năng giao tiếp cảm xúc</h4>
+  <p>Vì bạn thiên về hành động, người phù hợp nên là người:</p>
+  <ul><li>Biết nói ra cảm xúc.</li><li>Biết chia sẻ.</li><li>Giúp mối quan hệ có sự mềm mại.</li></ul>
+
+  <h4>3. Tôn trọng sự độc lập</h4>
+  <p>Bạn cần người:</p>
+  <ul><li>Đồng hành chứ không kiểm soát.</li><li>Khuyến khích bạn phát triển.</li></ul>
+</section>
+
+<section class="chap" id="q5-6">
+  <h3 class="chap-t"><span class="no">VI.</span>Mẫu người dễ thu hút bạn</h3>
+  <p>Bạn có thể bị thu hút bởi người:</p>
+  <ul class="tight"><li>Có tài năng.</li><li>Có chiều sâu.</li><li>Có tham vọng.</li><li>Có câu chuyện riêng.</li></ul>
+  <p>Tuy nhiên, cần phân biệt:</p>
+  <div class="quote">Người khiến bạn ngưỡng mộ không phải lúc nào cũng là người phù hợp để đồng hành lâu dài.</div>
+</section>
+
+<section class="chap" id="q5-7">
+  <h3 class="chap-t"><span class="no">VII.</span>Hôn nhân và gia đình</h3>
+  <h4>Xu hướng hôn nhân</h4>
+  <p>Bạn thường phù hợp với kiểu hôn nhân:</p>
+  <ul class="tight"><li>Cùng xây dựng.</li><li>Cùng phát triển.</li><li>Có mục tiêu chung.</li></ul>
+  <p>Bạn không chỉ tìm một người yêu, mà tìm một người:</p>
+  <div class="quote">“Cùng mình tạo dựng cuộc đời.”</div>
+
+  <h4>Vai trò trong gia đình</h4>
+  <p>Bạn có xu hướng trở thành:</p>
+  <ul class="tight"><li>Người tổ chức.</li><li>Người lập kế hoạch.</li><li>Người giữ sự ổn định.</li></ul>
+  <p><b>Điểm cần nhớ:</b> Gia đình không chỉ cần sự hoàn hảo, mà cần sự ấm áp.</p>
+</section>
+
+<section class="chap" id="q5-8">
+  <h3 class="chap-t"><span class="no">VIII.</span>Giai đoạn tình cảm 2026–2035</h3>
+  <div class="tl">
+    <div class="ev"><div class="ey">2026 — Năm cá nhân <span class="n">7</span></div><div class="et">Chủ đề: Hiểu bản thân trước khi cam kết</div>
+      <p>Thuận lợi cho:</p><ul class="tight"><li>Nhìn lại nhu cầu tình cảm.</li><li>Chữa lành những điều cũ.</li><li>Hiểu rõ mình muốn gì.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2027 — Năm cá nhân <span class="n">8</span></div><div class="et">Chủ đề: Ổn định và xây dựng</div>
+      <p>Có thể quan tâm nhiều hơn đến:</p><ul class="tight"><li>Tương lai.</li><li>Tài chính.</li><li>Sự nghiệp chung.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2028 — Năm cá nhân <span class="n">9</span></div><div class="et">Chủ đề: Thanh lọc cảm xúc</div>
+      <p>Có thể:</p><ul class="tight"><li>Khép lại một mối quan hệ không còn phù hợp.</li><li>Tha thứ.</li><li>Buông bỏ quá khứ.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2029 — Năm cá nhân <span class="n">1</span></div><div class="et">Chủ đề: Khởi đầu mới</div>
+      <p>Năng lượng tốt cho:</p><ul class="tight"><li>Một mối quan hệ mới.</li><li>Một bước chuyển trong đời sống cá nhân.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2030 — Năm cá nhân <span class="n">2</span></div><div class="et">Chủ đề: Gắn kết</div>
+      <p>Đây là năm có năng lượng:</p><ul class="tight"><li>Đồng hành.</li><li>Hợp tác.</li><li>Xây dựng tình cảm.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2031 — Năm cá nhân <span class="n">3</span></div><div class="et">Chủ đề: Niềm vui và biểu đạt</div>
+      <p>Thuận lợi cho:</p><ul class="tight"><li>Hâm nóng tình cảm.</li><li>Tăng sự kết nối.</li><li>Chia sẻ nhiều hơn.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2032 — Năm cá nhân <span class="n">4</span></div><div class="et">Chủ đề: Xây nền tảng</div>
+      <p>Phù hợp để:</p><ul class="tight"><li>Ổn định gia đình.</li><li>Xây dựng tài sản.</li><li>Tạo kế hoạch dài hạn.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="chap" id="q5-9">
+  <h3 class="chap-t"><span class="no">IX.</span>Công thức tình yêu hạnh phúc của bạn</h3>
+  <p>Ba yếu tố quan trọng:</p>
+  <h4>1. Đừng chỉ làm người mạnh mẽ</h4>
+  <p>Hãy để người khác có cơ hội yêu thương và chăm sóc bạn.</p>
+  <h4>2. Nói ra điều bạn cần</h4>
+  <p>Đừng mong người khác luôn tự hiểu.</p>
+  <h4>3. Chọn người cùng phát triển</h4>
+  <p>Bạn không cần người hoàn hảo. Bạn cần người:</p>
+  <ul class="tight"><li>Có trách nhiệm.</li><li>Có lòng cầu tiến.</li><li>Sẵn sàng cùng bạn xây dựng.</li></ul>
+</section>
+
+<section class="chap" id="q5-10">
+  <h3 class="chap-t"><span class="no">X.</span>Thông điệp tình yêu dành cho Tô Thị Thanh Hòa</h3>
+  <div class="quote big">“Tình yêu đẹp nhất với bạn không phải là tìm một người hoàn thành những điều còn thiếu, mà là gặp một người cùng bạn xây dựng những điều tốt đẹp hơn.”</div>
+  <p class="meta-note"><em>Ghi chú từ bản gốc — phần tiếp theo của hồ sơ:</em> “PHẦN X – BẢN ĐỒ TÀI LỘC &amp; SỰ NGHIỆP CHUYÊN SÂU: Khả năng tạo tiền của Tô Thị Thanh Hòa · Mô hình kinh doanh phù hợp · Giai đoạn tài chính mạnh nhất · Sai lầm tài chính cần tránh · Chiến lược xây dựng tài sản 2026–2040 · Vai trò lãnh đạo và thương hiệu cá nhân. Tôi sẽ tiếp tục phần này.”</p>
+</section>
+
+<p class="src-break">— tiếp —</p>
+
+
+<!-- ============ QUYỂN VI ============ -->
+<div class="book-head" id="q6">
+  <div class="bk">Quyển VI · Phần X</div>
+  <h2>Bản đồ tài lộc – sự nghiệp – thương hiệu cá nhân</h2>
+  <p>Tô Thị Thanh Hòa · Ngày sinh: 01/05/1996 · Đường đời: 4 | Sứ mệnh: 3 | Ngày sinh: 1</p>
+</div>
+
+<p class="note">(Nội dung tiếp tục theo góc nhìn chiêm nghiệm của nhân số học Pythagoras, nhằm hỗ trợ tự khám phá bản thân và lập kế hoạch phát triển.)</p>
+
+<section class="chap" id="q6-1">
+  <h3 class="chap-t"><span class="no">I.</span>Mô hình tạo ra thành công của Tô Thị Thanh Hòa</h3>
+  <h5>Công thức năng lượng</h5>
+  <div class="quote">Số 4 – Xây dựng + Số 1 – Tiên phong + Số 3 – Truyền đạt + Số 7 – Chiều sâu<br>=<br><b>“Người xây dựng giá trị có khả năng tạo ảnh hưởng”</b></div>
+  <p>Bạn không thuộc nhóm phát triển mạnh nhờ may mắn nhất thời.</p>
+  <p>Năng lượng của bạn thiên về:</p>
+  <ul><li>Xây từng bước.</li><li>Tích lũy năng lực.</li><li>Tạo uy tín.</li><li>Sau đó mở rộng ảnh hưởng.</li></ul>
+</section>
+
+<section class="chap" id="q6-2">
+  <h3 class="chap-t"><span class="no">II.</span>Năng lực kiếm tiền</h3>
+
+  <h4>1. Điểm mạnh tài chính: Số <span class="n">4</span></h4>
+  <p>Số 4 là năng lượng của:</p>
+  <ul class="tight"><li>Kế hoạch.</li><li>Hệ thống.</li><li>Kỷ luật.</li><li>Sự bền vững.</li></ul>
+  <p>Bạn có khả năng:</p>
+  <ul><li>Quản lý nguồn lực.</li><li>Tích lũy tài sản.</li><li>Xây dựng nền tảng lâu dài.</li></ul>
+  <p>Bạn phù hợp với tư duy:</p>
+  <div class="quote">“Làm một việc có giá trị trong nhiều năm” hơn là “Tìm cơ hội kiếm tiền nhanh.”</div>
+
+  <h4>2. Tài năng tạo tiền từ số <span class="n">3</span></h4>
+  <p>Số 3 trong sứ mệnh mở ra khả năng kiếm tiền thông qua:</p>
+  <ul class="tight"><li>Giao tiếp.</li><li>Chia sẻ kiến thức.</li><li>Nội dung.</li><li>Đào tạo.</li><li>Kết nối cộng đồng.</li></ul>
+  <p>Những lĩnh vực có thể khai thác:</p>
+  <ul class="tight"><li>Giáo dục.</li><li>Tư vấn.</li><li>Kinh doanh dịch vụ.</li><li>Marketing.</li><li>Xây dựng thương hiệu cá nhân.</li></ul>
+
+  <h4>3. Khả năng lãnh đạo từ số <span class="n">1</span></h4>
+  <p>Bạn có xu hướng:</p>
+  <ul><li>Muốn tự quyết.</li><li>Muốn tạo hướng đi riêng.</li><li>Có khả năng đứng ra chịu trách nhiệm.</li></ul>
+  <p>Khi phát triển tốt, bạn không chỉ là người làm giỏi mà có thể trở thành:</p>
+  <ul class="tight"><li>Người dẫn dắt đội nhóm.</li><li>Người xây dựng tổ chức.</li><li>Người tạo hệ thống.</li></ul>
+</section>
+
+<section class="chap" id="q6-3">
+  <h3 class="chap-t"><span class="no">III.</span>Phong cách làm việc phù hợp</h3>
+  <p>Bạn phát huy tốt nhất khi:</p>
+  <p style="font-size:15.5px">✔ Có quyền chủ động &nbsp; ✔ Có mục tiêu rõ ràng &nbsp; ✔ Được sáng tạo cách làm &nbsp; ✔ Được ghi nhận giá trị &nbsp; ✔ Có cơ hội phát triển lâu dài</p>
+
+  <span class="lbl plus">Môi trường lý tưởng</span>
+  <ul>
+    <li>Doanh nghiệp có văn hóa phát triển.</li>
+    <li>Công việc có tính xây dựng.</li>
+    <li>Có yếu tố con người.</li>
+    <li>Có cơ hội trở thành chuyên gia.</li>
+  </ul>
+
+  <span class="lbl minus">Môi trường dễ làm bạn mất năng lượng</span>
+  <ul>
+    <li>Công việc lặp lại.</li>
+    <li>Không được quyết định.</li>
+    <li>Chỉ làm theo mệnh lệnh.</li>
+    <li>Không thấy ý nghĩa trong công việc.</li>
+  </ul>
+</section>
+
+<section class="chap" id="q6-4">
+  <h3 class="chap-t"><span class="no">IV.</span>Lĩnh vực nghề nghiệp tiềm năng</h3>
+
+  <h4>Nhóm 1: Quản lý và điều hành</h4>
+  <p>Rất phù hợp:</p>
+  <ul class="tight"><li>Quản lý dự án.</li><li>Trưởng nhóm.</li><li>Điều phối vận hành.</li><li>Quản lý kinh doanh.</li></ul>
+  <p>Vì bạn có:</p>
+  <ul class="tight"><li>Tư duy hệ thống.</li><li>Khả năng chịu trách nhiệm.</li><li>Tính ổn định.</li></ul>
+
+  <h4>Nhóm 2: Kinh doanh cá nhân</h4>
+  <p>Đây là hướng có tiềm năng phát triển mạnh.</p>
+  <p><b>Mô hình phù hợp:</b> Kinh doanh dựa trên chuyên môn</p>
+  <p>Ví dụ:</p>
+  <ul class="tight"><li>Dịch vụ tư vấn.</li><li>Đào tạo.</li><li>Sản phẩm chuyên biệt.</li><li>Thương hiệu cá nhân.</li></ul>
+  <p>Bạn không nhất thiết phải bán sản phẩm đơn thuần. Bạn có thể bán:</p>
+  <ul class="tight"><li>Kiến thức.</li><li>Kinh nghiệm.</li><li>Giải pháp.</li></ul>
+
+  <h4>Nhóm 3: Truyền thông – đào tạo</h4>
+  <p>Sứ mệnh số 3 cho thấy bạn càng phát triển khi:</p>
+  <ul><li>Nói ra điều mình biết.</li><li>Chia sẻ hành trình.</li><li>Hướng dẫn người khác.</li></ul>
+  <p>Có thể phù hợp với:</p>
+  <ul class="tight"><li>Người đào tạo.</li><li>Người cố vấn.</li><li>Người xây dựng cộng đồng.</li></ul>
+</section>
+
+<section class="chap" id="q6-5">
+  <h3 class="chap-t"><span class="no">V.</span>Bài học tài chính cần vượt qua</h3>
+
+  <h4>1. Đừng chờ hoàn hảo mới bắt đầu</h4>
+  <p>Năng lượng số 4 dễ khiến bạn:</p>
+  <ul class="tight"><li>Chuẩn bị rất kỹ.</li><li>Muốn mọi thứ chắc chắn.</li></ul>
+  <p>Điều này tốt, nhưng đôi khi làm chậm cơ hội.</p>
+  <div class="quote"><b>Bài học:</b> Làm tốt trước, hoàn thiện sau.</div>
+
+  <h4>2. Học cách định giá bản thân</h4>
+  <p>Số 3 cần phát triển khả năng:</p>
+  <ul><li>Nói về thành quả của mình.</li><li>Thể hiện năng lực.</li><li>Nhận đúng giá trị.</li></ul>
+  <p>Bạn có thể tạo ra nhiều giá trị nhưng nếu không biết truyền đạt, người khác khó nhận ra.</p>
+
+  <h4>3. Không chỉ làm việc chăm chỉ, hãy xây tài sản</h4>
+  <p>Năng lượng số 4 phù hợp với:</p>
+  <ul class="tight"><li>Tích lũy.</li><li>Hệ thống hóa.</li><li>Tạo nguồn thu bền vững.</li></ul>
+  <div class="quote"><b>Câu hỏi quan trọng:</b> “Việc mình đang làm hôm nay có tạo giá trị cho 5–10 năm sau không?”</div>
+</section>
+
+<section class="chap" id="q6-6">
+  <h3 class="chap-t"><span class="no">VI.</span>Bản đồ tài chính 2026–2040</h3>
+  <div class="tl">
+    <div class="ev"><div class="ey">2026 — Giai đoạn nâng cấp năng lực</div><div class="et">Chủ đề: Đầu tư vào bản thân</div>
+      <span class="lbl plus">Nên</span><ul class="tight"><li>Học chuyên môn.</li><li>Xây nền tảng.</li><li>Mở rộng kiến thức.</li></ul>
+      <p><b>Tập trung:</b> Không phải kiếm thật nhiều ngay, mà tăng giá trị bản thân.</p>
+    </div>
+    <div class="ev"><div class="ey">2027 — Giai đoạn tăng trưởng tài chính</div><div class="et">Chủ đề: Thu hoạch năng lực</div>
+      <p>Có thể:</p><ul class="tight"><li>Nhận vai trò lớn hơn.</li><li>Tăng thu nhập.</li><li>Mở rộng phạm vi ảnh hưởng.</li></ul>
+      <p>Cần:</p><ul class="tight"><li>Quản lý tiền tốt.</li><li>Có kế hoạch dài hạn.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2028 — Giai đoạn tái cấu trúc</div><div class="et">Chủ đề: Loại bỏ cái không hiệu quả</div>
+      <span class="lbl plus">Nên</span><ul class="tight"><li>Xem lại cách kiếm tiền.</li><li>Tối ưu công việc.</li><li>Bỏ những việc tiêu hao năng lượng.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2029 — Giai đoạn khởi động lớn</div><div class="et">Chủ đề: Tạo dấu ấn cá nhân</div>
+      <p>Thuận lợi cho:</p><ul class="tight"><li>Dự án riêng.</li><li>Kinh doanh.</li><li>Vai trò lãnh đạo.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2030 — Giai đoạn hợp tác</div><div class="et">Chủ đề: Xây mạng lưới</div>
+      <p>Tài chính tăng trưởng thông qua:</p><ul class="tight"><li>Đối tác.</li><li>Đội nhóm.</li><li>Mối quan hệ chất lượng.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2031 — Giai đoạn truyền thông</div><div class="et">Chủ đề: Lan tỏa giá trị</div>
+      <p>Rất phù hợp:</p><ul class="tight"><li>Viết.</li><li>Dạy.</li><li>Xây cộng đồng.</li><li>Chia sẻ chuyên môn.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2032 — Giai đoạn xây tài sản</div><div class="et">Chủ đề: Củng cố nền móng</div>
+      <p>Tập trung:</p><ul class="tight"><li>Tài sản dài hạn.</li><li>Hệ thống kinh doanh.</li><li>Sự ổn định.</li></ul>
+    </div>
+    <div class="ev"><div class="ey">2033 – 2035</div><div class="et">Mở rộng · Cân bằng · Chiều sâu</div>
+      <p><b>2033: Mở rộng</b></p><ul class="tight"><li>Thử nghiệm hướng mới.</li><li>Mở thị trường.</li></ul>
+      <p><b>2034: Cân bằng</b></p><ul class="tight"><li>Gia đình.</li><li>Trách nhiệm.</li><li>Tài sản chung.</li></ul>
+      <p><b>2035: Chiều sâu</b></p><ul class="tight"><li>Trở thành chuyên gia.</li><li>Chia sẻ kinh nghiệm.</li></ul>
+    </div>
+  </div>
+</section>
+
+<section class="chap" id="q6-7">
+  <h3 class="chap-t"><span class="no">VII.</span>Thương hiệu cá nhân</h3>
+  <h4>Hình ảnh phù hợp</h4>
+  <p>Không phải: <em>“Người nổi tiếng bằng sự ồn ào.”</em></p>
+  <p>Mà là:</p>
+  <div class="quote big">“Chuyên gia đáng tin cậy.”</div>
+
+  <h4>3 từ khóa thương hiệu</h4>
+  <div class="cards">
+    <div class="card"><div class="cn">Từ khóa 1</div><div class="cv">Chuyên nghiệp</div><div class="cd">Số 4 tạo niềm tin.</div></div>
+    <div class="card"><div class="cn">Từ khóa 2</div><div class="cv">Có chiều sâu</div><div class="cd">Số 7 tạo sự khác biệt.</div></div>
+    <div class="card"><div class="cn">Từ khóa 3</div><div class="cv">Truyền cảm hứng</div><div class="cd">Số 3 tạo kết nối.</div></div>
+  </div>
+</section>
+
+<section class="chap" id="q6-8">
+  <h3 class="chap-t"><span class="no">VIII.</span>Chiến lược phát triển 5 năm</h3>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Năm</th><th>Trọng tâm</th><th>Việc cụ thể</th></tr></thead>
+      <tbody>
+        <tr><td class="yr">2026</td><td>Xây năng lực</td><td>Học. Chứng nhận. Tích lũy kinh nghiệm.</td></tr>
+        <tr><td class="yr">2027</td><td>Tăng giá trị</td><td>Nhận trách nhiệm lớn. Tăng thu nhập.</td></tr>
+        <tr><td class="yr">2028</td><td>Thanh lọc</td><td>Tập trung vào hướng mạnh nhất.</td></tr>
+        <tr><td class="yr">2029</td><td>Bứt phá</td><td>Tạo dự án riêng hoặc vai trò mới.</td></tr>
+        <tr><td class="yr">2030</td><td>Mở rộng</td><td>Xây đội nhóm. Tạo hệ thống.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="chap" id="q6-9">
+  <h3 class="chap-t"><span class="no">IX.</span>Thông điệp tài lộc</h3>
+  <div class="quote big">“Tiền bạc đến với bạn mạnh nhất khi bạn không chỉ làm việc chăm chỉ, mà biến kinh nghiệm, kiến thức và sự trách nhiệm của mình thành giá trị có thể nhân rộng.”</div>
+</section>
+
+<section class="chap" id="q6-10">
+  <h3 class="chap-t">Kết luận Phần X</h3>
+  <p>Tô Thị Thanh Hòa có cấu trúc phù hợp với hành trình:</p>
+  <div class="quote big">Người làm tốt → Người dẫn dắt → Người truyền đạt → Người tạo ảnh hưởng</div>
+  <p>Điểm bứt phá lớn nhất không nằm ở việc cố gắng nhiều hơn, mà ở việc:</p>
+  <ul>
+    <li>Xây hệ thống,</li>
+    <li>Định vị chuyên môn,</li>
+    <li>Dám thể hiện giá trị,</li>
+    <li>Tạo ảnh hưởng tích cực.</li>
+  </ul>
+</section>
+
+</main>
+</div>
+
+<footer>
+  <h4>Về hồ sơ này</h4>
+  <p>Toàn bộ nội dung được chuyển thể nguyên vẹn từ tài liệu gốc <em>“TÔ THỊ THANH HÒA.doc”</em> (6 phần phân tích, 50 trang, 5.380 từ), sắp xếp lại thành sáu quyển kèm một bảng điều khiển tổng quan do người dựng bổ sung để nối các phần với nhau. Không có câu chữ nào của bản gốc bị lược bỏ.</p>
+  <p>Nhân số học Pythagoras là công cụ tự chiêm nghiệm và định hướng phát triển cá nhân, không phải phương pháp khoa học dự đoán chắc chắn tương lai.</p>
+</footer>
+
+<button class="totop" id="totop" title="Lên đầu trang">↑</button>
+
+<script>
+(function(){
+  // --- mục lục: highlight mục đang xem ---
+  var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+  var map = {};
+  links.forEach(function(a){
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if(el) map[id] = a;
+  });
+  var targets = Object.keys(map).map(function(id){ return document.getElementById(id); });
+  var current = null;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        if(current) current.classList.remove('active');
+        current = map[e.target.id];
+        if(current){
+          current.classList.add('active');
+          if(window.innerWidth > 900){
+            var box = current.getBoundingClientRect(), nav = document.querySelector('.toc').getBoundingClientRect();
+            if(box.top < nav.top || box.bottom > nav.bottom) current.scrollIntoView({block:'nearest'});
+          }
+        }
+      }
+    });
+  }, {rootMargin:'-70px 0px -72% 0px', threshold:0});
+  targets.forEach(function(t){ io.observe(t); });
+
+  // --- mục lục mobile ---
+  var tg = document.getElementById('tocToggle'), list = document.getElementById('tocList');
+  tg.addEventListener('click', function(){ list.classList.toggle('open'); });
+  list.addEventListener('click', function(e){
+    if(e.target.tagName === 'A' && window.innerWidth <= 900) list.classList.remove('open');
+  });
+
+  // --- tìm kiếm + tô sáng ---
+  var q = document.getElementById('q'), hint = document.getElementById('qhint');
+  var blocks = Array.prototype.slice.call(document.querySelectorAll('main section.chap, main .book-head, main > .note'));
+  var origHTML = blocks.map(function(b){ return b.innerHTML; });
+  var timer;
+  function clearAll(){
+    blocks.forEach(function(b,i){ b.innerHTML = origHTML[i]; b.classList.remove('dimmed'); b.style.display=''; });
+  }
+  function esc(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+  function strip(s){ return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase(); }
+  function run(){
+    var term = q.value.trim();
+    clearAll();
+    if(term.length < 2){ hint.textContent = 'Gõ từ khóa để lọc & tô sáng'; return; }
+    var nt = strip(term), hits = 0;
+    var re = new RegExp('('+esc(term)+')','gi');
+    blocks.forEach(function(b,i){
+      var txt = strip(b.textContent);
+      if(txt.indexOf(nt) === -1){ b.style.display = 'none'; return; }
+      hits++;
+      // tô sáng chỉ khi khớp đúng dấu, tránh làm hỏng thẻ HTML
+      b.innerHTML = origHTML[i].replace(/>([^<]+)</g, function(m, text){
+        return '>' + text.replace(re, '<mark>$1</mark>') + '<';
+      });
+    });
+    hint.textContent = hits ? ('Thấy trong ' + hits + ' mục') : 'Không tìm thấy';
+  }
+  q.addEventListener('input', function(){ clearTimeout(timer); timer = setTimeout(run, 180); });
+
+  // --- nút lên đầu trang ---
+  var bt = document.getElementById('totop');
+  window.addEventListener('scroll', function(){
+    bt.classList.toggle('show', window.scrollY > 700);
+  }, {passive:true});
+  bt.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+})();
+</script>
+</body>
+</html>
