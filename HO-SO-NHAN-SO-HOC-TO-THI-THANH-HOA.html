@@ -2,26 +2,26 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Hồ sơ Nhân số học — Tô Thị Thanh Hòa</title>
 <style>
 :root{
-  --bg:#faf7f2; --bg2:#ffffff; --ink:#26221c; --ink2:#5b5346; --line:#e3dccf;
-  --accent:#8a6a33; --accent-soft:#f3ece0; --deep:#2f4858; --deep-soft:#e9eff2;
-  --rose:#8c5b62; --rose-soft:#f6ecec;
+  --bg:#f5efe4; --bg2:#fffdf9; --ink:#171310; --ink2:#4a4236; --line:#d2c6ad;
+  --accent:#7a4f18; --accent-soft:#ecdcc2; --deep:#1e3a46; --deep-soft:#dbe6ec;
+  --rose:#7d3d47; --rose-soft:#f0dcdd;
   --shadow:0 1px 2px rgba(38,34,28,.05), 0 8px 24px rgba(38,34,28,.06);
   --maxw:1080px;
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --bg:#17150f; --bg2:#1e1b15; --ink:#ece6da; --ink2:#b0a894; --line:#332e24;
-    --accent:#d8b071; --accent-soft:#2a2318; --deep:#9dc0d2; --deep-soft:#1b2429;
+    --bg:#12100a; --bg2:#221e16; --ink:#f6f1e6; --ink2:#c0b7a1; --line:#413a2c;
+    --accent:#e8bd74; --accent-soft:#33291a; --deep:#a9cde0; --deep-soft:#1f2b33;
     --rose:#d7a2a8; --rose-soft:#291d1e;
     --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
   }
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth; scroll-padding-top:80px}
+html{-webkit-text-size-adjust:100%; text-size-adjust:100%; scroll-behavior:smooth; scroll-padding-top:80px}
 body{
   margin:0; background:var(--bg); color:var(--ink);
   font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
@@ -228,6 +228,95 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
   section.chap{break-inside:auto}
   .book-head{break-before:page}
 }
+
+/* ===== hoa văn nền & icon (bổ sung) ===== */
+body{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='hsl(38 30%25 45%25 / 0.10)' stroke-width='1'%3E%3Ccircle cx='30' cy='30' r='11'/%3E%3Ccircle cx='30' cy='30' r='22'/%3E%3C/g%3E%3Ccircle cx='30' cy='30' r='1.6' fill='hsl(38 30%25 45%25 / 0.16)'/%3E%3C/svg%3E");
+  background-attachment:fixed;
+}
+.hero{position:relative; overflow:hidden}
+.hero::before{
+  content:""; position:absolute; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cg fill='none' stroke='hsl(38 40%25 40%25 / 0.16)' stroke-width='1'%3E%3Ccircle cx='70' cy='70' r='16'/%3E%3Ccircle cx='70' cy='70' r='34'/%3E%3Ccircle cx='70' cy='70' r='52'/%3E%3Cpath d='M70 4 L70 136 M4 70 L136 70 M23 23 L117 117 M117 23 L23 117'/%3E%3C/g%3E%3Cg fill='hsl(38 40%25 40%25 / 0.22)'%3E%3Ccircle cx='70' cy='70' r='2.6'/%3E%3Ccircle cx='70' cy='18' r='1.8'/%3E%3Ccircle cx='70' cy='122' r='1.8'/%3E%3Ccircle cx='18' cy='70' r='1.8'/%3E%3Ccircle cx='122' cy='70' r='1.8'/%3E%3C/g%3E%3C/svg%3E");
+  background-position:center; opacity:.9; pointer-events:none;
+}
+.hero-in{position:relative; z-index:1}
+.hero h1{text-shadow:0 1px 0 rgba(255,255,255,.35)}
+@media (prefers-color-scheme:dark){ .hero h1{text-shadow:none} }
+
+.book-head{position:relative; overflow:hidden}
+.book-head::after{
+  content:""; position:absolute; right:-18px; top:50%; transform:translateY(-50%);
+  width:132px; height:132px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='hsl(38 35%25 42%25 / 0.16)' stroke-width='1.4'%3E%3Ccircle cx='60' cy='60' r='38'/%3E%3Ccircle cx='60' cy='60' r='24'/%3E%3Cpath d='M60 22 L60 98 M22 60 L98 60 M33 33 L87 87 M87 33 L33 87'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:contain; background-repeat:no-repeat; pointer-events:none;
+}
+.book-head .bk, .book-head h2, .book-head p{position:relative; z-index:1}
+.book-head h2{padding-right:96px}
+.bk-ic{font-size:20px; margin-right:8px; vertical-align:-2px; -webkit-text-fill-color:initial}
+
+h3.chap-t .ic{
+  display:inline-block; margin-right:9px; font-size:.95em; vertical-align:-1px;
+  filter:saturate(.92);
+}
+.quote.big{position:relative}
+.quote.big::before{
+  content:"\201C"; position:absolute; left:10px; top:-6px; font-size:52px; line-height:1;
+  color:var(--accent); opacity:.22; font-family:Georgia,serif; pointer-events:none;
+}
+.card{transition:transform .15s ease, box-shadow .15s ease}
+.card:hover{transform:translateY(-2px); box-shadow:0 2px 4px rgba(0,0,0,.06),0 12px 30px rgba(0,0,0,.10)}
+.gitem .gh .num{text-shadow:0 1px 0 rgba(255,255,255,.5)}
+@media (prefers-color-scheme:dark){ .gitem .gh .num{text-shadow:none} }
+.cell{transition:background .15s ease}
+.matrix .cell:not(.empty){box-shadow:inset 0 0 0 1px var(--accent-soft), var(--shadow)}
+thead th{border-bottom:2px solid var(--accent)}
+section.chap{border-top-width:2px}
+h3.chap-t{font-weight:800}
+.toc a.active{font-weight:700}
+
+/* ===== tối ưu điện thoại ===== */
+@media (max-width:640px){
+  body{font-size:16px; background-attachment:scroll}
+  .hero{padding:36px 18px 28px}
+  .hero .tagline{font-size:16px}
+  .idbar{gap:8px; margin-top:20px}
+  .idbar .pill{font-size:12.5px; padding:6px 12px}
+  .layout{padding:0 16px 72px; gap:0}
+  main{padding-top:18px}
+  .book-head{padding:18px 18px; margin:36px 0 22px; border-left-width:4px}
+  .book-head h2{font-size:20px; padding-right:64px}
+  .book-head::after{width:92px; right:-14px; opacity:.75}
+  section.chap{padding:22px 0 6px}
+  h3.chap-t{font-size:17.5px}
+  h4{font-size:15.5px}
+  .quote{padding:13px 15px; font-size:16px}
+  .quote.big{font-size:16.5px; padding:20px 16px}
+  .quote.big::before{font-size:40px; left:6px}
+  .cards{grid-template-columns:1fr; gap:12px}
+  .gloss{grid-template-columns:1fr}
+  .swot{grid-template-columns:1fr}
+  .matrix{grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; width:100%}
+  .cell{height:74px}
+  .cell .val{font-size:20px}
+  .tl{padding-left:18px; margin-left:5px}
+  ul{padding-left:19px}
+  .calc{font-size:13.5px; padding:11px 13px}
+  .tblwrap{position:relative}
+  .tblwrap::after{
+    content:"vuốt ngang →"; position:sticky; left:0; display:block; padding:5px 12px 7px;
+    font-size:11px; letter-spacing:.08em; color:var(--ink2); opacity:.75;
+  }
+  .toc a{padding:8px 10px}
+  .toc-toggle{padding:13px 14px}
+  .totop{right:14px; bottom:calc(14px + env(safe-area-inset-bottom)); width:46px; height:46px}
+  footer{padding:28px 16px 60px}
+}
+@media (max-width:400px){
+  .cell{height:64px}
+  .cell .val{font-size:18px}
+  .hero h1{font-size:27px}
+}
+
 </style>
 </head>
 <body>
@@ -340,12 +429,12 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 <!-- ============ TỔNG QUAN ============ -->
 <div class="book-head" id="tong-quan">
   <div class="bk">Bảng điều khiển</div>
-  <h2>Tổng quan — mọi chỉ số nhìn trong một trang</h2>
+  <h2><span class="bk-ic">✨</span>Tổng quan — mọi chỉ số nhìn trong một trang</h2>
   <p>Phần này do người dựng hồ sơ tổng hợp lại để dễ tra cứu và nối các phần với nhau. Toàn bộ nội dung gốc được giữ nguyên vẹn ở sáu quyển phía dưới.</p>
 </div>
 
 <section class="chap" id="tq-chiso">
-  <h3 class="chap-t"><span class="no">A.</span>Bản đồ chỉ số — bấm vào từng thẻ để tới phần giải nghĩa</h3>
+  <h3 class="chap-t"><span class="ic">🔷</span><span class="no">A.</span>Bản đồ chỉ số — bấm vào từng thẻ để tới phần giải nghĩa</h3>
   <div class="cards">
     <div class="card"><a href="#g4"><div class="cn">Con số chủ đạo / Đường đời</div><div class="cv">4</div><div class="cd">Người xây dựng nền tảng — kỷ luật, kiến tạo, trách nhiệm, bền vững</div></a></div>
     <div class="card"><a href="#g1"><div class="cn">Số ngày sinh</div><div class="cv">1</div><div class="cd">Người tiên phong — cái tôi, độc lập, khả năng bắt đầu</div></a></div>
@@ -372,7 +461,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="tq-bieudo">
-  <h3 class="chap-t"><span class="no">B.</span>Biểu đồ ngày sinh 01/05/1996</h3>
+  <h3 class="chap-t"><span class="ic">🔢</span><span class="no">B.</span>Biểu đồ ngày sinh 01/05/1996</h3>
   <div class="calc">0 – 1 – 0 – 5 – 1 – 9 – 9 – 6</div>
   <div class="matrix">
     <div class="cell empty"><span class="pos">3</span><span class="val">–</span></div>
@@ -409,7 +498,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="tq-vantrinh">
-  <h3 class="chap-t"><span class="no">C.</span>Vận trình 2026–2040 — hợp nhất bốn bản đồ</h3>
+  <h3 class="chap-t"><span class="ic">🗓️</span><span class="no">C.</span>Vận trình 2026–2040 — hợp nhất bốn bản đồ</h3>
   <p>Bảng dưới ghép các mốc năm cá nhân được nêu rải rác trong sáu quyển thành một dòng thời gian duy nhất, để thấy mỗi năm nói gì trên cả bốn mặt trận. Ô trống là năm mà bản gốc không luận giải cho lĩnh vực đó.</p>
   <div class="tblwrap">
     <table class="wide-table">
@@ -437,7 +526,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="tq-tudien">
-  <h3 class="chap-t"><span class="no">D.</span>Từ điển các con số trong hồ sơ</h3>
+  <h3 class="chap-t"><span class="ic">📖</span><span class="no">D.</span>Từ điển các con số trong hồ sơ</h3>
   <p>Mỗi lần một con số xuất hiện trong sáu quyển, ý nghĩa nền của nó là những điều dưới đây.</p>
   <div class="gloss">
     <div class="gitem" id="g1">
@@ -483,14 +572,14 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 <!-- ============ QUYỂN I ============ -->
 <div class="book-head" id="q1">
   <div class="bk">Quyển I</div>
-  <h2>Báo cáo phân tích Nhân số học</h2>
+  <h2><span class="bk-ic">🔍</span>Báo cáo phân tích Nhân số học</h2>
   <p>Theo trường phái Lê Đỗ Quỳnh Hương – Pythagoras · Họ và tên: Tô Thị Thanh Hòa · Ngày sinh dương lịch: 01/05/1996</p>
 </div>
 
 <p class="note"><b>Lưu ý:</b> Nhân số học (Numerology) theo trường phái được cô Lê Đỗ Quỳnh Hương chia sẻ là một phương pháp chiêm nghiệm bản thân dựa trên hệ thống số Pythagoras, dùng để tham khảo về tính cách, xu hướng phát triển và bài học cuộc đời; không phải là phương pháp khoa học dự đoán chắc chắn tương lai.</p>
 
 <section class="chap" id="q1-1">
-  <h3 class="chap-t"><span class="no">I.</span>Các chỉ số cốt lõi</h3>
+  <h3 class="chap-t"><span class="ic">🔷</span><span class="no">I.</span>Các chỉ số cốt lõi</h3>
   <h4>1. Con số chủ đạo (Đường đời): <span class="n">4</span></h4>
   <h5>Cách tính</h5>
   <div class="calc">Ngày sinh: 01/05/1996
@@ -526,7 +615,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q1-2">
-  <h3 class="chap-t"><span class="no">II.</span>Phân tích ngày sinh: số <span class="n">1</span></h3>
+  <h3 class="chap-t"><span class="ic">🔍</span><span class="no">II.</span>Phân tích ngày sinh: số <span class="n">1</span></h3>
   <p>Bạn sinh ngày 01 → năng lượng ngày sinh là 1.</p>
   <h4>Ý nghĩa số 1: Người tiên phong</h4>
   <p>Số 1 tượng trưng cho:</p>
@@ -552,7 +641,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q1-3">
-  <h3 class="chap-t"><span class="no">III.</span>Năng lượng tháng sinh: số <span class="n">5</span></h3>
+  <h3 class="chap-t"><span class="ic">🧘</span><span class="no">III.</span>Năng lượng tháng sinh: số <span class="n">5</span></h3>
   <p>Sinh tháng 5 mang năng lượng:</p>
   <ul>
     <li>Tự do</li>
@@ -571,7 +660,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q1-4">
-  <h3 class="chap-t"><span class="no">IV.</span>Năng lượng năm sinh: 1996 → số <span class="n">7</span></h3>
+  <h3 class="chap-t"><span class="ic">🧘</span><span class="no">IV.</span>Năng lượng năm sinh: 1996 → số <span class="n">7</span></h3>
   <div class="calc">1 + 9 + 9 + 6 = 25 → 2 + 5 = 7</div>
   <h4>Số 7 – Chiêm nghiệm và học hỏi qua trải nghiệm</h4>
   <p>Số 7 thường gắn với:</p>
@@ -597,7 +686,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q1-5">
-  <h3 class="chap-t"><span class="no">V.</span>Biểu đồ ngày sinh Pythagoras</h3>
+  <h3 class="chap-t"><span class="ic">🔢</span><span class="no">V.</span>Biểu đồ ngày sinh Pythagoras</h3>
   <h5>Ngày sinh</h5>
   <div class="calc">0 – 1 – 0 – 5 – 1 – 9 – 9 – 6</div>
   <p>Các số hiện diện:</p>
@@ -635,7 +724,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q1-6">
-  <h3 class="chap-t"><span class="no">VI.</span>Phân tích họ tên: TÔ THỊ THANH HÒA</h3>
+  <h3 class="chap-t"><span class="ic">🔍</span><span class="no">VI.</span>Phân tích họ tên: TÔ THỊ THANH HÒA</h3>
   <p><em>(Quy đổi theo bảng chữ cái Pythagoras, viết không dấu)</em></p>
   <div class="calc">TO THI THANH HOA</div>
   <h5>Quy đổi</h5>
@@ -682,7 +771,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q1-7">
-  <h3 class="chap-t"><span class="no">VII.</span>Chân dung tổng hợp</h3>
+  <h3 class="chap-t"><span class="ic">✨</span><span class="no">VII.</span>Chân dung tổng hợp</h3>
   <div class="quote big">“Người xây nền bằng sự sáng tạo”</div>
   <p>Tô Thị Thanh Hòa có sự kết hợp:</p>
   <div class="tblwrap">
@@ -709,7 +798,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q1-8">
-  <h3 class="chap-t"><span class="no">VIII.</span>Sự nghiệp</h3>
+  <h3 class="chap-t"><span class="ic">🧭</span><span class="no">VIII.</span>Sự nghiệp</h3>
   <h4>Nhóm nghề phù hợp</h4>
   <span class="lbl plus">Rất phù hợp</span>
   <ul>
@@ -738,7 +827,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q1-9">
-  <h3 class="chap-t"><span class="no">IX.</span>Tình cảm &amp; mối quan hệ</h3>
+  <h3 class="chap-t"><span class="ic">💞</span><span class="no">IX.</span>Tình cảm &amp; mối quan hệ</h3>
   <p>Bạn có xu hướng:</p>
   <ul>
     <li>Yêu bằng hành động hơn lời nói.</li>
@@ -754,7 +843,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q1-10">
-  <h3 class="chap-t"><span class="no">X.</span>Giai đoạn phát triển cuộc đời</h3>
+  <h3 class="chap-t"><span class="ic">◆</span><span class="no">X.</span>Giai đoạn phát triển cuộc đời</h3>
   <p>Theo cách luận giải nhân số học phổ biến:</p>
   <div class="tl">
     <div class="ev">
@@ -777,7 +866,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q1-11">
-  <h3 class="chap-t"><span class="no">XI.</span>Thông điệp phát triển cá nhân</h3>
+  <h3 class="chap-t"><span class="ic">✨</span><span class="no">XI.</span>Thông điệp phát triển cá nhân</h3>
   <div class="quote big">“Bạn sinh ra không chỉ để làm việc chăm chỉ, mà để xây dựng những giá trị có ý nghĩa.”</div>
   <h5>Ba chìa khóa phát triển</h5>
   <ol>
@@ -788,7 +877,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q1-12">
-  <h3 class="chap-t">Kết luận Quyển I</h3>
+  <h3 class="chap-t"><span class="ic">✨</span>Kết luận Quyển I</h3>
   <p>Tô Thị Thanh Hòa mang cấu trúc nhân số học của một người xây dựng – sáng tạo – học hỏi sâu sắc. Con đường phát triển mạnh nhất không phải là chạy theo sự nhanh chóng, mà là từng bước tạo nền móng vững chắc, sau đó dùng khả năng giao tiếp và tư duy của mình để tạo ảnh hưởng tích cực.</p>
   <p class="note">Bản phân tích này dựa trên hệ thống Nhân số học Pythagoras được cô Lê Đỗ Quỳnh Hương giới thiệu; các chỉ số nên được xem như công cụ tự phản chiếu và định hướng phát triển cá nhân.</p>
   <p class="meta-note"><em>Ghi chú từ bản gốc:</em> “Nếu bạn muốn, tôi có thể làm tiếp bản PDF phong cách chuyên gia gồm: 22 chỉ số nhân số học, biểu đồ ngày sinh, 4 đỉnh cao cuộc đời, 4 thử thách và vận trình từng năm 2026–2035 cho Tô Thị Thanh Hòa.”</p>
@@ -800,12 +889,12 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 <!-- ============ QUYỂN II ============ -->
 <div class="book-head" id="q2">
   <div class="bk">Quyển II</div>
-  <h2>22 chỉ số mở rộng · Đỉnh cao · Thử thách · Vận trình 2026–2035</h2>
+  <h2><span class="bk-ic">🗓️</span>22 chỉ số mở rộng · Đỉnh cao · Thử thách · Vận trình 2026–2035</h2>
   <p>Hồ sơ mở rộng theo phong cách chuyên gia</p>
 </div>
 
 <section class="chap" id="q2-1">
-  <h3 class="chap-t"><span class="no">I.</span>Hồ sơ năng lượng tổng quan</h3>
+  <h3 class="chap-t"><span class="ic">🧘</span><span class="no">I.</span>Hồ sơ năng lượng tổng quan</h3>
   <h4>1. Năng lượng linh hồn nổi bật</h4>
   <p><b>Trục chính: 4 – 1 – 7 – 3</b></p>
   <p>Bạn mang sự kết hợp của 4 tầng năng lượng:</p>
@@ -834,7 +923,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q2-2">
-  <h3 class="chap-t"><span class="no">II.</span>22 chỉ số nhân số học mở rộng</h3>
+  <h3 class="chap-t"><span class="ic">🔷</span><span class="no">II.</span>22 chỉ số nhân số học mở rộng</h3>
 
   <h4>1. Con số chủ đạo: <span class="n">4</span></h4>
   <p><b>Vai trò:</b> Con đường phát triển chính</p>
@@ -875,7 +964,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q2-3">
-  <h3 class="chap-t"><span class="no">III.</span>Biểu đồ ngày sinh</h3>
+  <h3 class="chap-t"><span class="ic">🔢</span><span class="no">III.</span>Biểu đồ ngày sinh</h3>
   <div class="calc">3 | 6 | 9
 ---------
   | 5 |
@@ -892,7 +981,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q2-4">
-  <h3 class="chap-t"><span class="no">IV.</span>Phân tích mũi tên năng lực</h3>
+  <h3 class="chap-t"><span class="ic">🔍</span><span class="no">IV.</span>Phân tích mũi tên năng lực</h3>
   <h4>Mũi tên 1-5-9: Quyết tâm</h4>
   <p>Bạn có:</p>
   <ul><li>Ý chí mạnh.</li><li>Khi đã xác định mục tiêu sẽ theo đuổi lâu dài.</li><li>Có khả năng vượt khó.</li></ul>
@@ -905,7 +994,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q2-5">
-  <h3 class="chap-t"><span class="no">V.</span>4 đỉnh cao cuộc đời</h3>
+  <h3 class="chap-t"><span class="ic">⛰️</span><span class="no">V.</span>4 đỉnh cao cuộc đời</h3>
   <p><em>(Cách tính theo hệ thống Pythagoras)</em></p>
   <div class="calc">Ngày sinh: 01   Tháng sinh: 5   Năm sinh: 1996 → 7</div>
 
@@ -943,7 +1032,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q2-6">
-  <h3 class="chap-t"><span class="no">VI.</span>4 thử thách cuộc đời</h3>
+  <h3 class="chap-t"><span class="ic">🌱</span><span class="no">VI.</span>4 thử thách cuộc đời</h3>
   <div class="cards">
     <div class="card">
       <div class="cn">Thử thách 1: Số</div><div class="cv">4</div>
@@ -965,7 +1054,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q2-7">
-  <h3 class="chap-t"><span class="no">VII.</span>Vận trình năm cá nhân 2026–2035</h3>
+  <h3 class="chap-t"><span class="ic">🗓️</span><span class="no">VII.</span>Vận trình năm cá nhân 2026–2035</h3>
   <p><b>Cách tính năm cá nhân:</b> Ngày + tháng sinh + năm thế giới.</p>
 
   <div class="tl">
@@ -1004,7 +1093,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q2-8">
-  <h3 class="chap-t"><span class="no">VIII.</span>Chiến lược phát triển riêng cho Tô Thị Thanh Hòa</h3>
+  <h3 class="chap-t"><span class="ic">🗓️</span><span class="no">VIII.</span>Chiến lược phát triển riêng cho Tô Thị Thanh Hòa</h3>
 
   <h4>1. Sự nghiệp</h4>
   <p><b>Công thức phát triển:</b></p>
@@ -1026,7 +1115,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q2-9">
-  <h3 class="chap-t"><span class="no">IX.</span>Tuyên ngôn phát triển cá nhân</h3>
+  <h3 class="chap-t"><span class="ic">✨</span><span class="no">IX.</span>Tuyên ngôn phát triển cá nhân</h3>
   <div class="quote big">“Tôi xây dựng cuộc đời bằng sự kiên trì, trưởng thành qua trải nghiệm và lan tỏa giá trị bằng tiếng nói của chính mình.”</div>
   <h5>Tổng kết chuyên gia</h5>
   <p>Tô Thị Thanh Hòa thuộc nhóm năng lượng <b>“Người kiến tạo có khả năng truyền cảm hứng”</b>. Giai đoạn trước 30 tuổi là thời kỳ tích lũy và khám phá. Từ sau 30 tuổi, năng lượng xây dựng, tài chính và vị thế cá nhân sẽ phát triển mạnh hơn nếu bạn biết kết hợp tính kỷ luật của số 4 với khả năng giao tiếp của số 3.</p>
@@ -1039,14 +1128,14 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 <!-- ============ QUYỂN III ============ -->
 <div class="book-head" id="q3">
   <div class="bk">Quyển III · Hồ sơ chuyên sâu Nhân số học</div>
-  <h2>Bản đồ nghề nghiệp – tình yêu – tài chính – sứ mệnh 2026–2040</h2>
+  <h2><span class="bk-ic">💞</span>Bản đồ nghề nghiệp – tình yêu – tài chính – sứ mệnh 2026–2040</h2>
   <p>Tô Thị Thanh Hòa · Ngày sinh: 01/05/1996 · Con số chủ đạo: 4 | Sứ mệnh: 3 | Ngày sinh: 1</p>
 </div>
 
 <p class="note">(Phần này tiếp tục theo hướng chiêm nghiệm nhân số học Pythagoras. Các phân tích dùng để tự hiểu bản thân, không phải dự báo chắc chắn.)</p>
 
 <section class="chap" id="q3-1">
-  <h3 class="chap-t"><span class="no">Phần I.</span>Bản đồ sứ mệnh cuộc đời</h3>
+  <h3 class="chap-t"><span class="ic">🎯</span><span class="no">Phần I.</span>Bản đồ sứ mệnh cuộc đời</h3>
   <h4>1. Sứ mệnh cốt lõi: SỐ <span class="n">3</span></h4>
   <div class="quote">“Người truyền đạt giá trị”</div>
   <p>Năng lượng số 3 cho thấy con đường phát triển của bạn không chỉ nằm ở việc làm tốt một công việc, mà còn ở việc:</p>
@@ -1068,7 +1157,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q3-2">
-  <h3 class="chap-t"><span class="no">Phần II.</span>Bản đồ nghề nghiệp</h3>
+  <h3 class="chap-t"><span class="ic">🧭</span><span class="no">Phần II.</span>Bản đồ nghề nghiệp</h3>
   <h4>1. Mẫu hình nghề nghiệp phù hợp</h4>
   <p><b>Tổ hợp của bạn:</b></p>
   <div class="quote">Số 4 (xây dựng) + Số 3 (truyền đạt) + Số 1 (lãnh đạo)</div>
@@ -1104,7 +1193,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q3-3">
-  <h3 class="chap-t"><span class="no">Phần III.</span>Chu kỳ sự nghiệp 2026–2040</h3>
+  <h3 class="chap-t"><span class="ic">🧭</span><span class="no">Phần III.</span>Chu kỳ sự nghiệp 2026–2040</h3>
   <div class="tl">
     <div class="ev"><div class="ey">2026 — Năm cá nhân <span class="n">7</span></div><div class="et">Giai đoạn tái định hướng</div>
       <p><b>Từ khóa:</b> Học sâu – chuẩn bị – nâng cấp</p>
@@ -1165,7 +1254,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q3-4">
-  <h3 class="chap-t"><span class="no">Phần IV.</span>Bản đồ tài chính</h3>
+  <h3 class="chap-t"><span class="ic">💰</span><span class="no">Phần IV.</span>Bản đồ tài chính</h3>
   <h4>Mẫu tài chính của Tô Thị Thanh Hòa</h4>
   <p>Không phải kiểu: <em>“Kiếm tiền nhanh – thắng lớn nhanh”.</em></p>
   <p>Mà là:</p>
@@ -1189,7 +1278,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q3-5">
-  <h3 class="chap-t"><span class="no">Phần V.</span>Bản đồ tình yêu và hôn nhân</h3>
+  <h3 class="chap-t"><span class="ic">💞</span><span class="no">Phần V.</span>Bản đồ tình yêu và hôn nhân</h3>
   <h4>Phong cách yêu</h4>
   <p>Bạn thường:</p>
   <ul>
@@ -1214,7 +1303,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q3-6">
-  <h3 class="chap-t"><span class="no">Phần VI.</span>Bài học linh hồn lớn nhất</h3>
+  <h3 class="chap-t"><span class="ic">🌱</span><span class="no">Phần VI.</span>Bài học linh hồn lớn nhất</h3>
   <p>Ba bài học quan trọng:</p>
   <h4>1. Học cách mềm mại</h4>
   <p>Bạn có năng lượng mạnh của số 1 và số 4.</p>
@@ -1226,7 +1315,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q3-7">
-  <h3 class="chap-t"><span class="no">Phần VII.</span>Chân dung tương lai</h3>
+  <h3 class="chap-t"><span class="ic">✨</span><span class="no">Phần VII.</span>Chân dung tương lai</h3>
   <p>Nếu phát triển đúng năng lượng:</p>
   <div class="tl">
     <div class="ev"><div class="ey">35 – 45 tuổi</div>
@@ -1246,12 +1335,12 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 <!-- ============ QUYỂN IV ============ -->
 <div class="book-head" id="q4">
   <div class="bk">Quyển IV</div>
-  <h2>Ma trận ngày sinh · Kim tự tháp · Nghiệp quả · SWOT · Kế hoạch hành động</h2>
+  <h2><span class="bk-ic">🔢</span>Ma trận ngày sinh · Kim tự tháp · Nghiệp quả · SWOT · Kế hoạch hành động</h2>
   <p>Hồ sơ Nhân số học chuyên sâu — “Người kiến tạo giá trị bằng kỷ luật, tri thức và khả năng kết nối”<br>Ngày sinh: 01/05/1996 · Đường đời: 4 · Sứ mệnh: 3 · Ngày sinh: 1 · Năng lượng nổi bật: 1 – 3 – 4 – 7</p>
 </div>
 
 <section class="chap" id="q4-1">
-  <h3 class="chap-t"><span class="no">Phần I.</span>Ma trận ngày sinh chi tiết</h3>
+  <h3 class="chap-t"><span class="ic">🔢</span><span class="no">Phần I.</span>Ma trận ngày sinh chi tiết</h3>
   <h5>Ngày sinh</h5>
   <div class="calc">01/05/1996</div>
   <p>Các chữ số:</p>
@@ -1274,7 +1363,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q4-2">
-  <h3 class="chap-t"><span class="no">Phần II.</span>Phân tích từng năng lượng số</h3>
+  <h3 class="chap-t"><span class="ic">🔍</span><span class="no">Phần II.</span>Phân tích từng năng lượng số</h3>
 
   <h4>SỐ <span class="n">1</span> – CÁI TÔI VÀ Ý CHÍ (2 lần)</h4>
   <p>Đây là năng lượng mạnh. Bạn có xu hướng:</p>
@@ -1311,7 +1400,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q4-3">
-  <h3 class="chap-t"><span class="no">Phần III.</span>Các trục phát triển</h3>
+  <h3 class="chap-t"><span class="ic">➶</span><span class="no">Phần III.</span>Các trục phát triển</h3>
 
   <h4>1. Trục tinh thần: 3 – 6 – 9</h4>
   <p>Bạn có:</p>
@@ -1335,7 +1424,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q4-4">
-  <h3 class="chap-t"><span class="no">Phần IV.</span>Bản đồ kim tự tháp cuộc đời</h3>
+  <h3 class="chap-t"><span class="ic">⛰️</span><span class="no">Phần IV.</span>Bản đồ kim tự tháp cuộc đời</h3>
   <div class="tl">
     <div class="ev"><div class="ey">Đỉnh 1: Số <span class="n">3</span> — Từ 0 – khoảng 35 tuổi</div>
       <div class="et">Chủ đề: Học cách thể hiện bản thân</div>
@@ -1359,7 +1448,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q4-5">
-  <h3 class="chap-t"><span class="no">Phần V.</span>Bài học nghiệp quả (diễn giải chiêm nghiệm)</h3>
+  <h3 class="chap-t"><span class="ic">🌱</span><span class="no">Phần V.</span>Bài học nghiệp quả (diễn giải chiêm nghiệm)</h3>
   <p class="note">(Thuật ngữ “nghiệp quả” trong nhân số học được hiểu như bài học phát triển cá nhân, không phải phán xét hay định mệnh.)</p>
 
   <h4>Bài học 1: Bớt kiểm soát</h4>
@@ -1378,7 +1467,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q4-6">
-  <h3 class="chap-t"><span class="no">Phần VI.</span>SWOT cá nhân</h3>
+  <h3 class="chap-t"><span class="ic">🔍</span><span class="no">Phần VI.</span>SWOT cá nhân</h3>
   <div class="swot">
     <div class="q s">
       <h4>S – Strengths (Điểm mạnh)</h4>
@@ -1401,7 +1490,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q4-7">
-  <h3 class="chap-t"><span class="no">Phần VII.</span>Kế hoạch hành động 2026–2030</h3>
+  <h3 class="chap-t"><span class="ic">🗓️</span><span class="no">Phần VII.</span>Kế hoạch hành động 2026–2030</h3>
   <div class="tblwrap">
     <table>
       <thead><tr><th>Năm</th><th>Tên giai đoạn</th><th>Mục tiêu</th><th>Nên làm</th></tr></thead>
@@ -1417,7 +1506,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q4-8">
-  <h3 class="chap-t"><span class="no">Phần VIII.</span>Lời kết dành cho Tô Thị Thanh Hòa</h3>
+  <h3 class="chap-t"><span class="ic">✨</span><span class="no">Phần VIII.</span>Lời kết dành cho Tô Thị Thanh Hòa</h3>
   <p>Bạn mang năng lượng của người:</p>
   <div class="quote big">“Không nhất thiết phải đi nhanh nhất, nhưng có khả năng đi xa nhất.”</div>
   <p>Con đường phù hợp của bạn là:</p>
@@ -1437,14 +1526,14 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 <!-- ============ QUYỂN V ============ -->
 <div class="book-head" id="q5">
   <div class="bk">Quyển V · Phần IX</div>
-  <h2>Bản đồ tình duyên – hôn nhân – mối quan hệ</h2>
+  <h2><span class="bk-ic">💞</span>Bản đồ tình duyên – hôn nhân – mối quan hệ</h2>
   <p>Tô Thị Thanh Hòa · Ngày sinh: 01/05/1996 · Đường đời: 4 | Sứ mệnh: 3 | Ngày sinh: 1</p>
 </div>
 
 <p class="note">(Phần này diễn giải theo nhân số học Pythagoras như một công cụ tự chiêm nghiệm về xu hướng tính cách và cách xây dựng mối quan hệ.)</p>
 
 <section class="chap" id="q5-1">
-  <h3 class="chap-t"><span class="no">I.</span>Năng lượng tình yêu cốt lõi</h3>
+  <h3 class="chap-t"><span class="ic">💞</span><span class="no">I.</span>Năng lượng tình yêu cốt lõi</h3>
   <h4>Tổ hợp 4 – 1 – 3 – 7 trong tình cảm</h4>
   <p>Bạn không thuộc kiểu người yêu theo cảm xúc nhất thời. Bạn có xu hướng:</p>
   <ul>
@@ -1458,7 +1547,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q5-2">
-  <h3 class="chap-t"><span class="no">II.</span>Cách Tô Thị Thanh Hòa yêu</h3>
+  <h3 class="chap-t"><span class="ic">💞</span><span class="no">II.</span>Cách Tô Thị Thanh Hòa yêu</h3>
 
   <h4>1. Yêu bằng hành động – năng lượng số <span class="n">4</span></h4>
   <p>Bạn thường thể hiện tình cảm qua:</p>
@@ -1484,7 +1573,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q5-3">
-  <h3 class="chap-t"><span class="no">III.</span>Điểm mạnh trong tình yêu</h3>
+  <h3 class="chap-t"><span class="ic">💞</span><span class="no">III.</span>Điểm mạnh trong tình yêu</h3>
   <h4>1. Sự chung thủy</h4>
   <p>Khi cam kết, bạn có xu hướng:</p>
   <ul class="tight"><li>Kiên trì.</li><li>Có trách nhiệm.</li><li>Không dễ từ bỏ.</li></ul>
@@ -1501,7 +1590,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q5-4">
-  <h3 class="chap-t"><span class="no">IV.</span>Thử thách trong tình cảm</h3>
+  <h3 class="chap-t"><span class="ic">💞</span><span class="no">IV.</span>Thử thách trong tình cảm</h3>
 
   <h4>1. Dễ trở thành “người gánh vác”</h4>
   <p>Năng lượng số 4 mạnh có thể khiến bạn nghĩ: <em>“Tôi làm được thì tôi tự làm.”</em></p>
@@ -1523,7 +1612,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q5-5">
-  <h3 class="chap-t"><span class="no">V.</span>Chân dung người bạn đời phù hợp</h3>
+  <h3 class="chap-t"><span class="ic">💞</span><span class="no">V.</span>Chân dung người bạn đời phù hợp</h3>
   <p>Theo góc nhìn nhân số học, người phù hợp với năng lượng của bạn thường là người có các đặc điểm:</p>
 
   <h4>1. Có sự ổn định</h4>
@@ -1542,7 +1631,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q5-6">
-  <h3 class="chap-t"><span class="no">VI.</span>Mẫu người dễ thu hút bạn</h3>
+  <h3 class="chap-t"><span class="ic">💞</span><span class="no">VI.</span>Mẫu người dễ thu hút bạn</h3>
   <p>Bạn có thể bị thu hút bởi người:</p>
   <ul class="tight"><li>Có tài năng.</li><li>Có chiều sâu.</li><li>Có tham vọng.</li><li>Có câu chuyện riêng.</li></ul>
   <p>Tuy nhiên, cần phân biệt:</p>
@@ -1550,7 +1639,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q5-7">
-  <h3 class="chap-t"><span class="no">VII.</span>Hôn nhân và gia đình</h3>
+  <h3 class="chap-t"><span class="ic">💞</span><span class="no">VII.</span>Hôn nhân và gia đình</h3>
   <h4>Xu hướng hôn nhân</h4>
   <p>Bạn thường phù hợp với kiểu hôn nhân:</p>
   <ul class="tight"><li>Cùng xây dựng.</li><li>Cùng phát triển.</li><li>Có mục tiêu chung.</li></ul>
@@ -1564,7 +1653,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q5-8">
-  <h3 class="chap-t"><span class="no">VIII.</span>Giai đoạn tình cảm 2026–2035</h3>
+  <h3 class="chap-t"><span class="ic">💞</span><span class="no">VIII.</span>Giai đoạn tình cảm 2026–2035</h3>
   <div class="tl">
     <div class="ev"><div class="ey">2026 — Năm cá nhân <span class="n">7</span></div><div class="et">Chủ đề: Hiểu bản thân trước khi cam kết</div>
       <p>Thuận lợi cho:</p><ul class="tight"><li>Nhìn lại nhu cầu tình cảm.</li><li>Chữa lành những điều cũ.</li><li>Hiểu rõ mình muốn gì.</li></ul>
@@ -1591,7 +1680,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q5-9">
-  <h3 class="chap-t"><span class="no">IX.</span>Công thức tình yêu hạnh phúc của bạn</h3>
+  <h3 class="chap-t"><span class="ic">💞</span><span class="no">IX.</span>Công thức tình yêu hạnh phúc của bạn</h3>
   <p>Ba yếu tố quan trọng:</p>
   <h4>1. Đừng chỉ làm người mạnh mẽ</h4>
   <p>Hãy để người khác có cơ hội yêu thương và chăm sóc bạn.</p>
@@ -1603,7 +1692,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q5-10">
-  <h3 class="chap-t"><span class="no">X.</span>Thông điệp tình yêu dành cho Tô Thị Thanh Hòa</h3>
+  <h3 class="chap-t"><span class="ic">💞</span><span class="no">X.</span>Thông điệp tình yêu dành cho Tô Thị Thanh Hòa</h3>
   <div class="quote big">“Tình yêu đẹp nhất với bạn không phải là tìm một người hoàn thành những điều còn thiếu, mà là gặp một người cùng bạn xây dựng những điều tốt đẹp hơn.”</div>
   <p class="meta-note"><em>Ghi chú từ bản gốc — phần tiếp theo của hồ sơ:</em> “PHẦN X – BẢN ĐỒ TÀI LỘC &amp; SỰ NGHIỆP CHUYÊN SÂU: Khả năng tạo tiền của Tô Thị Thanh Hòa · Mô hình kinh doanh phù hợp · Giai đoạn tài chính mạnh nhất · Sai lầm tài chính cần tránh · Chiến lược xây dựng tài sản 2026–2040 · Vai trò lãnh đạo và thương hiệu cá nhân. Tôi sẽ tiếp tục phần này.”</p>
 </section>
@@ -1614,14 +1703,14 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 <!-- ============ QUYỂN VI ============ -->
 <div class="book-head" id="q6">
   <div class="bk">Quyển VI · Phần X</div>
-  <h2>Bản đồ tài lộc – sự nghiệp – thương hiệu cá nhân</h2>
+  <h2><span class="bk-ic">💰</span>Bản đồ tài lộc – sự nghiệp – thương hiệu cá nhân</h2>
   <p>Tô Thị Thanh Hòa · Ngày sinh: 01/05/1996 · Đường đời: 4 | Sứ mệnh: 3 | Ngày sinh: 1</p>
 </div>
 
 <p class="note">(Nội dung tiếp tục theo góc nhìn chiêm nghiệm của nhân số học Pythagoras, nhằm hỗ trợ tự khám phá bản thân và lập kế hoạch phát triển.)</p>
 
 <section class="chap" id="q6-1">
-  <h3 class="chap-t"><span class="no">I.</span>Mô hình tạo ra thành công của Tô Thị Thanh Hòa</h3>
+  <h3 class="chap-t"><span class="ic">🧭</span><span class="no">I.</span>Mô hình tạo ra thành công của Tô Thị Thanh Hòa</h3>
   <h5>Công thức năng lượng</h5>
   <div class="quote">Số 4 – Xây dựng + Số 1 – Tiên phong + Số 3 – Truyền đạt + Số 7 – Chiều sâu<br>=<br><b>“Người xây dựng giá trị có khả năng tạo ảnh hưởng”</b></div>
   <p>Bạn không thuộc nhóm phát triển mạnh nhờ may mắn nhất thời.</p>
@@ -1630,7 +1719,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q6-2">
-  <h3 class="chap-t"><span class="no">II.</span>Năng lực kiếm tiền</h3>
+  <h3 class="chap-t"><span class="ic">💰</span><span class="no">II.</span>Năng lực kiếm tiền</h3>
 
   <h4>1. Điểm mạnh tài chính: Số <span class="n">4</span></h4>
   <p>Số 4 là năng lượng của:</p>
@@ -1654,7 +1743,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q6-3">
-  <h3 class="chap-t"><span class="no">III.</span>Phong cách làm việc phù hợp</h3>
+  <h3 class="chap-t"><span class="ic">◆</span><span class="no">III.</span>Phong cách làm việc phù hợp</h3>
   <p>Bạn phát huy tốt nhất khi:</p>
   <p style="font-size:15.5px">✔ Có quyền chủ động &nbsp; ✔ Có mục tiêu rõ ràng &nbsp; ✔ Được sáng tạo cách làm &nbsp; ✔ Được ghi nhận giá trị &nbsp; ✔ Có cơ hội phát triển lâu dài</p>
 
@@ -1676,7 +1765,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q6-4">
-  <h3 class="chap-t"><span class="no">IV.</span>Lĩnh vực nghề nghiệp tiềm năng</h3>
+  <h3 class="chap-t"><span class="ic">🧭</span><span class="no">IV.</span>Lĩnh vực nghề nghiệp tiềm năng</h3>
 
   <h4>Nhóm 1: Quản lý và điều hành</h4>
   <p>Rất phù hợp:</p>
@@ -1700,7 +1789,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q6-5">
-  <h3 class="chap-t"><span class="no">V.</span>Bài học tài chính cần vượt qua</h3>
+  <h3 class="chap-t"><span class="ic">💰</span><span class="no">V.</span>Bài học tài chính cần vượt qua</h3>
 
   <h4>1. Đừng chờ hoàn hảo mới bắt đầu</h4>
   <p>Năng lượng số 4 dễ khiến bạn:</p>
@@ -1720,7 +1809,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q6-6">
-  <h3 class="chap-t"><span class="no">VI.</span>Bản đồ tài chính 2026–2040</h3>
+  <h3 class="chap-t"><span class="ic">💰</span><span class="no">VI.</span>Bản đồ tài chính 2026–2040</h3>
   <div class="tl">
     <div class="ev"><div class="ey">2026 — Giai đoạn nâng cấp năng lực</div><div class="et">Chủ đề: Đầu tư vào bản thân</div>
       <span class="lbl plus">Nên</span><ul class="tight"><li>Học chuyên môn.</li><li>Xây nền tảng.</li><li>Mở rộng kiến thức.</li></ul>
@@ -1754,7 +1843,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q6-7">
-  <h3 class="chap-t"><span class="no">VII.</span>Thương hiệu cá nhân</h3>
+  <h3 class="chap-t"><span class="ic">🌟</span><span class="no">VII.</span>Thương hiệu cá nhân</h3>
   <h4>Hình ảnh phù hợp</h4>
   <p>Không phải: <em>“Người nổi tiếng bằng sự ồn ào.”</em></p>
   <p>Mà là:</p>
@@ -1769,7 +1858,7 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q6-8">
-  <h3 class="chap-t"><span class="no">VIII.</span>Chiến lược phát triển 5 năm</h3>
+  <h3 class="chap-t"><span class="ic">🗓️</span><span class="no">VIII.</span>Chiến lược phát triển 5 năm</h3>
   <div class="tblwrap">
     <table>
       <thead><tr><th>Năm</th><th>Trọng tâm</th><th>Việc cụ thể</th></tr></thead>
@@ -1785,12 +1874,12 @@ footer h4{margin:0 0 8px; font-size:14px; color:var(--ink)}
 </section>
 
 <section class="chap" id="q6-9">
-  <h3 class="chap-t"><span class="no">IX.</span>Thông điệp tài lộc</h3>
+  <h3 class="chap-t"><span class="ic">💰</span><span class="no">IX.</span>Thông điệp tài lộc</h3>
   <div class="quote big">“Tiền bạc đến với bạn mạnh nhất khi bạn không chỉ làm việc chăm chỉ, mà biến kinh nghiệm, kiến thức và sự trách nhiệm của mình thành giá trị có thể nhân rộng.”</div>
 </section>
 
 <section class="chap" id="q6-10">
-  <h3 class="chap-t">Kết luận Phần X</h3>
+  <h3 class="chap-t"><span class="ic">✨</span>Kết luận Phần X</h3>
   <p>Tô Thị Thanh Hòa có cấu trúc phù hợp với hành trình:</p>
   <div class="quote big">Người làm tốt → Người dẫn dắt → Người truyền đạt → Người tạo ảnh hưởng</div>
   <p>Điểm bứt phá lớn nhất không nằm ở việc cố gắng nhiều hơn, mà ở việc:</p>
